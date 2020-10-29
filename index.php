@@ -12,7 +12,6 @@
 
 <p> Produit : <select name="produit">
  <option value="evidence">Evidence</option>
- <option value="boreale">Boreale</option>
  </select></p>
 
  <p> Type de cloison : <select name="type_cloison">
