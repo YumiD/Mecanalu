@@ -1,3 +1,5 @@
+
+<!DOCTYPE html>
 <?php
 //php -S localhost:8000
     //echo 'Ceci est un test'; // Ceci est un commentaire sur une seule ligne, style c++
@@ -6,9 +8,16 @@
  /*<p>Votre nom : <input type="text" name="nom" /></p>
  <p>Votre âge : <input type="text" name="age" /></p>*/
 ?>
-<form action="creation.php" method="post">
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="mecnalu.css" />
+        <title>Formulaire</title>
+    </head>
 
 <p> Vous cherchez cloison : </p>
+
+<form action="creation.php" method="post">
 
 <p> Produit : <select name="produit">
  <option value="evidence">Evidence</option>
@@ -30,3 +39,5 @@
 
  <p><input type="submit" value="OK"></p>
 </form>
+
+</html>
