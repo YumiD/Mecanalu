@@ -90,6 +90,7 @@
 
     /*------Création du PPTX-------*/
     pptx.writeFile('PptxGenJs-Basic-Slide-Demo');
+    
     /*var p1file = pptx.save('jszip', function(file1) {
         var zip = new JSZip();
         zip.file('pres1.pptx', file1);
@@ -99,7 +100,7 @@
         });
     }, 'blob');*/
     
-
+  
     /*var zip = new JSZip();
     zip.file("Hello.txt", "Hello World\n");
     zip.generateAsync({type:"blob"})
