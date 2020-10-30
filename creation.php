@@ -1,5 +1,6 @@
 <html>
     <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.3.1/dist/pptxgen.bundle.js"></script>
+    <script src="FileSaver.js"></script>
     
     <?php
     $produit = $_POST['produit'];
@@ -88,8 +89,25 @@
     slide.addImage({ path: "ressources/mecanalu.png", x:'70%', y:'75%', w:2});
 
     /*------Création du PPTX-------*/
-    pptx.writeFile('PptxGenJs-Basic-Slide-Demo'); 
+    pptx.writeFile('PptxGenJs-Basic-Slide-Demo');
+    /*var p1file = pptx.save('jszip', function(file1) {
+        var zip = new JSZip();
+        zip.file('pres1.pptx', file1);
 
+        zip.generateAsync({type: 'blob'}).then(function(content) {
+            saveAs(content, 'multipres.zip'); // requires filesaver.js
+        });
+    }, 'blob');*/
+    
+
+    /*var zip = new JSZip();
+    zip.file("Hello.txt", "Hello World\n");
+    zip.generateAsync({type:"blob"})
+    .then(function(content) {
+    // see FileSaver.js
+    saveAs(content, "example.zip");
+    });*/
+    
     //window.location="index.php";
     
     </script>
