@@ -11,6 +11,13 @@
     margin-top: 20px;
     width:120px;
 }
+#content p{
+    color: #a4bd0a;
+}
+
+#form p{
+    color: #64686f;
+}
 
 /* CHARTE COULEURS
 #a4bd0a; Vert Mecanalu

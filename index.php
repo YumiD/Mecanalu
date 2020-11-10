@@ -13,28 +13,32 @@
     <img src="ressources/mecanalu.png">
 </div> 
 
-<p> Vous cherchez une cloison : </p>
+<div id="content">
+    <p> Vous cherchez une cloison : </p>
+    
+    <div id="form"><form action="creation.php" method="post">
 
-<form action="creation.php" method="post">
+        <p> Produit : <select name="produit">
+        <option value="evidence">Evidence</option>
+        </select></p>
 
-<p> Produit : <select name="produit">
- <option value="evidence">Evidence</option>
- </select></p>
+        <p> Type de cloison : <select name="type_cloison">
+            <option value="pleine">Pleine</option>
+            <option value="vitree">Vitrée</option>
+            <input type="checkbox" id="photos" name="photos" checked>
+            <label for="photos">Photos</label>
+            </select></p>
 
- <p> Type de cloison : <select name="type_cloison">
-    <option value="pleine">Pleine</option>
-    <option value="vitree">Vitrée</option>
-    <input type="checkbox" id="photos" name="photos" checked>
-    <label for="photos">Photos</label>
-    </select></p>
+        <p> Epaisseur : <input type="text" name="epaisseur" /> mm </p>
 
- <p> Epaisseur : <input type="text" name="epaisseur" /> mm </p>
+        <p> Hauteur maximale : <input type="text" name="hauteur" /> mm </p>
 
- <p> Hauteur maximale : <input type="text" name="hauteur" /> mm </p>
+        <p> Performances acoustiques : Rw(+c) <input type="text" name="DBmin" /> à <input type="text" name="DBmax" /> dB</p>
 
- <p> Performances acoustiques : Rw(+c) <input type="text" name="DBmin" /> à <input type="text" name="DBmax" /> dB</p>
+        <p><input type="submit" value="OK"></p>
+    </form> </div>
+</div>
 
- <p><input type="submit" value="OK"></p>
-</form>
+
 </body>
 </html>
