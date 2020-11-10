@@ -4,10 +4,15 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="mecnalu.css" />
+        <link rel="stylesheet" href="mecanalu.css" />
         <title>Formulaire</title>
     </head>
 <body>
+
+<div class="header">
+    <img src="ressources/mecanalu.png">
+</div> 
+
 <p> Vous cherchez une cloison : </p>
 
 <form action="creation.php" method="post">

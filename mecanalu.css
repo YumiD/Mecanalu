@@ -1,0 +1,22 @@
+.header {
+    background: #f0eeea;
+    color: #3c424d;
+    font-size: 30px;
+    box-shadow: none !important;
+    height:95px;
+  }
+.header img {
+    float: left;
+    padding-left: 20px;
+    margin-top: 20px;
+    width:120px;
+}
+
+/* CHARTE COULEURS
+#a4bd0a; Vert Mecanalu
+#f0eeea; Gris Header Mecanalu
+#64686f; Gris Texte Mecanalu
+#aaadb4; Gris Clair Texte Mecanalu ???
+#3c424d; Gris Foncé Texte Mecanalu ???
+
+*/
