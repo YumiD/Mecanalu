@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('ressources/Montserrat/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .header {
     background: #f0eeea;
     color: #3c424d;
@@ -11,12 +19,23 @@
     margin-top: 20px;
     width:120px;
 }
-#content p{
+
+#content{
+    margin-top: 2%;
+    margin-left: 5%;
+    font-size:20px;
+    font-weight: 400;
+    font-family: 'Montserrat';
+}
+#content h3{
     color: #a4bd0a;
 }
 
 #form p{
     color: #64686f;
+}
+#form input{
+    width: 50px;
 }
 
 /* CHARTE COULEURS

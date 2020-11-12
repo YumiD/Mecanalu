@@ -14,7 +14,7 @@
 </div> 
 
 <div id="content">
-    <p> Vous cherchez une cloison : </p>
+    <h3> Vous cherchez une cloison : </h3>
     
     <div id="form"><form action="creation.php" method="post">
 
