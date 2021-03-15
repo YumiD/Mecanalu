@@ -1,27 +1,32 @@
 <html>
-    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.3.1/dist/pptxgen.bundle.js"></script>
-    <script src="FileSaver.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.3.1/dist/pptxgen.bundle.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.4.0/dist/pptxgen.bundle.js"></script>
+    <!--<script src="FileSaver.js"></script> INUTILE -->
     
     <?php
     session_start();
-    /*$produit = $_POST['produit'];
-    $type_cloison = $_POST['type_cloison'];
-    $photos = $_POST['photos'];
-    $epaisseur = $_POST['epaisseur'];
-    $hauteur = $_POST['hauteur'];
-    $DBmin = $_POST['DBmin'];
-    $DBmax = $_POST['DBmax'];*/
+    $_SESSION['produit'] = $_POST['produit'];
+
+    $nom_entreprise = $_SESSION['nom_entreprise'];
+    $nom_projet = $_SESSION['nom_projet'];
+    $presentation = $_SESSION['presentation'];
+    $fiche_technique = $_SESSION['fiche_technique'];
+    $PV = $_SESSION['PV'];
+    $gamme = $_SESSION['gamme'];
+    $produit = $_SESSION['produit'];
       ?>
 
     <script type="text/javascript">
 
-    /*var produit = <?php echo json_encode($produit); ?>;
-    var type_cloison = <?php echo json_encode($type_cloison); ?>;
-    var photos = <?php echo json_encode($photos); ?>;
-    var epaisseur = <?php echo json_encode($epaisseur); ?>;
-    var hauteur = <?php echo json_encode($hauteur); ?>;
-    var DBmin = <?php echo json_encode($DBmin); ?>;
-    var DBmax = <?php echo json_encode($DBmax); ?>;*/
+    var nom_entreprise = <?php echo json_encode($nom_entreprise); ?>;
+    var nom_projet = <?php echo json_encode($nom_projet); ?>;
+    var presentation = <?php echo json_encode($presentation); ?>;
+    var fiche_technique = <?php echo json_encode($fiche_technique); ?>;
+    var PV = <?php echo json_encode($PV); ?>;
+    var gamme = <?php echo json_encode($gamme); ?>;
+    var produit = <?php echo json_encode($produit); ?>;
+
+    console.log(produit);
 
 
     var pptx = new PptxGenJS();
@@ -32,36 +37,185 @@
     slide.addImage({ path: "ressources/logo.png", x:0.5, y:0.5});
     slide.addText(
     [
-        { text:'Mecanalu', options:{ fontSize:48, bold:true, breakLine:true } },
-        { text:'Professional PowerPoint', options:{ fontSize:20 } }
+        { text: nom_entreprise , options:{ fontSize:48, bold:true, breakLine:true } },
+        { text: nom_projet , options:{ fontSize:20 } }
     ],
     { x:0.5, y:1, h:3, align:'left' }
     );
 
     /*------SECONDE PAGE-------*/
-    /*slide = pptx.addSlide();
-    slide.addText(
-    [
-        { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-        { text:'L’Evidence couvre-joints est la réponse à toutes les exigences qu’elles soient esthétiques ou acoustiques.',
-         options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-        { text:'Modulable et personnalisable en fonction de vos projets, elle se marie avec des panneaux pleins ou vitrés.',
-         options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-        { text:'La finition couvre-joint apporte aux projets une démontabilité et une souplesse d’utilisation garantie par la certification CERFF.',
-         options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-    ],
-    { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-    );
-    if(photos=='on'){
-      if(type_cloison='pleine'){
-        slide.addImage({ path: "ressources/CJ-Plein-1.jpg", x:'55%', y:'25%',w:'30%', h:'30%'});
-        slide.addImage({ path: "ressources/CJ-Plein-2.jpg", x:'55%', y:'60%',w:'30%', h:'30%'});
-      }
-      else if(type_cloison='vitree'){
-        slide.addImage({ path: "ressources/CJ-Vitre-1.jpg", x:'55%', y:'25%',w:'30%', h:'30%'});
-        slide.addImage({ path: "ressources/CJ-Vitre-2.jpg", x:'55%', y:'60%',w:'30%', h:'30%'});
-      }
-    }*/
+    slide = pptx.addSlide();
+    switch(produit){
+      case "E_CJ_plein" : 
+        slide.addText(
+        [
+            { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'L’Evidence couvre-joints est la réponse à toutes les exigences qu’elles soient esthétiques ou acoustiques.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Modulable et personnalisable en fonction de vos projets, elle se marie avec des panneaux pleins ou vitrés.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'La finition couvre-joint apporte aux projets une démontabilité et une souplesse d’utilisation garantie par la certification CERFF.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/e_cj_p.png", x:'55%', y:'40%',w:'35%', h:'35%'});
+        break;
+      case "E_CJ_vitre" : 
+        slide.addText(
+        [
+            { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'L’Evidence couvre-joints est la réponse à toutes les exigences qu’elles soient esthétiques ou acoustiques.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Modulable et personnalisable en fonction de vos projets, elle se marie avec des panneaux pleins ou vitrés.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'La finition couvre-joint apporte aux projets une démontabilité et une souplesse d’utilisation garantie par la certification CERFF.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/e_cj_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+      case "E_BB_plein" : 
+        slide.addText(
+        [
+            { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'Transparence et fluidité sont les atouts premiers de l’Evidence Bord à bord.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'En finition pleine, l’absence de couvre-joints apporte une ligne épurée à l’ensemble.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'La version vitrée joue sur la transparence des espaces sans pour autant négliger son rôle acoustique.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Il est tout à fait possible de mixer la finition pleine et vitrée sur un même projet.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/e_bb_p.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+      case "E_BB_vitre" : 
+        slide.addText(
+        [
+            { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'Transparence et fluidité sont les atouts premiers de l’Evidence Bord à bord.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'En finition pleine, l’absence de couvre-joints apporte une ligne épurée à l’ensemble.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'La version vitrée joue sur la transparence des espaces sans pour autant négliger son rôle acoustique.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Il est tout à fait possible de mixer la finition pleine et vitrée sur un même projet.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/e_bb_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+      case "B_CJ" : 
+        slide.addText(
+        [
+            { text:'Boréale', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'La Boréale se caractérise par son ossature affinée qui lui confère un rendu exceptionnel.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Son montage d’huisserie en arche apporte une légèreté à l’ensemble et souligne le design épuré et minimaliste de la cloison.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'La cloison Boréale peut également s\'utiliser en version verrière ou atelier : elle cloisonne harmonieusement vos espaces tout en préservant l\'isolation phonique de vos espaces.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'La Boréale amènera une touche contemporaine à vos projets.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/b_cj.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+      case "B_BB" : 
+        slide.addText(
+        [
+            { text:'Boréale', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'La Boréale se caractérise par son ossature affinée qui lui confère un rendu exceptionnel.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Son montage d’huisserie en arche apporte une légèreté à l’ensemble et souligne le design épuré et minimaliste de la cloison.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'La cloison Boréale peut également s\'utiliser en version verrière ou atelier : elle cloisonne harmonieusement vos espaces tout en préservant l\'isolation phonique de vos espaces.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'La Boréale amènera une touche contemporaine à vos projets.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/b_bb.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+      case "Alta" : 
+        slide.addText(
+        [
+            { text:'Evidence Box : ALTA BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'Les Boxes Evidence sont la solution aux besoins actuels des espaces de travail.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Leurs conceptions ont été pensées pour favoriser le bien-être et la qualité de vie des collaborateurs !',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'En version XL ou XXL, vous disposez d’un lieu propice à la créativité, au partage d’idées et vos réunions de travail s’y déroulent en toute confidentialité.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/box_alta.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+      case "Duo" : 
+        slide.addText(
+        [
+            { text:'Evidence Box : DUO BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'D’une taille supérieure à la cabine téléphonique, elle est idéale pour se réunir à deux ou accueillir une personne lors d’un rendez-vous et ainsi échanger en toute tranquillité.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/box_duo.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+      case "Grande" : 
+        slide.addText(
+        [
+            { text:'Evidence Box : GRANDE BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'La Grandé Box a été pensée pour vos réunions de travail.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Ses grandes dimensions permettent d’accueillir jusqu’à 8 personnes.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Ses deux portes vitrées à chaque extrémité facilitent son accès et rend la circulation plus fluide.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/box_grande.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+      case "Little" : 
+        slide.addText(
+        [
+            { text:'Evidence Box : LITTLE BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'La Little est la petite dernière des Box de la gamme Mécanalu.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'De la taille d\'une cabine téléphonique (1115 x 1115mm), elle permet de passer un appel en toute tranquilité grâce à son acoustique soignée.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Son faible encombrement s\'intègre parfaitement dans les bureaux en open-space ou de co-working.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/box_little.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+      case "Media" : 
+        slide.addText(
+        [
+            { text:'Evidence Box : MEDIA BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
+            { text:'Les Boxes Evidence sont la solution aux besoins actuels des espaces de travail.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'Leurs conceptions ont été pensées pour favoriser le bien-être et la qualité de vie des collaborateurs !',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
+            { text:'En version XL ou XXL, vous disposez d’un lieu propice à la créativité, au partage d’idées et vos réunions de travail s’y déroulent en toute confidentialité.',
+            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
+        ],
+        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
+        );
+        slide.addImage({ path: "ressources/box_media.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        break;
+    }
 
     /*------TROISIEME PAGE-------*/
     /*slide = pptx.addSlide();
@@ -77,21 +231,22 @@
     );*/
 
     /*------QUATRIEME PAGE-------*/
-    //if ($_SESSION["fiche_technique"] = "true"
-    slide = pptx.addSlide();
-    slide.addText(
-    [
-        { text:'Catalogues et fiches techniques', options:{ fontSize:40, bold:true, paraSpaceAfter:30, breakLine:true } },
-        { text:'Catalogue Evidence', options:{ fontSize:25, hyperlink:{url:'https://www.mecanalu.com/media/attachments/2020/07/08/evidence-2020.pdf'}, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
-        { text:'Catalogue Boréale', options:{ fontSize:25, hyperlink:{url:'https://www.mecanalu.com/media/attachments/2020/07/16/borale-20201.pdf'}, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
-        { text:'Portfolio', options:{ fontSize:25, hyperlink:{url:'https://www.mecanalu.com/images/PDF/Doc_Flyer_Photos.pdf'}, indentLevel:1, paraSpaceAfter:12, breakLine:true } }
-    ],
-    { x:0.5, y:1.5, h:1, align:'left' }
-    );
-    slide.addImage({ path: "ressources/mecanalu.png", x:'70%', y:'75%', w:2});
-
+    if (fiche_technique == "true"){
+      slide = pptx.addSlide();
+      slide.addText(
+      [
+          { text:'Catalogues et fiches techniques', options:{ fontSize:40, bold:true, paraSpaceAfter:30, breakLine:true } },
+          { text:'Catalogue Evidence', options:{ fontSize:25, hyperlink:{url:'https://www.mecanalu.com/media/attachments/2020/07/08/evidence-2020.pdf'}, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
+          { text:'Catalogue Boréale', options:{ fontSize:25, hyperlink:{url:'https://www.mecanalu.com/media/attachments/2020/07/16/borale-20201.pdf'}, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
+          { text:'Portfolio', options:{ fontSize:25, hyperlink:{url:'https://www.mecanalu.com/images/PDF/Doc_Flyer_Photos.pdf'}, indentLevel:1, paraSpaceAfter:12, breakLine:true } }
+      ],
+      { x:0.5, y:1.5, h:1, align:'left' }
+      );
+      slide.addImage({ path: "ressources/mecanalu.png", x:'70%', y:'75%', w:2});
+    }
     /*------Création du PPTX-------*/
     pptx.writeFile('PptxGenJs-Basic-Slide-Demo');
+    //pptx.writeFile({ fileName: 'PptxGenJs-Basic-Slide-Demo', compresion: true });
     
     </script>
 

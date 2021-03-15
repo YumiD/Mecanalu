@@ -8,7 +8,6 @@
     $_SESSION["nom_entreprise"] = $nom_entreprise;
     $_SESSION["nom_projet"] = $nom_projet;
     $_SESSION["presentation"] = $presentation;
-    
     if(isset($_POST['fiche_technique']))
         $_SESSION["fiche_technique"] = "true";
     else
@@ -69,24 +68,6 @@
 
     <div id="content">
         <h3> Choix de la gamme: </h3>
-        <!--
-        <script> function onlyOne(checkbox) {
-            var checkboxes = document.getElementsByName('check')
-            checkboxes.forEach((item) => {
-                if (item !== checkbox) item.checked = false
-            })
-            var gamme = checkbox.id;
-            console.log(gamme);
-            <?php //$_SESSION["gamme"]= '<script>document.write(gamme)</script>'; ?>
-            }
-        </script>
-        <div id="form"><form action="produit.php" method="post">
-        <label> Evidence <input type="checkbox" id="evidence" name="check" onclick="onlyOne(this)"> </label>
-        <label> Boréale <input type="checkbox" id="boreale" name="check" onclick="onlyOne(this)"> </label>
-        <label> Evidence Box<input type="checkbox" id="evidence_box" name="check" onclick="onlyOne(this)"> </label>
-        <p><input type="submit" value="Suivant"> </p>
-        </form> </div>
-        -->
 
         <div id="horizontal"> <form action="produit.php" method="post">
         <input type="submit" src="ressources/gamme_evidence.png" id="horizontal_item" name="gamme" value="evidence" alt="Submit Form" class="image1"/>
