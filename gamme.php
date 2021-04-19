@@ -1,13 +1,22 @@
 <?php
     session_start();
     
-    $nom_entreprise = $_POST['nom_entreprise'];
-    $nom_projet = $_POST['nom_projet'];
-    $presentation = $_POST['presentation'];
-    
-    $_SESSION["nom_entreprise"] = $nom_entreprise;
-    $_SESSION["nom_projet"] = $nom_projet;
-    $_SESSION["presentation"] = $presentation;
+    if(!empty($_POST['nom_entreprise'])) {    
+        $nom_entreprise = $_POST['nom_entreprise'];
+        $_SESSION["nom_entreprise"] = $nom_entreprise;
+    }
+    else $nom_entreprise=$_SESSION["nom_entreprise"];
+    if(!empty($_POST['nom_projet'])) {    
+        $nom_projet = $_POST['nom_projet'];
+        $_SESSION["nom_projet"] = $nom_projet;
+    }
+    else $nom_projet=$_SESSION["nom_projet"];
+    if(!empty($_POST['presentation'])) {    
+        $presentation = $_POST['presentation'];
+        $_SESSION["presentation"] = $presentation;
+    }
+    else $presentation=$_SESSION["presentation"];
+
     if(isset($_POST['fiche_technique']))
         $_SESSION["fiche_technique"] = "true";
     else
@@ -18,6 +27,14 @@
         $_SESSION["PV"] = "false";
 
     $_SESSION["gamme"]=""; 
+    if(isset($_POST['evidence']))
+        $_SESSION["gamme"] = "evidence";
+    else if(isset($_POST['boreale']))
+        $_SESSION["gamme"] = "boreale";
+    else if(isset($_POST['evidence_box']))
+        $_SESSION["gamme"] = "evidence_box";
+
+    echo $_SESSION["gamme"];
 
 ?>
 
@@ -63,7 +80,7 @@
 
     <body>
     <div class="header">
-        <img src="ressources/mecanalu.png">
+        <a href="index.php"> <img src="ressources/mecanalu.png"> </a>
     </div> 
 
     <div id="content">
@@ -76,4 +93,8 @@
         </form> </div>
     </div>
     </body>
+
+    <footer>
+        <button onclick="window.location.href='index.php'">Précédent</button>
+    </footer>
 </html>

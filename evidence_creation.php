@@ -5,15 +5,13 @@
     
     <?php
     session_start();
-    $_SESSION['produit'] = $_POST['produit'];
 
     $nom_entreprise = $_SESSION['nom_entreprise'];
     $nom_projet = $_SESSION['nom_projet'];
     $presentation = $_SESSION['presentation'];
     $fiche_technique = $_SESSION['fiche_technique'];
-    $PV = $_SESSION['PV'];
     $gamme = $_SESSION['gamme'];
-    $produit = $_SESSION['produit'];
+    $produit_evidence = $_SESSION['produit_evidence'];
       ?>
 
     <script type="text/javascript">
@@ -22,11 +20,9 @@
     var nom_projet = <?php echo json_encode($nom_projet); ?>;
     var presentation = <?php echo json_encode($presentation); ?>;
     var fiche_technique = <?php echo json_encode($fiche_technique); ?>;
-    var PV = <?php echo json_encode($PV); ?>;
-    var gamme = <?php echo json_encode($gamme); ?>;
-    var produit = <?php echo json_encode($produit); ?>;
+    var produit_evidence = <?php echo json_encode($produit_evidence); ?>;
 
-    console.log(produit);
+    console.log(produit_evidence);
 
 
     var pptx = new PptxGenJS();
@@ -45,7 +41,7 @@
 
     /*------SECONDE PAGE-------*/
     slide = pptx.addSlide();
-    switch(produit){
+    switch(produit_evidence){
       case "E_CJ_plein" : 
         slide.addText(
         [
@@ -110,111 +106,6 @@
         );
         slide.addImage({ path: "ressources/e_bb_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
         break;
-      case "B_CJ" : 
-        slide.addText(
-        [
-            { text:'Boréale', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'La Boréale se caractérise par son ossature affinée qui lui confère un rendu exceptionnel.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Son montage d’huisserie en arche apporte une légèreté à l’ensemble et souligne le design épuré et minimaliste de la cloison.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La cloison Boréale peut également s\'utiliser en version verrière ou atelier : elle cloisonne harmonieusement vos espaces tout en préservant l\'isolation phonique de vos espaces.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La Boréale amènera une touche contemporaine à vos projets.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/b_cj.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "B_BB" : 
-        slide.addText(
-        [
-            { text:'Boréale', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'La Boréale se caractérise par son ossature affinée qui lui confère un rendu exceptionnel.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Son montage d’huisserie en arche apporte une légèreté à l’ensemble et souligne le design épuré et minimaliste de la cloison.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La cloison Boréale peut également s\'utiliser en version verrière ou atelier : elle cloisonne harmonieusement vos espaces tout en préservant l\'isolation phonique de vos espaces.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La Boréale amènera une touche contemporaine à vos projets.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/b_bb.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Alta" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : ALTA BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'Les Boxes Evidence sont la solution aux besoins actuels des espaces de travail.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Leurs conceptions ont été pensées pour favoriser le bien-être et la qualité de vie des collaborateurs !',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'En version XL ou XXL, vous disposez d’un lieu propice à la créativité, au partage d’idées et vos réunions de travail s’y déroulent en toute confidentialité.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_alta.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Duo" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : DUO BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'D’une taille supérieure à la cabine téléphonique, elle est idéale pour se réunir à deux ou accueillir une personne lors d’un rendez-vous et ainsi échanger en toute tranquillité.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_duo.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Grande" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : GRANDE BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'La Grandé Box a été pensée pour vos réunions de travail.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Ses grandes dimensions permettent d’accueillir jusqu’à 8 personnes.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Ses deux portes vitrées à chaque extrémité facilitent son accès et rend la circulation plus fluide.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_grande.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Little" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : LITTLE BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'La Little est la petite dernière des Box de la gamme Mécanalu.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'De la taille d\'une cabine téléphonique (1115 x 1115mm), elle permet de passer un appel en toute tranquilité grâce à son acoustique soignée.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Son faible encombrement s\'intègre parfaitement dans les bureaux en open-space ou de co-working.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_little.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Media" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : MEDIA BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'Les Boxes Evidence sont la solution aux besoins actuels des espaces de travail.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Leurs conceptions ont été pensées pour favoriser le bien-être et la qualité de vie des collaborateurs !',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'En version XL ou XXL, vous disposez d’un lieu propice à la créativité, au partage d’idées et vos réunions de travail s’y déroulent en toute confidentialité.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_media.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
     }
 
     /*------TROISIEME PAGE-------*/
@@ -249,7 +140,6 @@
     //pptx.writeFile({ fileName: 'PptxGenJs-Basic-Slide-Demo', compresion: true });
     
     </script>
-
   <head>
       <meta charset="utf-8" />
       <link rel="stylesheet" href="mecanalu.css" />
@@ -259,14 +149,11 @@
   <body>
   <div class="header">
     <a href="index.php"> <img src="ressources/mecanalu.png"> </a>
-  </div> 
-
-  <div id="content">
-      <h3> Création de l'archive </h3>
   </div>
   </body>
 
   <footer>
     <button onclick="window.location.href='index.php'">Retour accueil</button>
   </footer>
+
 </html>
