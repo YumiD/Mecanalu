@@ -38,7 +38,7 @@
     $gamme = $_SESSION["gamme"];
 
      if($gamme == "evidence"){
-        header('Location: evidence_produit.php');
+        header('Location: evidence/evidence_produit.php');
      }
 ?>
 
@@ -55,7 +55,7 @@
     </div> 
 
     <div id="content">
-        <h3> Choix du produit: </h3>
+        <h3> Choix du produit</h3>
         
         <div id="form"><form action="creation.php" method="post">
         <select name="produit">

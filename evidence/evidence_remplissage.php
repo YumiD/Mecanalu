@@ -19,7 +19,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="mecanalu.css" />
+        <link rel="stylesheet" href="../mecanalu.css" />
         <title>Création du dossier</title>
 
         <style>
@@ -31,7 +31,7 @@
             }
             .image1{ /* Le premier bouton */
                 border:none;
-                background-image:url('ressources/plein.png');
+                background-image:url('../ressources/plein.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;
@@ -39,9 +39,9 @@
                 font-size:0.0001em;
                 width: 50%;
                 height: 50%;}
-            .image2{ /* Le premier bouton */
+            .image2{
                 border:none;
-                background-image:url('ressources/vitre.png');
+                background-image:url('../ressources/vitre.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;
@@ -54,19 +54,23 @@
 
     <body>
     <div class="header">
-        <a href="index.php"> <img src="ressources/mecanalu.png"> </a>
+        <a href="../index.php"> <img src="../ressources/mecanalu.png"> </a>
     </div> 
 
     <div id="content">
-        <h3> Choix du remplissage: </h3>
+        <h3> Choix du remplissage</h3>
         <div class="wrapper">
             <div id="image_produit">
-                <img src="ressources/<?php echo $produit; ?>.png">
+                <img src="../ressources/<?php echo $produit; ?>.png">
             </div>
+            <div id="horizontal"> 
+            <p><?php echo $nom_produit; ?></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h4> Choisissez entre </h4>    
             <form action="evidence_finition.php" method="post">
             <input type="submit" id="horizontal_item" name="remplissage" value="plein" alt="Submit Form" class="image1"/>
             <input type="submit" id="horizontal_item" name="remplissage" value="vitre" alt="Submit Form"  class="image2"/>
-            </form>
+            </div></form>
         </div>
 
     </div>

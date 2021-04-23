@@ -5,7 +5,8 @@
     
     <?php
     session_start();
-    $_SESSION['produit'] = $_POST['produit'];
+
+    header('Location: evidence/evidence_creation.php');
 
     $nom_entreprise = $_SESSION['nom_entreprise'];
     $nom_projet = $_SESSION['nom_projet'];
@@ -26,15 +27,13 @@
     var gamme = <?php echo json_encode($gamme); ?>;
     var produit = <?php echo json_encode($produit); ?>;
 
-    console.log(produit);
-
 
     var pptx = new PptxGenJS();
 
     /*------PREMIERE PAGE-------*/
     var slide = pptx.addSlide();
     slide.addText( ' ', { x:5.0, y:0.5, w:'40%', h:'80%', align:'right', fontSize:24, color:'0088CC', fill:{ color:'F1F1F1', transparency:30 } } );
-    slide.addImage({ path: "ressources/logo.png", x:0.5, y:0.5});
+    slide.addImage({ path: "ressources/icon/icon_mecanalu.png", x:0.5, y:0.5});
     slide.addText(
     [
         { text: nom_entreprise , options:{ fontSize:48, bold:true, breakLine:true } },

@@ -1,8 +1,12 @@
 <?php
     session_start();
     
-    $remplissage = $_POST['remplissage'];
-    $_SESSION["remplissage"] = $remplissage;
+    if(!empty($_POST['remplissage'])) {    
+        $remplissage = $_POST['remplissage'];
+        $_SESSION["remplissage"] = $remplissage;
+    }
+    
+    $remplissage = $_SESSION['remplissage'];
 
     $produit = $_SESSION['produit'];
 
@@ -28,49 +32,51 @@
             $_SESSION["produit_evidence"]="E_BB_vitre";
         }
     }
+    $_SESSION["nom_produit"]=$nom_produit;
 
 ?>
 
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="mecanalu.css" />
-        <title>Création du dossier</title>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../mecanalu.css" />
+    <title>Création du dossier</title>
 
-        <style>
-            #wrapper {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 10px;
-                grid-auto-rows: minmax(100px, auto);
-            }
-            #left{
-                float:left;
-                width:40%;
-	            height: 50%;
-                padding:2%;
-            }
-            #right{
-                float:right;
-                width:55%;
-	            height: 50%;
-            }
-        </style>
-    </head>
+    <style>
+        #wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+        #left{
+            float:left;
+            width:40%;
+            height: 50%;
+            padding:2%;
+        }
+        #right{
+            float:right;
+            width:55%;
+            height: 50%;
+        }
+    </style>
+</head>
 
-    <body>
+<body>
     <div class="header">
-        <a href="index.php"> <img src="ressources/mecanalu.png"> </a>
+        <a href="../index.php"> <img src="../ressources/mecanalu.png"> </a>
     </div> 
 
-    <div id="content">
-        <h3> <?php echo $nom_produit; ?> : </h3>
+    <div id="content" style="height:75%;">
+        <h3> EVIDENCE SELECTIONNEZ VOS FINITIONS - <?php echo $nom_produit; ?> </h3>
             <div id="left">
-                <img id="image_produit" src="ressources/<?php echo $produit_final; ?>.png">
+                <img id="image_produit" src="../ressources/<?php echo $produit_final; ?>.png">
             </div>
             
             <div id="right">
-            <form action="evidence_creation.php" method="post">
+            <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
+            <form action="evidence_portes.php" method="post">
                 <div>
                     <label for="hauteur">Hauteur :</label>
                     <input type="text" id="hauteur" name="hauteur">
@@ -83,7 +89,7 @@
                 </div>
                 <div style="margin-top:30px"></div>
                 <!-- PLEIN -->
-                <div id=plein>
+                <div id="plein">
                     <div>
                         <label for="plein">Plein :</label>
                         <select name="plein">
@@ -110,15 +116,30 @@
                 </div>
                 <!-- VITRE -->
                 <div id=vitre>
-                    <div>
+                    <div style="display: flex;flex-wrap: wrap;">
                         <label for="concept">Concept :</label>
-                        <select name="concept">
-                            <option class="concept" value="null">Sélectionner</option>
-                            <option class="e_cj" value="atelier">Verion Atelier</option>
-                            <option class="e_cj" value="air">Verion Air</option>
-                            <option class="e_bb" value="standard">Standard</option>
-                            <option class="e_bb" value="air">Verion Air</option>
-                        </select>
+                        <div id="concept">
+                        </div>
+                        <div>
+                            <ul style="list-style-type: none;">        
+                                <li class="e_cj">
+                                    <input type="checkbox" id="atelier" name="concept" checked>
+                                    <label for="atelier">Version Atelier</label>
+                                </li>
+                                <li class="e_cj">
+                                    <input type="checkbox" id="air" name="concept">
+                                    <label for="air">Version Air</label>
+                                </li>
+                                <li class="e_bb">
+                                    <input type="checkbox" id="standard" name="concept">
+                                    <label for="standard">Standard</label>
+                                </li>
+                                <li class="e_bb">
+                                    <input type="checkbox" id="air" name="concept">
+                                    <label for="air">Version Air</label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div>
                         <label for="vitre">Vitré :</label>
@@ -132,20 +153,38 @@
                             <option class="vitrePV" value="null">Sélectionner</option>
                         </select>
                     </div>
-                    <div>
+                    <div style="display: flex;flex-wrap: wrap;">
                         <label for="finition_vitre">Finition Vitré :</label>
-                        <select name="finition_vitre">
-                            <option class="finition_vitre" value="null">Sélectionner</option>
-                            <option class="e_cj" value="trempe">Trempé</option>
-                            <option class="e_cj" value="feuillete">Feuilleté</option>
-                            <option class="e_cj" value="clir">Clair</option>
-                            <option class="e_bb" value="trempe">Trempé</option>
-                            <option class="e_bb" value="feuillete">Feuilleté</option>
-                        </select>
+                        <div id="finition_vitre">
+                        </div>
+                        <div>
+                            <ul style="list-style-type: none;">        
+                                <li class="e_cj">
+                                    <input type="checkbox" id="trempe" name="finition_vitre" checked>
+                                    <label for="trempe">Trempé</label>
+                                </li>
+                                <li class="e_cj">
+                                    <input type="checkbox" id="feuillete" name="finition_vitre">
+                                    <label for="feuillete">Feuilleté</label>
+                                </li>
+                                <li class="e_bb">
+                                    <input type="checkbox" id="clair" name="finition_vitre">
+                                    <label for="clair">Clair</label>
+                                </li>
+                                <li class="e_bb">
+                                    <input type="checkbox" id="trempe" name="finition_vitre">
+                                    <label for="trempe">Trempé</label>
+                                </li>
+                                <li class="e_bb">
+                                    <input type="checkbox" id="feuillete" name="finition_vitre">
+                                    <label for="feuillete">Feuilleté</label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div style="margin-top:30px"></div>
-                <input type="submit" value="Suivant">
+                <div id="submitButton"> <input type="submit" value="Suivant"> </div>
             </form>
             </div>
 
@@ -172,8 +211,8 @@
                 }
             </script>
     </div>
-    </body>
-    <footer>
-        <button onclick="window.location.href='evidence_remplissage.php'">Précédent</button>
-    </footer>
+</body>
+<footer>
+    <button onclick="window.location.href='evidence_remplissage.php'">Précédent</button>
+</footer>
 </html>

@@ -22,15 +22,13 @@
     var fiche_technique = <?php echo json_encode($fiche_technique); ?>;
     var produit_evidence = <?php echo json_encode($produit_evidence); ?>;
 
-    console.log(produit_evidence);
-
 
     var pptx = new PptxGenJS();
 
     /*------PREMIERE PAGE-------*/
     var slide = pptx.addSlide();
     slide.addText( ' ', { x:5.0, y:0.5, w:'40%', h:'80%', align:'right', fontSize:24, color:'0088CC', fill:{ color:'F1F1F1', transparency:30 } } );
-    slide.addImage({ path: "ressources/logo.png", x:0.5, y:0.5});
+    slide.addImage({ path: "../ressources/icon/icon_mecanalu.png", x:0.5, y:0.5});
     slide.addText(
     [
         { text: nom_entreprise , options:{ fontSize:48, bold:true, breakLine:true } },
@@ -55,7 +53,7 @@
         ],
         { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
         );
-        slide.addImage({ path: "ressources/e_cj_p.png", x:'55%', y:'40%',w:'35%', h:'35%'});
+        slide.addImage({ path: "../ressources/e_cj_p.png", x:'55%', y:'40%',w:'35%', h:'35%'});
         break;
       case "E_CJ_vitre" : 
         slide.addText(
@@ -70,7 +68,7 @@
         ],
         { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
         );
-        slide.addImage({ path: "ressources/e_cj_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        slide.addImage({ path: "../ressources/e_cj_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
         break;
       case "E_BB_plein" : 
         slide.addText(
@@ -87,7 +85,7 @@
         ],
         { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
         );
-        slide.addImage({ path: "ressources/e_bb_p.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        slide.addImage({ path: "../ressources/e_bb_p.png", x:'55%', y:'35%',w:'35%', h:'35%'});
         break;
       case "E_BB_vitre" : 
         slide.addText(
@@ -104,7 +102,7 @@
         ],
         { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
         );
-        slide.addImage({ path: "ressources/e_bb_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
+        slide.addImage({ path: "../ressources/e_bb_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
         break;
     }
 
@@ -133,7 +131,7 @@
       ],
       { x:0.5, y:1.5, h:1, align:'left' }
       );
-      slide.addImage({ path: "ressources/mecanalu.png", x:'70%', y:'75%', w:2});
+      slide.addImage({ path: "../ressources/mecanalu.png", x:'70%', y:'75%', w:2});
     }
     /*------Création du PPTX-------*/
     pptx.writeFile('PptxGenJs-Basic-Slide-Demo');
@@ -142,18 +140,21 @@
     </script>
   <head>
       <meta charset="utf-8" />
-      <link rel="stylesheet" href="mecanalu.css" />
+      <link rel="stylesheet" href="../mecanalu.css" />
       <title>Création de l'archive</title>
   </head>
 
   <body>
   <div class="header">
-    <a href="index.php"> <img src="ressources/mecanalu.png"> </a>
+    <a href="../index.php"> <img src="../ressources/mecanalu.png"> </a>
+  </div>
+  <div id="content">
+      <h3> Création de l'archive </h3>
   </div>
   </body>
 
   <footer>
-    <button onclick="window.location.href='index.php'">Retour accueil</button>
+    <button onclick="window.location.href='../index.php'">Retour accueil</button>
   </footer>
 
 </html>

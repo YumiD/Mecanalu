@@ -84,7 +84,7 @@
     </div> 
 
     <div id="content">
-        <h3> Choix de la gamme: </h3>
+        <h3> Choix de la gamme</h3>
 
         <div id="horizontal"> <form action="produit.php" method="post">
         <input type="submit" src="ressources/gamme_evidence.png" id="horizontal_item" name="gamme" value="evidence" alt="Submit Form" class="image1"/>

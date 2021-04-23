@@ -35,6 +35,15 @@ if ($conn->connect_error) {
         display: flex;
         flex-direction: row;
     }
+    #form #nom_entreprise_image, #nom_projet_image
+    {
+        display: none;
+    }
+    #form label img
+    {
+        width: 20px;
+        cursor: pointer;
+    }
     </style>
 <body>
 
@@ -45,18 +54,21 @@ if ($conn->connect_error) {
 <div id="content">
 
     <div id="bienvenue">
-    <img src="ressources/logo.png" style="width:18%; height:12%;" />
+    <img src="ressources/icon/icon_mecanalu.png" style="width:18%; height:12%;" />
     <p style="color:#a4bd0a; font-size:40px; padding-left:3%; padding-right:3%">BIENVENUE!</p>
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
     </div>
 
-    <h3> Création de votre projet DOE : </h3>
+    <h2> Création de votre projet DOE : </h2>
     
     <form action="produit.php" method="post">
 
     <div id="form">
-    <p> Nom Entreprise : <input type="text" name="nom_entreprise" style="width:20%;"/> </p>
-    <p> Nom Projet : <input type="text" name="nom_projet" style="width:20%;"/> </p>
+    <p> Nom Entreprise : <input type="text" name="nom_entreprise" style="width:20%;"/>
+    <label for="nom_entreprise_image"> <img src="ressources/icon/icon_photo.png"/>  <input type="file" name="nom_entreprise_image" id="nom_entreprise_image"> </label> </p>
+    <p> Nom Projet : <input type="text" name="nom_projet" style="width:20%;"/> 
+    <label for="nom_entreprise_image"> <img src="ressources/icon/icon_photo.png"/> <input type="file"  name="nom_projet_image" id="nom_projet_image"> </label> </p>
+
     <p> Présentation :</p> <textarea rows = "5" cols = "60" name = "presentation"></textarea>
     <p><label for="scales">Fiches Techniques : </label>
         <input type="checkbox" name="fiche_technique"
