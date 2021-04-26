@@ -67,18 +67,8 @@
     <body id="page">
 
 	<div class="header">
-		<p class="top"><a href="index.php"> <img src="../ressources/mecanalu.png"> </a></p>
-		
-		<div id="menu"><ul>
-		<li><a href="https://www.mecanalu.com/">Accueil</a></li>
-		<li><a href="https://www.mecanalu.com/produits">Produits</a></li>
-		<li><a href="https://www.mecanalu.com/ambiances">Ambiances</a></li>
-		<li><a href="https://www.mecanalu.com/societe">Société</a></li>
-		<li><a href="https://www.mecanalu.com/catalogues">Catalogues</a></li>
-		<li><a href="https://www.mecanalu.com/contact">Contact</a></li>
-		<li><a href="http://dev.mecanalu.com/auth/login" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,');return false;">Portail Client</a></li>
-		</ul>
-		</div>
+        <?php include('../includes/header.html'); ?>
+	</div>
 		
 	</div> 
 

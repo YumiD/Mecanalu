@@ -10,7 +10,7 @@
 
     <body>
     <div class="header">
-        <img src="ressources/mecanalu.png">
+      <?php include('includes/header.html'); ?>
     </div> 
 
     <div id="content">

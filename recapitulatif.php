@@ -48,7 +48,7 @@
     
     <body>
         <div class="header">
-            <a href="index.php"> <img src="ressources/mecanalu.png"> </a>
+            <?php include('includes/header.html'); ?>
         </div> 
 
         <div id="content">
