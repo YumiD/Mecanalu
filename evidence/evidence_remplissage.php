@@ -23,12 +23,6 @@
         <title>Création du dossier</title>
 
         <style>
-            .wrapper {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 10px;
-                grid-auto-rows: minmax(100px, auto);
-            }
             .image1{ /* Le premier bouton */
                 border:none;
                 background-image:url('../ressources/plein.png');
@@ -37,8 +31,10 @@
                 background-size:contain;
                 background-color:#ffffff;
                 font-size:0.0001em;
-                width: 50%;
-                height: 50%;}
+                max-height:219px;
+				width: 202px;
+				max-width: 100%;
+				cursor: pointer;}
             .image2{
                 border:none;
                 background-image:url('../ressources/vitre.png');
@@ -47,36 +43,53 @@
                 background-size:contain;
                 background-color:#ffffff;
                 font-size:0.0001em;
-                width: 50%;
-                height: 50%;}
+                max-height:219px;
+				width: 291px;
+				max-width: 100%;
+				cursor: pointer;}
         </style>
     </head>
 
-    <body>
+    <body id="page">
     <div class="header">
-        <a href="../index.php"> <img src="../ressources/mecanalu.png"> </a>
-    </div> 
+    <p class="top"><a href="index.php"> <img src="../ressources/mecanalu.png"> </a></p>
+	
+	<div id="menu"><ul>
+	<li><a href="https://www.mecanalu.com/">Accueil</a></li>
+	<li><a href="https://www.mecanalu.com/produits">Produits</a></li>
+	<li><a href="https://www.mecanalu.com/ambiances">Ambiances</a></li>
+	<li><a href="https://www.mecanalu.com/societe">Société</a></li>
+	<li><a href="https://www.mecanalu.com/catalogues">Catalogues</a></li>
+	<li><a href="https://www.mecanalu.com/contact">Contact</a></li>
+	<li><a href="http://dev.mecanalu.com/auth/login" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,');return false;">Portail Client</a></li>
+	</ul>
+	</div>
+	
+	</div>  
 
     <div id="content">
-        <h3> Choix du remplissage</h3>
-        <div class="wrapper">
+        <h3> EVIDENCE - COUVRE-JOINT - remplissage</h3>
+        
             <div id="image_produit">
-                <img src="../ressources/<?php echo $produit; ?>.png">
+                <img class="image_produit" src="../ressources/<?php echo $produit; ?>.png">
             </div>
-            <div id="horizontal"> 
+            <div class="horizontal_remplissage" id="horizontal"> 
             <p><?php echo $nom_produit; ?></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <h4> Choisissez entre </h4>    
+            <h4> Choisissez entre </h4>  
+			<span class="legend2"> Plein </span>
+			<span class="legend2"> Vitré sur allège </span>			
             <form action="evidence_finition.php" method="post">
             <input type="submit" id="horizontal_item" name="remplissage" value="plein" alt="Submit Form" class="image1"/>
             <input type="submit" id="horizontal_item" name="remplissage" value="vitre" alt="Submit Form"  class="image2"/>
             </div></form>
-        </div>
-
+        
+		
+	<footer>
+        <button onclick="window.location.href='evidence_produit.php'">Précédent</button>
+    </footer>
     </div>
     </body>
 
-    <footer>
-        <button onclick="window.location.href='evidence_produit.php'">Précédent</button>
-    </footer>
+
 </html>

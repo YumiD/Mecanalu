@@ -63,7 +63,7 @@
             <h5> Télécharger</h5>
             <!--<a href="creation.php"> <img style="width:80;height:80;margin-right:20px;" src="ressources/icon/icon_powerpoint.png"> </a>
             <a href="creation.php"> <img style="width:80;height:80;" src="ressources/icon/icon_zip.png"> </a>-->
-            <form action="produit.php" method="post">
+            <form action="creation.php" method="post">
                 <input type="submit" id="horizontal_item" name="pptx" value="icon_powerpoint" alt="Submit Form" class="image1"/>
                 <input type="submit" id="horizontal_item" name="zip" value="icon_zip" alt="Submit Form"  class="image2"/>
             </form>

@@ -13,6 +13,7 @@
     box-shadow: none !important;
     height:95px;
   }
+  
 .header img {
     float: left;
     padding-left: 20px;
@@ -20,26 +21,28 @@
     width:120px;
 }
 
-#content{
-    margin-top: 2%;
-    margin-left: 4%;
-    font-size:20px;
-    font-weight: 400;
-    font-family: 'Montserrat';
+#content h2{
+    color: #a4bd0a;
+	font-size:20px;
 }
+
 #content h3{
     background-color: #a4bd0a;
     color: #ffffff;
-    width:30%;
-    padding-left: 2%;
+    max-width: 600px;
+	width: 100%;
+	padding: 8px 50px 8px 15px;
+	text-transform: uppercase;
+	font-size: .8em;
 }
-#content h2{
-    color: #a4bd0a;
-}
+
 #content h4{
     font-family:'Montserrat';
     text-align:center;
+	font-size:1.5em;
 }
+
+
 #form p{
     color: #64686f;
 }
@@ -69,7 +72,7 @@
 } */
 
 #horizontal_item{
-    margin-left: 4%;
+    margin-left: 2%;
 }
 
 #form input[type="submit"], button {
@@ -78,6 +81,7 @@
     font-family: 'Montserrat';
     padding: 10px 20px;
     font-size: 20px;
+	border: none;
 }
 
 #content form #submitButton input[type="submit"], button  {
@@ -86,6 +90,7 @@
     font-family: 'Montserrat';
     padding: 10 px 20px;
     font-size: 20px;
+	border: none;
 }
 #buttonPasser{
     background-color: #000000;
@@ -95,9 +100,9 @@
 }
 footer{
     position: absolute;
-    bottom: 0;
-    width: 100%;
+    bottom: 10%;
 }
+
 /* CHARTE COULEURS
 #a4bd0a; Vert Mecanalu
 #f0eeea; Gris Header Mecanalu
@@ -106,3 +111,200 @@ footer{
 #3c424d; Gris Foncé Texte Mecanalu ???
 
 */
+
+/************************FREDERIQUE*********************************/
+
+#page {
+    margin: -30px 0 !important;
+}
+
+#menu {
+    margin-left: 25%;
+}
+
+
+#menu li {
+	font-family: 'Montserrat';
+    list-style: none;
+    font-size: 16px;
+	display: inline-block;
+	padding: 40px 5px 0 5px;
+}
+
+#menu li a{
+    text-decoration: none;
+	color: #3c424d;
+}
+
+.top {
+    margin: 0 auto;
+	width: 100%;
+	max-width:1280px;
+}
+
+#content {
+    margin: 4% auto;
+    font-size:20px;
+    font-weight: 400;
+    font-family: 'Montserrat';
+	width: 100%;
+	max-width:1280px;
+}
+
+#bienvenue img {
+    width: 50%;
+	max-width:327px;
+	display:inline-block;
+	float:left;
+}
+
+.title {
+	color:#a4bd0a; 
+	font-size:40px; 
+	padding-left:3%; 
+	padding-right:3%;
+	display:inline-block;
+}
+
+.sstitle {
+	color:#a4bd0a; 
+	font-size:20px; 
+	padding-left:3%; 
+	padding-right:3%;
+}
+
+.intro {
+    width: 100%;
+	max-width:60%;
+	display:inline-block;
+	padding-right:3%;
+	padding-left:3%; 
+}
+
+.label {
+  width: 300px;
+  margin: 8px 0;
+  display:inline-block;
+}
+
+#form input {
+  width: 100%;
+  max-width:400px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size:16px;
+}
+
+textarea  {
+  width: 100%;
+  max-width:400px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  display:inline-block;
+}
+
+.check{
+  width: 10px !important;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  display:inline-block;;
+}
+
+#gamme img {
+  border: grey 1px solid;
+  width: 300px;
+  max-width:100%;
+}
+
+.blocimage {
+ width: 60%;
+ max-width: 350px;
+ height: 100%;
+ max-height:506px;
+ height: 60%;
+ margin-top:20px;
+}
+
+.legend {
+  font-size:20px; 
+}
+
+.legend2 {
+  font-size:20px; 
+  margin: 0 0 0 19%;
+}
+
+.legend3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 24%;
+}
+
+#image_produit {
+    width: 100%;
+	max-width:420px;
+	display:inline-block;
+	float:left;
+	margin-right:50px;
+}
+
+#image_produit {
+    width: 80%;
+	max-width:420px;
+	display:inline-block;
+	float:left;
+	margin-right:50px;
+}
+
+.horizontal_remplissage {
+    width: 100%;
+	max-width:600px;
+	display:inline-block;
+	float:left;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+#right .label {
+  width: 150px;
+  margin: 8px 0;
+  display:inline-block;
+}
+
+#left #image_produit {
+  max-width: 500px;
+  width:100%;
+}
+
+#right input, #right select {
+  width: 100%;
+  max-width:200px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size:16px;
+  margin: 5px 0;
+}
+
+#submitButton {
+	float:right;
+}
+
+#right input[type="submit"] {
+	float:right;
+	background-color: #a4bd0a;
+	color: #ffffff;
+	font-family: 'Montserrat';
+	padding: 10 px 20px;
+	font-size: 20px;
+	border: none;
+	cursor:pointer;
+}
+
+#vitre ul {
+	margin: 0 0 19px -35px;
+}
+
+#vitre li {
+	margin: 10px 0 19px 0;
+}

@@ -14,7 +14,8 @@
                 background-color:#ffffff;
                 font-size:0.0001em;
                 width: 28%;
-                height: 100%;}
+                height: 100%;
+				cursor: pointer;}
             .image2{
                 border:none;
                 background-image:url('../ressources/porte_bi_aluminiumCollee.png');
@@ -24,7 +25,8 @@
                 background-color:#ffffff;
                 font-size:0.0001em;
                 width: 28%;
-                height: 100%;}
+                height: 100%;
+				cursor: pointer;}
             .image3{
                 border:none;
                 background-image:url('../ressources/porte_bi_bois.png');
@@ -34,14 +36,28 @@
                 background-color:#ffffff;
                 font-size:0.0001em;
                 width: 28%;
-                height: 100%;}
+                height: 100%;
+				cursor: pointer;}
         </style>
     </head>
     
-    <body>
-        <div class="header">
-            <a href="../index.php"> <img src="../ressources/mecanalu.png"> </a>
-        </div> 
+    <body id="page">
+
+	<div class="header">
+		<p class="top"><a href="index.php"> <img src="../ressources/mecanalu.png"> </a></p>
+		
+		<div id="menu"><ul>
+		<li><a href="https://www.mecanalu.com/">Accueil</a></li>
+		<li><a href="https://www.mecanalu.com/produits">Produits</a></li>
+		<li><a href="https://www.mecanalu.com/ambiances">Ambiances</a></li>
+		<li><a href="https://www.mecanalu.com/societe">Société</a></li>
+		<li><a href="https://www.mecanalu.com/catalogues">Catalogues</a></li>
+		<li><a href="https://www.mecanalu.com/contact">Contact</a></li>
+		<li><a href="http://dev.mecanalu.com/auth/login" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,');return false;">Portail Client</a></li>
+		</ul>
+		</div>
+		
+	</div>  
         
         <div id="content">
             <h3> EVIDENCE - PORTE Bi-affleurante</h3>
@@ -53,11 +69,13 @@
                 <input type="submit" id="horizontal_item" name="porte" value="porte_bi_aluminiumCollee" alt="Submit Form"  class="image2"/>
                 <input type="submit" id="horizontal_item" name="porte" value="porte_bi_bois" alt="Submit Form"  class="image3"/>
             </form></div>
+			
+	<footer>
+        <button onclick="window.location.href='evidence_portes.php'">Précédent</button>
+    </footer>
         </div>
 
     </body>
 
-    <footer>
-        <button onclick="window.location.href='evidence_portes.php'">Précédent</button>
-    </footer>
+
 </html>

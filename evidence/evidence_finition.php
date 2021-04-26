@@ -50,23 +50,37 @@
             grid-auto-rows: minmax(100px, auto);
         }
         #left{
-            float:left;
-            width:40%;
-            height: 50%;
-            padding:2%;
+            float: left;
+			max-width: 500px;
+			width: 100%;
+			padding: 0%;
         }
         #right{
-            float:right;
-            width:55%;
-            height: 50%;
+            float: left;
+			max-width: 400px;
+			width: 100%;
+			margin-left: 5%;
         }
     </style>
 </head>
 
-<body>
-    <div class="header">
-        <a href="../index.php"> <img src="../ressources/mecanalu.png"> </a>
-    </div> 
+    <body id="page">
+
+	<div class="header">
+		<p class="top"><a href="index.php"> <img src="../ressources/mecanalu.png"> </a></p>
+		
+		<div id="menu"><ul>
+		<li><a href="https://www.mecanalu.com/">Accueil</a></li>
+		<li><a href="https://www.mecanalu.com/produits">Produits</a></li>
+		<li><a href="https://www.mecanalu.com/ambiances">Ambiances</a></li>
+		<li><a href="https://www.mecanalu.com/societe">Société</a></li>
+		<li><a href="https://www.mecanalu.com/catalogues">Catalogues</a></li>
+		<li><a href="https://www.mecanalu.com/contact">Contact</a></li>
+		<li><a href="http://dev.mecanalu.com/auth/login" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,');return false;">Portail Client</a></li>
+		</ul>
+		</div>
+		
+	</div> 
 
     <div id="content" style="height:75%;">
         <h3> EVIDENCE SELECTIONNEZ VOS FINITIONS - <?php echo $nom_produit; ?> </h3>
@@ -78,11 +92,11 @@
             <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
             <form action="evidence_portes.php" method="post">
                 <div>
-                    <label for="hauteur">Hauteur :</label>
+                    <label class="label" for="hauteur">Hauteur :</label>
                     <input type="text" id="hauteur" name="hauteur">
                 </div>
                 <div>
-                    <label for="ral">Ral :</label>
+                    <label class="label" for="ral">Ral :</label>
                     <select name="ral">
                         <option class="ral" value="null">Menu déroulant</option>
                     </select>
@@ -91,7 +105,7 @@
                 <!-- PLEIN -->
                 <div id="plein">
                     <div>
-                        <label for="plein">Plein :</label>
+                        <label class="label" for="plein">Plein :</label>
                         <select name="plein">
                             <option class="plein" value="null">Sélectionner</option>
                             <option class="e_cj" value="melamine">Mélaminé</option>
@@ -102,13 +116,13 @@
                         </select>
                     </div>
                     <div>
-                        <label for="fournisseur">Fournisseur :</label>
+                        <label class="label" for="fournisseur">Fournisseur :</label>
                         <select name="fournisseur">
                             <option class="fournisseur" value="null">Sélectionner</option>
                         </select>
                     </div>
                     <div>
-                        <label for="pleinPV">Plein PV :</label>
+                        <label class="label" for="pleinPV">Plein PV :</label>
                         <select name="pleinPV">
                             <option class="pleinPV" value="null">Sélectionner</option>
                         </select>
@@ -117,17 +131,17 @@
                 <!-- VITRE -->
                 <div id=vitre>
                     <div style="display: flex;flex-wrap: wrap;">
-                        <label for="concept">Concept :</label>
+                        <label class="label" for="concept">Concept :</label>
                         <div id="concept">
                         </div>
                         <div>
                             <ul style="list-style-type: none;">        
                                 <li class="e_cj">
-                                    <input type="checkbox" id="atelier" name="concept" checked>
+                                    <input class="check" type="checkbox" id="atelier" name="concept" checked>
                                     <label for="atelier">Version Atelier</label>
                                 </li>
                                 <li class="e_cj">
-                                    <input type="checkbox" id="air" name="concept">
+                                    <input class="check" type="checkbox" id="air" name="concept">
                                     <label for="air">Version Air</label>
                                 </li>
                                 <li class="e_bb">
@@ -142,41 +156,41 @@
                         </div>
                     </div>
                     <div>
-                        <label for="vitre">Vitré :</label>
+                        <label class="label" for="vitre">Vitré :</label>
                         <select name="vitre">
                             <option class="vitre" value="null">Sélectionner</option>
                         </select>
                     </div>
                     <div>
-                        <label for="vitrePV">Vitré PV :</label>
+                        <label class="label" for="vitrePV">Vitré PV :</label>
                         <select name="vitrePV">
                             <option class="vitrePV" value="null">Sélectionner</option>
                         </select>
                     </div>
                     <div style="display: flex;flex-wrap: wrap;">
-                        <label for="finition_vitre">Finition Vitré :</label>
+                        <label class="label" for="finition_vitre">Finition Vitré :</label>
                         <div id="finition_vitre">
                         </div>
                         <div>
                             <ul style="list-style-type: none;">        
                                 <li class="e_cj">
-                                    <input type="checkbox" id="trempe" name="finition_vitre" checked>
+                                    <input class="check" type="checkbox" id="trempe" name="finition_vitre" checked>
                                     <label for="trempe">Trempé</label>
                                 </li>
                                 <li class="e_cj">
-                                    <input type="checkbox" id="feuillete" name="finition_vitre">
+                                    <input class="check" type="checkbox" id="feuillete" name="finition_vitre">
                                     <label for="feuillete">Feuilleté</label>
                                 </li>
                                 <li class="e_bb">
-                                    <input type="checkbox" id="clair" name="finition_vitre">
+                                    <input class="check" type="checkbox" id="clair" name="finition_vitre">
                                     <label for="clair">Clair</label>
                                 </li>
                                 <li class="e_bb">
-                                    <input type="checkbox" id="trempe" name="finition_vitre">
+                                    <input class="check" type="checkbox" id="trempe" name="finition_vitre">
                                     <label for="trempe">Trempé</label>
                                 </li>
                                 <li class="e_bb">
-                                    <input type="checkbox" id="feuillete" name="finition_vitre">
+                                    <input class="check" type="checkbox" id="feuillete" name="finition_vitre">
                                     <label for="feuillete">Feuilleté</label>
                                 </li>
                             </ul>
@@ -210,9 +224,11 @@
                     }
                 }
             </script>
+			
+			<footer>
+			<button onclick="window.location.href='evidence_remplissage.php'">Précédent</button>
+			</footer>
     </div>
 </body>
-<footer>
-    <button onclick="window.location.href='evidence_remplissage.php'">Précédent</button>
-</footer>
+
 </html>
