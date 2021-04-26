@@ -146,7 +146,7 @@
 
   <body>
   <div class="header">
-      <?php include('../includes/header.html'); ?>
+      <?php include('../includes/header_evidence.html'); ?>
   </div>
   <div id="content">
       <h3> Création de l'archive </h3>
