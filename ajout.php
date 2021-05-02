@@ -55,6 +55,6 @@
 
     <footer>
         <button id="buttonPasser" onclick="window.location.href='recapitulatif.php'">Passer</button>
-        <button onclick="window.location.href='portes_accessoires_formulaire.php'">Précédent</button>
+        <button onclick="window.location.href='evidence/evidence_options.php'">Précédent</button>
     </footer>
 </html>

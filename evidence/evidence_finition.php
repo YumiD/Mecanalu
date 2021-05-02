@@ -89,7 +89,15 @@
                     <label class="label" for="ral">Ral :</label>
                     <select name="ral">
                         <option class="ral" value="null">Menu déroulant</option>
+                        <option  class="ral" value="9010">9010 Blanc </option>
+                        <option  class="ral" value="9005">9005 Noir </option>
+                        <option  class="ral" value="9006">9006 Gris </option>
+                        <option  class="ral" value="9007">9007 Gris aluminium </option>
+                        <option  class="ral" value="7005">7005 Gris souris </option>
+                        <option  class="ral" value="7016">7016 Gris anthracite</option>
                     </select>
+                    <label class="label" for="ral_autre"></label>
+                    <input type="text" id="ral_autre" name="ral_autre" placeholder="Autre :">
                 </div>
                 <div style="margin-top:30px"></div>
                 <!-- PLEIN -->
@@ -127,30 +135,30 @@
                         <div>
                             <ul style="list-style-type: none;">        
                                 <li class="e_cj">
-                                    <input class="check" type="checkbox" id="atelier" name="concept" checked>
                                     <label for="atelier">Version Atelier</label>
+                                    <input class="check" type="checkbox" id="atelier" name="concept" checked>
                                 </li>
                                 <li class="e_cj">
+                                    <label for="air">Version Air</label>
                                     <input class="check" type="checkbox" id="air" name="concept">
-                                    <label for="air">Version Air</label>
                                 </li>
                                 <li class="e_bb">
-                                    <input type="checkbox" id="standard" name="concept">
                                     <label for="standard">Standard</label>
+                                    <input type="checkbox" id="standard" name="concept">
                                 </li>
                                 <li class="e_bb">
-                                    <input type="checkbox" id="air" name="concept">
                                     <label for="air">Version Air</label>
+                                    <input type="checkbox" id="air" name="concept">
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div>
+                    <!--<div>
                         <label class="label" for="vitre">Vitré :</label>
                         <select name="vitre">
                             <option class="vitre" value="null">Sélectionner</option>
                         </select>
-                    </div>
+                    </div>-->
                     <div>
                         <label class="label" for="vitrePV">Vitré PV :</label>
                         <select name="vitrePV">
@@ -164,24 +172,24 @@
                         <div>
                             <ul style="list-style-type: none;">        
                                 <li class="e_cj">
-                                    <input class="check" type="checkbox" id="trempe" name="finition_vitre" checked>
                                     <label for="trempe">Trempé</label>
+                                    <input class="check" type="checkbox" id="trempe" name="finition_vitre" checked>
                                 </li>
                                 <li class="e_cj">
-                                    <input class="check" type="checkbox" id="feuillete" name="finition_vitre">
                                     <label for="feuillete">Feuilleté</label>
+                                    <input class="check" type="checkbox" id="feuillete" name="finition_vitre">
                                 </li>
-                                <li class="e_bb">
-                                    <input class="check" type="checkbox" id="clair" name="finition_vitre">
+                                <li class="e_cj">
                                     <label for="clair">Clair</label>
+                                    <input class="check" type="checkbox" id="clair" name="finition_vitre">
                                 </li>
                                 <li class="e_bb">
-                                    <input class="check" type="checkbox" id="trempe" name="finition_vitre">
                                     <label for="trempe">Trempé</label>
+                                    <input class="check" type="checkbox" id="trempe" name="finition_vitre">
                                 </li>
                                 <li class="e_bb">
+                                    <label for="clair">Feuilleté</label>
                                     <input class="check" type="checkbox" id="feuillete" name="finition_vitre">
-                                    <label for="feuillete">Feuilleté</label>
                                 </li>
                             </ul>
                         </div>

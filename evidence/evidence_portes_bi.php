@@ -16,7 +16,7 @@
                 width: 28%;
                 height: 100%;
 				cursor: pointer;}
-            .image2{
+            /*.image2{
                 border:none;
                 background-image:url('../ressources/porte_bi_aluminiumCollee.png');
                 background-repeat:no-repeat;
@@ -26,7 +26,7 @@
                 font-size:0.0001em;
                 width: 28%;
                 height: 100%;
-				cursor: pointer;}
+				cursor: pointer;}*/
             .image3{
                 border:none;
                 background-image:url('../ressources/porte_bi_bois.png');
@@ -52,9 +52,14 @@
 
             <h4> Choisissez entre <h4>
 
-            <div id="horizontal"> <form action="evidence_portes_formulaire.php" method="post">
+            <div id="horizontal"> 
+            
+			<span class="legend3"> Cadre alluminium </span>
+			<span class="legend3"> Bois </span>
+
+            <form action="evidence_portes_formulaire.php" method="post">
                 <input type="submit" id="horizontal_item" name="porte" value="porte_bi_cadreAluminium" alt="Submit Form" class="image1"/>
-                <input type="submit" id="horizontal_item" name="porte" value="porte_bi_aluminiumCollee" alt="Submit Form"  class="image2"/>
+                <!--<input type="submit" id="horizontal_item" name="porte" value="porte_bi_aluminiumCollee" alt="Submit Form"  class="image2"/>-->
                 <input type="submit" id="horizontal_item" name="porte" value="porte_bi_bois" alt="Submit Form"  class="image3"/>
             </form></div>
 			

@@ -1,21 +1,22 @@
+    
+<?php
+session_start();
+
+header('Location: evidence/evidence_creation.php');
+
+$nom_entreprise = $_SESSION['nom_entreprise'];
+$nom_projet = $_SESSION['nom_projet'];
+$presentation = $_SESSION['presentation'];
+$fiche_technique = $_SESSION['fiche_technique'];
+$PV = $_SESSION['PV'];
+$gamme = $_SESSION['gamme'];
+$produit = $_SESSION['produit'];
+  ?>
 <html>
     <!--<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.3.1/dist/pptxgen.bundle.js"></script>-->
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.4.0/dist/pptxgen.bundle.js"></script>
     <!--<script src="FileSaver.js"></script> INUTILE -->
-    
-    <?php
-    session_start();
 
-    header('Location: evidence/evidence_creation.php');
-
-    $nom_entreprise = $_SESSION['nom_entreprise'];
-    $nom_projet = $_SESSION['nom_projet'];
-    $presentation = $_SESSION['presentation'];
-    $fiche_technique = $_SESSION['fiche_technique'];
-    $PV = $_SESSION['PV'];
-    $gamme = $_SESSION['gamme'];
-    $produit = $_SESSION['produit'];
-      ?>
 
     <script type="text/javascript">
 

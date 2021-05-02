@@ -60,7 +60,7 @@
             
             <div id="right">
             <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
-            <form action="../portes_accessoires.php" method="post">
+            <form action="../ajout.php" method="post">
                 <!-- DIMENSION -->
                 <div id="dimension">
                     <label for="dimension">Dimension :</label>
@@ -83,7 +83,15 @@
                     <label for="ral">RAL :</label>
                     <select name="ral">
                         <option class="ral" value="null">Menu déroulant</option>
+                        <option  class="ral" value="9010">9010 Blanc </option>
+                        <option  class="ral" value="9005">9005 Noir </option>
+                        <option  class="ral" value="9006">9006 Gris </option>
+                        <option  class="ral" value="9007">9007 Gris aluminium </option>
+                        <option  class="ral" value="7005">7005 Gris souris </option>
+                        <option  class="ral" value="7016">7016 Gris anthracite</option>
                     </select>
+                    <label class="label" for="ral_autre"></label>
+                    <input type="text" id="ral_autre" name="ral_autre" placeholder="Autre :">
                 </div>
                 <!-- FINITION -->
                 <div id="finition" style="display: flex;flex-wrap: wrap;">
@@ -124,7 +132,7 @@
                     </div>
                 </div>
                 <!-- FOURNISSEUR -->
-                <div id="fournisseur" style="display: flex;flex-wrap: wrap;">
+                <!--<div id="fournisseur" style="display: flex;flex-wrap: wrap;">
                     <label for="fournisseur">Fournisseur :</label>
                     <div id="fournisseur">
                     </div>
@@ -140,7 +148,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>-->
                 <!-- DOCUMENT TECHNIQUE -->
                 <div id="doc_technique" style="display: flex;flex-wrap: wrap;">
                     <label for="doc_technique">Document Technique :</label>
@@ -177,7 +185,7 @@
                 if(option=="option_store"){
                     document.getElementById("rayon_cintrage").style.display = "none";
                     document.getElementById("ral").style.display = "none";
-                    document.getElementById("fournisseur").style.display = "none";
+                    //document.getElementById("fournisseur").style.display = "none";
                     DeleteByClass("vitre"); DeleteByClass("stratifie"); DeleteByClass("vinylique"); DeleteByClass("dv"); DeleteByClass("sv"); //Finition
                 }
                 else if(option=="option_ecrimur"){
@@ -189,7 +197,7 @@
                 else if(option=="option_cintrage"){
                     document.getElementById("dimension").style.display = "none";
                     document.getElementById("couleur").style.display = "none";
-                    document.getElementById("fournisseur").style.display = "none";
+                    //document.getElementById("fournisseur").style.display = "none";
                     document.getElementById("doc_technique").style.display = "none";
                     DeleteByClass("vitre"); DeleteByClass("stratifie"); DeleteByClass("vinylique"); DeleteByClass("manuel"); DeleteByClass("electrique"); //Finition
                 }

@@ -1,3 +1,31 @@
+<?php
+    session_start();
+    
+    if(!empty($_POST['option']))
+    {
+        foreach($_POST['option'] as $option){
+            if($option == "1") {    
+                $accessoire = "accessoire_bequillage";
+                $_SESSION["accessoire"] = $accessoire;
+                $nom_accessoire="Béquillage";
+            }
+            else if($option == "2") {    
+                $accessoire = "accessoire_paumelle";
+                $_SESSION["accessoire"] = $accessoire;
+                $nom_accessoire="Paumelles";
+            }
+            else if($option == "3") {    
+                $accessoire = "accessoire_serrure";
+                $_SESSION["accessoire"] = $accessoire;
+                $nom_accessoire="Serrures";
+            }
+        }
+        $_SESSION["accessoire"] = $accessoire;
+        $_SESSION["nom_accessoire"] = $nom_accessoire;
+    }
+
+?>
+
 <html>
     <head>
         <meta charset="utf-8" />
@@ -48,7 +76,12 @@
 
             <h4> Choisissez entre <h4>
 
-            <div id="horizontal"> <form action="evidence_options_formulaire.php" method="post">
+            <div id="horizontal">
+			<span class="legend3"> Store </span>
+			<span class="legend3"> Ecrimur </span>
+			<span class="legend3"> Cintrage </span>
+            
+            <form action="evidence_options_formulaire.php" method="post">
                 <input type="submit" id="horizontal_item" name="option" value="option_store" alt="Submit Form" class="image1"/>
                 <input type="submit" id="horizontal_item" name="option" value="option_ecrimur" alt="Submit Form"  class="image2"/>
                 <input type="submit" id="horizontal_item" name="option" value="option_cintrage" alt="Submit Form"  class="image3"/>
@@ -58,6 +91,6 @@
     </body>
 
     <footer>
-        <button id="buttonPasser" onclick="window.location.href='../portes_accessoires.php'">Passer</button>
+        <button id="buttonPasser" onclick="window.location.href='../ajout.php'">Passer</button>
     </footer>
 </html>

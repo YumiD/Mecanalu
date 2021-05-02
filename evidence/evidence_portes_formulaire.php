@@ -84,14 +84,18 @@
                     <div id="finition">
                     </div>
                     <div>
-                        <ul style="list-style-type: none;">        
-                            <li class="plein">
-                                <input type="checkbox" id="plein" name="finition" checked>
-                                <label for="plein">Plein</label>
+                        <ul style="list-style-type: none;">
+                            <li class="finition-plein">
+                                <input type="checkbox" id="finition-plein" name="finition">
+                                <label for="finition-plein">Plein</label>
                             </li>
-                            <li class="vitre">
-                                <input type="checkbox" id="vitre" name="finition">
-                                <label for="vitre">Vitré</label>
+                            <li class="finition-vitre">
+                                <input type="checkbox" id="finition-vitre" name="finition">
+                                <label for="finition-vitre">Vitré</label>
+                            </li>
+                            <li class="finition-stratifie">
+                                <input type="checkbox" id="finition-stratifie" name="finition">
+                                <label for="finition-stratifie">Stratifié</label>
                             </li>
                         </ul>
                     </div>
@@ -133,26 +137,61 @@
                     <label for="pv">PV :</label>
                     <select name="pv">
                         <option class="pv" value="null">Menu déroulant</option>
+                        <option hidden class="pv_bois" value="biaff_bois">Biaff bois</option>
+                        <option hidden class="pv_plein" value="standard">Standard</option>
+                        <option hidden class="pv_plein" value="prema30">Prema 30 dB </option>
+                        <option hidden class="pv_plein" value="prema35">Prema 35 dB </option>
+                        <option hidden class="pv_plein" value="prema38">Prema 38 dB </option>
+                        <option hidden class="pv_plein" value="prema39">Prema 39 dB </option>
+                        <option hidden class="pv_plein" value="prema41">Prema 41 dB </option>
                     </select>
                 </div>
                 <!-- OPTION -->
+                <label for="option">Option :</label>
                 <div id="option">
-                    <label for="option">Option :</label>
-                    <select name="option">
-                        <option class="option" value="null">Menu déroulant</option>
-                    </select>
                 </div>
+                <div>
+                    <ul style="list-style-type: none;">
+                        <li class="accessoire_bequillage">
+                            <label for="accessoire_bequillage">Béquillage</label>
+                            <input type="checkbox" id="accessoire_bequillage" name="option[]" value="1">
+                        </li>
+                        <li class="accessoire_paumelle">
+                            <label for="accessoire_paumelle">Paumelles</label>
+                            <input type="checkbox" id="accessoire_paumelle" name="option[]" value="2">
+                        </li>
+                        <li class="accessoire_serrure">
+                            <label for="accessoire_serrure">Serrure</label>
+                            <input type="checkbox" id="accessoire_serrure" name="option[]" value="3">
+                        </li>
+                    </ul>
+                </div>
+
                 <div style="margin-top:30px"></div>
                 <div id="submitButton"> <input type="submit" value="Suivant"> </div>
             </form>
             </div>
 
             <script type="text/javascript">
+                function DeleteByClass(id) {
+                    var elements = document.getElementsByClassName(id);
+                    for(var i=0; i<elements.length; i++) {
+                        elements[i].style.display = "none";
+                    }
+                }
+                function SetVisible(id){
+                    var elements = document.getElementsByClassName(id);
+                    for(var i=0; i<elements.length; i++) {
+                        elements[i].hidden = false;
+                    }
+                }
+
                 var porte = <?php echo json_encode($porte); ?>;
                 if(porte=="porte_pleine"){
                     document.getElementById("finition").style.display = "none";
                     document.getElementById("finition_vitre").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
+                    SetVisible("pv_plein");
                 }
                 else if(porte=="porte_vitre"){
                     document.getElementById("finition").style.display = "none";
@@ -163,25 +202,24 @@
                     document.getElementById("finition_vitre").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
+                    DeleteByClass("finition-stratifie");
                 }
                 else if(porte=="porte_bi_cadreAluminium"){
                     document.getElementById("finition").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
-                    document.getElementById("option").style.display = "none";
                 }
                 else if(porte=="porte_bi_aluminiumCollee"){
                     document.getElementById("finition").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
-                    document.getElementById("option").style.display = "none";
                 }
                 else if(porte=="porte_bi_bois"){
-                    document.getElementById("finition").style.display = "none";
                     document.getElementById("finition_vitre").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
-                    document.getElementById("option").style.display = "none";
+                    DeleteByClass("finition-vitre");DeleteByClass("finition-plein");
+                    SetVisible("pv_bois");
                 }
             </script>
     </div>
