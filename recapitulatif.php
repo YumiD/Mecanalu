@@ -17,6 +17,14 @@ else{ $nom_accessoire = ""; $_SESSION['nom_accessoire']="";}
 
 ?>
 
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.6.0/dist/pptxgen.bundle.js"></script>
+
+    <script type="text/javascript">
+        var nom_gamme = <?php echo json_encode($nom_gamme); ?>;
+        console.log(nom_gamme);
+        var pptx = new PptxGenJS();
+    </script>
+
 <html>
     <head>
         <meta charset="utf-8" />
@@ -63,7 +71,7 @@ else{ $nom_accessoire = ""; $_SESSION['nom_accessoire']="";}
             <h5> Télécharger</h5>
             <!--<a href="creation.php"> <img style="width:80;height:80;margin-right:20px;" src="ressources/icon/icon_powerpoint.png"> </a>
             <a href="creation.php"> <img style="width:80;height:80;" src="ressources/icon/icon_zip.png"> </a>-->
-            <form action="evidence/evidence_creation.php" method="post">
+            <form action="creation.php" method="post">
                 <input type="submit" id="horizontal_item" name="pptx" value="icon_powerpoint" alt="Submit Form" class="image1"/>
                 <input type="submit" id="horizontal_item" name="zip" value="icon_zip" alt="Submit Form"  class="image2"/>
             </form>

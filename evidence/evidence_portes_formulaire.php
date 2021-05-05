@@ -8,7 +8,8 @@
     else $porte=$_SESSION["porte"];
 
     if($porte=="porte_bi"){
-        header('Location: evidence_portes_bi.php');
+        //header('Location: evidence_portes_bi.php');
+        echo "<script type='text/javascript'> document.location = 'evidence_portes_bi.php'; </script>";
     }
     else if($porte=="porte_pleine"){
         $nom_porte="Pleine";
@@ -30,7 +31,17 @@
     }
     $_SESSION["nom_porte"] = $nom_porte;
 
+    $nom_entreprise = $_SESSION['nom_entreprise'];
+
 ?>
+
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.6.0/dist/pptxgen.bundle.js"></script>
+
+    <script type="text/javascript">
+        var porte = <?php echo json_encode($porte); ?>;
+        console.log(porte);
+        var pptx = new PptxGenJS();
+    </script>
 
 <html>
     <head>
@@ -59,7 +70,7 @@
         </style>
     </head>
 
-    <body>
+    <body id="page">
     <div class="header">
         <?php include('../includes/header_evidence.html'); ?>
     </div> 
@@ -75,66 +86,66 @@
             <form action="evidence_options.php" method="post">
                 <!-- HAUTEUR -->
                 <div>
-                    <label for="hauteur">Hauteur :</label>
+                    <label class="label" for="hauteur">Hauteur :</label>
                     <input type="text" id="hauteur" name="hauteur">
                 </div>
                 <!-- FINITION -->
                 <div id="finition" style="display: flex;flex-wrap: wrap;">
-                    <label for="finition">Finition :</label>
+                    <label class="label" for="finition">Finition :</label>
                     <div id="finition">
                     </div>
                     <div>
                         <ul style="list-style-type: none;">
                             <li class="finition-plein">
                                 <input type="checkbox" id="finition-plein" name="finition">
-                                <label for="finition-plein">Plein</label>
+                                <label class="label" for="finition-plein">Plein</label>
                             </li>
                             <li class="finition-vitre">
                                 <input type="checkbox" id="finition-vitre" name="finition">
-                                <label for="finition-vitre">Vitré</label>
+                                <label class="label" for="finition-vitre">Vitré</label>
                             </li>
                             <li class="finition-stratifie">
                                 <input type="checkbox" id="finition-stratifie" name="finition">
-                                <label for="finition-stratifie">Stratifié</label>
+                                <label class="label" for="finition-stratifie">Stratifié</label>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <!-- FINITION VITRE -->
                 <div id="finition_vitre" style="display: flex;flex-wrap: wrap;">
-                    <label for="finition_vitre">Finition Vitré :</label>
+                    <label class="label" for="finition_vitre">Finition Vitré :</label>
                     <div id="finition_vitre">
                     </div>
                     <div>
                         <ul style="list-style-type: none;">        
                             <li class="plein">
-                                <input type="checkbox" id="plein" name="finition_vitre" checked>
-                                <label for="plein">Plein</label>
+                                <input class="check" type="checkbox" id="plein" name="finition_vitre" checked>
+                                <label class="label" for="plein">Plein</label>
                             </li>
                             <li class="vitre">
-                                <input type="checkbox" id="vitre" name="finition_vitre">
-                                <label for="vitre">Vitré</label>
+                                <input class="check" type="checkbox" id="vitre" name="finition_vitre">
+                                <label class="label" for="vitre">Vitré</label>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <!-- STRATIFIE -->
                 <div id="stratifie">
-                    <label for="stratifie">Stratifié :</label>
+                    <label class="label" for="stratifie">Stratifié :</label>
                     <select name="stratifie">
                         <option class="stratifie" value="null">Menu déroulant</option>
                     </select>
                 </div>
                 <!-- VITRE -->
                 <div id="vitré">
-                    <label for="vitré">Vitré :</label>
+                    <label class="label" for="vitré">Vitré :</label>
                     <select name="vitré">
                         <option class="vitré" value="null">Menu déroulant</option>
                     </select>
                 </div>
                 <!-- PV -->
                 <div>
-                    <label for="pv">PV :</label>
+                    <label class="label" for="pv">PV :</label>
                     <select name="pv">
                         <option class="pv" value="null">Menu déroulant</option>
                         <option hidden class="pv_bois" value="biaff_bois">Biaff bois</option>
@@ -147,21 +158,21 @@
                     </select>
                 </div>
                 <!-- OPTION -->
-                <label for="option">Option :</label>
+                <label class="label" for="option">Option :</label>
                 <div id="option">
                 </div>
                 <div>
                     <ul style="list-style-type: none;">
                         <li class="accessoire_bequillage">
-                            <label for="accessoire_bequillage">Béquillage</label>
+                            <label class="label" for="accessoire_bequillage">Béquillage</label>
                             <input type="checkbox" id="accessoire_bequillage" name="option[]" value="1">
                         </li>
                         <li class="accessoire_paumelle">
-                            <label for="accessoire_paumelle">Paumelles</label>
+                            <label class="label" for="accessoire_paumelle">Paumelles</label>
                             <input type="checkbox" id="accessoire_paumelle" name="option[]" value="2">
                         </li>
                         <li class="accessoire_serrure">
-                            <label for="accessoire_serrure">Serrure</label>
+                            <label class="label" for="accessoire_serrure">Serrure</label>
                             <input type="checkbox" id="accessoire_serrure" name="option[]" value="3">
                         </li>
                     </ul>
@@ -187,6 +198,7 @@
                 }
 
                 var porte = <?php echo json_encode($porte); ?>;
+                console.log(porte);
                 if(porte=="porte_pleine"){
                     document.getElementById("finition").style.display = "none";
                     document.getElementById("finition_vitre").style.display = "none";

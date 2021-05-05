@@ -42,7 +42,10 @@
                 background-color:#ffffff;
                 font-size:0.0001em;
                 width: 28%;
-                height: 100%;}
+                max-width: 344px;
+                height: 100%;
+				max-height: 234px;
+				cursor: pointer;}
             .image2{
                 border:none;
                 background-image:url('../ressources/option_ecrimur.png');
@@ -52,7 +55,10 @@
                 background-color:#ffffff;
                 font-size:0.0001em;
                 width: 28%;
-                height: 100%;}
+                max-width: 344px;
+                height: 100%;
+				max-height: 234px;
+				cursor: pointer;}
             .image3{
                 border:none;
                 background-image:url('../ressources/option_cintrage.png');
@@ -62,11 +68,14 @@
                 background-color:#ffffff;
                 font-size:0.0001em;
                 width: 28%;
-                height: 100%;}
+                max-width: 344px;
+                height: 100%;
+				max-height: 234px;
+				cursor: pointer;}
         </style>
     </head>
     
-    <body>
+    <body id="page">
         <div class="header">
             <?php include('../includes/header_evidence.html'); ?>
         </div> 

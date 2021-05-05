@@ -1,8 +1,9 @@
     
 <?php
-session_start();
+//header('Location: evidence/evidence_creation.php');
+echo "<script type='text/javascript'> document.location = 'evidence/evidence_creation.php'; </script>";
 
-header('Location: evidence/evidence_creation.php');
+session_start();
 
 $nom_entreprise = $_SESSION['nom_entreprise'];
 $nom_projet = $_SESSION['nom_projet'];

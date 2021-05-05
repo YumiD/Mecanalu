@@ -34,8 +34,6 @@
     else if(isset($_POST['evidence_box']))
         $_SESSION["gamme"] = "evidence_box";
 
-    echo $_SESSION["gamme"];
-
 ?>
 
 <html>

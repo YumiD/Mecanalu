@@ -47,7 +47,7 @@
         </style>
     </head>
 
-    <body>
+    <body id="page">
     <div class="header">
         <?php include('../includes/header_evidence.html'); ?>
     </div> 
@@ -63,24 +63,24 @@
             <form action="../ajout.php" method="post">
                 <!-- DIMENSION -->
                 <div id="dimension">
-                    <label for="dimension">Dimension :</label>
+                    <label  class="label" for="dimension">Dimension :</label>
                     <input type="text" id="dimension" name="dimension">
                 </div>
                 <!-- RAYON DE CINTRAGE -->
                 <div id="rayon_cintrage">
-                    <label for="rayon_cintrage">Rayon de cintrage :</label>
+                    <label  class="label" for="rayon_cintrage">Rayon de cintrage :</label>
                     <input type="text" id="rayon_cintrage" name="rayon_cintrage">
                 </div>
                 <!-- COULEUR -->
                 <div id="couleur">
-                    <label for="couleur">Couleur :</label>
+                    <label  class="label" for="couleur">Couleur :</label>
                     <select name="couleur">
                         <option class="couleur" value="null">Menu déroulant</option>
                     </select>
                 </div>
                 <!-- RAL -->
                 <div id="ral">
-                    <label for="ral">RAL :</label>
+                    <label  class="label" for="ral">RAL :</label>
                     <select name="ral">
                         <option class="ral" value="null">Menu déroulant</option>
                         <option  class="ral" value="9010">9010 Blanc </option>
@@ -90,43 +90,43 @@
                         <option  class="ral" value="7005">7005 Gris souris </option>
                         <option  class="ral" value="7016">7016 Gris anthracite</option>
                     </select>
-                    <label class="label" for="ral_autre"></label>
+                    <label  class="label"  for="ral_autre"></label>
                     <input type="text" id="ral_autre" name="ral_autre" placeholder="Autre :">
                 </div>
                 <!-- FINITION -->
                 <div id="finition" style="display: flex;flex-wrap: wrap;">
-                    <label for="finition">Finition :</label>
+                    <label  class="label" for="finition">Finition :</label>
                     <div id="finition">
                     </div>
                     <div>
                         <ul style="list-style-type: none;">        
                             <li class="manuel">
-                                <input type="checkbox" id="manuel" name="finition" checked>
-                                <label for="manuel">Manuel</label>
+                                <input class="check" type="checkbox" id="manuel" name="finition" checked>
+                                <label  class="label" for="manuel">Manuel</label>
                             </li>
                             <li class="electrique">
-                                <input type="checkbox" id="electrique" name="finition">
-                                <label for="electrique">Electrique</label>
+                                <input class="check" type="checkbox" id="electrique" name="finition">
+                                <label  class="label" for="electrique">Electrique</label>
                             </li>
                             <li class="vitre">
-                                <input type="checkbox" id="vitre" name="finition">
-                                <label for="vitre">Vitré</label>
+                                <input class="check" type="checkbox" id="vitre" name="finition">
+                                <label  class="label" for="vitre">Vitré</label>
                             </li>
                             <li class="stratifie">
-                                <input type="checkbox" id="stratifie" name="finition">
-                                <label for="stratifie">Stratifié</label>
+                                <input class="check" type="checkbox" id="stratifie" name="finition">
+                                <label  class="label" for="stratifie">Stratifié</label>
                             </li>
                             <li class="vinylique">
-                                <input type="checkbox" id="vinylique" name="finition">
-                                <label for="vinylique">Vinylique</label>
+                                <input class="check" type="checkbox" id="vinylique" name="finition">
+                                <label  class="label" for="vinylique">Vinylique</label>
                             </li>
                             <li class="dv">
-                                <input type="checkbox" id="dv" name="finition">
-                                <label for="dv">DV</label>
+                                <input class="check" type="checkbox" id="dv" name="finition">
+                                <label  class="label" for="dv">DV</label>
                             </li>
                             <li class="sv">
-                                <input type="checkbox" id="sv" name="finition">
-                                <label for="sv">SV</label>
+                                <input class="check" type="checkbox" id="sv" name="finition">
+                                <label  class="label" for="sv">SV</label>
                             </li>
                         </ul>
                     </div>
@@ -157,12 +157,12 @@
                     <div>
                         <ul style="list-style-type: none;">        
                             <li class="oui">
-                                <input type="checkbox" id="oui" name="doc_technique" checked>
-                                <label for="oui">Oui</label>
+                                <input class="check" type="checkbox" id="oui" name="doc_technique" checked>
+                                <label class="label" for="oui">Oui</label>
                             </li>
                             <li class="non">
-                                <input type="checkbox" id="non" name="doc_technique">
-                                <label for="non">Non</label>
+                                <input class="check" type="checkbox" id="non" name="doc_technique">
+                                <label class="label" for="non">Non</label>
                             </li>
                         </ul>
                     </div>

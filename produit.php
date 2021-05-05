@@ -39,7 +39,8 @@
 
      if($gamme == "evidence"){
         $_SESSION["nom_gamme"] = "Evidence";
-        header('Location: evidence/evidence_produit.php');
+        //header('Location: evidence/evidence_produit.php');
+        echo "<script type='text/javascript'> document.location = 'evidence/evidence_produit.php'; </script>";
      }else if ($gamme == "boreale"){
         $_SESSION["nom_gamme"] = "Boréale";
      }else if ($gamme == "evidence_box"){
