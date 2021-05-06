@@ -15,7 +15,7 @@
             $nom_produit="Couvre joint Plein";
             $produit_final="e_cj_p";
             $_SESSION["produit_evidence"]="E_CJ_plein";
-        }else if($remplissage=="vitre"){
+        }else if($remplissage=="vitre" || $remplissage=="vitre_allege" ){
             $nom_produit="Couvre joint Vitré";
             $produit_final="e_cj_v";
             $_SESSION["produit_evidence"]="E_CJ_vitre";
@@ -26,7 +26,7 @@
             $nom_produit="Bord à Bord Plein";
             $produit_final="e_bb_p";
             $_SESSION["produit_evidence"]="E_BB_plein";
-        }else if($remplissage=="vitre"){
+        }else if($remplissage=="vitre" || $remplissage=="vitre_allege"){
             $nom_produit="Bord à Bord Vitré";
             $produit_final="e_bb_v";
             $_SESSION["produit_evidence"]="E_BB_vitre";
@@ -206,7 +206,7 @@
                 if(remplissage=="plein"){
                     document.getElementById("vitre").style.display = "none";
                 }
-                else if(remplissage=="vitre"){
+                else if(remplissage=="vitre" || remplissage=="vitre_allege"){
                     document.getElementById("plein").style.display = "none";
                 }
                 if(produit=="e_cj"){

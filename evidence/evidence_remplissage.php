@@ -47,6 +47,18 @@
 				width: 291px;
 				max-width: 100%;
 				cursor: pointer;}
+            .image3{
+                border:none;
+                background-image:url('../ressources/vitre_allege.png');
+                background-repeat:no-repeat;
+                background-position:center;
+                background-size:contain;
+                background-color:#ffffff;
+                font-size:0.0001em;
+                max-height:219px;
+				width: 202px;
+				max-width: 100%;
+				cursor: pointer;}
         </style>
     </head>
 
@@ -68,10 +80,12 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <h4> Choisissez entre </h4>  
 			<span class="legend2"> Plein </span>
-			<span class="legend2"> Vitré sur allège </span>			
+			<span class="legend2"> Vitré </span>		
+			<span class="legend2"> Vitré sur allège </span>		
             <form action="evidence_finition.php" method="post">
             <input type="submit" id="horizontal_item" name="remplissage" value="plein" alt="Submit Form" class="image1"/>
             <input type="submit" id="horizontal_item" name="remplissage" value="vitre" alt="Submit Form"  class="image2"/>
+            <input type="submit" id="horizontal_item" name="remplissage" value="vitre_allege" alt="Submit Form"  class="image3"/>
             </div></form>
         
 		

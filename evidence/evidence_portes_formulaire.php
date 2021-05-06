@@ -38,8 +38,6 @@
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.6.0/dist/pptxgen.bundle.js"></script>
 
     <script type="text/javascript">
-        var porte = <?php echo json_encode($porte); ?>;
-        console.log(porte);
         var pptx = new PptxGenJS();
     </script>
 
@@ -141,6 +139,9 @@
                     <label class="label" for="vitré">Vitré :</label>
                     <select name="vitré">
                         <option class="vitré" value="null">Menu déroulant</option>
+                        <option class="vitré" value="vitre_simple">Simple Vitrage</option>
+                        <option class="vitré" value="vitre_double">Double Vitrage</option>
+                        <option class="vitré" value="vitre_clarit">Clarit</option>
                     </select>
                 </div>
                 <!-- PV -->
@@ -177,6 +178,22 @@
                         </li>
                     </ul>
                 </div>
+                <!-- FERME PORTE -->
+                <label class="label" for="ferme_porte">Ferme Porte :</label>
+                <div id="ferme_porte">
+                </div>
+                <div>
+                    <ul style="list-style-type: none;">
+                        <li class="ferme_porte_visible">
+                            <label class="label" for="ferme_porte_visible">Visible</label>
+                            <input type="checkbox" id="ferme_porte_visible" name="ferme_porte[]" value="1">
+                        </li>
+                        <li class="ferme_porte_invisible">
+                            <label class="label" for="ferme_porte_invisible">Invisible</label>
+                            <input type="checkbox" id="ferme_porte_invisible" name="ferme_porte[]" value="2">
+                        </li>
+                    </ul>
+                </div>
 
                 <div style="margin-top:30px"></div>
                 <div id="submitButton"> <input type="submit" value="Suivant"> </div>
@@ -198,7 +215,6 @@
                 }
 
                 var porte = <?php echo json_encode($porte); ?>;
-                console.log(porte);
                 if(porte=="porte_pleine"){
                     document.getElementById("finition").style.display = "none";
                     document.getElementById("finition_vitre").style.display = "none";

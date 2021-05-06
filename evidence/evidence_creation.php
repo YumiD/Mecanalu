@@ -54,7 +54,7 @@
           if(remplissage=="plein"){
             var slide = pptx.addSlide();
             slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_p.png", x:0, y:0, w:'100%', h:'100%' });
-          }else if(remplissage=="vitre"){
+          }else if(remplissage=="vitre" || remplissage=="vitre_allege"){
             var slide = pptx.addSlide();
             slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_v.png", x:0, y:0, w:'100%', h:'100%' });
           }
@@ -64,43 +64,54 @@
           if(remplissage=="plein"){
             var slide = pptx.addSlide();
             slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_p.png", x:0, y:0, w:'100%', h:'100%' });
-          }else if(remplissage=="vitre"){
+          }else if(remplissage=="vitre" || remplissage=="vitre_allege"){
             var slide = pptx.addSlide();
             slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_v.png", x:0, y:0, w:'100%', h:'100%' });
           }
         }
 
-        if(porte = "porte_bi_bois"){
+        if(porte == "porte_bi_bois"){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/porte_bi_bois.png", x:0, y:0, w:'100%', h:'100%' });
           var isPorteBi = true;
-        } else if(porte = "porte_bi_cadreAluminium"){
+        } else if(porte == "porte_bi_cadreAluminium"){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/porte_bi_cadreAlu.png", x:0, y:0, w:'100%', h:'100%' });
           var isPorteBi = true;
-        } else if(porte = "porte_pleine"){
+        } else if(porte == "porte_pleine"){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/porte_pleine.png", x:0, y:0, w:'100%', h:'100%' });
           var isPorteBi = false;    
-        } else if(porte = "porte_vitre"){
+        } else if(porte == "porte_vitre"){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/porte_clarit.png", x:0, y:0, w:'100%', h:'100%' });
           var isPorteBi = false;    
-        } else if(porte = "porte_coulissante"){
+        } else if(porte == "porte_coulissante"){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/porte_coulissante.png", x:0, y:0, w:'100%', h:'100%' });
           var isPorteBi = false;    
         }
 
-        if(accessoire = "accessoire_bequillage" && isPorteBi==true){
+        if(accessoire == "accessoire_bequillage" && isPorteBi==true){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_bequillage_bi.png", x:0, y:0, w:'100%', h:'100%' });
-        } else if(accessoire = "accessoire_bequillage" && isPorteBi==false){
+        } else if(accessoire == "accessoire_bequillage" && isPorteBi==false){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_bequillage.png", x:0, y:0, w:'100%', h:'100%' });
-        } else if(accessoire = "accessoire_paumelle"){
+        } else if(accessoire == "accessoire_paumelle"){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_paumelles_visible.png", x:0, y:0, w:'100%', h:'100%' });
+        }
+
+        if(option == "option_store"){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/option_store.png", x:0, y:0, w:'100%', h:'100%' });
+        } else if(option == "option_ecrimur"){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/option_ecrimur.png", x:0, y:0, w:'100%', h:'100%' });
+        } else if(option == "option_cintrage"){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/option_cintrage.png", x:0, y:0, w:'100%', h:'100%' });
         }
 
         /*------PREMIERE PAGE-------*/

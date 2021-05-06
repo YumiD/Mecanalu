@@ -11,7 +11,7 @@
         <style>
             .image1{ /* Le premier bouton */
                 border:none;
-                background-image:url('../ressources/e_cj.png');
+                background-image:url('../ressources/boreale.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;
@@ -26,7 +26,7 @@
 				cursor: pointer;}
             .image2{
                 border:none;
-                background-image:url('../ressources/e_bb.png');
+                background-image:url('../ressources/boreale_verriere.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;
@@ -53,9 +53,9 @@
 
         <div id="horizontal"> 
 		  
-		<form action="evidence_remplissage.php" method="post">
-           <div class="blocimage"><span class="legend"> Couvre-joint </span><input type="submit" id="horizontal_item" name="produit" value="e_cj" alt="Submit Form" class="image1"/></div>
-            <div class="blocimage"><span class="legend"> Bord à bord </span><input type="submit" id="horizontal_item" name="produit" value="e_bb" alt="Submit Form"  class="image2"/></div>
+		<form action="boreale_produit.php" method="post">
+           <div class="blocimage"><span class="legend"> Boreale </span><input type="submit" id="horizontal_item" name="produit" value="b" alt="Submit Form" class="image1"/></div>
+            <div class="blocimage"><span class="legend"> Boreale Verrière </span><input type="submit" id="horizontal_item" name="produit" value="b_v" alt="Submit Form"  class="image2"/></div>
         </form></div>
 		
 	<footer>

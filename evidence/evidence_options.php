@@ -23,6 +23,14 @@
         $_SESSION["accessoire"] = $accessoire;
         $_SESSION["nom_accessoire"] = $nom_accessoire;
     }
+    
+    $porte = $_SESSION["porte"];
+    if($porte == "porte_bi_cadreAluminium" || $porte == "porte_bi_bois" ){
+        $_SESSION["ferme_porte"]="";
+    }
+    else{
+        $_SESSION["ferme_porte"]="";
+    }
 
 ?>
 
