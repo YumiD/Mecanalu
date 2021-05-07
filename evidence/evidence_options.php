@@ -9,19 +9,32 @@
                 $_SESSION["accessoire"] = $accessoire;
                 $nom_accessoire="Béquillage";
             }
-            else if($option == "2") {    
+            else if($option == "2" || $option == "3") {    
                 $accessoire = "accessoire_paumelle";
                 $_SESSION["accessoire"] = $accessoire;
                 $nom_accessoire="Paumelles";
             }
-            else if($option == "3") {    
+            else if($option == "4" || $option == "5") {    
                 $accessoire = "accessoire_serrure";
                 $_SESSION["accessoire"] = $accessoire;
                 $nom_accessoire="Serrures";
             }
         }
-        $_SESSION["accessoire"] = $accessoire;
         $_SESSION["nom_accessoire"] = $nom_accessoire;
+    }
+    
+    if(!empty($_POST['ferme_porte']))
+    {
+        foreach($_POST['ferme_porte'] as $ferme_porte){
+            if($ferme_porte == "1") {    
+                $nom_ferme_porte = "visible";
+                $_SESSION["ferme_porte"] = $nom_ferme_porte;
+            }
+            else if($ferme_porte == "2") {  
+                $nom_ferme_porte = "invisible";  
+                $_SESSION["ferme_porte"] = $nom_ferme_porte;
+            }
+        }
     }
     
     $porte = $_SESSION["porte"];

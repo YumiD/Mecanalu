@@ -14,6 +14,7 @@
     $nom_option = $_SESSION['nom_option'];
     $accessoire = $_SESSION["accessoire"];
     $nom_accessoire = $_SESSION['nom_accessoire'];
+    $ferme_porte = $_SESSION["ferme_porte"];
 
     $remplissage = $_SESSION['remplissage'];
     $produit = $_SESSION['produit'];
@@ -40,6 +41,8 @@
         var option = <?php echo json_encode($option); ?>;
         console.log(option);
         var accessoire = <?php echo json_encode($accessoire); ?>;
+        var ferme_porte = <?php echo json_encode($ferme_porte); ?>;
+        console.log(ferme_porte);
         
         var remplissage = <?php echo json_encode($remplissage); ?>;
         var produit = <?php echo json_encode($produit); ?>;
@@ -101,6 +104,14 @@
         } else if(accessoire == "accessoire_paumelle"){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_paumelles_visible.png", x:0, y:0, w:'100%', h:'100%' });
+        }
+
+        if(ferme_porte == "visible"){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_fermeporte_visible.png", x:0, y:0, w:'100%', h:'100%' });
+        } else if(ferme_porte == "invisible"){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_fermeporte_invisible.png", x:0, y:0, w:'100%', h:'100%' });
         }
 
         if(option == "option_store"){

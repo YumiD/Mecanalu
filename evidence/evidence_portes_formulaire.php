@@ -132,6 +132,9 @@
                     <label class="label" for="stratifie">Stratifié :</label>
                     <select name="stratifie">
                         <option class="stratifie" value="null">Menu déroulant</option>
+                        <option class="stratifie" value="formica">Formica</option>
+                        <option class="stratifie" value="polyrey">Polyrey</option>
+                        <option class="stratifie" value="egger">Egger</option>
                     </select>
                 </div>
                 <!-- VITRE -->
@@ -149,13 +152,16 @@
                     <label class="label" for="pv">PV :</label>
                     <select name="pv">
                         <option class="pv" value="null">Menu déroulant</option>
-                        <option hidden class="pv_bois" value="biaff_bois">Biaff bois</option>
                         <option hidden class="pv_plein" value="standard">Standard</option>
                         <option hidden class="pv_plein" value="prema30">Prema 30 dB </option>
                         <option hidden class="pv_plein" value="prema35">Prema 35 dB </option>
                         <option hidden class="pv_plein" value="prema38">Prema 38 dB </option>
                         <option hidden class="pv_plein" value="prema39">Prema 39 dB </option>
                         <option hidden class="pv_plein" value="prema41">Prema 41 dB </option>
+                        <option hidden class="pv_cadreAlu_vitre" value="prema41">DV73 8+6 </option>
+                        <option hidden class="pv_cadreAlu_vitre" value="prema41">DV73 44,2+33,2</option>
+                        <option hidden class="pv_cadreAlu_plein" value="prema41">DV73 agglo 8</option>
+                        <option hidden class="pv_cadreAlu_plein" value="prema41">DV73 Agglo dB</option>
                     </select>
                 </div>
                 <!-- OPTION -->
@@ -164,17 +170,29 @@
                 </div>
                 <div>
                     <ul style="list-style-type: none;">
-                        <li class="accessoire_bequillage">
+                        <li hidden class="accessoire_bequillage">
                             <label class="label" for="accessoire_bequillage">Béquillage</label>
                             <input type="checkbox" id="accessoire_bequillage" name="option[]" value="1">
                         </li>
-                        <li class="accessoire_paumelle">
-                            <label class="label" for="accessoire_paumelle">Paumelles</label>
-                            <input type="checkbox" id="accessoire_paumelle" name="option[]" value="2">
+                        <li hidden class="accessoire_paumelle_visibles">
+                            <label class="label" for="accessoire_paumelle_visibles">Paumelles Visibles</label>
+                            <input type="checkbox" id="accessoire_paumelle_visibles" name="option[]" value="2">
                         </li>
-                        <li class="accessoire_serrure">
-                            <label class="label" for="accessoire_serrure">Serrure</label>
-                            <input type="checkbox" id="accessoire_serrure" name="option[]" value="3">
+                        <li hidden class="accessoire_paumelle_invisibles">
+                            <label class="label" for="accessoire_paumelle_invisibles">Paumelles Invisibles</label>
+                            <input type="checkbox" id="accessoire_paumelle_invisibles" name="option[]" value="3">
+                        </li>
+                        <li hidden class="accessoire_serrure_standard">
+                            <label class="label" for="accessoire_serrure_standard">Serrure Standard</label>
+                            <input type="checkbox" id="accessoire_serrure_standard" name="option[]" value="4">
+                        </li>
+                        <li hidden class="accessoire_serrure_magnetique">
+                            <label class="label" for="accessoire_serrure_magnetique">Serrure Magnétique</label>
+                            <input type="checkbox" id="accessoire_serrure_magnetique" name="option[]" value="5">
+                        </li>
+                        <li hidden class="accessoire_oculus">
+                            <label class="label" for="accessoire_oculus">Oculus</label>
+                            <input type="checkbox" id="accessoire_oculus" name="option[]" value="6">
                         </li>
                     </ul>
                 </div>
@@ -220,22 +238,27 @@
                     document.getElementById("finition_vitre").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
                     SetVisible("pv_plein");
+                    SetVisible("accessoire_oculus"); SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
                 }
                 else if(porte=="porte_vitre"){
                     document.getElementById("finition").style.display = "none";
                     document.getElementById("finition_vitre").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
+                    SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
                 }
                 else if(porte=="porte_coulissante"){
                     document.getElementById("finition_vitre").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
                     DeleteByClass("finition-stratifie");
+                    SetVisible("accessoire_bequillage");
                 }
                 else if(porte=="porte_bi_cadreAluminium"){
                     document.getElementById("finition").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
+                    SetVisible("pv_cadreAlu_vitre"); SetVisible("pv_cadreAlu_plein");
+                    SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
                 }
                 else if(porte=="porte_bi_aluminiumCollee"){
                     document.getElementById("finition").style.display = "none";
@@ -248,6 +271,7 @@
                     document.getElementById("vitré").style.display = "none";
                     DeleteByClass("finition-vitre");DeleteByClass("finition-plein");
                     SetVisible("pv_bois");
+                    SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
                 }
             </script>
     </div>

@@ -85,16 +85,17 @@
                     <label class="label" for="hauteur">Hauteur :</label>
                     <input type="text" id="hauteur" name="hauteur">
                 </div>
+                <!-- RAL -->
                 <div>
                     <label class="label" for="ral">Ral :</label>
                     <select name="ral">
                         <option class="ral" value="null">Menu déroulant</option>
-                        <option  class="ral" value="9010">9010 Blanc </option>
-                        <option  class="ral" value="9005">9005 Noir </option>
-                        <option  class="ral" value="9006">9006 Gris </option>
-                        <option  class="ral" value="9007">9007 Gris aluminium </option>
-                        <option  class="ral" value="7005">7005 Gris souris </option>
-                        <option  class="ral" value="7016">7016 Gris anthracite</option>
+                        <option class="ral" value="9010">9010 Blanc </option>
+                        <option class="ral" value="9005">9005 Noir </option>
+                        <option class="ral" value="9006">9006 Gris </option>
+                        <option class="ral" value="9007">9007 Gris aluminium </option>
+                        <option class="ral" value="7005">7005 Gris souris </option>
+                        <option class="ral" value="7016">7016 Gris anthracite</option>
                     </select>
                     <label class="label" for="ral_autre"></label>
                     <input type="text" id="ral_autre" name="ral_autre" placeholder="Autre :">
@@ -162,7 +163,15 @@
                     <div>
                         <label class="label" for="vitrePV">Vitré PV :</label>
                         <select name="vitrePV">
-                            <option class="vitrePV" value="null">Sélectionner</option>
+                            <option hidden class="vitrePV" value="null">Sélectionner</option>
+                            <option hidden class="vitrePV_cj" value="1">6+ 8 mm : Ra = 41 dB / Rw = 42  dB</option>
+                            <option hidden class="vitrePV_cj" value="2">6+44,2  : Ra = 42 dB / Rw = 43 dB</option>
+                            <option hidden class="vitrePV_cj" value="3">6+44,2 silence : Ra = 43 dB / Rw = 44 dB</option>
+                            <option hidden class="vitrePV_cj" value="4">44,2 silence + 44,2 silence : Ra = 45 dB / Rw = 47 dB</option>
+                            <option hidden class="vitrePV_bb" value="5">10+ 12 mm : Ra = 42 dB / Rw = 43 dB</option>
+                            <option hidden class="vitrePV_bb" value="6">10+66,2 silence : Ra = 44 dB / Rw = 45 dB</option>
+                            <option hidden class="vitrePV_bb" value="7">12+ 66,2 silence : Ra = 45 dB / Rw = 46 dB</option>
+                            <option hidden class="vitrePV_bb" value="8">66,2 silence + 66,2 silence : Ra = 48 dB / Rw = 49 dB</option>
                         </select>
                     </div>
                     <div style="display: flex;flex-wrap: wrap;">
@@ -201,6 +210,13 @@
             </div>
 
             <script type="text/javascript">
+                function SetVisible(id){
+                    var elements = document.getElementsByClassName(id);
+                    for(var i=0; i<elements.length; i++) {
+                        elements[i].hidden = false;
+                    }
+                }
+
                 var remplissage = <?php echo json_encode($remplissage); ?>;
                 var produit = <?php echo json_encode($produit); ?>;
                 if(remplissage=="plein"){
@@ -214,12 +230,14 @@
                     for(var i=0; i<elements.length; i++) {
                         elements[i].style.display = "none";
                     }
+                    SetVisible("vitrePV_cj");
                 }
                 else if(produit=="e_bb"){
                     var elements = document.getElementsByClassName("e_cj");
                     for(var i=0; i<elements.length; i++) {
                         elements[i].style.display = "none";
                     }
+                    SetVisible("vitrePV_bb");
                 }
             </script>
 			
