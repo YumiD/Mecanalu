@@ -8,12 +8,22 @@
     else $produit=$_SESSION["produit"];
     
 
-    if($produit=="e_cj"){
-        $nom_produit="Couvre joint";
+    if($produit=="box_alta"){
+        $nom_produit="Alta";
     }
-    else if($produit=="e_bb"){
-        $nom_produit="Bord à Bord";
+    else if($produit=="box_duo"){
+        $nom_produit="Duo";
     }
+    else if($produit=="box_grande"){
+        $nom_produit="Grande";
+    }
+    else if($produit=="box_little"){
+        $nom_produit="Little";
+    }
+    else if($produit=="box_media"){
+        $nom_produit="Media";
+    }
+    $_SESSION["nom_produit"] = $nom_produit;
 ?>
 
 <html>
@@ -47,18 +57,6 @@
 				width: 291px;
 				max-width: 100%;
 				cursor: pointer;}
-            .image3{
-                border:none;
-                background-image:url('../ressources/vitre_allege.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                max-height:219px;
-				width: 202px;
-				max-width: 100%;
-				cursor: pointer;}
         </style>
     </head>
 
@@ -70,7 +68,7 @@
 	</div>  
 
     <div id="content">
-        <h3> EVIDENCE - <?php echo $nom_produit; ?> - remplissage</h3>
+        <h3> EVIDENCE BOX - remplissage</h3>
         
             <div id="image_produit">
                 <img class="image_produit" src="../ressources/<?php echo $produit; ?>.png">
@@ -79,18 +77,16 @@
             <p><?php echo $nom_produit; ?></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <h4> Choisissez entre </h4>  
-			<span class="legend2"> Plein </span>
-			<span class="legend2"> Vitré </span>		
-			<span class="legend2"> Vitré sur allège </span>		
-            <form action="evidence_finition.php" method="post">
-            <input type="submit" id="horizontal_item" name="remplissage" value="plein" alt="Submit Form" class="image1"/>
+			<span class="legend2"> Mélaminé </span>
+			<span class="legend2"> Vitré </span>			
+            <form action="evidence_box_finition.php" method="post">
+            <input type="submit" id="horizontal_item" name="remplissage" value="melamine" alt="Submit Form" class="image1"/>
             <input type="submit" id="horizontal_item" name="remplissage" value="vitre" alt="Submit Form"  class="image2"/>
-            <input type="submit" id="horizontal_item" name="remplissage" value="vitre_allege" alt="Submit Form"  class="image3"/>
             </div></form>
         
 		
 	<footer>
-        <button onclick="window.location.href='evidence_produit.php'">Précédent</button>
+        <button onclick="window.location.href='evidence_box_produit.php'">Précédent</button>
     </footer>
     </div>
     </body>

@@ -163,7 +163,7 @@
                     <div>
                         <label class="label" for="vitrePV">Vitré PV :</label>
                         <select name="vitrePV">
-                            <option hidden class="vitrePV" value="null">Sélectionner</option>
+                            <option class="vitrePV" value="null">Sélectionner</option>
                             <option hidden class="vitrePV_cj" value="1">6+ 8 mm : Ra = 41 dB / Rw = 42  dB</option>
                             <option hidden class="vitrePV_cj" value="2">6+44,2  : Ra = 42 dB / Rw = 43 dB</option>
                             <option hidden class="vitrePV_cj" value="3">6+44,2 silence : Ra = 43 dB / Rw = 44 dB</option>

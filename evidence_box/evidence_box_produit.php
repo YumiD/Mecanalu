@@ -89,7 +89,7 @@
 
 		
         <div id="horizontal"> 
-            <form action="evidence_box_produit.php" method="post">
+            <form action="evidence_box_remplissage.php" method="post">
                 <div class="blocimage"><span class="legend"> Box Alta </span><input type="submit" id="horizontal_item" name="produit" value="box_alta" alt="Submit Form" class="image1"/></div>
                 <div class="blocimage"><span class="legend"> Box Duo </span><input type="submit" id="horizontal_item" name="produit" value="box_duo" alt="Submit Form"  class="image2"/></div>
                 <div class="blocimage"><span class="legend"> Box Grande </span><input type="submit" id="horizontal_item" name="produit" value="box_grande" alt="Submit Form"  class="image3"/></div>
