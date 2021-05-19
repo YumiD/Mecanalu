@@ -31,6 +31,19 @@
                 height: 100%;
 				max-height: 259px;
 				cursor: pointer;}
+            .image3{
+                border:none;
+                background-image:url('../ressources/porte_coulissante.png');
+                background-repeat:no-repeat;
+                background-position:center;
+                background-size:contain;
+                background-color:#ffffff;
+                font-size:0.0001em;
+                width: 53%;
+				max-width: 311px;
+                height: 100%;
+				max-height: 259px;
+				cursor: pointer;}
         </style>
     </head>
     
@@ -41,17 +54,19 @@
 	</div> 
         
         <div id="content">
-            <h3>EVIDENCE - CHOIX PORTE</h3>
+            <h3>BOREALE - CHOIX PORTE</h3>
 
             <h4> Choisissez entre <h4>
 
             <div id="horizontal"> 
 			<span class="legend3"> Pleine </span>
 			<span class="legend3"> Vitré </span>
+			<span class="legend3"> Coulissante </span>
 			
-			<form action="evidence_box_portes_formulaire.php" method="post">
+			<form action="boreale_portes_formulaire.php" method="post">
                 <input type="submit" id="horizontal_item" name="porte" value="porte_pleine" alt="Submit Form"  class="image1"/>
                 <input type="submit" id="horizontal_item" name="porte" value="porte_vitre" alt="Submit Form"  class="image2"/>
+                <input type="submit" id="horizontal_item" name="porte" value="porte_coulissante" alt="Submit Form"  class="image3"/>
             </form>
 			</div>
         </div>
@@ -59,6 +74,6 @@
     </body>
 
     <footer>
-        <button onclick="window.location.href='evidence_box_finition.php'">Précédent</button>
+        <button onclick="window.location.href='boreale_finition.php'">Précédent</button>
     </footer>
 </html>

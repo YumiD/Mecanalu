@@ -1,15 +1,18 @@
 <?php
     session_start();
     
-    if(!empty($_POST['remplissage'])) {    
-        $remplissage = $_POST['remplissage'];
-        $_SESSION["remplissage"] = $remplissage;
+    if(!empty($_POST['produit'])) {    
+        $produit = $_POST['produit'];
+        $_SESSION["produit"] = $produit;
     }
-    
-    $remplissage = $_SESSION['remplissage'];
 
-    $produit = $_SESSION['produit'];
-    $nom_produit = $_SESSION['nom_produit'];
+    if($produit=="boreale_bb"){
+        $nom_produit="Bord a Bord";
+    }
+    else if($produit=="boreale_verriere"){
+        $nom_produit="Verriere";
+    }
+    $_SESSION["nom_produit"]=$nom_produit;
 
 ?>
 
@@ -50,14 +53,19 @@
 	</div> 
 
     <div id="content" style="height:75%;">
-        <h3> EVIDENCE BOX - SELECTIONNEZ VOS FINITIONS - <?php echo $nom_produit; ?> </h3>
+        <h3> BOREALE  SELECTIONNEZ VOS FINITIONS - <?php echo $nom_produit; ?> </h3>
             <div id="left">
                 <img id="image_produit" src="../ressources/<?php echo $produit; ?>.png">
             </div>
             
             <div id="right">
             <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
-            <form action="../ajout.php" method="post">
+            <form action="boreale_portes.php" method="post">
+                <!-- HAUTEUR -->
+                <div>
+                    <label class="label" for="hauteur">Hauteur :</label>
+                    <input type="text" id="hauteur" name="hauteur">
+                </div>
                 <!-- RAL -->
                 <div>
                     <label class="label" for="ral">Ral :</label>
@@ -74,52 +82,38 @@
                     <input type="text" id="ral_autre" name="ral_autre" placeholder="Autre :">
                 </div>
                 <div style="margin-top:30px"></div>
-                <!-- Face Pleine -->
+                <!-- VITRE -->
                 <div>
-                    <label class="label" for="face_plein">Face Pleine :</label>
-                    <select name="face_plein">
-                        <option class="face_plein" value="null">Sélectionner</option>
-                        <option class="face_plein" value="1">Mélaminé EGGER</option>
-                        <option class="face_plein" value="2">Mélaminé Unilin</option>
-                        <option class="face_plein" value="3">Mélaminé Polyrey</option>
+                    <label class="label" for="vitre">Vitré :</label>
+                    <select name="vitre">
+                        <option class="vitre" value="null">Sélectionner</option>
+                        <option class="vitre" value="1">10 mm Trempé </option>
+                        <option class="vitre" value="2">12 mm Trempé </option>
+                        <option class="vitre" value="3">15 mm Trempé </option>
+                        <option class="vitre" value="4">55,2 feuilleté </option>
+                        <option class="vitre" value="5">55,2 silence feuilleté </option>
+                        <option class="vitre" value="6">66,2 feuilleté</option>
+                        <option class="vitre" value="7">66,2 silence feuilleté </option>
                     </select>
                 </div>
-                <!-- Face Vitrée -->
+                <!-- FINITION VITRE -->
                 <div style="display: flex;flex-wrap: wrap;">
-                    <label class="label" for="face_vitre"> Face Vitrée :</label>
-                    <div id="face_vitre">
-                    </div>
-                    <div>
-                        <p hidden class="6+8"> 6 + 8 Trempé </p>
-                        <p hidden class="10+12"> 10 + 12 Trempé </p>
-                    </div>
-                </div>
-                <!-- Option -->
-                <div style="display: flex;flex-wrap: wrap;">
-                    <label class="label" for="option"> Option :</label>
-                    <div id="option">
+                    <label class="label" for="finition_vitre">Finition Vitré :</label>
+                    <div id="finition_vitre">
                     </div>
                     <div>
                         <ul style="list-style-type: none;">
-                            <li class="ecrimur">
-                                <label for="ecrimur">Ecrimur</label>
-                                <input class="check" type="checkbox" id="ecrimur" name="option">
+                            <li class="trempe">
+                                <label for="trempe">Trempé</label>
+                                <input class="check" type="checkbox" id="trempe" name="finition_vitre">
+                            </li>
+                            <li class="feuillete">
+                                <label for="clair">Feuilleté</label>
+                                <input class="check" type="checkbox" id="feuillete" name="finition_vitre">
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!-- Porte -->
-                <div style="display: flex;flex-wrap: wrap;">
-                    <label class="label" for="porte"> Porte :</label>
-                    <div id="porte">
-                    </div>
-                    <div>
-                        <p>Bi-affleurante cadre aluminium</p>
-                        <p>Poigne magnétique</p>
-                        <p>Paumelles Invisibles</p>
-                    </div>
-                </div>
-                    
                 <div style="margin-top:30px"></div>
                 <div id="submitButton"> <input type="submit" value="Suivant"> </div>
             </form>
@@ -132,17 +126,10 @@
                         elements[i].hidden = false;
                     }
                 }
-                var produit = <?php echo json_encode($produit); ?>;
-                if(produit=="box_little"){
-                    SetVisible("6+8");
-                }
-                else{
-                    SetVisible("10+12");
-                }
             </script>
 			
 			<footer>
-			<button onclick="window.location.href='evidence_box_remplissage.php'">Précédent</button>
+			<button onclick="window.location.href='boreale_produit.php'">Précédent</button>
 			</footer>
     </div>
 </body>

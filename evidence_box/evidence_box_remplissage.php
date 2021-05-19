@@ -35,7 +35,7 @@
         <style>
             .image1{ /* Le premier bouton */
                 border:none;
-                background-image:url('../ressources/plein.png');
+                background-image:url('../ressources/box_remplissage_1.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;
@@ -47,7 +47,31 @@
 				cursor: pointer;}
             .image2{
                 border:none;
-                background-image:url('../ressources/vitre.png');
+                background-image:url('../ressources/box_remplissage_2.png');
+                background-repeat:no-repeat;
+                background-position:center;
+                background-size:contain;
+                background-color:#ffffff;
+                font-size:0.0001em;
+                max-height:219px;
+				width: 291px;
+				max-width: 100%;
+				cursor: pointer;}
+            .image3{
+                border:none;
+                background-image:url('../ressources/box_remplissage_3.png');
+                background-repeat:no-repeat;
+                background-position:center;
+                background-size:contain;
+                background-color:#ffffff;
+                font-size:0.0001em;
+                max-height:219px;
+				width: 291px;
+				max-width: 100%;
+				cursor: pointer;}
+            .image4{
+                border:none;
+                background-image:url('../ressources/box_remplissage_4.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;
@@ -69,20 +93,19 @@
 
     <div id="content">
         <h3> EVIDENCE BOX - remplissage</h3>
-        
-            <div id="image_produit">
-                <img class="image_produit" src="../ressources/<?php echo $produit; ?>.png">
-            </div>
-            <div class="horizontal_remplissage" id="horizontal"> 
-            <p><?php echo $nom_produit; ?></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <div id="horizontal"> 
             <h4> Choisissez entre </h4>  
-			<span class="legend2"> Mélaminé </span>
-			<span class="legend2"> Vitré </span>			
+            <span class="legend2"> 3 faces pleines (standard) </span>
+            <span class="legend2"> 2 faces pleines + 1 côté vitré </span>	
+            <span class="legend2"> Fond plein + 2 côté vitré </span>	
+            <span class="legend2"> 2 côtés pleins "en tunnel" + fond vitré </span>			
             <form action="evidence_box_finition.php" method="post">
-            <input type="submit" id="horizontal_item" name="remplissage" value="melamine" alt="Submit Form" class="image1"/>
-            <input type="submit" id="horizontal_item" name="remplissage" value="vitre" alt="Submit Form"  class="image2"/>
-            </div></form>
+            <input type="submit" id="horizontal_item" name="remplissage" value="box_remplissage_1" alt="Submit Form" class="image1"/>
+            <input type="submit" id="horizontal_item" name="remplissage" value="box_remplissage_2" alt="Submit Form"  class="image2"/>
+            <input type="submit" id="horizontal_item" name="remplissage" value="box_remplissage_3" alt="Submit Form"  class="image3"/>
+            <input type="submit" id="horizontal_item" name="remplissage" value="box_remplissage_4" alt="Submit Form"  class="image4"/>
+        </div></form>
         
 		
 	<footer>

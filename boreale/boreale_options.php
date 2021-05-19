@@ -54,9 +54,35 @@
         <title>Récapitulatif</title>
 
         <style>
-            .image1{
+            .image1{ /* Le premier bouton */
+                border:none;
+                background-image:url('../ressources/option_store.png');
+                background-repeat:no-repeat;
+                background-position:center;
+                background-size:contain;
+                background-color:#ffffff;
+                font-size:0.0001em;
+                width: 28%;
+                max-width: 344px;
+                height: 100%;
+				max-height: 234px;
+				cursor: pointer;}
+            .image2{
                 border:none;
                 background-image:url('../ressources/option_ecrimur.png');
+                background-repeat:no-repeat;
+                background-position:center;
+                background-size:contain;
+                background-color:#ffffff;
+                font-size:0.0001em;
+                width: 28%;
+                max-width: 344px;
+                height: 100%;
+				max-height: 234px;
+				cursor: pointer;}
+            .image3{
+                border:none;
+                background-image:url('../ressources/option_cintrage.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;
@@ -81,10 +107,14 @@
             <h4> Choisissez entre <h4>
 
             <div id="horizontal">
+			<span class="legend3"> Store </span>
 			<span class="legend3"> Ecrimur </span>
+			<span class="legend3"> Cintrage </span>
             
-            <form action="evidence_box_options_formulaire.php" method="post">
-                <input type="submit" id="horizontal_item" name="option" value="option_ecrimur" alt="Submit Form"  class="image1"/>
+            <form action="boreale_options_formulaire.php" method="post">
+                <input type="submit" id="horizontal_item" name="option" value="option_store" alt="Submit Form" class="image1"/>
+                <input type="submit" id="horizontal_item" name="option" value="option_ecrimur" alt="Submit Form"  class="image2"/>
+                <input type="submit" id="horizontal_item" name="option" value="option_cintrage" alt="Submit Form"  class="image3"/>
             </form></div>
         </div>
 

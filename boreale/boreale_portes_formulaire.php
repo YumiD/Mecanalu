@@ -7,18 +7,26 @@
     }
     else $porte=$_SESSION["porte"];
 
-
     if($porte=="porte_pleine"){
         $nom_porte="Pleine";
     }
     else if($porte=="porte_vitre"){
         $nom_porte="Vitré";
     }
+    else if($porte=="porte_coulissante"){
+        $nom_porte="Coulissante";
+    }
     $_SESSION["nom_porte"] = $nom_porte;
 
     $nom_entreprise = $_SESSION['nom_entreprise'];
 
 ?>
+
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.6.0/dist/pptxgen.bundle.js"></script>
+
+    <script type="text/javascript">
+        var pptx = new PptxGenJS();
+    </script>
 
 <html>
     <head>
@@ -53,18 +61,40 @@
     </div> 
 
     <div id="content" style="height:75%;">
-        <h3> EVIDENCE - PORTE <?php echo $nom_porte; ?> </h3>
+        <h3> BOREALE - PORTE <?php echo $nom_porte; ?> </h3>
             <div id="left">
                 <img id="image_produit" src="../ressources/<?php echo $porte; ?>.png">
             </div>
             
             <div id="right">
             <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
-            <form action="evidence_box_options.php" method="post">
+            <form action="boreale_options.php" method="post">
                 <!-- HAUTEUR -->
                 <div>
                     <label class="label" for="hauteur">Hauteur :</label>
                     <input type="text" id="hauteur" name="hauteur">
+                </div>
+                <!-- FINITION -->
+                <div id="finition" style="display: flex;flex-wrap: wrap;">
+                    <label class="label" for="finition">Finition :</label>
+                    <div id="finition">
+                    </div>
+                    <div>
+                        <ul style="list-style-type: none;">
+                            <li class="finition-plein">
+                                <input type="checkbox" id="finition-plein" name="finition">
+                                <label class="label" for="finition-plein">Plein</label>
+                            </li>
+                            <li class="finition-vitre">
+                                <input type="checkbox" id="finition-vitre" name="finition">
+                                <label class="label" for="finition-vitre">Vitré</label>
+                            </li>
+                            <li class="finition-stratifie">
+                                <input type="checkbox" id="finition-stratifie" name="finition">
+                                <label class="label" for="finition-stratifie">Stratifié</label>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <!-- STRATIFIE -->
                 <div id="stratifie">
@@ -97,6 +127,10 @@
                         <option hidden class="pv_plein" value="prema38">Prema 38 dB </option>
                         <option hidden class="pv_plein" value="prema39">Prema 39 dB </option>
                         <option hidden class="pv_plein" value="prema41">Prema 41 dB </option>
+                        <option hidden class="pv_cadreAlu_vitre" value="prema41">DV73 8+6 </option>
+                        <option hidden class="pv_cadreAlu_vitre" value="prema41">DV73 44,2+33,2</option>
+                        <option hidden class="pv_cadreAlu_plein" value="prema41">DV73 agglo 8</option>
+                        <option hidden class="pv_cadreAlu_plein" value="prema41">DV73 Agglo dB</option>
                     </select>
                 </div>
                 <!-- OPTION -->
@@ -169,18 +203,26 @@
 
                 var porte = <?php echo json_encode($porte); ?>;
                 if(porte=="porte_pleine"){
+                    document.getElementById("finition").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
                     SetVisible("pv_plein");
                     SetVisible("accessoire_oculus"); SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
                 }
                 else if(porte=="porte_vitre"){
+                    document.getElementById("finition").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
                     SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
+                }
+                else if(porte=="porte_coulissante"){
+                    document.getElementById("stratifie").style.display = "none";
+                    document.getElementById("vitré").style.display = "none";
+                    DeleteByClass("finition-stratifie");
+                    SetVisible("accessoire_bequillage");
                 }
             </script>
     </div>
     </body>
     <footer>
-        <button onclick="window.location.href='evidence_box_portes.php'">Précédent</button>
+        <button onclick="window.location.href='boreale_portes.php'">Précédent</button>
     </footer>
 </html>
