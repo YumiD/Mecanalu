@@ -1,7 +1,5 @@
     
 <?php
-//header('Location: evidence/evidence_creation.php');
-echo "<script type='text/javascript'> document.location = 'evidence/evidence_creation.php'; </script>";
 
 session_start();
 
@@ -12,6 +10,20 @@ $fiche_technique = $_SESSION['fiche_technique'];
 $PV = $_SESSION['PV'];
 $gamme = $_SESSION['gamme'];
 $produit = $_SESSION['produit'];
+
+echo "<script type='text/javascript'> document.location = 'evidence/evidence_creation.php'; </script>";
+/*if($gamme="evidence"){
+  echo "<script type='text/javascript'> document.location = 'evidence/evidence_creation.php'; </script>";
+}
+else if($gamme="boreale"){
+  echo "<script type='text/javascript'> document.location = 'boreale/boreale_creation.php'; </script>";
+}
+else if($gamme="evidence_box"){
+  echo "<script type='text/javascript'> document.location = 'evidence_box/evidence_box_creation.php'; </script>";
+}*/
+
+
+
   ?>
 <html>
     <!--<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.3.1/dist/pptxgen.bundle.js"></script>-->

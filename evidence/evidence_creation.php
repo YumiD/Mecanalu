@@ -224,14 +224,20 @@
           slide = pptx.addSlide();
           slide.addText(
           [
-              { text:'Catalogues et fiches techniques', options:{ fontSize:40, bold:true, paraSpaceAfter:30, breakLine:true } },
-              { text:'Catalogue Evidence', options:{ fontSize:25, hyperlink:{url:'https://www.mecanalu.com/media/attachments/2020/07/08/evidence-2020.pdf'}, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
-              { text:'Catalogue Boréale', options:{ fontSize:25, hyperlink:{url:'https://www.mecanalu.com/media/attachments/2020/07/16/borale-20201.pdf'}, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
-              { text:'Portfolio', options:{ fontSize:25, hyperlink:{url:'https://www.mecanalu.com/images/PDF/Doc_Flyer_Photos.pdf'}, indentLevel:1, paraSpaceAfter:12, breakLine:true } }
+              { text:'Catalogues et fiches techniques', options:{ fontSize:40, bold:true, paraSpaceAfter:25, breakLine:true } }
+          ],
+          { x:0.5, y:0.3, h:1, align:'left' }
+          );
+          slide.addText(
+          [
+              { text:'Catalogue Technique Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/catalogue%20technique%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+              { text:'CERFF Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/CERFF%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+              { text:'FDES Mecanalu Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/FDES-MECANALU-EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+              { text:'Fiche Technique Scapa 3204', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/Fiche-tech-joint-M2.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }
           ],
           { x:0.5, y:1.5, h:1, align:'left' }
           );
-          slide.addImage({ path: "../ressources/mecanalu.png", x:'70%', y:'75%', w:2});
+          slide.addImage({ path: "../ressources/mecanalu.png", x:'85%', y:'85%', w:1, h:0.5});
         //}
         /*------Création du PPTX-------*/
         pptx.writeFile('Projet-DOE-Mecanalu');
