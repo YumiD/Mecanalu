@@ -103,9 +103,9 @@
           slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_bequillage.png", x:0, y:0, w:'100%', h:'100%' });
         } else if(accessoire == "accessoire_paumelle"){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_paumelles_visible.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_paumelles_invisible.png", x:0, y:0, w:'100%', h:'100%' });
         }
-
+        
         if(ferme_porte == "visible"){
           var slide = pptx.addSlide();
           slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_fermeporte_visible.png", x:0, y:0, w:'100%', h:'100%' });
@@ -125,163 +125,107 @@
           slide.addImage({ path: "../ressources/pptx_placeholder/option_cintrage.png", x:0, y:0, w:'100%', h:'100%' });
         }
 
-        /*------PREMIERE PAGE-------*/
-        /*var slide = pptx.addSlide();
-        slide.addText( ' ', { x:5.0, y:0.5, w:'40%', h:'80%', align:'right', fontSize:24, color:'0088CC', fill:{ color:'F1F1F1', transparency:30 } } );
-        slide.addImage({ path: "../ressources/icon/icon_mecanalu.png", x:0.5, y:0.5});
-        slide.addText(
-        [
-            { text: nom_entreprise , options:{ fontSize:48, bold:true, breakLine:true } },
-            { text: nom_projet , options:{ fontSize:20 } }
-        ],
-        { x:0.5, y:1, h:3, align:'left' }
-        );*/
-
-        /*------SECONDE PAGE-------*/
-        /*slide = pptx.addSlide();
-        switch(produit_evidence){
-          case "E_CJ_plein" : 
-            slide.addText(
-            [
-                { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-                { text:'L’Evidence couvre-joints est la réponse à toutes les exigences qu’elles soient esthétiques ou acoustiques.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'Modulable et personnalisable en fonction de vos projets, elle se marie avec des panneaux pleins ou vitrés.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'La finition couvre-joint apporte aux projets une démontabilité et une souplesse d’utilisation garantie par la certification CERFF.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-            ],
-            { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-            );
-            slide.addImage({ path: "../ressources/e_cj_p.png", x:'55%', y:'40%',w:'35%', h:'35%'});
-            break;
-          case "E_CJ_vitre" : 
-            slide.addText(
-            [
-                { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-                { text:'L’Evidence couvre-joints est la réponse à toutes les exigences qu’elles soient esthétiques ou acoustiques.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'Modulable et personnalisable en fonction de vos projets, elle se marie avec des panneaux pleins ou vitrés.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'La finition couvre-joint apporte aux projets une démontabilité et une souplesse d’utilisation garantie par la certification CERFF.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-            ],
-            { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-            );
-            slide.addImage({ path: "../ressources/e_cj_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-            break;
-          case "E_BB_plein" : 
-            slide.addText(
-            [
-                { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-                { text:'Transparence et fluidité sont les atouts premiers de l’Evidence Bord à bord.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'En finition pleine, l’absence de couvre-joints apporte une ligne épurée à l’ensemble.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'La version vitrée joue sur la transparence des espaces sans pour autant négliger son rôle acoustique.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'Il est tout à fait possible de mixer la finition pleine et vitrée sur un même projet.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-            ],
-            { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-            );
-            slide.addImage({ path: "../ressources/e_bb_p.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-            break;
-          case "E_BB_vitre" : 
-            slide.addText(
-            [
-                { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-                { text:'Transparence et fluidité sont les atouts premiers de l’Evidence Bord à bord.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'En finition pleine, l’absence de couvre-joints apporte une ligne épurée à l’ensemble.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'La version vitrée joue sur la transparence des espaces sans pour autant négliger son rôle acoustique.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-                { text:'Il est tout à fait possible de mixer la finition pleine et vitrée sur un même projet.',
-                options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-            ],
-            { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-            );
-            slide.addImage({ path: "../ressources/e_bb_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-            break;
-        }*/
-
-        /*------TROISIEME PAGE-------*/
-        /*slide = pptx.addSlide();
-        slide.addText(
-        [
-            { text:'Caractéristiques :', options:{ fontSize:30, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'Epaisseur : '+epaisseur+' mm', options:{ fontSize:25, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
-            { text:'Hauteur : '+hauteur+' mm', options:{ fontSize:25, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
-            { text:'Performances accoustiques :', options:{ fontSize:30, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'Rw(+c) '+DBmin+' à '+DBmax+' dB', options:{ fontSize:25, paraSpaceAfter:12, indentLevel:1, breakLine:true } }
-        ],
-        { x:0.5, y:2, h:1, align:'left' }
-        );*/
-
         /*------Fiches Techniques-------*/
         //if (fiche_technique == "true"){
           slide = pptx.addSlide();
           slide.addText(
           [
-              { text:'Catalogues et fiches techniques : Evidence', options:{ fontSize:40, bold:true, paraSpaceAfter:25, breakLine:true } }
+              { text:'Catalogues et fiches techniques : Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:25, breakLine:true } }
           ],
           { x:0.5, y:0.3, h:1, align:'left' }
           );
+
+
+          /* Fiches Techniques Evidence*/
           if(produit=="e_cj"){
             slide.addText(
-            [
-                { text:'Catalogue Technique Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/catalogue%20technique%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
-                { text:'CERFF Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/CERFF%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
-                { text:'FDES Mecanalu Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/FDES-MECANALU-EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
-                { text:'Fiche Technique Scapa 3204', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/Fiche-tech-joint-M2.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }
-            ],
-            { x:0.5, y:1.5, h:1, align:'left' }
-            );
+              [
+                  { text:'Catalogue Technique Evidence', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/catalogue%20technique%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                  { text:'CERFF Evidence', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/CERFF%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                  { text:'FDES Mecanalu Evidence', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/FDES-MECANALU-EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                  { text:'Fiche Technique Scapa 3204', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/Fiche-tech-joint-M2.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }
+              ],
+              { x:0.5, y:1.8, h:1, align:'left' }
+              );
+            /*if(remplissage=="plein"){
+              slide.addText(
+                console.log("e cj plein");
+            }else if(remplissage=="vitre" || remplissage=="vitre_allege"){
+                console.log("e cj vitre");
+            }*/
           } else if(produit=="e_bb"){
-            slide.addText(
-            [
-                { text:'Catalogue Technique Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/catalogue%20technique%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
-                { text:'CERFF Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/CERFF%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
-                { text:'FDES Mecanalu Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/FDES-MECANALU-EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
-                { text:'Fiche Technique Scapa 3204', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/Fiche-tech-joint-M2.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }
-            ],
-            { x:0.5, y:1.5, h:1, align:'left' }
-            );
+              slide.addText(
+              [
+                  { text:'Catalogue Technique Evidence', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/catalogue%20technique%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                  { text:'CERFF Evidence', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/CERFF%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                  { text:'FDES Mecanalu Evidence', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/FDES-MECANALU-EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                  { text:'Fiche Technique Scapa 3204', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/Fiche-tech-joint-M2.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                  { text:'Huisserie Bord à Bord C24', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/Cloison%20Evidence%20Bord%20%C3%A0%20bord/catalogue%20technique%20huisserie%20BAB%20et%20portes%20Bi%20affleurantes%20ep.73.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }
+              ],
+              { x:0.5, y:1.8, h:1, align:'left' }
+              );
+
+              /*if(remplissage=="plein"){
+                console.log("e bb plein");
+              }else if(remplissage=="vitre" || remplissage=="vitre_allege"){
+                console.log("e bb vitre");
+              }*/
           }
 
           slide.addImage({ path: "../ressources/mecanalu.png", x:'85%', y:'85%', w:1, h:0.5});
 
-          slide = pptx.addSlide();
-          slide.addText(
-          [
-              { text:'Catalogues et fiches techniques : Options et finitions', options:{ fontSize:40, bold:true, paraSpaceAfter:25, breakLine:true } }
-          ],
-          { x:0.5, y:0.3, h:1, align:'left' }
-          );
-          slide.addText(
-          [
-            
-          ],
-          { x:0.5, y:1.5, h:1, align:'left' }
-          );
-          slide.addImage({ path: "../ressources/mecanalu.png", x:'85%', y:'85%', w:1, h:0.5});
 
+          /* Fiches Techniques Options*/
           slide = pptx.addSlide();
           slide.addText(
           [
-              { text:'Catalogues et fiches techniques : Portes', options:{ fontSize:40, bold:true, paraSpaceAfter:25, breakLine:true } }
+              { text:'Catalogues et fiches techniques : Options et finitions', options:{ fontSize:22, bold:true, paraSpaceAfter:25, breakLine:true } }
+          ],
+          { x:0.5, y:0.3, h:1, align:'left' }
+          );
+          if(option == "option_store"){
+            slide.addText(
+            [
+              { text:'Caractéristiques Store', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Options%20&%20Finitions/Stores/Caract%C3%A9ristique%20store.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+              { text:'Fiche Technique Store', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Options%20&%20Finitions/Stores/Fiche%20Technique-store.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }   
+            ],
+            { x:0.5, y:1.2, h:1, align:'left' }
+            );
+          } else if(option == "option_ecrimur"){
+            slide.addText(
+            [
+              { text:'Caractéristiques Ecrimur', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Options%20&%20Finitions/Ecrimur/Ecrimur%20Mecanalu/Caractéristiques%20ecrimur.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+              { text:'Fiche Technique Ecrimur', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Options%20&%20Finitions/Ecrimur/Ecrimur%20Mecanalu/Fiche%20technique%20ecrimur.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }   
+            ],
+            { x:0.5, y:1.2, h:1, align:'left' }
+            );
+          }
+            slide.addImage({ path: "../ressources/mecanalu.png", x:'85%', y:'85%', w:1, h:0.5});
+          
+
+          /* Fiches Techniques Portes*/
+          slide = pptx.addSlide();
+          slide.addText(
+          [
+              { text:'Catalogues et fiches techniques : Portes', options:{ fontSize:25, bold:true, paraSpaceAfter:25, breakLine:true } }
           ],
           { x:0.5, y:0.3, h:1, align:'left' }
           );
           slide.addText(
-          [
-            
-          ],
-          { x:0.5, y:1.5, h:1, align:'left' }
+            [
+                { text:'Butée 3737', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Portes/Butée%203737.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                { text:'CERFF Bloc-porte', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Portes/Cerff%20bloc-porte.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                { text:'Fiche Technique Cylindre de sûreté ALPHA', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Portes/Fiche%20technique%20Cylindre%20de%20sûreté%20ALPHA.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                { text:'Joint Huisserie', options:{ fontSize:18, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Portes/Joint%20Huisserie.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }
+            ],
+            { x:0.5, y:1.8, h:1, align:'left' }
           );
+
+
           slide.addImage({ path: "../ressources/mecanalu.png", x:'85%', y:'85%', w:1, h:0.5});
         //}
+
+        
         /*------Création du PPTX-------*/
         pptx.writeFile('Projet-DOE-Mecanalu');
     </script>
