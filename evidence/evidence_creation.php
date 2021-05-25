@@ -219,21 +219,64 @@
         { x:0.5, y:2, h:1, align:'left' }
         );*/
 
-        /*------DERNIERE PAGE-------*/
+        /*------Fiches Techniques-------*/
         //if (fiche_technique == "true"){
           slide = pptx.addSlide();
           slide.addText(
           [
-              { text:'Catalogues et fiches techniques', options:{ fontSize:40, bold:true, paraSpaceAfter:25, breakLine:true } }
+              { text:'Catalogues et fiches techniques : Evidence', options:{ fontSize:40, bold:true, paraSpaceAfter:25, breakLine:true } }
+          ],
+          { x:0.5, y:0.3, h:1, align:'left' }
+          );
+          if(produit=="e_cj"){
+            slide.addText(
+            [
+                { text:'Catalogue Technique Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/catalogue%20technique%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                { text:'CERFF Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/CERFF%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                { text:'FDES Mecanalu Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/FDES-MECANALU-EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                { text:'Fiche Technique Scapa 3204', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/Fiche-tech-joint-M2.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }
+            ],
+            { x:0.5, y:1.5, h:1, align:'left' }
+            );
+          } else if(produit=="e_bb"){
+            slide.addText(
+            [
+                { text:'Catalogue Technique Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/catalogue%20technique%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                { text:'CERFF Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/CERFF%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                { text:'FDES Mecanalu Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/FDES-MECANALU-EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
+                { text:'Fiche Technique Scapa 3204', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/Fiche-tech-joint-M2.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }
+            ],
+            { x:0.5, y:1.5, h:1, align:'left' }
+            );
+          }
+
+          slide.addImage({ path: "../ressources/mecanalu.png", x:'85%', y:'85%', w:1, h:0.5});
+
+          slide = pptx.addSlide();
+          slide.addText(
+          [
+              { text:'Catalogues et fiches techniques : Options et finitions', options:{ fontSize:40, bold:true, paraSpaceAfter:25, breakLine:true } }
           ],
           { x:0.5, y:0.3, h:1, align:'left' }
           );
           slide.addText(
           [
-              { text:'Catalogue Technique Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/catalogue%20technique%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
-              { text:'CERFF Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/CERFF%20EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
-              { text:'FDES Mecanalu Evidence', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/FDES-MECANALU-EVIDENCE.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } },
-              { text:'Fiche Technique Scapa 3204', options:{ fontSize:15, hyperlink:{url:'https://www.mecanalu.com/_PDF_module/_Evidence/Fiche-tech-joint-M2.pdf'}, paraSpaceAfter:10, indentLevel:1, breakLine:true } }
+            
+          ],
+          { x:0.5, y:1.5, h:1, align:'left' }
+          );
+          slide.addImage({ path: "../ressources/mecanalu.png", x:'85%', y:'85%', w:1, h:0.5});
+
+          slide = pptx.addSlide();
+          slide.addText(
+          [
+              { text:'Catalogues et fiches techniques : Portes', options:{ fontSize:40, bold:true, paraSpaceAfter:25, breakLine:true } }
+          ],
+          { x:0.5, y:0.3, h:1, align:'left' }
+          );
+          slide.addText(
+          [
+            
           ],
           { x:0.5, y:1.5, h:1, align:'left' }
           );
