@@ -75,22 +75,21 @@ if ($conn->connect_error) {
     </div>
 
     <div id="gamme">
-        <input type="checkbox" id="evidence"  name="evidence" class="gamme" onclick="onlyOne(this)" checked />
+        <input type="checkbox" id="evidence"  name="evidence" class="gamme" onclick="onlyOne(this, 'gamme')" checked />
         <label for="evidence"><img src="ressources/gamme_evidence.png" /></label>
-        <input type="checkbox" id="boreale" name="boreale" class="gamme" onclick="onlyOne(this)"/>
+        <input type="checkbox" id="boreale" name="boreale" class="gamme" onclick="onlyOne(this, 'gamme')"/>
         <label for="boreale"><img src="ressources/gamme_boreale.png" /></label>
-        <input type="checkbox" id="evidence_box" name="evidence_box" class="gamme" onclick="onlyOne(this)"/>
+        <input type="checkbox" id="evidence_box" name="evidence_box" class="gamme" onclick="onlyOne(this, 'gamme')"/>
         <label for="evidence_box"><img src="ressources/gamme_evidence_box.png" /></label>
     </div>
     </form> 
     <script>
-    
-    function onlyOne(checkbox) {
-        var checkboxes = document.getElementsByClassName("gamme");
+    function onlyOne(checkbox, className) {
+        var checkboxes = document.getElementsByClassName(className);
         for (i = 0; i < checkboxes.length; i++) {
             if (checkboxes[i] !== checkbox) checkboxes[i].checked = false
         }
-    }   
+    } 
     </script>
 
 </div>

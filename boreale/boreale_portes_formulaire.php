@@ -173,11 +173,11 @@
                     <ul style="list-style-type: none;">
                         <li class="ferme_porte_visible">
                             <label class="label" for="ferme_porte_visible">Visible</label>
-                            <input type="checkbox" id="ferme_porte_visible" name="ferme_porte[]" value="1">
+                            <input class="ferme_porte" type="checkbox" id="ferme_porte_visible" name="ferme_porte[]" value="1" onclick="onlyOne(this, 'ferme_porte')">
                         </li>
                         <li class="ferme_porte_invisible">
                             <label class="label" for="ferme_porte_invisible">Invisible</label>
-                            <input type="checkbox" id="ferme_porte_invisible" name="ferme_porte[]" value="2">
+                            <input class="ferme_porte" type="checkbox" id="ferme_porte_invisible" name="ferme_porte[]" value="2" onclick="onlyOne(this, 'ferme_porte')">
                         </li>
                     </ul>
                 </div>
@@ -200,6 +200,12 @@
                         elements[i].hidden = false;
                     }
                 }
+                function onlyOne(checkbox, className) {
+                    var checkboxes = document.getElementsByClassName(className);
+                    for (i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i] !== checkbox) checkboxes[i].checked = false
+                    }
+                } 
 
                 var porte = <?php echo json_encode($porte); ?>;
                 if(porte=="porte_pleine"){

@@ -72,6 +72,9 @@
             slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_v.png", x:0, y:0, w:'100%', h:'100%' });
           }
         }
+        /*let textboxText = "Hello World from PptxGenJS!";
+        let textboxOpts = { x: 1, y: 2, color: "363636", fill: "F1F1F1" };
+        slide.addText(textboxText, textboxOpts);*/
 
         if(porte == "porte_bi_bois"){
           var slide = pptx.addSlide();
@@ -227,7 +230,24 @@
 
         
         /*------Création du PPTX-------*/
-        pptx.writeFile('Projet-DOE-Mecanalu');
+        pptx.company = 'Mecanalu';
+        //pptx.writeFile('Projet-DOE-Mecanalu');
+        //pptx.writeFile({fileName: 'Projet-DOE-Mecanalu.pptx', compression:true})
+        /*pptx.writeFile({fileName: 'Projet-DOE-Mecanalu.pptx'})
+        .then(fileName => {
+          console.log(`created file: ${fileName}`);
+          });*/
+        var zip = new JSZip();
+        //zip.file("hello.txt", "Hello World\n");
+        zip.folder("nested").file("hello.txt", "Hello World\n");
+        var promise = null;
+        if (JSZip.support.uint8array) {
+          promise = zip.generateAsync({type : "uint8array"});
+        } else {
+          promise = zip.generateAsync({type : "string"});
+        }
+
+
     </script>
 
 <html>

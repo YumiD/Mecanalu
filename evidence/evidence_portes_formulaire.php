@@ -117,11 +117,11 @@
                     <div>
                         <ul style="list-style-type: none;">        
                             <li class="plein">
-                                <input class="check" type="checkbox" id="plein" name="finition_vitre" checked>
+                                <input class="check" type="checkbox" id="plein" name="finition_vitre" onclick="onlyOne(this, 'check')"  onchange="UpdateSelect()" checked>
                                 <label class="label" for="plein">Plein</label>
                             </li>
                             <li class="vitre">
-                                <input class="check" type="checkbox" id="vitre" name="finition_vitre">
+                                <input class="check" type="checkbox" id="vitre" name="finition_vitre" onclick="onlyOne(this, 'check')"  onchange="UpdateSelect()">
                                 <label class="label" for="vitre">Vitré</label>
                             </li>
                         </ul>
@@ -204,11 +204,11 @@
                     <ul style="list-style-type: none;">
                         <li class="ferme_porte_visible">
                             <label class="label" for="ferme_porte_visible">Visible</label>
-                            <input type="checkbox" id="ferme_porte_visible" name="ferme_porte[]" value="1">
+                            <input class="ferme_porte" type="checkbox" id="ferme_porte_visible" name="ferme_porte[]" value="1" onclick="onlyOne(this, 'ferme_porte')">
                         </li>
                         <li class="ferme_porte_invisible">
                             <label class="label" for="ferme_porte_invisible">Invisible</label>
-                            <input type="checkbox" id="ferme_porte_invisible" name="ferme_porte[]" value="2">
+                            <input class="ferme_porte" type="checkbox" id="ferme_porte_invisible" name="ferme_porte[]" value="2" onclick="onlyOne(this, 'ferme_porte')">
                         </li>
                     </ul>
                 </div>
@@ -231,6 +231,29 @@
                         elements[i].hidden = false;
                     }
                 }
+                function SetInvisible(id){
+                    var elements = document.getElementsByClassName(id);
+                    for(var i=0; i<elements.length; i++) {
+                        elements[i].hidden = true;
+                    }
+                }
+                function onlyOne(checkbox, className) {
+                    var checkboxes = document.getElementsByClassName(className);
+                    for (i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i] !== checkbox) checkboxes[i].checked = false
+                    }
+                }
+                function UpdateSelect(){
+                    var c = document.getElementById("plein").checked;
+                    if(c){
+                        SetInvisible("pv_cadreAlu_vitre"); SetVisible("pv_cadreAlu_plein");
+                    }
+                    else{
+                        SetVisible("pv_cadreAlu_vitre"); SetInvisible("pv_cadreAlu_plein");
+                    }
+                    
+                }
+
 
                 var porte = <?php echo json_encode($porte); ?>;
                 if(porte=="porte_pleine"){
@@ -257,7 +280,7 @@
                     document.getElementById("finition").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
-                    SetVisible("pv_cadreAlu_vitre"); SetVisible("pv_cadreAlu_plein");
+                    UpdateSelect();
                     SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
                 }
                 else if(porte=="porte_bi_aluminiumCollee"){

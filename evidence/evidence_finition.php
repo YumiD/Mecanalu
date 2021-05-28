@@ -109,35 +109,78 @@
                     <input type="text" id="ral_autre" name="ral_autre" placeholder="Autre :">
                 </div>
                 <div style="margin-top:30px"></div>
-                <!-- PLEIN -->
+                <!-- DIV PLEIN -->
                 <div id="plein">
+                    <!-- PLEIN -->
                     <div>
                         <label class="label" for="plein">Plein :</label>
-                        <select name="plein">
+                        <select name="plein"  id="select_plein" onchange="UpdateSelect()">
                             <option class="plein" value="null">Sélectionner</option>
-                            <option class="e_cj" value="melamine">Mélaminé</option>
-                            <option class="e_cj" value="tole">Tôlé</option>
-                            <option class="e_cj" value="revetu">Revêtu</option>
-                            <option class="e_bb" value="melamine">Mélaminé</option>
-                            <option class="e_bb" value="tole">Tôlé</option>
+                            <option class="e_cj" id="e_cj_melamine" value="melamine">Mélaminé</option>
+                            <option class="e_cj" id="e_cj_tole" value="tole">Tôlé</option>
+                            <option class="e_cj" id="e_cj_revetu" value="revetu">Revêtu</option>
+                            <option class="e_bb" id="e_bb_melamine" value="melamine">Mélaminé</option>
+                            <option class="e_bb" id="e_bb_tole" value="tole">Tôlé</option>
                         </select>
                     </div>
+                    <!-- FOURNISSEUR -->
                     <div>
-                        <label class="label" for="fournisseur">Fournisseur :</label>
+                        <label id="label_fournisseur" class="label" for="fournisseur">Fournisseur :</label>
                         <select name="fournisseur">
                             <option class="fournisseur" value="null">Sélectionner</option>
+                            <option hidden class="fournisseur_melamine" value="1">EGGER</option>
+                            <option hidden class="fournisseur_melamine" value="2">POLYREY</option>
+                            <option hidden class="fournisseur_melamine" value="3">UNILIN</option>
+                            <option hidden class="fournisseur_tole" value="4">Tôle (comat)</option>
+                            <option hidden class="fournisseur_tole" value="5">Tôle agglo</option>
+                            <option hidden class="fournisseur_revetu" value="6">Durafort</option>
+                            <option hidden class="fournisseur_revetu" value="7">Muraspec</option>
+                            <option hidden class="fournisseur_revetu" value="8">Pannex</option>
+                            <option hidden class="fournisseur_revetu" value="9">Plastylon</option>
                         </select>
                     </div>
+                    <!-- PLEIN PV -->
                     <div>
                         <label class="label" for="pleinPV">Plein PV :</label>
-                        <select name="pleinPV">
+                        <select name="pleinPV" id="select_pleinPV">
                             <option class="pleinPV" value="null">Sélectionner</option>
+                            <option hidden class="pleinPV_cj_melamine" value="1">2 faces mélaminé de 12 mm : Ra = 39 dB / Rw = 41 dB</option>
+                            <option hidden class="pleinPV_cj_melamine" value="2">2 faces mélaminé de 12 mm + EPDM 5 kg : Ra = 42 dB / Rw = 45 dB</option>
+                            <option hidden class="pleinPV_cj_melamine" value="3">2 faces mélaminé de 12 mm + EPDM 10 kg : Ra = 45 dB / Rw = 47 dB</option>
+                            <option hidden class="pleinPV_cj_melamine" value="4">2 faces mélaminé de 12 mm + EPDM 15 kg : Ra = 47 dB / Rw = 49 dB</option>
+                            <option hidden class="pleinPV_cj_melamine" value="5">2 faces mélaminé de 12 mm + EPDM 20 kg : Ra = 50 dB / Rw = 52 dB</option>
+                            <option hidden class="pleinPV_cj_tole" value="6">Panneaux tolés : Ra = 43 dB / Rw = 47 dB</option>
+                            <option hidden class="pleinPV_cj_tole" value="7">Panneaux tolés + EPDM 5kg : Ra = 47 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_cj_tole" value="8">Panneaux tolés + EPDM 10kg : Ra = 51 dB / Rw = 54 dB</option>
+                            <option hidden class="pleinPV_cj_tole" value="9">Fermacell tolés  : Ra = 47 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="10">Plaque de plâtre standard : Ra = 40 dB / Rw = 43 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="11">Plaque de plâtre phonique : Ra = 43 dB / Rw = 46 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="12">Plaque de plâtre standard + EPDM 5 kg : Ra = 43 dB / Rw = 47 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="13">Plaque de plâtre standard + EPDM 10 kg : Ra = 46 dB / Rw = 51 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="14">Plaque de plâtre standard + EPDM 13 kg : Ra = 47 dB / Rw = 52 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="15">Plaque de plâtre standard + EPDM 15 kg : Ra = 48 dB / Rw = 53 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="16">Plaque de plâtre standard + EPDM 20 kg : Ra = 51 dB / Rw = 54 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="17">2 plaques de Fermacell 12,5  : Ra = 47 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="18">2 faces mélaminé de 12 mm : Ra=38 dB / Rw = 41 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="19">2 faces mélaminé de 12 mm + EPDM 5 kg : Ra=42 dB / Rw = 46 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="20">2 faces mélaminé de 12 mm + EPDM 10 kg : Ra=45 dB / Rw = 49 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="21">2 faces mélaminé de 12 mm + EPDM 15 kg : Ra=46 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="22">2 faces mélaminé de 12 mm + EPDM 20 kg : Ra=48 dB / Rw = 51 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="23">Agglo + tole 7-10 : Ra=44 dB / Rw = 47 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="24">Agglo + tole 7-10 EPDM 5 kg : Ra=46 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="25">Agglo + tole 7-10 EPDM 10 kg : Ra=49 dB / Rw = 51 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="26">Agglo + tole 7-10 EPDM 15 kg : Ra=50 dB / Rw = 53 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="27">Ferm + tole 10-10 : Ra=52 dB / Rw = 54 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="28">placoM0 + tole 10-10 : Ra=48 dB / Rw = 51 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="29">placophonique + tole 10-10 : Ra=51 dB / Rw = 53 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="30">placo Std + tole 10-10 : Ra=49 dB / Rw = 51 dB</option>
                         </select>
                     </div>
                 </div>
-                <!-- VITRE -->
+                <!-- DIV VITRE -->
                 <div id=vitre>
                     <div style="display: flex;flex-wrap: wrap;">
+                        <!-- CONCEPT -->
                         <label class="label" for="concept">Concept :</label>
                         <div id="concept">
                         </div>
@@ -162,12 +205,7 @@
                             </ul>
                         </div>
                     </div>
-                    <!--<div>
-                        <label class="label" for="vitre">Vitré :</label>
-                        <select name="vitre">
-                            <option class="vitre" value="null">Sélectionner</option>
-                        </select>
-                    </div>-->
+                    <!-- VITRE PV -->
                     <div>
                         <label class="label" for="vitrePV">Vitré PV :</label>
                         <select name="vitrePV">
@@ -182,6 +220,7 @@
                             <option hidden class="vitrePV_bb" value="8">66,2 silence + 66,2 silence : Ra = 48 dB / Rw = 49 dB</option>
                         </select>
                     </div>
+                    <!-- FINITION VITRE -->
                     <div style="display: flex;flex-wrap: wrap;">
                         <label class="label" for="finition_vitre">Finition Vitré :</label>
                         <div id="finition_vitre">
@@ -224,6 +263,48 @@
                         elements[i].hidden = false;
                     }
                 }
+                function SetInvisible(id){
+                    var elements = document.getElementsByClassName(id);
+                    for(var i=0; i<elements.length; i++) {
+                        elements[i].hidden = true;
+                    }
+                }
+
+                function UpdateSelect(){
+                    var e = document.getElementById("select_plein");
+                    var plein_selected = e.options[e.selectedIndex].id;
+                    SetInvisible("pleinPV_cj_melamine"); SetInvisible("pleinPV_cj_tole"); SetInvisible("pleinPV_cj_revetu"); SetInvisible("pleinPV_bb_melamine"); SetInvisible("pleinPV_bb_tole");
+                    SetInvisible("fournisseur_melamine"); SetInvisible("fournisseur_tole"); SetInvisible("fournisseur_revetu");
+                    var label = document.getElementById("label_fournisseur");
+                    label.textContent="Fournisseur :";
+                    switch(plein_selected){
+                        case "e_cj_melamine":
+                            SetVisible("pleinPV_cj_melamine");
+                            SetVisible("fournisseur_melamine");
+                        break;
+                        case "e_cj_tole":
+                            SetVisible("pleinPV_cj_tole");
+                            SetVisible("fournisseur_tole");
+                            label.textContent="Type de tôle :";
+                        break;
+                        case "e_cj_revetu":
+                            SetVisible("pleinPV_cj_revetu");
+                            SetVisible("fournisseur_revetu");
+                        break;
+                        case "e_bb_melamine":
+                            SetVisible("pleinPV_bb_melamine");
+                            SetVisible("fournisseur_melamine");
+                        break;
+                        case "e_bb_tole":
+                            SetVisible("pleinPV_bb_tole");
+                            SetVisible("fournisseur_tole");
+                            label.textContent="Type de tôle :";
+                        break;
+                        default:
+                            console.log(plein_selected);
+                        break;
+                    }
+                }
 
                 var remplissage = <?php echo json_encode($remplissage); ?>;
                 var produit = <?php echo json_encode($produit); ?>;
@@ -247,6 +328,7 @@
                     }
                     SetVisible("vitrePV_bb");
                 }
+
             </script>
 			
 			<footer>
