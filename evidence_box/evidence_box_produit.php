@@ -84,7 +84,7 @@
 	</div> 
 
     <div id="content">
-        <h3> Choix de la box</h3>
+        <h3> Evidence Box : Choix de la box</h3>
         <h4> Plusieurs choix possibles <h4>
 
 		

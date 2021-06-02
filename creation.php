@@ -1,250 +1,169 @@
     
 <?php
+  session_start();
 
-session_start();
+  if(!empty($_POST['pptx'])) {    
+    $zip = false;
+  }
+  else if(!empty($_POST['zip'])){  
+    $zip = true;
+  }
+  else{  
+    $zip = false;
+  }
+  $_SESSION['zip'] = $zip;
 
-$nom_entreprise = $_SESSION['nom_entreprise'];
-$nom_projet = $_SESSION['nom_projet'];
-$presentation = $_SESSION['presentation'];
-$fiche_technique = $_SESSION['fiche_technique'];
-$PV = $_SESSION['PV'];
-$gamme = $_SESSION['gamme'];
-$produit = $_SESSION['produit'];
+//echo "<script type='text/javascript'> document.location = 'evidence/evidence_creation.php'; </script>";
 
-echo "<script type='text/javascript'> document.location = 'evidence/evidence_creation.php'; </script>";
-/*if($gamme="evidence"){
-  echo "<script type='text/javascript'> document.location = 'evidence/evidence_creation.php'; </script>";
-}
-else if($gamme="boreale"){
-  echo "<script type='text/javascript'> document.location = 'boreale/boreale_creation.php'; </script>";
-}
-else if($gamme="evidence_box"){
-  echo "<script type='text/javascript'> document.location = 'evidence_box/evidence_box_creation.php'; </script>";
-}*/
+  $zip_bool = $_SESSION['zip'];
 
+  $nom_entreprise = $_SESSION['nom_entreprise'];
+  $nom_projet = $_SESSION['nom_projet'];
+  $presentation = $_SESSION['presentation'];
+  $fiche_technique = $_SESSION['fiche_technique'];
 
+  $gamme = $_SESSION['gamme'];
+  $nom_gamme = $_SESSION['nom_gamme'];
+  $porte=$_SESSION["porte"];
+  $nom_porte = $_SESSION['nom_porte'];
+  $option= $_SESSION["option"];
+  $nom_option = $_SESSION['nom_option'];
+  $accessoire = $_SESSION["accessoire"];
+  $nom_accessoire = $_SESSION['nom_accessoire'];
+  $ferme_porte = $_SESSION["ferme_porte"];
+
+  $remplissage = $_SESSION['remplissage'];
+  $produit = $_SESSION['produit'];
+  $nom_produit = $_SESSION['nom_produit'];  
+  $produit_evidence = $_SESSION['produit_evidence'];
+
+  $nom_entreprise = $_SESSION['nom_entreprise'];
+
+  /*--- Code pour créer un zip ---*/
+  /*$files = array('readme.txt', 'test.html', 'image.gif');
+  $zipname = 'file.zip';
+  $zip = new ZipArchive;
+  $zip->open($zipname, ZipArchive::CREATE);
+  foreach ($files as $file) {
+    $zip->addFile($file);
+  }
+  $zip->close();
+  header('Content-Type: application/zip');
+  header('Content-disposition: attachment; filename='.$zipname);
+  header('Content-Length: ' . filesize($zipname));
+  readfile($zipname);*/
 
   ?>
-<html>
-    <!--<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.3.1/dist/pptxgen.bundle.js"></script>-->
-    <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.4.0/dist/pptxgen.bundle.js"></script>
-    <!--<script src="FileSaver.js"></script> INUTILE -->
+  
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.6.0/dist/pptxgen.bundle.js"></script>
 
-
-    <script type="text/javascript">
+  <script type="text/javascript">
+    var zip_bool = <?php echo json_encode($zip_bool); ?>;
 
     var nom_entreprise = <?php echo json_encode($nom_entreprise); ?>;
+    console.log(nom_entreprise);
     var nom_projet = <?php echo json_encode($nom_projet); ?>;
     var presentation = <?php echo json_encode($presentation); ?>;
     var fiche_technique = <?php echo json_encode($fiche_technique); ?>;
-    var PV = <?php echo json_encode($PV); ?>;
-    var gamme = <?php echo json_encode($gamme); ?>;
-    var produit = <?php echo json_encode($produit); ?>;
 
+    var gamme = <?php echo json_encode($gamme); ?>;
+    console.log(gamme);
+    var porte = <?php echo json_encode($porte); ?>;
+    console.log(porte);
+    var option = <?php echo json_encode($option); ?>;
+    console.log(option);
+    var accessoire = <?php echo json_encode($accessoire); ?>;
+    var ferme_porte = <?php echo json_encode($ferme_porte); ?>;
+    console.log(ferme_porte);
+    
+    var remplissage = <?php echo json_encode($remplissage); ?>;
+    var produit = <?php echo json_encode($produit); ?>;
+    var produit_evidence = <?php echo json_encode($produit_evidence); ?>;
 
     var pptx = new PptxGenJS();
 
     /*------PREMIERE PAGE-------*/
-    var slide = pptx.addSlide();
-    slide.addText( ' ', { x:5.0, y:0.5, w:'40%', h:'80%', align:'right', fontSize:24, color:'0088CC', fill:{ color:'F1F1F1', transparency:30 } } );
-    slide.addImage({ path: "ressources/icon/icon_mecanalu.png", x:0.5, y:0.5});
-    slide.addText(
-    [
-        { text: nom_entreprise , options:{ fontSize:48, bold:true, breakLine:true } },
-        { text: nom_projet , options:{ fontSize:20 } }
-    ],
-    { x:0.5, y:1, h:3, align:'left' }
-    );
 
-    /*------SECONDE PAGE-------*/
-    slide = pptx.addSlide();
-    switch(produit){
-      case "E_CJ_plein" : 
-        slide.addText(
-        [
-            { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'L’Evidence couvre-joints est la réponse à toutes les exigences qu’elles soient esthétiques ou acoustiques.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Modulable et personnalisable en fonction de vos projets, elle se marie avec des panneaux pleins ou vitrés.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La finition couvre-joint apporte aux projets une démontabilité et une souplesse d’utilisation garantie par la certification CERFF.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/e_cj_p.png", x:'55%', y:'40%',w:'35%', h:'35%'});
-        break;
-      case "E_CJ_vitre" : 
-        slide.addText(
-        [
-            { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'L’Evidence couvre-joints est la réponse à toutes les exigences qu’elles soient esthétiques ou acoustiques.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Modulable et personnalisable en fonction de vos projets, elle se marie avec des panneaux pleins ou vitrés.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La finition couvre-joint apporte aux projets une démontabilité et une souplesse d’utilisation garantie par la certification CERFF.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/e_cj_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "E_BB_plein" : 
-        slide.addText(
-        [
-            { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'Transparence et fluidité sont les atouts premiers de l’Evidence Bord à bord.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'En finition pleine, l’absence de couvre-joints apporte une ligne épurée à l’ensemble.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La version vitrée joue sur la transparence des espaces sans pour autant négliger son rôle acoustique.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Il est tout à fait possible de mixer la finition pleine et vitrée sur un même projet.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/e_bb_p.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "E_BB_vitre" : 
-        slide.addText(
-        [
-            { text:'Evidence', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'Transparence et fluidité sont les atouts premiers de l’Evidence Bord à bord.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'En finition pleine, l’absence de couvre-joints apporte une ligne épurée à l’ensemble.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La version vitrée joue sur la transparence des espaces sans pour autant négliger son rôle acoustique.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Il est tout à fait possible de mixer la finition pleine et vitrée sur un même projet.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/e_bb_v.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "B_CJ" : 
-        slide.addText(
-        [
-            { text:'Boréale', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'La Boréale se caractérise par son ossature affinée qui lui confère un rendu exceptionnel.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Son montage d’huisserie en arche apporte une légèreté à l’ensemble et souligne le design épuré et minimaliste de la cloison.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La cloison Boréale peut également s\'utiliser en version verrière ou atelier : elle cloisonne harmonieusement vos espaces tout en préservant l\'isolation phonique de vos espaces.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La Boréale amènera une touche contemporaine à vos projets.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/b_cj.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "B_BB" : 
-        slide.addText(
-        [
-            { text:'Boréale', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'La Boréale se caractérise par son ossature affinée qui lui confère un rendu exceptionnel.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Son montage d’huisserie en arche apporte une légèreté à l’ensemble et souligne le design épuré et minimaliste de la cloison.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La cloison Boréale peut également s\'utiliser en version verrière ou atelier : elle cloisonne harmonieusement vos espaces tout en préservant l\'isolation phonique de vos espaces.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'La Boréale amènera une touche contemporaine à vos projets.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/b_bb.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Alta" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : ALTA BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'Les Boxes Evidence sont la solution aux besoins actuels des espaces de travail.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Leurs conceptions ont été pensées pour favoriser le bien-être et la qualité de vie des collaborateurs !',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'En version XL ou XXL, vous disposez d’un lieu propice à la créativité, au partage d’idées et vos réunions de travail s’y déroulent en toute confidentialité.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_alta.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Duo" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : DUO BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'D’une taille supérieure à la cabine téléphonique, elle est idéale pour se réunir à deux ou accueillir une personne lors d’un rendez-vous et ainsi échanger en toute tranquillité.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_duo.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Grande" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : GRANDE BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'La Grandé Box a été pensée pour vos réunions de travail.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Ses grandes dimensions permettent d’accueillir jusqu’à 8 personnes.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Ses deux portes vitrées à chaque extrémité facilitent son accès et rend la circulation plus fluide.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_grande.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Little" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : LITTLE BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'La Little est la petite dernière des Box de la gamme Mécanalu.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'De la taille d\'une cabine téléphonique (1115 x 1115mm), elle permet de passer un appel en toute tranquilité grâce à son acoustique soignée.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Son faible encombrement s\'intègre parfaitement dans les bureaux en open-space ou de co-working.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_little.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
-      case "Media" : 
-        slide.addText(
-        [
-            { text:'Evidence Box : MEDIA BOX', options:{ fontSize:25, bold:true, paraSpaceAfter:20, breakLine:true } },
-            { text:'Les Boxes Evidence sont la solution aux besoins actuels des espaces de travail.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'Leurs conceptions ont été pensées pour favoriser le bien-être et la qualité de vie des collaborateurs !',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } },
-            { text:'En version XL ou XXL, vous disposez d’un lieu propice à la créativité, au partage d’idées et vos réunions de travail s’y déroulent en toute confidentialité.',
-            options:{ fontSize:18, paraSpaceAfter:5, breakLine:true } }
-        ],
-        { x:0.5, y:"20%", h:3, w:'45%', align:'left' }
-        );
-        slide.addImage({ path: "ressources/box_media.png", x:'55%', y:'35%',w:'35%', h:'35%'});
-        break;
+    /*------PLACEHOLDERS-------*/
+    if(produit=="e_cj"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/e_cj.png", x:0, y:0, w:'100%', h:'100%' });
+      if(remplissage=="plein"){
+        var slide = pptx.addSlide();
+        slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_p.png", x:0, y:0, w:'100%', h:'100%' });
+      }else if(remplissage=="vitre" || remplissage=="vitre_allege"){
+        var slide = pptx.addSlide();
+        slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_v.png", x:0, y:0, w:'100%', h:'100%' });
+      }
+    } else if(produit=="e_bb"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/e_bb.png", x:0, y:0, w:'100%', h:'100%' });
+      if(remplissage=="plein"){
+        var slide = pptx.addSlide();
+        slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_p.png", x:0, y:0, w:'100%', h:'100%' });
+      }else if(remplissage=="vitre" || remplissage=="vitre_allege"){
+        var slide = pptx.addSlide();
+        slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_v.png", x:0, y:0, w:'100%', h:'100%' });
+      }
+    }
+    /*let textboxText = "Hello World from PptxGenJS!";
+    let textboxOpts = { x: 1, y: 2, color: "363636", fill: "F1F1F1" };
+    slide.addText(textboxText, textboxOpts);*/
+
+    if(porte == "porte_bi_bois"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/porte_bi_bois.png", x:0, y:0, w:'100%', h:'100%' });
+      var isPorteBi = true;
+    } else if(porte == "porte_bi_cadreAluminium"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/porte_bi_cadreAlu.png", x:0, y:0, w:'100%', h:'100%' });
+      var isPorteBi = true;
+    } else if(porte == "porte_pleine"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/porte_pleine.png", x:0, y:0, w:'100%', h:'100%' });
+      var isPorteBi = false;    
+    } else if(porte == "porte_vitre"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/porte_clarit.png", x:0, y:0, w:'100%', h:'100%' });
+      var isPorteBi = false;    
+    } else if(porte == "porte_coulissante"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/porte_coulissante.png", x:0, y:0, w:'100%', h:'100%' });
+      var isPorteBi = false;    
     }
 
-    /*------TROISIEME PAGE-------*/
-    /*slide = pptx.addSlide();
-    slide.addText(
-    [
-        { text:'Caractéristiques :', options:{ fontSize:30, bold:true, paraSpaceAfter:20, breakLine:true } },
-        { text:'Epaisseur : '+epaisseur+' mm', options:{ fontSize:25, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
-        { text:'Hauteur : '+hauteur+' mm', options:{ fontSize:25, paraSpaceAfter:12, indentLevel:1, breakLine:true } },
-        { text:'Performances accoustiques :', options:{ fontSize:30, bold:true, paraSpaceAfter:20, breakLine:true } },
-        { text:'Rw(+c) '+DBmin+' à '+DBmax+' dB', options:{ fontSize:25, paraSpaceAfter:12, indentLevel:1, breakLine:true } }
-    ],
-    { x:0.5, y:2, h:1, align:'left' }
-    );*/
+    if(accessoire == "accessoire_bequillage" && isPorteBi==true){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_bequillage_bi.png", x:0, y:0, w:'100%', h:'100%' });
+    } else if(accessoire == "accessoire_bequillage" && isPorteBi==false){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_bequillage.png", x:0, y:0, w:'100%', h:'100%' });
+    } else if(accessoire == "accessoire_paumelle"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_paumelles_invisible.png", x:0, y:0, w:'100%', h:'100%' });
+    }
+    
+    if(ferme_porte == "visible"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_fermeporte_visible.png", x:0, y:0, w:'100%', h:'100%' });
+    } else if(ferme_porte == "invisible"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_fermeporte_invisible.png", x:0, y:0, w:'100%', h:'100%' });
+    }
 
-    /*------QUATRIEME PAGE-------*/
-    if (fiche_technique == "true"){
+    if(option == "option_store"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/option_store.png", x:0, y:0, w:'100%', h:'100%' });
+    } else if(option == "option_ecrimur"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/option_ecrimur.png", x:0, y:0, w:'100%', h:'100%' });
+    } else if(option == "option_cintrage"){
+      var slide = pptx.addSlide();
+      slide.addImage({ path: "../ressources/pptx_placeholder/option_cintrage.png", x:0, y:0, w:'100%', h:'100%' });
+    }
+
+    /*------FICHES TECHNIQUES-------*/
+    if (fiche_technique == true){
       slide = pptx.addSlide();
       slide.addText(
       [
@@ -258,24 +177,30 @@ else if($gamme="evidence_box"){
       slide.addImage({ path: "ressources/mecanalu.png", x:'70%', y:'75%', w:2});
     }
     /*------Création du PPTX-------*/
-    pptx.writeFile('PptxGenJs-Basic-Slide-Demo');
-    //pptx.writeFile({ fileName: 'PptxGenJs-Basic-Slide-Demo', compresion: true });
-    
+    if(zip_bool == true){
+      console.log("zip");
+    }
+    pptx.company = 'Mecanalu';
+    pptx.writeFile({fileName: 'Projet-DOE-Mecanalu.pptx'});
+
     </script>
 
+<html>
   <head>
       <meta charset="utf-8" />
       <link rel="stylesheet" href="mecanalu.css" />
       <title>Création de l'archive</title>
   </head>
 
-  <body>
+  <body id="page">
   <div class="header">
       <?php include('includes/header.html'); ?>
   </div> 
 
-  <div id="content">
+  <div id="content" style="height:75%;">
       <h3> Création de l'archive </h3>
+      <!--<button>Télécharger PPTX</button>
+      <button>Télécharger Zip</button>-->
   </div>
   </body>
 

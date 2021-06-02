@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+    $zip = $_SESSION['zip'];
+
     $nom_entreprise = $_SESSION['nom_entreprise'];
     $nom_projet = $_SESSION['nom_projet'];
     $presentation = $_SESSION['presentation'];
@@ -28,6 +30,8 @@
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.6.0/dist/pptxgen.bundle.js"></script>
 
     <script type="text/javascript">
+        var zip = <?php echo json_encode($zip); ?>;
+
         var nom_entreprise = <?php echo json_encode($nom_entreprise); ?>;
         console.log(nom_entreprise);
         var nom_projet = <?php echo json_encode($nom_projet); ?>;
@@ -129,7 +133,7 @@
         }
 
         /*------Fiches Techniques-------*/
-        //if (fiche_technique == "true"){
+        //if (fiche_technique == true){
           slide = pptx.addSlide();
           slide.addText(
           [
@@ -231,13 +235,11 @@
         
         /*------Création du PPTX-------*/
         pptx.company = 'Mecanalu';
+        pptx.writeFile({fileName: 'Projet-DOE-Mecanalu.pptx'});
         //pptx.writeFile('Projet-DOE-Mecanalu');
         //pptx.writeFile({fileName: 'Projet-DOE-Mecanalu.pptx', compression:true})
-        /*pptx.writeFile({fileName: 'Projet-DOE-Mecanalu.pptx'})
-        .then(fileName => {
-          console.log(`created file: ${fileName}`);
-          });*/
-        var zip = new JSZip();
+
+        /*var zip = new JSZip();
         //zip.file("hello.txt", "Hello World\n");
         zip.folder("nested").file("hello.txt", "Hello World\n");
         var promise = null;
@@ -245,7 +247,7 @@
           promise = zip.generateAsync({type : "uint8array"});
         } else {
           promise = zip.generateAsync({type : "string"});
-        }
+        }*/
 
 
     </script>
@@ -264,7 +266,6 @@
 
     <div id="content" style="height:75%;">
       <h3> Création de l'archive </h3>
-
     </div>
     </body>
 

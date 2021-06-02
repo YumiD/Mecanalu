@@ -82,11 +82,30 @@
 			<span class="legend2"> Plein </span>
 			<span class="legend2"> Vitré </span>		
 			<span class="legend2"> Vitré sur allège </span>		
-            <form action="evidence_finition.php" method="post">
+            <!--<form action="evidence_finition.php" method="post">
             <input type="submit" id="horizontal_item" name="remplissage" value="plein" alt="Submit Form" class="image1"/>
             <input type="submit" id="horizontal_item" name="remplissage" value="vitre" alt="Submit Form"  class="image2"/>
             <input type="submit" id="horizontal_item" name="remplissage" value="vitre_allege" alt="Submit Form"  class="image3"/>
-            </div></form>
+            </div></form>-->
+
+            <form action="../buffer/buffer_evidence_produit.php" method="post">
+
+                <div id="checkboxRemplissage"> 
+                <input type="checkbox" id="e_cj"  name="e_cj" class="evidence_produit"/>
+                <label for="e_cj"><img src="../ressources/plein.png" /></label>
+                <input type="checkbox" id="e_bb" name="e_bb" class="evidence_produit"/>
+                <label for="e_bb"><img src="../ressources/vitre.png" /></label>
+                <input type="checkbox" id="e_bb" name="e_bb" class="evidence_produit"/>
+                <label for="e_bb"><img src="../ressources/vitre_allege.png" /></label>
+                </div>
+            </div>
+            
+            <div id="form">
+            <p><input type="submit" value="Continuer" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';"></p>
+            </div>
+            
+            </form>
+
         
 		
 	<footer>

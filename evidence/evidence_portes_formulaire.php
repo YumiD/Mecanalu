@@ -204,7 +204,7 @@
                     <ul style="list-style-type: none;">
                         <li class="ferme_porte_visible">
                             <label class="label" for="ferme_porte_visible">Visible</label>
-                            <input class="ferme_porte" type="checkbox" id="ferme_porte_visible" name="ferme_porte[]" value="1" onclick="onlyOne(this, 'ferme_porte')">
+                            <input class="ferme_porte" type="checkbox" id="ferme_porte_visible" name="ferme_porte[]" value="1" onclick="onlyOne(this, 'ferme_porte')" checked>
                         </li>
                         <li class="ferme_porte_invisible">
                             <label class="label" for="ferme_porte_invisible">Invisible</label>
@@ -240,7 +240,12 @@
                 function onlyOne(checkbox, className) {
                     var checkboxes = document.getElementsByClassName(className);
                     for (i = 0; i < checkboxes.length; i++) {
-                        if (checkboxes[i] !== checkbox) checkboxes[i].checked = false
+                        if (checkboxes[i] !== checkbox){
+                            checkboxes[i].checked = false;
+                        }
+                        else if(checkboxes[i] == checkbox && checkboxes[i].checked==false){
+                            checkboxes[i].checked = true;
+                        }
                     }
                 }
                 function UpdateSelect(){

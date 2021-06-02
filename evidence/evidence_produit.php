@@ -7,36 +7,6 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../mecanalu.css" />
         <title>Création du dossier</title>
-
-        <style>
-            .image1{ /* Le premier bouton */
-                border:none;
-                background-image:url('../ressources/e_cj.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 60%;
-				max-width: 350px;
-                max-height:506px;
-                width: 100%;
-                height: 100%;;
-				margin-top: 4%;
-				cursor: pointer;}
-            .image2{
-                border:none;
-                background-image:url('../ressources/e_bb.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 100%;
-                height: 100%;
-				margin-top: 4%;
-				cursor: pointer;}
-        </style>
     </head>
 
     <body id="page">
@@ -48,16 +18,24 @@
 	</div> 
 
     <div id="content">
-        <h3> Choix de la finition</h3>
+        <h3> Evidence : Choix de la finition</h3>
         <h4> Plusieurs choix possibles <h4>
+        
+        <form action="../buffer/buffer_evidence_produit.php" method="post">
 
-        <div id="horizontal"> 
-		  
-		<form action="evidence_remplissage.php" method="post">
-           <div class="blocimage"><span class="legend"> Couvre-joint </span><input type="submit" id="horizontal_item" name="produit" value="e_cj" alt="Submit Form" class="image1"/></div>
-            <div class="blocimage"><span class="legend"> Bord à bord </span><input type="submit" id="horizontal_item" name="produit" value="e_bb" alt="Submit Form"  class="image2"/></div>
-        </form></div>
-		
+        <div id="checkbox"> <!-- TODO Remplacer les id="gamme" par un truc plus souple dans le css -->
+        <input type="checkbox" id="e_cj"  name="e_cj" class="evidence_produit"/>
+        <label for="e_cj"><img src="../ressources/e_cj.png" /></label>
+        <input type="checkbox" id="e_bb" name="e_bb" class="evidence_produit"/>
+        <label for="e_bb"><img src="../ressources/e_bb.png" /></label>
+        </div>
+        
+        <div id="form">
+        <p><input type="submit" value="Continuer" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';"></p>
+		</div>
+
+        </form>
+
 	<footer>
        <button onclick="window.location.href='../index.php'">Précédent</button>
     </footer>

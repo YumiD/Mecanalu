@@ -7,8 +7,8 @@ session_start();
 $_SESSION["nom_entreprise"]="";
 $_SESSION["nom_projet"]="";
 $_SESSION["presentation"]="";
-$_SESSION["fiche_technique"]="false";
-$_SESSION["PV"]="false";
+$_SESSION["fiche_technique"]=false;
+$_SESSION["PV"]=false;
 
 $servername = "bleuebenapdgacon.mysql.db"; // A Changer
 $username = "bleuebenapdgacon";
@@ -71,26 +71,22 @@ if ($conn->connect_error) {
     <p><label class="label" for="scales">PV : </label>
         <input type="checkbox" name="PV" class="check"
             unchecked></p>
-    <p><input type="submit" value="Choix de la gamme" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';"></p>
     </div>
 
-    <div id="gamme">
-        <input type="checkbox" id="evidence"  name="evidence" class="gamme" onclick="onlyOne(this, 'gamme')" checked />
+    <div id="checkbox">
+        <input type="checkbox" id="evidence"  name="evidence" class="gamme"/>
         <label for="evidence"><img src="ressources/gamme_evidence.png" /></label>
-        <input type="checkbox" id="boreale" name="boreale" class="gamme" onclick="onlyOne(this, 'gamme')"/>
+        <input type="checkbox" id="boreale" name="boreale" class="gamme"/>
         <label for="boreale"><img src="ressources/gamme_boreale.png" /></label>
-        <input type="checkbox" id="evidence_box" name="evidence_box" class="gamme" onclick="onlyOne(this, 'gamme')"/>
+        <input type="checkbox" id="evidence_box" name="evidence_box" class="gamme"/>
         <label for="evidence_box"><img src="ressources/gamme_evidence_box.png" /></label>
     </div>
+
+    <div id="form">
+        <p><input type="submit" value="Continuer" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';"></p>
+    </div>
+
     </form> 
-    <script>
-    function onlyOne(checkbox, className) {
-        var checkboxes = document.getElementsByClassName(className);
-        for (i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i] !== checkbox) checkboxes[i].checked = false
-        }
-    } 
-    </script>
 
 </div>
 

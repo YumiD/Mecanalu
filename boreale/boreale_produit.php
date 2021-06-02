@@ -48,7 +48,7 @@
 	</div> 
 
     <div id="content">
-        <h3> Choix de la finition</h3>
+        <h3> Boreale : Choix de la finition</h3>
         <h4> Plusieurs choix possibles <h4>
 
         <div id="horizontal"> 

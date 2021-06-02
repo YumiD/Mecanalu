@@ -210,11 +210,17 @@ textarea  {
   display:inline-block;;
 }
 
-#gamme img {
+#checkbox img {
   border: grey 1px solid;
   width: 300px;
   max-width:100%;
 }
+
+#checkboxRemplissage img {
+    border: grey 1px solid;
+    width: 150px;
+    max-width:100%;
+  }
 
 .blocimage {
  width: 60%;
