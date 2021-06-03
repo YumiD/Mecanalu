@@ -74,16 +74,6 @@
 		
 	</div> 
 
-    <?php
-    echo $_SESSION["buffer_evidence_finition_indexX"];
-    echo " ";
-    echo $_SESSION["buffer_evidence_finition_indexY"];
-    echo " ";
-    echo count($_SESSION['buffer_evidence_produit']);
-    echo " ";
-    //cho count($_SESSION['buffer_evidence_remplissage'][$_SESSION["buffer_evidence_finition_indexX"]]);
-    ?>
-
     <div id="content" style="height:75%;">
         <h3> EVIDENCE SELECTIONNEZ VOS FINITIONS - <?php echo $nom_produit; ?> </h3>
             <div id="left">

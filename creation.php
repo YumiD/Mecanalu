@@ -22,22 +22,37 @@
   $presentation = $_SESSION['presentation'];
   $fiche_technique = $_SESSION['fiche_technique'];
 
-  $gamme = $_SESSION['gamme'];
-  $nom_gamme = $_SESSION['nom_gamme'];
+  //Gamme
+  $evidence = $_SESSION["evidence"];
+  $boreale = $_SESSION["boreale"];
+  $evidence_box = $_SESSION["evidence_box"];
+  //Evidence
+  $e_cj = $_SESSION["e_cj"];
+  $e_bb = $_SESSION["e_bb"];
+  $e_plein = $_SESSION["e_plein"];
+  $e_vitre = $_SESSION["e_vitre"];
+  $e_vitre_allege = $_SESSION["e_vitre_allege"];
+  $e_cj_p = $_SESSION["e_cj_p"];
+  $e_bb_p = $_SESSION["e_bb_p"];
+  $e_cj_v = $_SESSION["e_cj_v"];
+  $e_bb_v = $_SESSION["e_bb_v"];
+  $e_cj_va = $_SESSION["e_cj_va"];
+  $e_bb_va = $_SESSION["e_bb_va"];
+  //Porte
   $porte=$_SESSION["porte"];
   $nom_porte = $_SESSION['nom_porte'];
-  $option= $_SESSION["option"];
-  $nom_option = $_SESSION['nom_option'];
   $accessoire = $_SESSION["accessoire"];
   $nom_accessoire = $_SESSION['nom_accessoire'];
   $ferme_porte = $_SESSION["ferme_porte"];
+  //Option
+  $option= $_SESSION["option"];
+  $nom_option = $_SESSION['nom_option'];
 
   $remplissage = $_SESSION['remplissage'];
   $produit = $_SESSION['produit'];
   $nom_produit = $_SESSION['nom_produit'];  
   $produit_evidence = $_SESSION['produit_evidence'];
 
-  $nom_entreprise = $_SESSION['nom_entreprise'];
 
   /*--- Code pour créer un zip ---*/
   /*$files = array('readme.txt', 'test.html', 'image.gif');
@@ -66,8 +81,25 @@
     var presentation = <?php echo json_encode($presentation); ?>;
     var fiche_technique = <?php echo json_encode($fiche_technique); ?>;
 
-    var gamme = <?php echo json_encode($gamme); ?>;
-    console.log(gamme);
+    //Gamme
+    var evidence = <?php echo json_encode($evidence); ?>;
+    console.log(evidence);
+    var boreale = <?php echo json_encode($boreale); ?>;
+    console.log(boreale);
+    var evidence_box = <?php echo json_encode($evidence_box); ?>;
+    //Evidence
+    var e_cj = <?php echo json_encode($e_cj); ?>;
+    var e_bb = <?php echo json_encode($e_bb); ?>;
+    var e_plein = <?php echo json_encode($e_plein); ?>;
+    var e_vitre = <?php echo json_encode($e_vitre); ?>;
+    var e_vitre_allege = <?php echo json_encode($e_vitre_allege); ?>;
+    var e_cj_p = <?php echo json_encode($e_cj_p); ?>;
+    var e_bb_p = <?php echo json_encode($e_bb_p); ?>;
+    var e_cj_v = <?php echo json_encode($e_cj_v); ?>;
+    var e_bb_v = <?php echo json_encode($e_bb_v); ?>;
+    var e_cj_va = <?php echo json_encode($e_cj_va); ?>;
+    var e_bb_va = <?php echo json_encode($e_bb_va); ?>;
+    //Porte
     var porte = <?php echo json_encode($porte); ?>;
     console.log(porte);
     var option = <?php echo json_encode($option); ?>;
@@ -85,23 +117,23 @@
     /*------PREMIERE PAGE-------*/
 
     /*------PLACEHOLDERS-------*/
-    if(produit=="e_cj"){
+    if(e_cj){
       var slide = pptx.addSlide();
       slide.addImage({ path: "../ressources/pptx_placeholder/e_cj.png", x:0, y:0, w:'100%', h:'100%' });
-      if(remplissage=="plein"){
+      if(e_cj_p){
         var slide = pptx.addSlide();
         slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_p.png", x:0, y:0, w:'100%', h:'100%' });
-      }else if(remplissage=="vitre" || remplissage=="vitre_allege"){
+      }if(e_cj_v || e_cj_va){
         var slide = pptx.addSlide();
         slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_v.png", x:0, y:0, w:'100%', h:'100%' });
       }
-    } else if(produit=="e_bb"){
+    }if(e_bb){
       var slide = pptx.addSlide();
       slide.addImage({ path: "../ressources/pptx_placeholder/e_bb.png", x:0, y:0, w:'100%', h:'100%' });
-      if(remplissage=="plein"){
+      if(e_bb_p){
         var slide = pptx.addSlide();
         slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_p.png", x:0, y:0, w:'100%', h:'100%' });
-      }else if(remplissage=="vitre" || remplissage=="vitre_allege"){
+      }if(e_bb_v || e_bb_va){
         var slide = pptx.addSlide();
         slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_v.png", x:0, y:0, w:'100%', h:'100%' });
       }

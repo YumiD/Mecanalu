@@ -3,6 +3,12 @@
     $_SESSION["buffer_portes_size"] = 0;
     $_SESSION["buffer_portes_index"] = 0;
     $_SESSION['buffer_portes'] = array();
+
+    $_SESSION["porte_pleine"] = false;
+    $_SESSION["porte_vitre"] = false;
+    $_SESSION["porte_coulissante"] = false;
+    $_SESSION["porte_bi_cadreAluminium"] = false;
+    $_SESSION["porte_bi_bois"] = false;
 ?>
 
 

@@ -1,12 +1,6 @@
 <?php
     session_start();
 
-    /*if(!empty($_POST['produit'])) {    
-        $produit = $_POST['produit'];
-        $_SESSION["produit"] = $produit;
-    }
-    else $produit=$_SESSION["produit"];*/ //TODO COMMENT
-
     $evidence_produit = $_SESSION['buffer_evidence_produit'][$_SESSION["buffer_evidence_produit_index"]];
 
     if($evidence_produit=="e_cj"){
