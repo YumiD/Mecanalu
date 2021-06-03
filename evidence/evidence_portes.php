@@ -2,7 +2,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="../mecanalu.css" />
-        <title>Récapitulatif</title>
+        <title>Mecanalu - Choix Porte</title>
 
         <style>
             .image1{ /* Le premier bouton */

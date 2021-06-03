@@ -27,7 +27,7 @@ if ($conn->connect_error) {
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="mecanalu.css" />
-        <title>Création du dossier</title>
+        <title>Mecanalu - Création du dossier</title>
     </head>
     <style>
         #form #nom_entreprise_image, #nom_projet_image

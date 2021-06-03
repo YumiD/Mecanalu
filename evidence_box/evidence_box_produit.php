@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../mecanalu.css" />
-        <title>Création du dossier</title>
+        Mecanalu - Produit</title>
 
         <style>
             .image1{ /* Le premier bouton */

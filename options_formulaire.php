@@ -49,7 +49,7 @@
 
     <body id="page">
     <div class="header">
-        <?php include('../includes/header_evidence.html'); ?>
+        <?php include('includes/header.html'); ?>
     </div> 
 
     <div id="content" style="height:75%;">
@@ -60,7 +60,7 @@
             
             <div id="right">
             <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
-            <form action="../ajout.php" method="post">
+            <form action="ajout.php" method="post">
                 <!-- DIMENSION -->
                 <div id="dimension">
                     <label  class="label" for="dimension">Dimension :</label>
@@ -167,6 +167,7 @@
                 if(option=="option_store"){
                     document.getElementById("rayon_cintrage").style.display = "none";
                     document.getElementById("ral").style.display = "none";
+                    //document.getElementById("fournisseur").style.display = "none";
                     DeleteByClass("vitre"); DeleteByClass("stratifie"); DeleteByClass("vinylique"); DeleteByClass("dv"); DeleteByClass("sv"); //Finition
                 }
                 else if(option=="option_ecrimur"){
@@ -178,6 +179,7 @@
                 else if(option=="option_cintrage"){
                     document.getElementById("dimension").style.display = "none";
                     document.getElementById("couleur").style.display = "none";
+                    //document.getElementById("fournisseur").style.display = "none";
                     document.getElementById("doc_technique").style.display = "none";
                     DeleteByClass("vitre"); DeleteByClass("stratifie"); DeleteByClass("vinylique"); DeleteByClass("manuel"); DeleteByClass("electrique"); //Finition
                 }
@@ -185,6 +187,6 @@
     </div>
     </body>
     <footer>
-        <button onclick="window.location.href='boreale_options.php'">Précédent</button>
+        <button onclick="window.location.href='options.php'">Précédent</button>
     </footer>
 </html>

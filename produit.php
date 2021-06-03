@@ -72,8 +72,11 @@
 
     if(empty($_SESSION['buffer_gamme']))
         echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
-    else
+    else{
+        $_SESSION['buffer_gamme_index']=0;
+        $_SESSION['buffer_gamme_size']=count($_SESSION['buffer_gamme']);
         echo "<script type='text/javascript'> document.location = 'buffer/buffer_gamme.php'; </script>";
+    }
     
 ?>
 
@@ -81,7 +84,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="mecanalu.css" />
-        <title>Choix du produit</title>
+        <title>Mecanalu - Choix du produit</title>
     </head>
     
     <body>

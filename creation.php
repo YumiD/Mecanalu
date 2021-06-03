@@ -189,7 +189,7 @@
   <head>
       <meta charset="utf-8" />
       <link rel="stylesheet" href="mecanalu.css" />
-      <title>Création de l'archive</title>
+      <title>Mecanalu - Création de l'archive</title>
   </head>
 
   <body id="page">

@@ -93,7 +93,7 @@
     
     <body id="page">
         <div class="header">
-            <?php include('../includes/header_evidence.html'); ?>
+            <?php include('includes/header.html'); ?>
         </div> 
         
         <div id="content">
@@ -106,7 +106,7 @@
 			<span class="legend3"> Ecrimur </span>
 			<span class="legend3"> Cintrage </span>
             
-            <form action="evidence_options_formulaire.php" method="post">
+            <form action="options_formulaire.php" method="post">
                 <input type="submit" id="horizontal_item" name="option" value="option_store" alt="Submit Form" class="image1"/>
                 <input type="submit" id="horizontal_item" name="option" value="option_ecrimur" alt="Submit Form"  class="image2"/>
                 <input type="submit" id="horizontal_item" name="option" value="option_cintrage" alt="Submit Form"  class="image3"/>
@@ -116,6 +116,6 @@
     </body>
 
     <footer>
-        <button id="buttonPasser" onclick="window.location.href='../ajout.php'">Passer</button>
+        <button id="buttonPasser" onclick="window.location.href='ajout.php'">Passer</button>
     </footer>
 </html>

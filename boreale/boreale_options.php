@@ -46,7 +46,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../mecanalu.css" />
-        <title>Récapitulatif</title>
+        <title>Mecanalu - Choix Option</title>
 
         <style>
             .image1{ /* Le premier bouton */

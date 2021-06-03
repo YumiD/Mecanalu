@@ -1,12 +1,13 @@
 <?php
     session_start();
+    $_SESSION["buffer_evidence_produit_size"] = 0;
 ?>
 
 <html>
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../mecanalu.css" />
-        <title>Création du dossier</title>
+        <title>Mecanalu - Produitr</title>
     </head>
 
     <body id="page">

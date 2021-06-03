@@ -1,89 +1,54 @@
+<?php
+  session_start();
+    $_SESSION["buffer_portes_size"] = 0;
+    $_SESSION["buffer_portes_index"] = 0;
+    $_SESSION['buffer_portes'] = array();
+?>
+
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="mecanalu.css" />
-        <title>Récapitulatif</title>
-
-        <style>
-            .image1{ /* Le premier bouton */
-                border:none;
-                background-image:url('ressources/porte_bi.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 40%;
-				max-width: 271px;
-                height: 100%;
-				max-height: 259px;
-				cursor: pointer;}
-            .image2{
-                border:none;
-                background-image:url('ressources/porte_pleine.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 52%;
-				max-width: 347px;
-                height: 100%;
-				max-height: 259px;
-				cursor: pointer;}
-            .image3{
-                border:none;
-                background-image:url('ressources/porte_vitre.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 37%;
-				max-width: 202px;
-                height: 100%;
-				max-height: 259px;
-				cursor: pointer;}
-            .image4{
-                border:none;
-                background-image:url('ressources/porte_coulissante.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 53%;
-				max-width: 311px;
-                height: 100%;
-				max-height: 259px;
-				cursor: pointer;}
-        </style>
+        <title>Mecanalu - Choix Porte</title>
+        
     </head>
     
 <body id="page">
 
 	<div class="header">
-        <?php include('includes/header_evidence.html'); ?>
+        <?php include('includes/header.html'); ?>
 	</div> 
         
         <div id="content">
-            <h3>EVIDENCE - CHOIX PORTE</h3>
+            <h3>CHOIX PORTE</h3>
 
             <h4> Choisissez entre <h4>
 
             <div id="horizontal"> 
-			<span class="legend3"> Bi-Affleurante </span>
-			<span class="legend3"> Pleine </span>
-			<span class="legend3"> Vitré </span>
-			<span class="legend3"> Coulissante </span>
-			
-			<form action="evidence_portes_formulaire.php" method="post">
-                <input type="submit" id="horizontal_item" name="porte" value="porte_bi" alt="Submit Form" class="image1"/>
-                <input type="submit" id="horizontal_item" name="porte" value="porte_pleine" alt="Submit Form"  class="image2"/>
-                <input type="submit" id="horizontal_item" name="porte" value="porte_vitre" alt="Submit Form"  class="image3"/>
-                <input type="submit" id="horizontal_item" name="porte" value="porte_coulissante" alt="Submit Form"  class="image4"/>
-            </form>
+                <span class="legend3"> Bi-Affleurante </span>
+                <span class="legend3"> Pleine </span>
+                <span class="legend3"> Vitré </span>
+                <span class="legend3"> Coulissante </span>
+                
+                <form action="buffer/buffer_portes.php" method="post">
+                <div id="checkboxPortes">
+                    <input type="checkbox" id="porte_bi"  name="porte_bi" class="porte"/>
+                    <label for="porte_bi"><img src="ressources/porte_bi.png" /></label>
+                    <input type="checkbox" id="porte_pleine" name="porte_pleine" class="porte"/>
+                    <label for="porte_pleine"><img src="ressources/porte_pleine.png" /></label>
+                    <input type="checkbox" id="porte_vitre" name="porte_vitre" class="porte"/>
+                    <label for="porte_vitre"><img src="ressources/porte_vitre.png" /></label>
+                    <input type="checkbox" id="porte_coulissante" name="porte_coulissante" class="porte"/>
+                    <label for="porte_coulissante"><img src="ressources/porte_coulissante.png" /></label>
+                </div>
+
 			</div>
+
+            <div id="form">
+            <input type="submit" value="Continuer" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';">
+            </div>
+
         </div>
 
     </body>

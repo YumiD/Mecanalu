@@ -1,14 +1,9 @@
 <?php
     session_start();
 
-    if(!empty($_POST['porte'])) {    
-        $porte = $_POST['porte'];
-        $_SESSION["porte"] = $porte;
-    }
-    else $porte=$_SESSION["porte"];
+    $porte=$_SESSION["porte"] = $_SESSION['buffer_portes'][$_SESSION["buffer_portes_index"]-1];
 
     if($porte=="porte_bi"){
-        //header('Location: evidence_portes_bi.php');
         echo "<script type='text/javascript'> document.location = 'evidence_portes_bi.php'; </script>";
     }
     else if($porte=="porte_pleine"){
@@ -31,15 +26,7 @@
     }
     $_SESSION["nom_porte"] = $nom_porte;
 
-    $nom_entreprise = $_SESSION['nom_entreprise'];
-
 ?>
-
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.6.0/dist/pptxgen.bundle.js"></script>
-
-    <script type="text/javascript">
-        var pptx = new PptxGenJS();
-    </script>
 
 <html>
     <head>
@@ -70,7 +57,7 @@
 
     <body id="page">
     <div class="header">
-        <?php include('../includes/header_evidence.html'); ?>
+        <?php include('includes/header.html'); ?>
     </div> 
 
     <div id="content" style="height:75%;">
@@ -81,7 +68,7 @@
             
             <div id="right">
             <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
-            <form action="evidence_options.php" method="post">
+            <form action="buffer/buffer_portes.php" method="post">
                 <!-- HAUTEUR -->
                 <div>
                     <label class="label" for="hauteur">Hauteur :</label>

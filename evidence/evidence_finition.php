@@ -1,40 +1,34 @@
 <?php
     session_start();
     
-    if(!empty($_POST['remplissage'])) {    
-        $remplissage = $_POST['remplissage'];
-        $_SESSION["remplissage"] = $remplissage;
-    }
-    
-    $remplissage = $_SESSION['remplissage'];
-
-    $produit = $_SESSION['produit'];
+    $produit = $_SESSION['buffer_evidence_finition'][0];
+    $remplissage = $_SESSION['buffer_evidence_finition'][1];
 
     if($produit=="e_cj"){
-        if($remplissage=="plein"){
+        if($remplissage=="e_plein"){
             $nom_produit="Couvre joint Plein";
             $produit_final="e_cj_p";
             $_SESSION["produit_evidence"]="E_CJ_plein";
-        }else if($remplissage=="vitre"){
+        }else if($remplissage=="e_vitre"){
             $nom_produit="Couvre joint Vitré";
             $produit_final="e_cj_v";
             $_SESSION["produit_evidence"]="E_CJ_vitre";
-        }else if($remplissage=="vitre_allege" ){
+        }else if($remplissage=="e_vitre_allege" ){
             $nom_produit="Couvre joint Vitré sur Allège";
             $produit_final="e_cj_va";
             $_SESSION["produit_evidence"]="E_CJ_vitreAllege";
         }
     }
     else if($produit=="e_bb"){
-        if($remplissage=="plein"){
+        if($remplissage=="e_plein"){
             $nom_produit="Bord à Bord Plein";
             $produit_final="e_bb_p";
             $_SESSION["produit_evidence"]="E_BB_plein";
-        }else if($remplissage=="vitre"){
+        }else if($remplissage=="e_vitre"){
             $nom_produit="Bord à Bord Vitré";
             $produit_final="e_bb_v";
             $_SESSION["produit_evidence"]="E_BB_vitre";
-        }else if($remplissage=="vitre_allege"){
+        }else if($remplissage=="e_vitre_allege"){
             $nom_produit="Bord à Bord Vitré sur Allège";
             $produit_final="e_bb_va";
             $_SESSION["produit_evidence"]="E_BB_vitreAllege";
@@ -48,7 +42,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../mecanalu.css" />
-    <title>Création du dossier</title>
+    <title>Mecanalu - Finition</title>
 
     <style>
         #wrapper {
@@ -80,6 +74,16 @@
 		
 	</div> 
 
+    <?php
+    echo $_SESSION["buffer_evidence_finition_indexX"];
+    echo " ";
+    echo $_SESSION["buffer_evidence_finition_indexY"];
+    echo " ";
+    echo count($_SESSION['buffer_evidence_produit']);
+    echo " ";
+    //cho count($_SESSION['buffer_evidence_remplissage'][$_SESSION["buffer_evidence_finition_indexX"]]);
+    ?>
+
     <div id="content" style="height:75%;">
         <h3> EVIDENCE SELECTIONNEZ VOS FINITIONS - <?php echo $nom_produit; ?> </h3>
             <div id="left">
@@ -88,7 +92,7 @@
             
             <div id="right">
             <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
-            <form action="evidence_portes.php" method="post">
+            <form action="../buffer/buffer_evidence_finition.php" method="post">
                 <div>
                     <label class="label" for="hauteur">Hauteur :</label>
                     <input type="text" id="hauteur" name="hauteur">

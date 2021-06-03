@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="mecanalu.css" />
-        <title>Remplissage</title>
+        <title>Mecanalu - Remplissage</title>
     </head>
 
     <body>

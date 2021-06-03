@@ -1,17 +1,18 @@
 <?php
     session_start();
 
-    if(!empty($_POST['produit'])) {    
+    /*if(!empty($_POST['produit'])) {    
         $produit = $_POST['produit'];
         $_SESSION["produit"] = $produit;
     }
-    else $produit=$_SESSION["produit"];
-    
+    else $produit=$_SESSION["produit"];*/ //TODO COMMENT
 
-    if($produit=="e_cj"){
+    $evidence_produit = $_SESSION['buffer_evidence_produit'][$_SESSION["buffer_evidence_produit_index"]];
+
+    if($evidence_produit=="e_cj"){
         $nom_produit="Couvre joint";
     }
-    else if($produit=="e_bb"){
+    else if($evidence_produit=="e_bb"){
         $nom_produit="Bord à Bord";
     }
 ?>
@@ -20,7 +21,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../mecanalu.css" />
-        <title>Création du dossier</title>
+        <title>Mecanalu - Remplissage</title>
 
         <style>
             .image1{ /* Le premier bouton */
@@ -73,7 +74,7 @@
         <h3> EVIDENCE - <?php echo $nom_produit; ?> - remplissage</h3>
         
             <div id="image_produit">
-                <img class="image_produit" src="../ressources/<?php echo $produit; ?>.png">
+                <img class="image_produit" src="../ressources/<?php echo $evidence_produit; ?>.png">
             </div>
             <div class="horizontal_remplissage" id="horizontal"> 
             <p><?php echo $nom_produit; ?></p>
@@ -88,15 +89,15 @@
             <input type="submit" id="horizontal_item" name="remplissage" value="vitre_allege" alt="Submit Form"  class="image3"/>
             </div></form>-->
 
-            <form action="../buffer/buffer_evidence_produit.php" method="post">
+            <form action="../buffer/buffer_evidence_remplissage.php" method="post">
 
                 <div id="checkboxRemplissage"> 
-                <input type="checkbox" id="e_cj"  name="e_cj" class="evidence_produit"/>
-                <label for="e_cj"><img src="../ressources/plein.png" /></label>
-                <input type="checkbox" id="e_bb" name="e_bb" class="evidence_produit"/>
-                <label for="e_bb"><img src="../ressources/vitre.png" /></label>
-                <input type="checkbox" id="e_bb" name="e_bb" class="evidence_produit"/>
-                <label for="e_bb"><img src="../ressources/vitre_allege.png" /></label>
+                <input type="checkbox" id="e_plein"  name="e_plein" class="evidence_remplissage"/>
+                <label for="e_plein"><img src="../ressources/plein.png" /></label>
+                <input type="checkbox" id="e_vitre" name="e_vitre" class="evidence_remplissage"/>
+                <label for="e_vitre"><img src="../ressources/vitre.png" /></label>
+                <input type="checkbox" id="e_vitre_allege" name="e_vitre_allege" class="evidence_remplissage"/>
+                <label for="e_vitre_allege"><img src="../ressources/vitre_allege.png" /></label>
                 </div>
             </div>
             
