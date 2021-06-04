@@ -1,11 +1,7 @@
 <?php
     session_start();
 
-    if(!empty($_POST['produit'])) {    
-        $produit = $_POST['produit'];
-        $_SESSION["produit"] = $produit;
-    }
-    else $produit=$_SESSION["produit"];
+    $produit = $_SESSION['buffer_evidence_box_produit'][$_SESSION["buffer_evidence_box_produit_index"]];
     
 
     if($produit=="box_alta"){
@@ -23,7 +19,6 @@
     else if($produit=="box_media"){
         $nom_produit="Media";
     }
-    $_SESSION["nom_produit"] = $nom_produit;
 ?>
 
 <html>
@@ -31,57 +26,6 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../mecanalu.css" />
         <title>Mecanalu - Remplissage</title>
-
-        <style>
-            .image1{ /* Le premier bouton */
-                border:none;
-                background-image:url('../ressources/box_remplissage_1.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                max-height:219px;
-				width: 202px;
-				max-width: 100%;
-				cursor: pointer;}
-            .image2{
-                border:none;
-                background-image:url('../ressources/box_remplissage_2.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                max-height:219px;
-				width: 291px;
-				max-width: 100%;
-				cursor: pointer;}
-            .image3{
-                border:none;
-                background-image:url('../ressources/box_remplissage_3.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                max-height:219px;
-				width: 291px;
-				max-width: 100%;
-				cursor: pointer;}
-            .image4{
-                border:none;
-                background-image:url('../ressources/box_remplissage_4.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                max-height:219px;
-				width: 291px;
-				max-width: 100%;
-				cursor: pointer;}
-        </style>
     </head>
 
     <body id="page">
@@ -92,24 +36,42 @@
 	</div>  
 
     <div id="content">
-        <h3> EVIDENCE BOX - remplissage</h3>
+        <h3> EVIDENCE BOX - remplissage - <?php echo $nom_produit; ?> </h3>
+
+        <form action="../buffer/buffer_evidence_box_remplissage.php" method="post">
 
         <div id="horizontal"> 
             <h4> Choisissez entre </h4>  
             <span class="legend2"> 3 faces pleines (standard) </span>
             <span class="legend2"> 2 faces pleines + 1 côté vitré </span>	
             <span class="legend2"> Fond plein + 2 côté vitré </span>	
-            <span class="legend2"> 2 côtés pleins "en tunnel" + fond vitré </span>			
-            <form action="evidence_box_finition.php" method="post">
-            <input type="submit" id="horizontal_item" name="remplissage" value="box_remplissage_1" alt="Submit Form" class="image1"/>
-            <input type="submit" id="horizontal_item" name="remplissage" value="box_remplissage_2" alt="Submit Form"  class="image2"/>
-            <input type="submit" id="horizontal_item" name="remplissage" value="box_remplissage_3" alt="Submit Form"  class="image3"/>
-            <input type="submit" id="horizontal_item" name="remplissage" value="box_remplissage_4" alt="Submit Form"  class="image4"/>
-        </div></form>
+            <span class="legend2"> 2 côtés pleins "en tunnel" + fond vitré </span>
+            
+            <div id="checkbox">
+            <input type="checkbox" id="box_remplissage_1" name="box_remplissage_1" class="evidence_box_remplissage"/>
+            <label for="box_remplissage_1"><img src="../ressources/box_remplissage_1.png" /></label>
+            <input type="checkbox" id="box_remplissage_2" name="box_remplissage_2" class="evidence_box_remplissage"/>
+            <label for="box_remplissage_2"><img src="../ressources/box_remplissage_2.png" /></label>
+            <input type="checkbox" id="box_remplissage_3" name="box_remplissage_3" class="evidence_box_remplissage"/>
+            <label for="box_remplissage_3"><img src="../ressources/box_remplissage_3.png" /></label>
+            <input type="checkbox" id="box_remplissage_4" name="box_remplissage_4" class="evidence_box_remplissage"/>
+            <label for="box_remplissage_4"><img src="../ressources/box_remplissage_4.png" /></label>
+            </div>
+        </div>
+
+        <div id="form">
+        <p><input type="submit" value="Continuer" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';"></p>
+        </div>
+
+        </form>
         
 		
 	<footer>
-        <button onclick="window.location.href='evidence_box_produit.php'">Précédent</button>
+        <form action="../buffer/buffer_evidence_box_remplissage.php" method="post">
+            <div id="form">
+                <input type="submit" name="previous" value="Précédent" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';">
+            </div>
+        </form>
     </footer>
     </div>
     </body>

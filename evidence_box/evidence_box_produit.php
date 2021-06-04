@@ -1,78 +1,13 @@
 <?php
     session_start();
+    $_SESSION["buffer_evidence_box_produit_size"] = 0;
 ?>
 
 <html>
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../mecanalu.css" />
-        Mecanalu - Produit</title>
-
-        <style>
-            .image1{ /* Le premier bouton */
-                border:none;
-                background-image:url('../ressources/box_alta.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 60%;
-				max-width: 350px;
-                max-height:506px;
-                width: 100%;
-                height: 100%;;
-				margin-top: 4%;
-				cursor: pointer;}
-            .image2{
-                border:none;
-                background-image:url('../ressources/box_duo.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 100%;
-                height: 100%;
-				margin-top: 4%;
-				cursor: pointer;}
-            .image3{
-                border:none;
-                background-image:url('../ressources/box_grande.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 100%;
-                height: 100%;
-				margin-top: 4%;
-				cursor: pointer;}
-            .image4{
-                border:none;
-                background-image:url('../ressources/box_little.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 100%;
-                height: 100%;
-				margin-top: 4%;
-				cursor: pointer;}
-            .image5{
-                border:none;
-                background-image:url('../ressources/box_media.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                width: 100%;
-                height: 100%;
-				margin-top: 4%;
-				cursor: pointer;}
-        </style>
+        <title>Mecanalu - Produit</title>
     </head>
 
     <body id="page">
@@ -87,19 +22,38 @@
         <h3> Evidence Box : Choix de la box</h3>
         <h4> Plusieurs choix possibles <h4>
 
-		
-        <div id="horizontal"> 
-            <form action="evidence_box_remplissage.php" method="post">
-                <div class="blocimage"><span class="legend"> Box Little </span><input type="submit" id="horizontal_item" name="produit" value="box_little" alt="Submit Form"  class="image4"/></div>
-                <div class="blocimage"><span class="legend"> Box Duo </span><input type="submit" id="horizontal_item" name="produit" value="box_duo" alt="Submit Form"  class="image2"/></div>
-                <div class="blocimage"><span class="legend"> Box Media </span><input type="submit" id="horizontal_item" name="produit" value="box_media" alt="Submit Form"  class="image5"/></div>
-                <div class="blocimage"><span class="legend"> Box Alta </span><input type="submit" id="horizontal_item" name="produit" value="box_alta" alt="Submit Form" class="image1"/></div>
-                <div class="blocimage"><span class="legend"> Box Grande </span><input type="submit" id="horizontal_item" name="produit" value="box_grande" alt="Submit Form"  class="image3"/></div>
-        </div>
+            <form action="../buffer/buffer_evidence_box_produit.php" method="post">
+
+                <span style="margin-left:80px;" class="legend4"> Box Little </span>
+                <span style="margin-left:80px;" class="legend4"> Box Duo </span>
+                <span style="margin-left:80px;" class="legend4"> Box Media </span>
+                <span style="margin-left:80px;" class="legend4"> Box Alta </span>
+                <span style="margin-left:80px;" class="legend4"> Box Grande </span>
+
+            <div id="horizontal"> 
+                
+                <div id="checkbox">
+                <input type="checkbox" id="box_little"  name="box_little" class="evidence_box_produit"/>
+                <label for="box_little"><img src="../ressources/box_little.png" /></label>
+                <input type="checkbox" id="box_duo" name="box_duo" class="evidence_box_produit"/>
+                <label for="box_duo"><img src="../ressources/box_duo.png" /></label>
+                <input type="checkbox" id="box_media" name="box_media" class="evidence_box_produit"/>
+                <label for="box_media"><img src="../ressources/box_media.png" /></label>
+                <input type="checkbox" id="box_alta" name="box_alta" class="evidence_box_produit"/>
+                <label for="box_alta"><img src="../ressources/box_alta.png" /></label>
+                <input type="checkbox" id="box_grande" name="box_grande" class="evidence_box_produit"/>
+                <label for="box_grande"><img src="../ressources/box_grande.png" /></label>
+                </div>
+            </div>
+
+            <div id="form">
+            <p><input type="submit" value="Continuer" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';"></p>
+            </div>
+
             </form>
 		
 	<footer>
-       <button onclick="window.location.href='../index.php'">Précédent</button>
+       <!--<button onclick="window.location.href='../index.php'">Précédent</button>-->
     </footer>
 	
     </div>

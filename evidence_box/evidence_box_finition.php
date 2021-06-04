@@ -1,15 +1,26 @@
 <?php
     session_start();
     
-    if(!empty($_POST['remplissage'])) {    
-        $remplissage = $_POST['remplissage'];
-        $_SESSION["remplissage"] = $remplissage;
-    }
+    $produit = $_SESSION['buffer_evidence_box_finition'][0];
+    $remplissage = $_SESSION['buffer_evidence_box_finition'][1];
     
-    $remplissage = $_SESSION['remplissage'];
-
-    $produit = $_SESSION['produit'];
-    $nom_produit = $_SESSION['nom_produit'];
+    if($produit=="box_alta"){
+        $nom_produit="Alta";
+    }
+    else if($produit=="box_duo"){
+        $nom_produit="Duo";
+    }
+    else if($produit=="box_grande"){
+        $nom_produit="Grande";
+    }
+    else if($produit=="box_little"){
+        $nom_produit="Little";
+    }
+    else if($produit=="box_media"){
+        $nom_produit="Media";
+    }
+    else
+        $nom_produit=" ";
 
 ?>
 
@@ -57,7 +68,7 @@
             
             <div id="right">
             <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
-            <form action="../ajout.php" method="post">
+            <form action="../buffer/buffer_evidence_box_finition.php" method="post">
                 <!-- RAL -->
                 <div>
                     <label class="label" for="ral">Ral :</label>
@@ -153,7 +164,11 @@
             </script>
 			
 			<footer>
-			<button onclick="window.location.href='evidence_box_remplissage.php'">Précédent</button>
+                <form action="../buffer/buffer_evidence_box_finition.php" method="post">
+                    <div id="form">
+                        <input type="submit" name="previous" value="Précédent" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';">
+                    </div>
+                </form>
 			</footer>
     </div>
 </body>

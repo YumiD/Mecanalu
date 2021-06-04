@@ -16,13 +16,22 @@ $password = "CGJioYNyR7aPLhq";
 $dbname  = "bleuebenapdgacon";
 
 $_SESSION['buffer_gamme'] = array();
+//Evidence
 for($i = 0; $i<count($_SESSION["buffer_evidence_produit"]); $i++)
     $_SESSION['buffer_evidence_remplissage'][$i]=array();
 $_SESSION['buffer_evidence_produit']=array();
 $_SESSION['buffer_evidence_remplissage'] = array();
 $_SESSION['buffer_evidence_finition']=array();
+//Boreale
 $_SESSION['buffer_boreale_produit']=array();
+$_SESSION['buffer_boreale_finition']=array();
+//Evidence Box
+for($i = 0; $i<count($_SESSION["buffer_evidence_box_produit"]); $i++)
+    $_SESSION['buffer_evidence_box_remplissage'][$i]=array();
 $_SESSION['buffer_evidence_box_produit']=array();
+$_SESSION['buffer_evidence_box_remplissage'] = array();
+$_SESSION['buffer_evidence_box_finition']=array();
+//Porte
 $_SESSION['buffer_portes'] = array();
 
 /*// Create connection
