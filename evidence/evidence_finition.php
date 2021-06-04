@@ -72,10 +72,7 @@
 	<div class="header">
         <?php include('../includes/header_evidence.html'); ?>
 	</div>
-		<?php
-            echo $_SESSION["buffer_evidence_finition_indexX"];
-            echo $_SESSION["buffer_evidence_finition_indexY"];
-        ?>
+    
 	</div> 
 
     <div id="content" style="height:75%;">

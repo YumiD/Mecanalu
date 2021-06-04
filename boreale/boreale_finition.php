@@ -1,10 +1,7 @@
 <?php
     session_start();
     
-    if(!empty($_POST['produit'])) {    
-        $produit = $_POST['produit'];
-        $_SESSION["produit"] = $produit;
-    }
+    $produit = $_SESSION['buffer_boreale_produit'][$_SESSION["buffer_boreale_produit_index"]];
 
     if($produit=="boreale_bb"){
         $nom_produit="Bord a Bord";
@@ -60,7 +57,7 @@
             
             <div id="right">
             <h4 style="text-align:left !important;"> Veuillez renseigner </h4>
-            <form action="boreale_portes.php" method="post">
+            <form action="../buffer/buffer_boreale_finition.php" method="post">
                 <!-- HAUTEUR -->
                 <div>
                     <label class="label" for="hauteur">Hauteur :</label>
@@ -140,7 +137,11 @@
             </script>
 			
 			<footer>
-			<button onclick="window.location.href='boreale_produit.php'">Précédent</button>
+                <form action="../buffer/buffer_boreale_finition.php" method="post">
+                    <div id="form">
+                        <input type="submit" name="previous" value="Précédent" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';">
+                    </div>
+                </form>
 			</footer>
     </div>
 </body>

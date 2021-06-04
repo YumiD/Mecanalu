@@ -51,15 +51,28 @@
         <h3> Boreale : Choix de la finition</h3>
         <h4> Plusieurs choix possibles <h4>
 
+        <span class="legend3"> Bord à Bord </span>
+        <span class="legend3"> Verrière </span>
+
+		<form action="../buffer/buffer_boreale_produit.php" method="post">
         <div id="horizontal"> 
-		  
-		<form action="boreale_finition.php" method="post">
-           <div class="blocimage"><span class="legend"> Bord à Bord </span><input type="submit" id="horizontal_item" name="produit" value="boreale_bb" alt="Submit Form" class="image1"/></div>
-            <div class="blocimage"><span class="legend"> Verrière </span><input type="submit" id="horizontal_item" name="produit" value="boreale_verriere" alt="Submit Form"  class="image2"/></div>
-        </form></div>
+
+            <div id="checkbox">
+            <input type="checkbox" id="boreale_bb"  name="boreale_bb" class="boreale_produit"/>
+            <label for="boreale_bb"><img src="../ressources/boreale_bb.png" /></label>
+            <input type="checkbox" id="boreale_verriere" name="boreale_verriere" class="boreale_produit"/>
+            <label for="boreale_verriere"><img src="../ressources/e_bb.png" /></label>
+            </div>
+        
+        </div>
+
+        <div id="form">
+        <p><input type="submit" value="Continuer" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';"></p>
+		</div>
+        </form>
 		
 	<footer>
-       <button onclick="window.location.href='../index.php'">Précédent</button>
+       <!--<button onclick="window.location.href='../index.php'">Précédent</button>-->
     </footer>
 	
     </div>
