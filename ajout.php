@@ -45,11 +45,21 @@
         <div id="content">
             <h3> Ajouter des produits à votre dossier </h3>
             <h4> Souhaitez-vous un autre produit?</h4>
-            <div id="horizontal"> <form action="produit.php" method="post">
-                <input type="submit" id="horizontal_item" name="evidence" value="gamme_evidence" alt="Submit Form" class="image1"/>
-                <input type="submit" id="horizontal_item" name="boreale" value="gamme_boreale" alt="Submit Form"  class="image2"/>
-                <input type="submit" id="horizontal_item" name="evidence_box" value="gamme_evidence_box" alt="Submit Form"  class="image3"/>
-            </form></div>
+            <form action="produit.php" method="post">
+            <div id="horizontal"> 
+                <div id="checkbox">
+                    <input type="checkbox" id="evidence"  name="evidence" class="gamme"/>
+                    <label for="evidence"><img src="ressources/gamme_evidence.png" /></label>
+                    <input type="checkbox" id="boreale" name="boreale" class="gamme"/>
+                    <label for="boreale"><img src="ressources/gamme_boreale.png" /></label>
+                    <input type="checkbox" id="evidence_box" name="evidence_box" class="gamme"/>
+                    <label for="evidence_box"><img src="ressources/gamme_evidence_box.png" /></label>
+                </div>
+                <div id="form">
+                    <p><input type="submit" name="ajout" value="Ajouter" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';"></p>
+                </div>
+            </div>
+            </form>
         </div>
     </body>
 

@@ -105,11 +105,11 @@
                         <ul style="list-style-type: none;">
                             <li class="trempe">
                                 <label for="trempe">Trempé</label>
-                                <input class="check" type="checkbox" id="trempe" name="finition_vitre">
+                                <input class="check" type="checkbox" id="trempe" name="finition_vitre" onclick="onlyOne(this, 'check')">
                             </li>
                             <li class="feuillete">
                                 <label for="clair">Feuilleté</label>
-                                <input class="check" type="checkbox" id="feuillete" name="finition_vitre">
+                                <input class="check" type="checkbox" id="feuillete" name="finition_vitre" onclick="onlyOne(this, 'check')">
                             </li>
                         </ul>
                     </div>
@@ -126,6 +126,17 @@
                         elements[i].hidden = false;
                     }
                 }
+                function onlyOne(checkbox, className) {
+                    var checkboxes = document.getElementsByClassName(className);
+                    for (i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i] !== checkbox){
+                            checkboxes[i].checked = false;
+                        }
+                        else if(checkboxes[i] == checkbox && checkboxes[i].checked==false){
+                            checkboxes[i].checked = true;
+                        }
+                    }
+                } 
             </script>
 			
 			<footer>

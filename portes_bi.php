@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../mecanalu.css" />
+        <link rel="stylesheet" href="mecanalu.css" />
         <title>Mecanalu - Choix Porte</title>
     </head>
     

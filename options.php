@@ -45,13 +45,13 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../mecanalu.css" />
+        <link rel="stylesheet" href="mecanalu.css" />
         <title>Mecanalu - Choix Option</title>
 
         <style>
             .image1{ /* Le premier bouton */
                 border:none;
-                background-image:url('../ressources/option_store.png');
+                background-image:url('ressources/option_store.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;
@@ -64,7 +64,7 @@
 				cursor: pointer;}
             .image2{
                 border:none;
-                background-image:url('../ressources/option_ecrimur.png');
+                background-image:url('ressources/option_ecrimur.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;
@@ -77,7 +77,7 @@
 				cursor: pointer;}
             .image3{
                 border:none;
-                background-image:url('../ressources/option_cintrage.png');
+                background-image:url('ressources/option_cintrage.png');
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:contain;

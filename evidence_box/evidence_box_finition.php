@@ -132,6 +132,17 @@
                         elements[i].hidden = false;
                     }
                 }
+                function onlyOne(checkbox, className) {
+                    var checkboxes = document.getElementsByClassName(className);
+                    for (i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i] !== checkbox){
+                            checkboxes[i].checked = false;
+                        }
+                        else if(checkboxes[i] == checkbox && checkboxes[i].checked==false){
+                            checkboxes[i].checked = true;
+                        }
+                    }
+                } 
                 var produit = <?php echo json_encode($produit); ?>;
                 if(produit=="box_little"){
                     SetVisible("6+8");

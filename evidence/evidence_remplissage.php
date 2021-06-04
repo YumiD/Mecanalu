@@ -16,45 +16,7 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../mecanalu.css" />
         <title>Mecanalu - Remplissage</title>
-
-        <style>
-            .image1{ /* Le premier bouton */
-                border:none;
-                background-image:url('../ressources/plein.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                max-height:219px;
-				width: 202px;
-				max-width: 100%;
-				cursor: pointer;}
-            .image2{
-                border:none;
-                background-image:url('../ressources/vitre.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                max-height:219px;
-				width: 291px;
-				max-width: 100%;
-				cursor: pointer;}
-            .image3{
-                border:none;
-                background-image:url('../ressources/vitre_allege.png');
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:contain;
-                background-color:#ffffff;
-                font-size:0.0001em;
-                max-height:219px;
-				width: 202px;
-				max-width: 100%;
-				cursor: pointer;}
-        </style>
+        
     </head>
 
     <body id="page">
@@ -76,12 +38,7 @@
             <h4> Choisissez entre </h4>  
 			<span class="legend2"> Plein </span>
 			<span class="legend2"> Vitré </span>		
-			<span class="legend2"> Vitré sur allège </span>		
-            <!--<form action="evidence_finition.php" method="post">
-            <input type="submit" id="horizontal_item" name="remplissage" value="plein" alt="Submit Form" class="image1"/>
-            <input type="submit" id="horizontal_item" name="remplissage" value="vitre" alt="Submit Form"  class="image2"/>
-            <input type="submit" id="horizontal_item" name="remplissage" value="vitre_allege" alt="Submit Form"  class="image3"/>
-            </div></form>-->
+			<span class="legend2"> Vitré sur allège </span>
 
             <form action="../buffer/buffer_evidence_remplissage.php" method="post">
 
@@ -104,7 +61,11 @@
         
 		
 	<footer>
-        <button onclick="window.location.href='evidence_produit.php'">Précédent</button>
+        <form action="../buffer/buffer_evidence_remplissage.php" method="post">
+            <div id="form">
+                <input type="submit" name="previous" value="Précédent" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';">
+            </div>
+        </form>
     </footer>
     </div>
     </body>

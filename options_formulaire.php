@@ -23,7 +23,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../mecanalu.css" />
+        <link rel="stylesheet" href="mecanalu.css" />
         <title>Mecanalu - Option</title>
 
         <style>
@@ -101,31 +101,31 @@
                     <div>
                         <ul style="list-style-type: none;">        
                             <li class="manuel">
-                                <input class="check" type="checkbox" id="manuel" name="finition" checked>
+                                <input class="check1" type="checkbox" id="manuel" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="manuel">Manuel</label>
                             </li>
                             <li class="electrique">
-                                <input class="check" type="checkbox" id="electrique" name="finition">
+                                <input class="check1" type="checkbox" id="electrique" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="electrique">Electrique</label>
                             </li>
                             <li class="vitre">
-                                <input class="check" type="checkbox" id="vitre" name="finition">
+                                <input class="check1" type="checkbox" id="vitre" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="vitre">Vitré</label>
                             </li>
                             <li class="stratifie">
-                                <input class="check" type="checkbox" id="stratifie" name="finition">
+                                <input class="check1" type="checkbox" id="stratifie" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="stratifie">Stratifié</label>
                             </li>
                             <li class="vinylique">
-                                <input class="check" type="checkbox" id="vinylique" name="finition">
+                                <input class="check1" type="checkbox" id="vinylique" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="vinylique">Vinylique</label>
                             </li>
                             <li class="dv">
-                                <input class="check" type="checkbox" id="dv" name="finition">
+                                <input class="check1" type="checkbox" id="dv" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="dv">DV</label>
                             </li>
                             <li class="sv">
-                                <input class="check" type="checkbox" id="sv" name="finition">
+                                <input class="check1" type="checkbox" id="sv" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="sv">SV</label>
                             </li>
                         </ul>
@@ -139,11 +139,11 @@
                     <div>
                         <ul style="list-style-type: none;">        
                             <li class="oui">
-                                <input class="check" type="checkbox" id="oui" name="doc_technique" checked>
+                                <input class="check2" type="checkbox" id="oui" name="doc_technique" onclick="onlyOne(this, 'check2')">
                                 <label class="label" for="oui">Oui</label>
                             </li>
                             <li class="non">
-                                <input class="check" type="checkbox" id="non" name="doc_technique">
+                                <input class="check2" type="checkbox" id="non" name="doc_technique" onclick="onlyOne(this, 'check2')">
                                 <label class="label" for="non">Non</label>
                             </li>
                         </ul>
@@ -162,6 +162,17 @@
                         elements[i].style.display = "none";
                     }
                 }
+                function onlyOne(checkbox, className) {
+                    var checkboxes = document.getElementsByClassName(className);
+                    for (i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i] !== checkbox){
+                            checkboxes[i].checked = false;
+                        }
+                        else if(checkboxes[i] == checkbox && checkboxes[i].checked==false){
+                            checkboxes[i].checked = true;
+                        }
+                    }
+                } 
 
                 var option = <?php echo json_encode($option); ?>;
                 if(option=="option_store"){

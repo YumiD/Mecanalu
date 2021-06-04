@@ -1,7 +1,8 @@
 <?php
     session_start();
 
-    $porte=$_SESSION["porte"] = $_SESSION['buffer_portes'][$_SESSION["buffer_portes_index"]-1];
+    $porte = $_SESSION['buffer_portes'][$_SESSION["buffer_portes_index"]-1];
+    $PV = $_SESSION["PV"];
 
     if($porte=="porte_bi"){
         echo "<script type='text/javascript'> document.location = 'evidence_portes_bi.php'; </script>";
@@ -31,7 +32,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../mecanalu.css" />
+        <link rel="stylesheet" href="mecanalu.css" />
         <title>Mecanalu - Porte</title>
 
         <style>
@@ -82,15 +83,15 @@
                     <div>
                         <ul style="list-style-type: none;">
                             <li class="finition-plein">
-                                <input type="checkbox" id="finition-plein" name="finition">
+                                <input class="check1" type="checkbox" id="finition-plein" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label class="label" for="finition-plein">Plein</label>
                             </li>
                             <li class="finition-vitre">
-                                <input type="checkbox" id="finition-vitre" name="finition">
+                                <input class="check1" type="checkbox" id="finition-vitre" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label class="label" for="finition-vitre">Vitré</label>
                             </li>
                             <li class="finition-stratifie">
-                                <input type="checkbox" id="finition-stratifie" name="finition">
+                                <input class="check1" type="checkbox" id="finition-stratifie" name="finition" onclick="onlyOne(this, 'check1')">
                                 <label class="label" for="finition-stratifie">Stratifié</label>
                             </li>
                         </ul>
@@ -104,11 +105,11 @@
                     <div>
                         <ul style="list-style-type: none;">        
                             <li class="plein">
-                                <input class="check" type="checkbox" id="plein" name="finition_vitre" onclick="onlyOne(this, 'check')"  onchange="UpdateSelect()" checked>
+                                <input class="check2" type="checkbox" id="plein" name="finition_vitre" onclick="onlyOne(this, 'check2')"  onchange="UpdateSelect()">
                                 <label class="label" for="plein">Plein</label>
                             </li>
                             <li class="vitre">
-                                <input class="check" type="checkbox" id="vitre" name="finition_vitre" onclick="onlyOne(this, 'check')"  onchange="UpdateSelect()">
+                                <input class="check2" type="checkbox" id="vitre" name="finition_vitre" onclick="onlyOne(this, 'check2')"  onchange="UpdateSelect()">
                                 <label class="label" for="vitre">Vitré</label>
                             </li>
                         </ul>
@@ -135,7 +136,7 @@
                     </select>
                 </div>
                 <!-- PV -->
-                <div>
+                <div class="PV">
                     <label class="label" for="pv">PV :</label>
                     <select name="pv">
                         <option class="pv" value="null">Menu déroulant</option>
@@ -191,7 +192,7 @@
                     <ul style="list-style-type: none;">
                         <li class="ferme_porte_visible">
                             <label class="label" for="ferme_porte_visible">Visible</label>
-                            <input class="ferme_porte" type="checkbox" id="ferme_porte_visible" name="ferme_porte[]" value="1" onclick="onlyOne(this, 'ferme_porte')" checked>
+                            <input class="ferme_porte" type="checkbox" id="ferme_porte_visible" name="ferme_porte[]" value="1" onclick="onlyOne(this, 'ferme_porte')">
                         </li>
                         <li class="ferme_porte_invisible">
                             <label class="label" for="ferme_porte_invisible">Invisible</label>
@@ -246,7 +247,6 @@
                     
                 }
 
-
                 var porte = <?php echo json_encode($porte); ?>;
                 if(porte=="porte_pleine"){
                     document.getElementById("finition").style.display = "none";
@@ -288,10 +288,19 @@
                     SetVisible("pv_bois");
                     SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
                 }
+                
+                var PV = <?php echo json_encode($PV); ?>;
+                if(!PV){
+                    SetInvisible("PV");
+                }
             </script>
     </div>
     </body>
     <footer>
-        <button onclick="window.location.href='evidence_portes.php'">Précédent</button>
+        <form action="buffer/buffer_portes.php" method="post">
+            <div id="form">
+                <input type="submit" name="previous" value="Précédent" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';">
+            </div>
+        </form>
     </footer>
 </html>

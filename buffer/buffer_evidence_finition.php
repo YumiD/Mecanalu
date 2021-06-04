@@ -1,15 +1,27 @@
 <?php
   session_start();
-  /*foreach ($_SESSION['buffer_evidence_remplissage'][0] as $key => $value)
-  {
-      echo "\n";
-      echo $value;
+  if(!empty($_POST['previous'])) {    
+    /*if($_SESSION["buffer_evidence_finition_indexX"] >= count($_SESSION['buffer_evidence_produit'])){
+      $_SESSION["buffer_evidence_finition_indexX"]--;
+      $_SESSION["buffer_evidence_finition_indexY"]= count($_SESSION['buffer_evidence_remplissage'][$_SESSION["buffer_evidence_finition_indexX"]])-1;
+      echo "<script type='text/javascript'> document.location = '../evidence/evidence_finition.php'; </script>";
+    }
+    else if ($_SESSION["buffer_evidence_finition_indexY"]>0){
+      $_SESSION["buffer_evidence_finition_indexY"]--;
+      echo "<script type='text/javascript'> document.location = '../evidence/evidence_finition.php'; </script>";
+    }
+    else if($_SESSION["buffer_evidence_finition_indexY"]<=0 && $_SESSION["buffer_evidence_finition_indexX"]>0){
+      $_SESSION["buffer_evidence_finition_indexX"]--;
+      echo "<script type='text/javascript'> document.location = '../evidence/evidence_finition.php'; </script>";
+    }
+    else{
+      $_SESSION["buffer_evidence_produit_index"]--;
+      echo "<script type='text/javascript'> document.location = '../evidence/evidence_remplissage.php'; </script>";
+    }*/
+    $_SESSION["buffer_evidence_finition_indexX"]=0;
+    $_SESSION["buffer_evidence_finition_indexY"]=0;
   }
-  foreach ($_SESSION['buffer_evidence_remplissage'][1] as $key => $value)
-  {
-      echo "\n";
-      echo $value;
-  }*/
+  
   if($_SESSION["buffer_evidence_finition_indexX"] >= count($_SESSION['buffer_evidence_produit'])){
     echo "<script type='text/javascript'> document.location = '../buffer/buffer_gamme.php'; </script>";
   }
@@ -27,5 +39,6 @@
   }
 
   echo "<script type='text/javascript'> document.location = '../evidence/evidence_finition.php'; </script>";
+      
 
 ?>

@@ -3,6 +3,7 @@
     
     $produit = $_SESSION['buffer_evidence_finition'][0];
     $remplissage = $_SESSION['buffer_evidence_finition'][1];
+    $PV = $_SESSION["PV"];
 
     if($produit=="e_cj"){
         if($remplissage=="e_plein"){
@@ -71,7 +72,10 @@
 	<div class="header">
         <?php include('../includes/header_evidence.html'); ?>
 	</div>
-		
+		<?php
+            echo $_SESSION["buffer_evidence_finition_indexX"];
+            echo $_SESSION["buffer_evidence_finition_indexY"];
+        ?>
 	</div> 
 
     <div id="content" style="height:75%;">
@@ -134,7 +138,7 @@
                         </select>
                     </div>
                     <!-- PLEIN PV -->
-                    <div>
+                    <div class="PV">
                         <label class="label" for="pleinPV">Plein PV :</label>
                         <select name="pleinPV" id="select_pleinPV">
                             <option class="pleinPV" value="null">Sélectionner</option>
@@ -182,25 +186,25 @@
                             <ul style="list-style-type: none;">        
                                 <li class="e_cj">
                                     <label for="atelier">Version Atelier</label>
-                                    <input class="check" type="checkbox" id="atelier" name="concept" checked>
+                                    <input class="check1" type="checkbox" id="atelier" name="concept"  onclick="onlyOne(this, 'check1')">
                                 </li>
                                 <li class="e_cj">
                                     <label for="air">Version Air</label>
-                                    <input class="check" type="checkbox" id="air" name="concept">
+                                    <input class="check1" type="checkbox" id="air" name="concept" onclick="onlyOne(this, 'check1')">
                                 </li>
                                 <li class="e_bb">
                                     <label for="standard">Standard</label>
-                                    <input type="checkbox" id="standard" name="concept">
+                                    <input class="check1" type="checkbox" id="standard" name="concept" onclick="onlyOne(this, 'check1')">
                                 </li>
                                 <li class="e_bb">
                                     <label for="air">Version Air</label>
-                                    <input type="checkbox" id="air" name="concept">
+                                    <input class="check1" type="checkbox" id="air" name="concept" onclick="onlyOne(this, 'check1')">
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <!-- VITRE PV -->
-                    <div>
+                    <div class="PV">
                         <label class="label" for="vitrePV">Vitré PV :</label>
                         <select name="vitrePV">
                             <option class="vitrePV" value="null">Sélectionner</option>
@@ -223,23 +227,23 @@
                             <ul style="list-style-type: none;">        
                                 <li class="e_cj">
                                     <label for="trempe">Trempé</label>
-                                    <input class="check" type="checkbox" id="trempe" name="finition_vitre" checked>
+                                    <input class="check2" type="checkbox" id="trempe" name="finition_vitre" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li class="e_cj">
                                     <label for="feuillete">Feuilleté</label>
-                                    <input class="check" type="checkbox" id="feuillete" name="finition_vitre">
+                                    <input class="check2" type="checkbox" id="feuillete" name="finition_vitre" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li class="e_cj">
                                     <label for="clair">Clair</label>
-                                    <input class="check" type="checkbox" id="clair" name="finition_vitre">
+                                    <input class="check2" type="checkbox" id="clair" name="finition_vitre" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li class="e_bb">
                                     <label for="trempe">Trempé</label>
-                                    <input class="check" type="checkbox" id="trempe" name="finition_vitre">
+                                    <input class="check2" type="checkbox" id="trempe" name="finition_vitre" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li class="e_bb">
                                     <label for="clair">Feuilleté</label>
-                                    <input class="check" type="checkbox" id="feuillete" name="finition_vitre">
+                                    <input class="check2" type="checkbox" id="feuillete" name="finition_vitre" onclick="onlyOne(this, 'check2')">
                                 </li>
                             </ul>
                         </div>
@@ -263,6 +267,17 @@
                         elements[i].hidden = true;
                     }
                 }
+                function onlyOne(checkbox, className) {
+                    var checkboxes = document.getElementsByClassName(className);
+                    for (i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i] !== checkbox){
+                            checkboxes[i].checked = false;
+                        }
+                        else if(checkboxes[i] == checkbox && checkboxes[i].checked==false){
+                            checkboxes[i].checked = true;
+                        }
+                    }
+                } 
 
                 function UpdateSelect(){
                     var e = document.getElementById("select_plein");
@@ -302,10 +317,10 @@
 
                 var remplissage = <?php echo json_encode($remplissage); ?>;
                 var produit = <?php echo json_encode($produit); ?>;
-                if(remplissage=="plein"){
+                if(remplissage=="e_plein"){
                     document.getElementById("vitre").style.display = "none";
                 }
-                else if(remplissage=="vitre" || remplissage=="vitre_allege"){
+                else if(remplissage=="e_vitre" || remplissage=="e_vitre_allege"){
                     document.getElementById("plein").style.display = "none";
                 }
                 if(produit=="e_cj"){
@@ -323,10 +338,19 @@
                     SetVisible("vitrePV_bb");
                 }
 
+                var PV = <?php echo json_encode($PV); ?>;
+                if(!PV){
+                    SetInvisible("PV");
+                }
+
             </script>
 			
 			<footer>
-			<button onclick="window.location.href='evidence_remplissage.php'">Précédent</button>
+                <form action="../buffer/buffer_evidence_finition.php" method="post">
+                    <div id="form">
+                        <input type="submit" name="previous" value="Précédent" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';">
+                    </div>
+                </form>
 			</footer>
     </div>
 </body>

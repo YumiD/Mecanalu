@@ -1,6 +1,8 @@
 <?php
     session_start();
     
+    if(!empty($_POST['ajout']) && !isset($_POST['evidence']) && isset($_POST['boreale']) && isset($_POST['evidence_box']))
+        echo "<script type='text/javascript'> document.location = 'recapitulatif.php'; </script>";
     
     if(!empty($_POST['nom_entreprise'])) {    
         $nom_entreprise = $_POST['nom_entreprise'];
@@ -27,26 +29,6 @@
     else
         $_SESSION["PV"] = false;
 
-    /*$_SESSION["gamme"]=""; 
-    if(isset($_POST['evidence']))
-        $_SESSION["gamme"] = "evidence";
-    else if(isset($_POST['boreale']))
-        $_SESSION["gamme"] = "boreale";
-    else if(isset($_POST['evidence_box']))
-        $_SESSION["gamme"] = "evidence_box";
-
-    $gamme = $_SESSION["gamme"];
-
-     if($gamme == "evidence"){
-        $_SESSION["nom_gamme"] = "Evidence";
-        echo "<script type='text/javascript'> document.location = 'evidence/evidence_produit.php'; </script>";
-     }else if ($gamme == "boreale"){
-        $_SESSION["nom_gamme"] = "Boréale";
-        echo "<script type='text/javascript'> document.location = 'boreale/boreale_produit.php'; </script>";
-     }else if ($gamme == "evidence_box"){
-        $_SESSION["nom_gamme"] = "Evidence Box";
-        echo "<script type='text/javascript'> document.location = 'evidence_box/evidence_box_produit.php'; </script>";
-     }*/
     $_SESSION['buffer_gamme'] = array();
 
     if(isset($_POST['evidence'])){
@@ -70,9 +52,12 @@
     else
         $_SESSION["evidence_box"] = false;
 
-    if(empty($_SESSION['buffer_gamme']))
-        echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
-    else{
+    if(empty($_SESSION['buffer_gamme'])){
+        if(!empty($_POST['ajout']))
+            echo "<script type='text/javascript'> document.location = 'recapitulatif.php'; </script>";
+        else
+            echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+    }else{
         $_SESSION['buffer_gamme_index']=0;
         $_SESSION['buffer_gamme_size']=count($_SESSION['buffer_gamme']);
         echo "<script type='text/javascript'> document.location = 'buffer/buffer_gamme.php'; </script>";
