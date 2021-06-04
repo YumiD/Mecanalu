@@ -9,6 +9,17 @@
     $_SESSION["porte_coulissante"] = false;
     $_SESSION["porte_bi_cadreAluminium"] = false;
     $_SESSION["porte_bi_bois"] = false;
+
+    $_SESSION["accessoire_bequillage"] = false;
+    $_SESSION["accessoire_paumelle_visibles"] = false;
+    $_SESSION["accessoire_paumelle_invisibles"] = false;
+    $_SESSION["accessoire_serrure_standard"] = false;
+    $_SESSION["accessoire_serrure_magnetique"] = false;
+    $_SESSION["accessoire_oculus"] = false;
+    $_SESSION["ferme_porte_visible"] = false;
+    $_SESSION["ferme_porte_invisible"] = false;
+
+
 ?>
 
 

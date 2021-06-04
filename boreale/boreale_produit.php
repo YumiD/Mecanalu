@@ -1,5 +1,7 @@
 <?php
     session_start();
+    $_SESSION["boreale_bb"] = false;
+    $_SESSION["boreale_verriere"] = false;
 ?>
 
 <html>

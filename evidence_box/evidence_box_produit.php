@@ -1,6 +1,11 @@
 <?php
     session_start();
     $_SESSION["buffer_evidence_box_produit_size"] = 0;
+    $_SESSION["box_little"] = false;
+    $_SESSION["box_duo"] = false;
+    $_SESSION["box_media"] = false;
+    $_SESSION["box_alta"] = false;
+    $_SESSION["box_grande"] = false;
 ?>
 
 <html>

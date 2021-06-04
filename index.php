@@ -3,7 +3,8 @@
 <?php //php -S localhost:8000 ?>
 <?php
 
-session_start();
+//session_start();
+session_reset();
 $_SESSION["nom_entreprise"]="";
 $_SESSION["nom_projet"]="";
 $_SESSION["presentation"]="";
@@ -17,8 +18,6 @@ $dbname  = "bleuebenapdgacon";
 
 $_SESSION['buffer_gamme'] = array();
 //Evidence
-for($i = 0; $i<count($_SESSION["buffer_evidence_produit"]); $i++)
-    $_SESSION['buffer_evidence_remplissage'][$i]=array();
 $_SESSION['buffer_evidence_produit']=array();
 $_SESSION['buffer_evidence_remplissage'] = array();
 $_SESSION['buffer_evidence_finition']=array();
@@ -26,8 +25,6 @@ $_SESSION['buffer_evidence_finition']=array();
 $_SESSION['buffer_boreale_produit']=array();
 $_SESSION['buffer_boreale_finition']=array();
 //Evidence Box
-for($i = 0; $i<count($_SESSION["buffer_evidence_box_produit"]); $i++)
-    $_SESSION['buffer_evidence_box_remplissage'][$i]=array();
 $_SESSION['buffer_evidence_box_produit']=array();
 $_SESSION['buffer_evidence_box_remplissage'] = array();
 $_SESSION['buffer_evidence_box_finition']=array();

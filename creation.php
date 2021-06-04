@@ -34,24 +34,35 @@
   $e_bb_v = $_SESSION["e_bb_v"];
   $e_cj_va = $_SESSION["e_cj_va"];
   $e_bb_va = $_SESSION["e_bb_va"];
+  //Boreale
+  $boreale_bb = $_SESSION["boreale_bb"];
+  $boreale_verriere = $_SESSION["boreale_verriere"];
+  //Evidence Box
+  $box_little = $_SESSION["box_little"];
+  $box_duo = $_SESSION["box_duo"];
+  $box_media = $_SESSION["box_media"];
+  $box_alta = $_SESSION["box_alta"];
+  $box_grande = $_SESSION["box_grande"];
   //Porte
   $porte_pleine=$_SESSION["porte_pleine"];
   $porte_vitre=$_SESSION["porte_vitre"];
   $porte_coulissante=$_SESSION["porte_coulissante"];
   $porte_bi_cadreAluminium=$_SESSION["porte_bi_cadreAluminium"];
   $porte_bi_bois=$_SESSION["porte_bi_bois"];
-  $nom_porte = $_SESSION['nom_porte'];
+  $accessoire_bequillage = $_SESSION["accessoire_bequillage"];
+  $accessoire_paumelle_visibles = $_SESSION["accessoire_paumelle_visibles"];
+  $accessoire_paumelle_invisibles = $_SESSION["accessoire_paumelle_invisibles"];
+  $accessoire_serrure_standard = $_SESSION["accessoire_serrure_standard"];
+  $accessoire_serrure_magnetique = $_SESSION["accessoire_serrure_magnetique"];
+  $accessoire_oculus = $_SESSION["accessoire_oculus"];
+  $ferme_porte_visible = $_SESSION["ferme_porte_visible"];
+  $ferme_porte_invisible = $_SESSION["ferme_porte_invisible"];
   //$accessoire = $_SESSION["accessoire"];
   $nom_accessoire = $_SESSION['nom_accessoire'];
   $ferme_porte = $_SESSION["ferme_porte"];
   //Option
   $option= $_SESSION["option"];
   $nom_option = $_SESSION['nom_option'];
-
-  //$remplissage = $_SESSION['remplissage'];
-  //$produit = $_SESSION['produit'];
-  $nom_produit = $_SESSION['nom_produit'];  
-  $produit_evidence = $_SESSION['produit_evidence'];
 
   /*--- Code pour créer un zip ---*/
   /*$files = array('readme.txt', 'test.html', 'image.gif');
@@ -184,52 +195,92 @@
       var e_bb_v = <?php echo json_encode($e_bb_v); ?>;
       var e_cj_va = <?php echo json_encode($e_cj_va); ?>;
       var e_bb_va = <?php echo json_encode($e_bb_va); ?>;
+      //Boreale
+      var boreale_bb = <?php echo json_encode($boreale_bb); ?>;
+      var boreale_verriere = <?php echo json_encode($boreale_verriere); ?>;
+      //Evidence Box
+      var box_little = <?php echo json_encode($box_little); ?>;
+      var box_duo = <?php echo json_encode($box_duo); ?>;
+      var box_media = <?php echo json_encode($box_media); ?>;
+      var box_alta = <?php echo json_encode($box_alta); ?>;
+      var box_grande = <?php echo json_encode($box_grande); ?>;
       //Porte
       var porte_pleine = <?php echo json_encode($porte_pleine); ?>;
       var porte_vitre = <?php echo json_encode($porte_vitre); ?>;
       var porte_coulissante = <?php echo json_encode($porte_coulissante); ?>;
       var porte_bi_cadreAluminium = <?php echo json_encode($porte_bi_cadreAluminium); ?>;
       var porte_bi_bois = <?php echo json_encode($porte_bi_bois); ?>;
-      var accessoire = <?php echo json_encode($accessoire); ?>;
-      var ferme_porte = <?php echo json_encode($ferme_porte); ?>;
-      console.log(ferme_porte);
+      var accessoire_bequillage = <?php echo json_encode($accessoire_bequillage); ?>;
+      var accessoire_paumelle_visibles = <?php echo json_encode($accessoire_paumelle_visibles); ?>;
+      var accessoire_paumelle_invisibles = <?php echo json_encode($accessoire_paumelle_invisibles); ?>;
+      var accessoire_serrure_standard = <?php echo json_encode($accessoire_serrure_standard); ?>;
+      var accessoire_serrure_magnetique = <?php echo json_encode($accessoire_serrure_magnetique); ?>;
+      var accessoire_oculus = <?php echo json_encode($accessoire_oculus); ?>;
+      var ferme_porte_visible = <?php echo json_encode($ferme_porte_visible); ?>;
+      var ferme_porte_invisible = <?php echo json_encode($ferme_porte_invisible); ?>;
       //Option
       var option = <?php echo json_encode($option); ?>;
       console.log(option);
-
-      var remplissage = <?php echo json_encode($remplissage); ?>;
-      var produit = <?php echo json_encode($produit); ?>;
-      var produit_evidence = <?php echo json_encode($produit_evidence); ?>;
 
       var pptx = new PptxGenJS();
 
       /*------PREMIERE PAGE-------*/
 
       /*------PLACEHOLDERS-------*/
-      if(e_cj){
-        var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/e_cj.png", x:0, y:0, w:'100%', h:'100%' });
-        if(e_cj_p){
+      if(evidence){
+        if(e_cj){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_p.png", x:0, y:0, w:'100%', h:'100%' });
-        }if(e_cj_v || e_cj_va){
+          slide.addImage({ path: "../ressources/pptx_placeholder/e_cj.png", x:0, y:0, w:'100%', h:'100%' });
+          if(e_cj_p){
+            var slide = pptx.addSlide();
+            slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_p.png", x:0, y:0, w:'100%', h:'100%' });
+          }if(e_cj_v || e_cj_va){
+            var slide = pptx.addSlide();
+            slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_v.png", x:0, y:0, w:'100%', h:'100%' });
+          }
+        }if(e_bb){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_v.png", x:0, y:0, w:'100%', h:'100%' });
-        }
-      }if(e_bb){
-        var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/e_bb.png", x:0, y:0, w:'100%', h:'100%' });
-        if(e_bb_p){
-          var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_p.png", x:0, y:0, w:'100%', h:'100%' });
-        }if(e_bb_v || e_bb_va){
-          var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_v.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "../ressources/pptx_placeholder/e_bb.png", x:0, y:0, w:'100%', h:'100%' });
+          if(e_bb_p){
+            var slide = pptx.addSlide();
+            slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_p.png", x:0, y:0, w:'100%', h:'100%' });
+          }if(e_bb_v || e_bb_va){
+            var slide = pptx.addSlide();
+            slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_v.png", x:0, y:0, w:'100%', h:'100%' });
+          }
         }
       }
       /*let textboxText = "Hello World from PptxGenJS!";
       let textboxOpts = { x: 1, y: 2, color: "363636", fill: "F1F1F1" };
       slide.addText(textboxText, textboxOpts);*/
+      if(boreale){
+        if(boreale_bb){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/boreale.png", x:0, y:0, w:'100%', h:'100%' });
+        }if(boreale_verriere){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/boreale_verriere.png", x:0, y:0, w:'100%', h:'100%' });
+        }
+      }
+
+      if(evidence_box){
+        if(box_little){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_little.png", x:0, y:0, w:'100%', h:'100%' });
+        }if(box_duo){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_duo.png", x:0, y:0, w:'100%', h:'100%' });
+        }if(box_media){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_media.png", x:0, y:0, w:'100%', h:'100%' });
+        }if(box_alta){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_alta.png", x:0, y:0, w:'100%', h:'100%' });
+        }if(box_grande){
+          var slide = pptx.addSlide();
+          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_grande.png", x:0, y:0, w:'100%', h:'100%' });
+        }
+      }
 
       if(porte_bi_bois){
         var slide = pptx.addSlide();
@@ -253,21 +304,21 @@
         var isPorteBi = false;    
       }
 
-      if(accessoire == "accessoire_bequillage" && isPorteBi==true){
+      if(accessoire_bequillage && isPorteBi){
         var slide = pptx.addSlide();
         slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_bequillage_bi.png", x:0, y:0, w:'100%', h:'100%' });
-      } else if(accessoire == "accessoire_bequillage" && isPorteBi==false){
+      }if(accessoire_bequillage && !isPorteBi){
         var slide = pptx.addSlide();
         slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_bequillage.png", x:0, y:0, w:'100%', h:'100%' });
-      } else if(accessoire == "accessoire_paumelle"){
+      } if(accessoire_paumelle_invisibles){
         var slide = pptx.addSlide();
         slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_paumelles_invisible.png", x:0, y:0, w:'100%', h:'100%' });
       }
 
-      if(ferme_porte == "visible"){
+      if(ferme_porte_visible){
         var slide = pptx.addSlide();
         slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_fermeporte_visible.png", x:0, y:0, w:'100%', h:'100%' });
-      } else if(ferme_porte == "invisible"){
+      } if(ferme_porte_invisible){
         var slide = pptx.addSlide();
         slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_fermeporte_invisible.png", x:0, y:0, w:'100%', h:'100%' });
       }

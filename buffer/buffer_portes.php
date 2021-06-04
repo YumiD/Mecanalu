@@ -46,6 +46,35 @@
       echo "<script type='text/javascript'> document.location = '../portes_bi.php'; </script>";
     }
 
+    if(isset($_POST['option']))
+    {
+        foreach($_POST['option'] as $option){
+            if($option == "1") { 
+              $_SESSION["accessoire_bequillage"] = true;
+            } else if($option == "2" ) {
+              $_SESSION["accessoire_paumelle_visibles"] = true;
+            } else if( $option == "3") {    
+              $_SESSION["accessoire_paumelle_invisibles"] = true;
+            } else if($option == "4") {    
+              $_SESSION["accessoire_serrure_standard"] = true;
+            } else if($option == "5") {    
+              $_SESSION["accessoire_serrure_magnetique"] = true;
+            } else if($option == "6") {    
+              $_SESSION["accessoire_oculus"] = true;
+            }
+        }
+    }
+    
+    if(isset($_POST['ferme_porte']))
+    {
+        foreach($_POST['ferme_porte'] as $ferme_porte){
+            if($ferme_porte == "1")   
+                $_SESSION["ferme_porte_visible"] = true;
+            else if($ferme_porte == "2")
+                $_SESSION["ferme_porte_invisible"] = true;
+        }
+    }
+
     if($_SESSION["buffer_portes_index"]<$_SESSION["buffer_portes_size"]){
       $_SESSION["buffer_portes_index"]++;
       echo "<script type='text/javascript'> document.location = '../portes_formulaire.php'; </script>";

@@ -1,6 +1,8 @@
 <?php
     session_start();
     $_SESSION["buffer_evidence_produit_size"] = 0;
+    $_SESSION["e_cj"] = false;
+    $_SESSION["e_bb"] = false;
 ?>
 
 <html>
