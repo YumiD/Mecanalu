@@ -13,56 +13,56 @@
   }
   $zip_bool=$_SESSION['zip_bool'];
 
-  $nom_entreprise = $_SESSION['nom_entreprise'];
-  $nom_projet = $_SESSION['nom_projet'];
-  $presentation = $_SESSION['presentation'];
-  $fiche_technique = $_SESSION['fiche_technique'];
+  $nom_entreprise = !empty($_SESSION['nom_entreprise']) ? $_SESSION['nom_entreprise'] : "";
+  $nom_projet = !empty($_SESSION['nom_projet']) ? $_SESSION['nom_projet'] : "";
+  $presentation = !empty($_SESSION['presentation']) ? $_SESSION['presentation'] : "";
+  $fiche_technique = !empty($_SESSION['fiche_technique']) ? $_SESSION['fiche_technique'] : false;
 
   //Gamme
-  $evidence = $_SESSION["evidence"];
-  $boreale = $_SESSION["boreale"];
-  $evidence_box = $_SESSION["evidence_box"];
+  $evidence = !empty($_SESSION["evidence"]) ? $_SESSION['evidence'] : false;
+  $boreale = !empty($_SESSION["boreale"]) ? $_SESSION['boreale'] : false;
+  $evidence_box = !empty($_SESSION["evidence_box"]) ? $_SESSION['evidence_box'] : false;
   //Evidence
-  $e_cj = $_SESSION["e_cj"];
-  $e_bb = $_SESSION["e_bb"];
-  $e_plein = $_SESSION["e_plein"];
-  $e_vitre = $_SESSION["e_vitre"];
-  $e_vitre_allege = $_SESSION["e_vitre_allege"];
-  $e_cj_p = $_SESSION["e_cj_p"];
-  $e_bb_p = $_SESSION["e_bb_p"];
-  $e_cj_v = $_SESSION["e_cj_v"];
-  $e_bb_v = $_SESSION["e_bb_v"];
-  $e_cj_va = $_SESSION["e_cj_va"];
-  $e_bb_va = $_SESSION["e_bb_va"];
+  $e_cj = !empty($_SESSION["e_cj"]) ? $_SESSION['e_cj'] : false;
+  $e_bb = !empty($_SESSION["e_bb"]) ? $_SESSION['e_bb'] : false;
+  $e_plein = !empty($_SESSION["e_plein"]) ? $_SESSION['e_plein'] : false;
+  $e_vitre = !empty($_SESSION["e_vitre"]) ? $_SESSION['e_vitre'] : false;
+  $e_vitre_allege = !empty($_SESSION["e_vitre_allege"]) ? $_SESSION['e_vitre_allege'] : false;
+  $e_cj_p = !empty($_SESSION["e_cj_p"]) ? $_SESSION['e_cj_p'] : false;
+  $e_bb_p = !empty($_SESSION["e_bb_p"]) ? $_SESSION['e_bb_p'] : false;
+  $e_cj_v = !empty($_SESSION["e_cj_v"]) ? $_SESSION['e_cj_v'] : false;
+  $e_bb_v = !empty($_SESSION["e_bb_v"]) ? $_SESSION['e_bb_v'] : false;
+  $e_cj_va = !empty($_SESSION["e_cj_va"]) ? $_SESSION['e_cj_va'] : false;
+  $e_bb_va = !empty($_SESSION["e_bb_va"]) ? $_SESSION['e_bb_va'] : false;
   //Boreale
-  $boreale_bb = $_SESSION["boreale_bb"];
-  $boreale_verriere = $_SESSION["boreale_verriere"];
+  $boreale_bb = !empty($_SESSION["boreale_bb"]) ? $_SESSION['boreale_bb'] : false;
+  $boreale_verriere = !empty($_SESSION["boreale_verriere"]) ? $_SESSION['boreale_verriere'] : false;
   //Evidence Box
-  $box_little = $_SESSION["box_little"];
-  $box_duo = $_SESSION["box_duo"];
-  $box_media = $_SESSION["box_media"];
-  $box_alta = $_SESSION["box_alta"];
-  $box_grande = $_SESSION["box_grande"];
+  $box_little = !empty($_SESSION["box_little"]) ? $_SESSION['box_little'] : false;
+  $box_duo = !empty($_SESSION["box_duo"]) ? $_SESSION['box_duo'] : false;
+  $box_media = !empty($_SESSION["box_media"]) ? $_SESSION['box_media'] : false;
+  $box_alta = !empty($_SESSION["box_alta"]) ? $_SESSION['box_alta'] : false;
+  $box_grande = !empty($_SESSION["box_grande"]) ? $_SESSION['box_grande'] : false;
   //Porte
-  $porte_pleine=$_SESSION["porte_pleine"];
-  $porte_vitre=$_SESSION["porte_vitre"];
-  $porte_coulissante=$_SESSION["porte_coulissante"];
-  $porte_bi_cadreAluminium=$_SESSION["porte_bi_cadreAluminium"];
-  $porte_bi_bois=$_SESSION["porte_bi_bois"];
-  $accessoire_bequillage = $_SESSION["accessoire_bequillage"];
-  $accessoire_paumelle_visibles = $_SESSION["accessoire_paumelle_visibles"];
-  $accessoire_paumelle_invisibles = $_SESSION["accessoire_paumelle_invisibles"];
-  $accessoire_serrure_standard = $_SESSION["accessoire_serrure_standard"];
-  $accessoire_serrure_magnetique = $_SESSION["accessoire_serrure_magnetique"];
-  $accessoire_oculus = $_SESSION["accessoire_oculus"];
-  $ferme_porte_visible = $_SESSION["ferme_porte_visible"];
-  $ferme_porte_invisible = $_SESSION["ferme_porte_invisible"];
+  $porte_pleine=!empty($_SESSION["porte_pleine"]) ? $_SESSION['porte_pleine'] : false;
+  $porte_vitre=!empty($_SESSION["porte_vitre"]) ? $_SESSION['porte_vitre'] : false;
+  $porte_coulissante=!empty($_SESSION["porte_coulissante"]) ? $_SESSION['porte_coulissante'] : false;
+  $porte_bi_cadreAluminium=!empty($_SESSION["porte_bi_cadreAluminium"]) ? $_SESSION['porte_bi_cadreAluminium'] : false;
+  $porte_bi_bois=!empty($_SESSION["porte_bi_bois"]) ? $_SESSION['porte_bi_bois'] : false;
+  $accessoire_bequillage = !empty($_SESSION["accessoire_bequillage"]) ? $_SESSION['accessoire_bequillage'] : false;
+  $accessoire_paumelle_visibles = !empty($_SESSION["accessoire_paumelle_visibles"]) ? $_SESSION['accessoire_paumelle_visibles'] : false;
+  $accessoire_paumelle_invisibles = !empty($_SESSION["accessoire_paumelle_invisibles"]) ? $_SESSION['accessoire_paumelle_invisibles'] : false;
+  $accessoire_serrure_standard = !empty($_SESSION["accessoire_serrure_standard"]) ? $_SESSION['accessoire_serrure_standard'] : false;
+  $accessoire_serrure_magnetique = !empty($_SESSION["accessoire_serrure_magnetique"]) ? $_SESSION['accessoire_serrure_magnetique'] : false;
+  $accessoire_oculus = !empty($_SESSION["accessoire_oculus"]) ? $_SESSION['accessoire_oculus'] : false;
+  $ferme_porte_visible = !empty($_SESSION["ferme_porte_visible"]) ? $_SESSION['ferme_porte_visible'] : false;
+  $ferme_porte_invisible = !empty($_SESSION["ferme_porte_invisible"]) ? $_SESSION['ferme_porte_invisible'] : false;
   //$accessoire = $_SESSION["accessoire"];
-  $nom_accessoire = $_SESSION['nom_accessoire'];
-  $ferme_porte = $_SESSION["ferme_porte"];
+  $nom_accessoire = !empty($_SESSION['nom_accessoire']) ? $_SESSION['nom_accessoire'] : false;
+  $ferme_porte = !empty($_SESSION["ferme_porte"]) ? $_SESSION['ferme_porte'] : false;
   //Option
-  $option= $_SESSION["option"];
-  $nom_option = $_SESSION['nom_option'];
+  $option= !empty($_SESSION["option"]) ? $_SESSION['option'] : false;
+  $nom_option = !empty($_SESSION['nom_option']) ? $_SESSION['nom_option'] : false;
 
   /*--- Code pour créer un zip ---*/
   /*$files = array('readme.txt', 'test.html', 'image.gif');
@@ -152,14 +152,12 @@
 
   <body id="page">
   <div class="header">
-      <?php include('includes/header.html'); ?>
+      <?php include('./includes/header.html'); ?>
   </div> 
 
   <div id="content" style="height:75%;">
       <h3> Création de l'archive </h3>
-      <!--<button>Télécharger PPTX</button>
-      <button>Télécharger Zip</button>-->
-      <button id="buttonPPTX" onclick="PPTX()">Télécharger PPTX</button>
+      <!--<button id="buttonPPTX" onclick="PPTX()">Télécharger PPTX</button>-->
       <form method='post' action=''>
         <!--<input type='submit' name='create' value='Create Zip' />&nbsp;-->
         <input button id="buttonZIP" type='submit' name='download' value='Télécharger Zip' />
@@ -170,9 +168,8 @@
   
   <script type="text/javascript">
 
-    function PPTX(){
+    
       var nom_entreprise = <?php echo json_encode($nom_entreprise); ?>;
-      console.log(nom_entreprise);
       var nom_projet = <?php echo json_encode($nom_projet); ?>;
       var presentation = <?php echo json_encode($presentation); ?>;
       var fiche_technique = <?php echo json_encode($fiche_technique); ?>;
@@ -220,7 +217,6 @@
       var ferme_porte_invisible = <?php echo json_encode($ferme_porte_invisible); ?>;
       //Option
       var option = <?php echo json_encode($option); ?>;
-      console.log(option);
 
       var pptx = new PptxGenJS();
 
@@ -230,23 +226,23 @@
       if(evidence){
         if(e_cj){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_cj.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "./ressources/pptx_placeholder/e_cj.png", x:0, y:0, w:'100%', h:'100%' });
           if(e_cj_p){
             var slide = pptx.addSlide();
-            slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_p.png", x:0, y:0, w:'100%', h:'100%' });
+            slide.addImage({ path: "./ressources/pptx_placeholder/e_cj_p.png", x:0, y:0, w:'100%', h:'100%' });
           }if(e_cj_v || e_cj_va){
             var slide = pptx.addSlide();
-            slide.addImage({ path: "../ressources/pptx_placeholder/e_cj_v.png", x:0, y:0, w:'100%', h:'100%' });
+            slide.addImage({ path: "./ressources/pptx_placeholder/e_cj_v.png", x:0, y:0, w:'100%', h:'100%' });
           }
         }if(e_bb){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_bb.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "./ressources/pptx_placeholder/e_bb.png", x:0, y:0, w:'100%', h:'100%' });
           if(e_bb_p){
             var slide = pptx.addSlide();
-            slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_p.png", x:0, y:0, w:'100%', h:'100%' });
+            slide.addImage({ path: "./ressources/pptx_placeholder/e_bb_p.png", x:0, y:0, w:'100%', h:'100%' });
           }if(e_bb_v || e_bb_va){
             var slide = pptx.addSlide();
-            slide.addImage({ path: "../ressources/pptx_placeholder/e_bb_v.png", x:0, y:0, w:'100%', h:'100%' });
+            slide.addImage({ path: "./ressources/pptx_placeholder/e_bb_v.png", x:0, y:0, w:'100%', h:'100%' });
           }
         }
       }
@@ -256,89 +252,89 @@
       if(boreale){
         if(boreale_bb){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/boreale.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "./ressources/pptx_placeholder/boreale.png", x:0, y:0, w:'100%', h:'100%' });
         }if(boreale_verriere){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/boreale_verriere.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "./ressources/pptx_placeholder/boreale_verriere.png", x:0, y:0, w:'100%', h:'100%' });
         }
       }
 
       if(evidence_box){
         if(box_little){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_little.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "./ressources/pptx_placeholder/e_box_little.png", x:0, y:0, w:'100%', h:'100%' });
         }if(box_duo){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_duo.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "./ressources/pptx_placeholder/e_box_duo.png", x:0, y:0, w:'100%', h:'100%' });
         }if(box_media){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_media.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "./ressources/pptx_placeholder/e_box_media.png", x:0, y:0, w:'100%', h:'100%' });
         }if(box_alta){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_alta.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "./ressources/pptx_placeholder/e_box_alta.png", x:0, y:0, w:'100%', h:'100%' });
         }if(box_grande){
           var slide = pptx.addSlide();
-          slide.addImage({ path: "../ressources/pptx_placeholder/e_box_grande.png", x:0, y:0, w:'100%', h:'100%' });
+          slide.addImage({ path: "./ressources/pptx_placeholder/e_box_grande.png", x:0, y:0, w:'100%', h:'100%' });
         }
       }
 
       if(porte_bi_bois){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/porte_bi_bois.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/porte_bi_bois.png", x:0, y:0, w:'100%', h:'100%' });
         var isPorteBi = true;
       } if(porte_bi_cadreAluminium){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/porte_bi_cadreAlu.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/porte_bi_cadreAlu.png", x:0, y:0, w:'100%', h:'100%' });
         var isPorteBi = true;
       } if(porte_pleine){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/porte_pleine.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/porte_pleine.png", x:0, y:0, w:'100%', h:'100%' });
         var isPorteBi = false;    
       } if(porte_vitre){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/porte_clarit.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/porte_clarit.png", x:0, y:0, w:'100%', h:'100%' });
         var isPorteBi = false;    
       } if(porte_coulissante){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/porte_coulissante.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/porte_coulissante.png", x:0, y:0, w:'100%', h:'100%' });
         var isPorteBi = false;    
       }
 
       if(accessoire_bequillage && isPorteBi){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_bequillage_bi.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/accessoire_bequillage_bi.png", x:0, y:0, w:'100%', h:'100%' });
       }if(accessoire_bequillage && !isPorteBi){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_bequillage.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/accessoire_bequillage.png", x:0, y:0, w:'100%', h:'100%' });
       } if(accessoire_paumelle_invisibles){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_paumelles_invisible.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/accessoire_paumelles_invisible.png", x:0, y:0, w:'100%', h:'100%' });
       }
 
       if(ferme_porte_visible){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_fermeporte_visible.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/accessoire_fermeporte_visible.png", x:0, y:0, w:'100%', h:'100%' });
       } if(ferme_porte_invisible){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/accessoire_fermeporte_invisible.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/accessoire_fermeporte_invisible.png", x:0, y:0, w:'100%', h:'100%' });
       }
 
       if(option == "option_store"){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/option_store.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/option_store.png", x:0, y:0, w:'100%', h:'100%' });
       } else if(option == "option_ecrimur"){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/option_ecrimur.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/option_ecrimur.png", x:0, y:0, w:'100%', h:'100%' });
       } else if(option == "option_cintrage"){
         var slide = pptx.addSlide();
-        slide.addImage({ path: "../ressources/pptx_placeholder/option_cintrage.png", x:0, y:0, w:'100%', h:'100%' });
+        slide.addImage({ path: "./ressources/pptx_placeholder/option_cintrage.png", x:0, y:0, w:'100%', h:'100%' });
       }
 
       /*------Création du PPTX-------*/
       pptx.company = 'Mecanalu';
       pptx.writeFile({fileName: 'Projet-DOE-Mecanalu.pptx'});
 
-    }
+    
     
     function SetInvisible(id){
         var element = document.getElementById(id);

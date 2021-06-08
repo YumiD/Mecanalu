@@ -64,7 +64,7 @@
     <div id="content" style="height:75%;">
         <h3> EVIDENCE - PORTE <?php echo $nom_porte; ?> </h3>
             <div id="left">
-                <img id="image_produit" src="../ressources/<?php echo $porte; ?>.png">
+                <img id="image_produit" src="./ressources/<?php echo $porte; ?>.png">
             </div>
             
             <div id="right">
