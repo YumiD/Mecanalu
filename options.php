@@ -39,7 +39,6 @@
     else{
         $_SESSION["ferme_porte"]="";
     }
-
 ?>
 
 <html>

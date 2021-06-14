@@ -28,13 +28,13 @@
         }
         #left{
             float: left;
-			max-width: 500px;
+			max-width: 600px;
 			width: 100%;
 			padding: 0%;
         }
         #right{
             float: left;
-			max-width: 400px;
+			max-width: 600px;
 			width: 100%;
 			margin-left: 5%;
         }

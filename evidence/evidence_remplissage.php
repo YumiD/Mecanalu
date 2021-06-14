@@ -33,8 +33,8 @@
                 <img class="image_produit" src="../ressources/<?php echo $evidence_produit; ?>.png">
             </div>
             <div class="horizontal_remplissage" id="horizontal"> 
-            <p><?php echo $nom_produit; ?></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p></p>
+            <p></p>
             <h4> Choisissez entre </h4>  
 			<span class="legend2"> Plein </span>
 			<span class="legend2"> Vitré </span>		

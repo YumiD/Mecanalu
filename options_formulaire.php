@@ -55,7 +55,7 @@
     <div id="content" style="height:75%;">
         <h3> EVIDENCE - OPTIONS - <?php echo $nom_option; ?> </h3>
             <div id="left">
-                <img id="image_produit" src="../ressources/<?php echo $option; ?>.png">
+                <img id="image_produit" src="./ressources/<?php echo $option; ?>.png">
             </div>
             
             <div id="right">

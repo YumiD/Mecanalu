@@ -8,6 +8,8 @@ session_reset();
 $_SESSION["nom_entreprise"]="";
 $_SESSION["nom_projet"]="";
 $_SESSION["presentation"]="";
+// $_SESSION["nom_entreprise_image"]="";
+// $_SESSION["nom_projet_image"]="";
 $_SESSION["fiche_technique"]=false;
 $_SESSION["PV"]=false;
 

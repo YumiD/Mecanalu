@@ -22,6 +22,43 @@
     $_SESSION["buffer_evidence_finition_indexY"]=0;
   }
   
+ if(!empty($_POST['hauteur'])) {
+
+         $_SESSION["hauteur"]= $_POST['hauteur'];
+  }
+  else {
+	  $_SESSION["hauteur"]= "2600";
+ }
+  
+//RAL CJ
+  if(!empty($_POST['ral'])) {
+
+         $_SESSION["ral"]= $_POST['ral'];
+  }
+  else {
+	  $_SESSION["ral"]= "standard";
+ }
+ 
+//Plein PV  CJ
+  if(!empty($_POST['pleinPV'])) {
+
+         $_SESSION["pleinPV"]= $_POST['pleinPV'];
+  }
+    else {
+	  $_SESSION["pleinPV"]= "standard";
+ }
+ 
+//Vitré PV CJ
+   if(!empty($_POST['vitrePV'])) {
+
+         $_SESSION["vitrePV"]= $_POST['vitrePV'];
+  }
+    else {
+	  $_SESSION["vitrePV"]= "standard";
+ }
+  
+  
+  
   if($_SESSION["buffer_evidence_finition_indexX"] >= count($_SESSION['buffer_evidence_produit'])){
     echo "<script type='text/javascript'> document.location = '../buffer/buffer_gamme.php'; </script>";
   }

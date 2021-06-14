@@ -19,7 +19,6 @@
     $_SESSION["ferme_porte_visible"] = false;
     $_SESSION["ferme_porte_invisible"] = false;
 
-
 ?>
 
 

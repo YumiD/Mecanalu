@@ -42,10 +42,10 @@
 
         <div id="horizontal"> 
             <h4> Choisissez entre </h4>  
-            <span class="legend2"> 3 faces pleines (standard) </span>
-            <span class="legend2"> 2 faces pleines + 1 côté vitré </span>	
-            <span class="legend2"> Fond plein + 2 côté vitré </span>	
-            <span class="legend2"> 2 côtés pleins "en tunnel" + fond vitré </span>
+            <span class="legend5"> 3 faces pleines (standard) </span>
+            <span class="legend5"> 2 faces pleines + 1 côté vitré </span>	
+            <span class="legend5"> Fond plein + 2 côté vitré </span>	
+            <span class="legend5"> 2 côtés pleins "en tunnel" + fond vitré </span>
             
             <div id="checkbox">
             <input type="checkbox" id="box_remplissage_1" name="box_remplissage_1" class="evidence_box_remplissage"/>

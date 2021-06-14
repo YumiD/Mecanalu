@@ -76,9 +76,9 @@
     header('Content-Type: application/zip');
     header('Content-disposition: attachment; filename='.$zipname);
     header('Content-Length: '.filesize($zipname));
-    readfile($zipname);*/
+    readfile($zipname);
 
-  /*if($_SESSION['zip_bool']){
+  if($_SESSION['zip_bool']){
     $zip = new ZipArchive();
     $filename = "./Mecanalu_fiches_techniques.zip";
   
@@ -137,7 +137,7 @@
       unlink($filename);
   
     }
-  }*/
+  }
 
   ?>
   

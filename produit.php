@@ -78,6 +78,8 @@
     </div> 
 
     <div id="content">
+      <?php echo($_SESSION['nom_entreprise']); ?>
+      <?php echo($nom_entreprise); ?>
         <h3> Choix du produit</h3>
 
     </div>

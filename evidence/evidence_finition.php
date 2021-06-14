@@ -10,6 +10,7 @@
             $nom_produit="Couvre joint Plein";
             $produit_final="e_cj_p";
             $_SESSION["produit_evidence"]="E_CJ_plein";
+
         }else if($remplissage=="e_vitre"){
             $nom_produit="Couvre joint Vitré";
             $produit_final="e_cj_v";
@@ -54,13 +55,13 @@
         }
         #left{
             float: left;
-			max-width: 500px;
+			max-width: 600px;
 			width: 100%;
 			padding: 0%;
         }
         #right{
             float: left;
-			max-width: 400px;
+			max-width: 600px;
 			width: 100%;
 			margin-left: 5%;
         }
@@ -93,12 +94,12 @@
                     <label class="label" for="ral">Ral :</label>
                     <select name="ral">
                         <option class="ral" value="null">Menu déroulant</option>
-                        <option class="ral" value="9010">9010 Blanc </option>
-                        <option class="ral" value="9005">9005 Noir </option>
-                        <option class="ral" value="9006">9006 Gris </option>
-                        <option class="ral" value="9007">9007 Gris aluminium </option>
-                        <option class="ral" value="7005">7005 Gris souris </option>
-                        <option class="ral" value="7016">7016 Gris anthracite</option>
+                        <option class="ral" value="9010 Blanc">9010 Blanc </option>
+                        <option class="ral" value="9005 Noir ">9005 Noir </option>
+                        <option class="ral" value="9006 Gris">9006 Gris </option>
+                        <option class="ral" value="9007 Gris aluminium">9007 Gris aluminium </option>
+                        <option class="ral" value="7005 Gris souris ">7005 Gris souris </option>
+                        <option class="ral" value="7016 Gris anthracite">7016 Gris anthracite</option>
                     </select>
                     <label class="label" for="ral_autre"></label>
                     <input type="text" id="ral_autre" name="ral_autre" placeholder="Autre :">
@@ -139,36 +140,36 @@
                         <label class="label" for="pleinPV">Plein PV :</label>
                         <select name="pleinPV" id="select_pleinPV">
                             <option class="pleinPV" value="null">Sélectionner</option>
-                            <option hidden class="pleinPV_cj_melamine" value="1">2 faces mélaminé de 12 mm : Ra = 39 dB / Rw = 41 dB</option>
-                            <option hidden class="pleinPV_cj_melamine" value="2">2 faces mélaminé de 12 mm + EPDM 5 kg : Ra = 42 dB / Rw = 45 dB</option>
-                            <option hidden class="pleinPV_cj_melamine" value="3">2 faces mélaminé de 12 mm + EPDM 10 kg : Ra = 45 dB / Rw = 47 dB</option>
-                            <option hidden class="pleinPV_cj_melamine" value="4">2 faces mélaminé de 12 mm + EPDM 15 kg : Ra = 47 dB / Rw = 49 dB</option>
-                            <option hidden class="pleinPV_cj_melamine" value="5">2 faces mélaminé de 12 mm + EPDM 20 kg : Ra = 50 dB / Rw = 52 dB</option>
-                            <option hidden class="pleinPV_cj_tole" value="6">Panneaux tolés : Ra = 43 dB / Rw = 47 dB</option>
-                            <option hidden class="pleinPV_cj_tole" value="7">Panneaux tolés + EPDM 5kg : Ra = 47 dB / Rw = 50 dB</option>
-                            <option hidden class="pleinPV_cj_tole" value="8">Panneaux tolés + EPDM 10kg : Ra = 51 dB / Rw = 54 dB</option>
-                            <option hidden class="pleinPV_cj_tole" value="9">Fermacell tolés  : Ra = 47 dB / Rw = 50 dB</option>
-                            <option hidden class="pleinPV_cj_revetu" value="10">Plaque de plâtre standard : Ra = 40 dB / Rw = 43 dB</option>
-                            <option hidden class="pleinPV_cj_revetu" value="11">Plaque de plâtre phonique : Ra = 43 dB / Rw = 46 dB</option>
-                            <option hidden class="pleinPV_cj_revetu" value="12">Plaque de plâtre standard + EPDM 5 kg : Ra = 43 dB / Rw = 47 dB</option>
-                            <option hidden class="pleinPV_cj_revetu" value="13">Plaque de plâtre standard + EPDM 10 kg : Ra = 46 dB / Rw = 51 dB</option>
-                            <option hidden class="pleinPV_cj_revetu" value="14">Plaque de plâtre standard + EPDM 13 kg : Ra = 47 dB / Rw = 52 dB</option>
-                            <option hidden class="pleinPV_cj_revetu" value="15">Plaque de plâtre standard + EPDM 15 kg : Ra = 48 dB / Rw = 53 dB</option>
-                            <option hidden class="pleinPV_cj_revetu" value="16">Plaque de plâtre standard + EPDM 20 kg : Ra = 51 dB / Rw = 54 dB</option>
-                            <option hidden class="pleinPV_cj_revetu" value="17">2 plaques de Fermacell 12,5  : Ra = 47 dB / Rw = 50 dB</option>
-                            <option hidden class="pleinPV_bb_melamine" value="18">2 faces mélaminé de 12 mm : Ra=38 dB / Rw = 41 dB</option>
-                            <option hidden class="pleinPV_bb_melamine" value="19">2 faces mélaminé de 12 mm + EPDM 5 kg : Ra=42 dB / Rw = 46 dB</option>
-                            <option hidden class="pleinPV_bb_melamine" value="20">2 faces mélaminé de 12 mm + EPDM 10 kg : Ra=45 dB / Rw = 49 dB</option>
-                            <option hidden class="pleinPV_bb_melamine" value="21">2 faces mélaminé de 12 mm + EPDM 15 kg : Ra=46 dB / Rw = 50 dB</option>
-                            <option hidden class="pleinPV_bb_melamine" value="22">2 faces mélaminé de 12 mm + EPDM 20 kg : Ra=48 dB / Rw = 51 dB</option>
-                            <option hidden class="pleinPV_bb_tole" value="23">Agglo + tole 7-10 : Ra=44 dB / Rw = 47 dB</option>
-                            <option hidden class="pleinPV_bb_tole" value="24">Agglo + tole 7-10 EPDM 5 kg : Ra=46 dB / Rw = 50 dB</option>
-                            <option hidden class="pleinPV_bb_tole" value="25">Agglo + tole 7-10 EPDM 10 kg : Ra=49 dB / Rw = 51 dB</option>
-                            <option hidden class="pleinPV_bb_tole" value="26">Agglo + tole 7-10 EPDM 15 kg : Ra=50 dB / Rw = 53 dB</option>
-                            <option hidden class="pleinPV_bb_tole" value="27">Ferm + tole 10-10 : Ra=52 dB / Rw = 54 dB</option>
-                            <option hidden class="pleinPV_bb_tole" value="28">placoM0 + tole 10-10 : Ra=48 dB / Rw = 51 dB</option>
-                            <option hidden class="pleinPV_bb_tole" value="29">placophonique + tole 10-10 : Ra=51 dB / Rw = 53 dB</option>
-                            <option hidden class="pleinPV_bb_tole" value="30">placo Std + tole 10-10 : Ra=49 dB / Rw = 51 dB</option>
+                            <option hidden class="pleinPV_cj_melamine" value="Ra = 39 dB / Rw = 41 dB">2 faces mélaminé de 12 mm : Ra = 39 dB / Rw = 41 dB</option>
+                            <option hidden class="pleinPV_cj_melamine" value="Ra = 42 dB / Rw = 45 dB">2 faces mélaminé de 12 mm + EPDM 5 kg : Ra = 42 dB / Rw = 45 dB</option>
+                            <option hidden class="pleinPV_cj_melamine" value="Ra = 45 dB / Rw = 47 dB">2 faces mélaminé de 12 mm + EPDM 10 kg : Ra = 45 dB / Rw = 47 dB</option>
+                            <option hidden class="pleinPV_cj_melamine" value="Ra = 47 dB / Rw = 49 dB">2 faces mélaminé de 12 mm + EPDM 15 kg : Ra = 47 dB / Rw = 49 dB</option>
+                            <option hidden class="pleinPV_cj_melamine" value="Ra = 50 dB / Rw = 52 dB">2 faces mélaminé de 12 mm + EPDM 20 kg : Ra = 50 dB / Rw = 52 dB</option>
+                            <option hidden class="pleinPV_cj_tole" value="Ra = 43 dB / Rw = 47 dB">Panneaux tolés : Ra = 43 dB / Rw = 47 dB</option>
+                            <option hidden class="pleinPV_cj_tole" value="Ra = 47 dB / Rw = 50 dB">Panneaux tolés + EPDM 5kg : Ra = 47 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_cj_tole" value="Ra = 51 dB / Rw = 54 dB">Panneaux tolés + EPDM 10kg : Ra = 51 dB / Rw = 54 dB</option>
+                            <option hidden class="pleinPV_cj_tole" value="Ra = 47 dB / Rw = 50 dB">Fermacell tolés  : Ra = 47 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="Ra = 40 dB / Rw = 43 dB">Plaque de plâtre standard : Ra = 40 dB / Rw = 43 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="Ra = 43 dB / Rw = 46 dB">Plaque de plâtre phonique : Ra = 43 dB / Rw = 46 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="Ra = 43 dB / Rw = 47 dB">Plaque de plâtre standard + EPDM 5 kg : Ra = 43 dB / Rw = 47 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="Ra = 46 dB / Rw = 51 dB">Plaque de plâtre standard + EPDM 10 kg : Ra = 46 dB / Rw = 51 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="Ra = 47 dB / Rw = 52 dB">Plaque de plâtre standard + EPDM 13 kg : Ra = 47 dB / Rw = 52 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="Ra = 48 dB / Rw = 53 dB">Plaque de plâtre standard + EPDM 15 kg : Ra = 48 dB / Rw = 53 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="Ra = 51 dB / Rw = 54 dB">Ra = 51 dB / Rw = 54 dB</option>
+                            <option hidden class="pleinPV_cj_revetu" value="Ra = 47 dB / Rw = 50 dB">Ra = 47 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="Ra=38 dB / Rw = 41 dB">Ra=38 dB / Rw = 41 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="Ra=42 dB / Rw = 46 dB">Ra=42 dB / Rw = 46 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="Ra=45 dB / Rw = 49 dB">Ra=45 dB / Rw = 49 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="Ra=46 dB / Rw = 50 dB">Ra=46 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_bb_melamine" value="Ra=48 dB / Rw = 51 dB">Ra=48 dB / Rw = 51 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="Ra=44 dB / Rw = 47 dB">Agglo + tole 7-10 : Ra=44 dB / Rw = 47 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="Ra=46 dB / Rw = 50 dB">Agglo + tole 7-10 EPDM 5 kg : Ra=46 dB / Rw = 50 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="Ra=49 dB / Rw = 51 dB">Agglo + tole 7-10 EPDM 10 kg : Ra=49 dB / Rw = 51 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="Ra=50 dB / Rw = 53 dB">Agglo + tole 7-10 EPDM 15 kg : Ra=50 dB / Rw = 53 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="Ra=52 dB / Rw = 54 dB">Ferm + tole 10-10 : Ra=52 dB / Rw = 54 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="Ra=48 dB / Rw = 51 dB">placoM0 + tole 10-10 : Ra=48 dB / Rw = 51 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="Ra=51 dB / Rw = 53 dB">placophonique + tole 10-10 : Ra=51 dB / Rw = 53 dB</option>
+                            <option hidden class="pleinPV_bb_tole" value="Ra=49 dB / Rw = 51 dB">placo Std + tole 10-10 : Ra=49 dB / Rw = 51 dB</option>
                         </select>
                     </div>
                 </div>
@@ -205,14 +206,14 @@
                         <label class="label" for="vitrePV">Vitré PV :</label>
                         <select name="vitrePV">
                             <option class="vitrePV" value="null">Sélectionner</option>
-                            <option hidden class="vitrePV_cj" value="1">6+ 8 mm : Ra = 41 dB / Rw = 42  dB</option>
-                            <option hidden class="vitrePV_cj" value="2">6+44,2  : Ra = 42 dB / Rw = 43 dB</option>
-                            <option hidden class="vitrePV_cj" value="3">6+44,2 silence : Ra = 43 dB / Rw = 44 dB</option>
-                            <option hidden class="vitrePV_cj" value="4">44,2 silence + 44,2 silence : Ra = 45 dB / Rw = 47 dB</option>
-                            <option hidden class="vitrePV_bb" value="5">10+ 12 mm : Ra = 42 dB / Rw = 43 dB</option>
-                            <option hidden class="vitrePV_bb" value="6">10+66,2 silence : Ra = 44 dB / Rw = 45 dB</option>
-                            <option hidden class="vitrePV_bb" value="7">12+ 66,2 silence : Ra = 45 dB / Rw = 46 dB</option>
-                            <option hidden class="vitrePV_bb" value="8">66,2 silence + 66,2 silence : Ra = 48 dB / Rw = 49 dB</option>
+                            <option hidden class="vitrePV_cj" value="Ra = 41 dB / Rw = 42 dB">6+ 8 mm : Ra = 41 dB / Rw = 42 dB</option>
+                            <option hidden class="vitrePV_cj" value="Ra = 42 dB / Rw = 43 dB">6+44,2  : Ra = 42 dB / Rw = 43 dB</option>
+                            <option hidden class="vitrePV_cj" value="Ra = 43 dB / Rw = 44 dB">6+44,2 silence : Ra = 43 dB / Rw = 44 dB</option>
+                            <option hidden class="vitrePV_cj" value="Ra = 45 dB / Rw = 47 dB">44,2 silence + 44,2 silence : Ra = 45 dB / Rw = 47 dB</option>
+                            <option hidden class="vitrePV_bb" value="Ra = 42 dB / Rw = 43 dB">10+ 12 mm : Ra = 42 dB / Rw = 43 dB</option>
+                            <option hidden class="vitrePV_bb" value="Ra = 44 dB / Rw = 45 dB">10+66,2 silence : Ra = 44 dB / Rw = 45 dB</option>
+                            <option hidden class="vitrePV_bb" value="Ra = 45 dB / Rw = 46 dB">12+ 66,2 silence : Ra = 45 dB / Rw = 46 dB</option>
+                            <option hidden class="vitrePV_bb" value="Ra = 48 dB / Rw = 49 dB">66,2 silence + 66,2 silence : Ra = 48 dB / Rw = 49 dB</option>
                         </select>
                     </div>
                     <!-- FINITION VITRE -->

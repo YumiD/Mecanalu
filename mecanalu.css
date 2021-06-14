@@ -234,17 +234,26 @@ textarea  {
   border: grey 1px solid;
   width: 200px;
   max-width:100%;
+  margin-left: 0px;
+}
+
+#box_remplissage_1,
+#box_remplissage_2,
+#box_remplissage_3,
+#box_remplissage_4{
+  border: grey 1px solid;
+  width: 200px;
+  max-width:100%;
+  margin-left: 60px !important;
 }
 
 #checkboxRemplissage img {
     max-width:100%;
+	width: 20%;
 }
 
-#checkboxPortes img {
-    border: grey 1px solid;
-    width: 260px;
-    max-width:100%;
-    height: 350px;
+.evidence_box_produit img {
+  margin-left: 10px !important;
 }
 
 .blocimage {
@@ -262,7 +271,7 @@ textarea  {
 
 .legend2 {
   font-size:20px; 
-  margin: 0 0 0 2%;
+  margin: 0 0 0 12%;
 }
 
 .legend3 {
@@ -270,6 +279,11 @@ textarea  {
     margin-bottom: 20px;
     display: inline-block;
     width: 24%;
+}
+
+.legend5 {
+  font-size:20px; 
+  margin: 0 0 0 2%;
 }
 
 #image_produit {
@@ -290,7 +304,7 @@ textarea  {
 
 .horizontal_remplissage {
     width: 100%;
-	max-width:600px;
+	max-width:700px;
 	display:inline-block;
 	float:left;
 	margin-left:20px;
