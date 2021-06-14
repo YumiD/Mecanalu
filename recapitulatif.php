@@ -12,11 +12,12 @@ $fiche_technique = $_SESSION['fiche_technique'];*/
   $presentation = !empty($_SESSION['presentation']) ? $_SESSION['presentation'] : "";
   // marqueur qui montre que l'on souhaite avoir les fiches techniques de chaque gamme selectionnée
   $fiche_technique = !empty($_SESSION['fiche_technique']) ? $_SESSION['fiche_technique'] : false;
-
+  $PV = !empty($_SESSION['PV']) ? $_SESSION['PV'] : false;
   //Gamme generales
   $evidence = !empty($_SESSION["evidence"]) ? $_SESSION['evidence'] : false;
   $boreale = !empty($_SESSION["boreale"]) ? $_SESSION['boreale'] : false;
   $evidence_box = !empty($_SESSION["evidence_box"]) ? $_SESSION['evidence_box'] : false;
+ 
   // details gamme Evidence
   $e_cj = !empty($_SESSION["e_cj"]) ? $_SESSION['e_cj'] : false;
   $e_bb = !empty($_SESSION["e_bb"]) ? $_SESSION['e_bb'] : false;
@@ -29,17 +30,44 @@ $fiche_technique = $_SESSION['fiche_technique'];*/
   $e_bb_v = !empty($_SESSION["e_bb_v"]) ? $_SESSION['e_bb_v'] : false;
   $e_cj_va = !empty($_SESSION["e_cj_va"]) ? $_SESSION['e_cj_va'] : false;
   $e_bb_va = !empty($_SESSION["e_bb_va"]) ? $_SESSION['e_bb_va'] : false;
+  $e_cj_melamine = !empty($_SESSION["e_cj_melamine"]) ? $_SESSION['e_cj_melamine'] : false;
+  $e_cj_tole = !empty($_SESSION["e_cj_tole"]) ? $_SESSION['e_cj_tole'] : false;
+  $e_cj_revetu = !empty($_SESSION["e_cj_revetu"]) ? $_SESSION['e_cj_revetu'] : false;
+  $e_bb_melamine = !empty($_SESSION["e_bb_melamine"]) ? $_SESSION['e_bb_melamine'] : false;
+  $e_bb_tole = !empty($_SESSION["e_bb_tole"]) ? $_SESSION['e_bb_tole'] : false;
+  $fournisseur_evidence_EGGER = !empty($_SESSION["fournisseur_evidence_EGGER"]) ? $_SESSION['fournisseur_evidence_EGGER'] : false;
+  $fournisseur_evidence_POLYREY = !empty($_SESSION["fournisseur_evidence_POLYREY"]) ? $_SESSION['fournisseur_evidence_POLYREY'] : false;
+  $fournisseur_evidence_UNILIN = !empty($_SESSION["fournisseur_evidence_UNILIN"]) ? $_SESSION['fournisseur_evidence_UNILIN'] : false;
+  $fournisseur_evidence_toleComat = !empty($_SESSION["fournisseur_evidence_toleComat"]) ? $_SESSION['fournisseur_evidence_toleComat'] : false;
+  $fournisseur_evidence_toleAgglo = !empty($_SESSION["fournisseur_evidence_toleAgglo"]) ? $_SESSION['fournisseur_evidence_toleAgglo'] : false;
+  $fournisseur_evidence_Durafort = !empty($_SESSION["fournisseur_evidence_Durafort"]) ? $_SESSION['fournisseur_evidence_Durafort'] : false;
+  $fournisseur_evidence_Muraspec = !empty($_SESSION["fournisseur_evidence_Muraspec"]) ? $_SESSION['fournisseur_evidence_Muraspec'] : false;
+  $fournisseur_evidence_Pannex = !empty($_SESSION["fournisseur_evidence_Pannex"]) ? $_SESSION['fournisseur_evidence_Pannex'] : false;
+  $fournisseur_evidence_Plastylon = !empty($_SESSION["fournisseur_evidence_Plastylon"]) ? $_SESSION['fournisseur_evidence_Plastylon'] : false;
+  
+
   //details gamme Boreale
   $boreale_bb = !empty($_SESSION["boreale_bb"]) ? $_SESSION['boreale_bb'] : false;
-  
   $boreale_verriere = !empty($_SESSION["boreale_verriere"]) ? $_SESSION['boreale_verriere'] : false;
-  
+  $vitre_boreale_10mm = !empty($_SESSION["vitre_boreale_10mm"]) ? $_SESSION['vitre_boreale_10mm'] : false;
+  $vitre_boreale_12mm = !empty($_SESSION["vitre_boreale_12mm"]) ? $_SESSION['vitre_boreale_12mm'] : false;
+  $vitre_boreale_15mm = !empty($_SESSION["vitre_boreale_15mm"]) ? $_SESSION['vitre_boreale_15mm'] : false;
+  $vitre_boreale_55_2F = !empty($_SESSION["vitre_boreale_55_2F"]) ? $_SESSION['vitre_boreale_55_2F'] : false;
+  $vitre_boreale_55_2SF = !empty($_SESSION["vitre_boreale_55_2SF"]) ? $_SESSION['vitre_boreale_55_2SF'] : false;
+  $vitre_boreale_66_2F = !empty($_SESSION["vitre_boreale_66_2F"]) ? $_SESSION['vitre_boreale_66_2F'] : false;
+  $vitre_boreale_66_2SF = !empty($_SESSION["vitre_boreale_66_2SF"]) ? $_SESSION['vitre_boreale_66_2SF'] : false;
+
   //details gamme Evidence Box
   $box_little = !empty($_SESSION["box_little"]) ? $_SESSION['box_little'] : false;
   $box_duo = !empty($_SESSION["box_duo"]) ? $_SESSION['box_duo'] : false;
   $box_media = !empty($_SESSION["box_media"]) ? $_SESSION['box_media'] : false;
   $box_alta = !empty($_SESSION["box_alta"]) ? $_SESSION['box_alta'] : false;
   $box_grande = !empty($_SESSION["box_grande"]) ? $_SESSION['box_grande'] : false;
+  $face_plein_evidence_box_EGGER = !empty($_SESSION["face_plein_evidence_box_EGGER"]) ? $_SESSION['face_plein_evidence_box_EGGER'] : false;
+  $face_plein_evidence_box_Unilin = !empty($_SESSION["face_plein_evidence_box_Unilin"]) ? $_SESSION['face_plein_evidence_box_Unilin'] : false;
+  $face_plein_evidence_box_Polyrey = !empty($_SESSION["face_plein_evidence_box_Polyrey"]) ? $_SESSION['face_plein_evidence_box_Polyrey'] : false;
+  $face_vitre_evidence_box_6_8 = !empty($_SESSION["face_vitre_evidence_box_6_8"]) ? $_SESSION['face_vitre_evidence_box_6_8'] : false;
+  $face_vitre_evidence_box_10_12 = !empty($_SESSION["face_vitre_evidence_box_10_12"]) ? $_SESSION['face_vitre_evidence_box_10_12'] : false;
   
   //types de Portes
   $porte_pleine=!empty($_SESSION["porte_pleine"]) ? $_SESSION['porte_pleine'] : false;
@@ -55,26 +83,31 @@ $fiche_technique = $_SESSION['fiche_technique'];*/
   $accessoire_oculus = !empty($_SESSION["accessoire_oculus"]) ? $_SESSION['accessoire_oculus'] : false;
   $ferme_porte_visible = !empty($_SESSION["ferme_porte_visible"]) ? $_SESSION['ferme_porte_visible'] : false;
   $ferme_porte_invisible = !empty($_SESSION["ferme_porte_invisible"]) ? $_SESSION['ferme_porte_invisible'] : false;
-  //$accessoire = $_SESSION["accessoire"];
   $nom_accessoire = !empty($_SESSION['nom_accessoire']) ? $_SESSION['nom_accessoire'] : false;
   $ferme_porte = !empty($_SESSION["ferme_porte"]) ? $_SESSION['ferme_porte'] : false;
+  $porte_formica=!empty($_SESSION["porte_formica"]) ? $_SESSION['porte_formica'] : false;
+  $porte_polyrey=!empty($_SESSION["porte_polyrey"]) ? $_SESSION['porte_polyrey'] : false;
+  $porte_egger=!empty($_SESSION["porte_egger"]) ? $_SESSION['porte_egger'] : false;
+  $porte_vitre_simple=!empty($_SESSION["porte_vitre_simple"]) ? $_SESSION['porte_vitre_simple'] : false;
+  $porte_vitre_double=!empty($_SESSION["porte_vitre_double"]) ? $_SESSION['porte_vitre_double'] : false;
+  $porte_vitre_clarit=!empty($_SESSION["porte_vitre_clarit"]) ? $_SESSION['porte_vitre_clarit'] : false;
+  $porte_finition_vitre_plein=!empty($_SESSION["porte_finition_vitre_plein"]) ? $_SESSION['porte_finition_vitre_plein'] : false;
+  $porte_finition_vitre_vitre=!empty($_SESSION["porte_finition_vitre_vitre"]) ? $_SESSION['porte_finition_vitre_vitre'] : false;
+  $porte_PV_standard=!empty($_SESSION["porte_PV_standard"]) ? $_SESSION['porte_PV_standard'] : false;
+
   //Option
   $option= !empty($_SESSION["option"]) ? $_SESSION['option'] : false;
   $nom_option = !empty($_SESSION['nom_option']) ? $_SESSION['nom_option'] : false;
-
 
 // Create ZIP file
 if(isset($_POST['create'])){
   $zip = new ZipArchive();
   $filename = "./fichespdfdoe.zip";
-
   if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
     exit("cannot open <$filename>\n");
   }
-
   $dir = 'zip_fiches_techniques/';
-
-  // Create zip
+  
   createZip($zip,$dir);
 
   $zip->close();
@@ -86,31 +119,20 @@ function createZip($zip,$dir){
 
     if ($dh = opendir($dir)){
        while (($file = readdir($dh)) !== false){
- 
-         // If file
          if (is_file($dir.$file)) {
             if($file != '' && $file != '.' && $file != '..'){
- 
                $zip->addFile($dir.$file);
             }
          }else{
-            // If directory
             if(is_dir($dir.$file) ){
-
               if($file != '' && $file != '.' && $file != '..'){
-
-                // Add empty directory
                 $zip->addEmptyDir($dir.$file);
-
                 $folder = $dir.$file.'/';
- 
-                // Read data of the folder
+
                 createZip($zip,$folder);
               }
             }
- 
          }
- 
        }
        closedir($dh);
      }
@@ -119,90 +141,276 @@ function createZip($zip,$dir){
 // Fin création ZIP
 
 // Copier coller un fichier PDF dans le répertoire include
- 
-if(!empty($_SESSION["evidence"])) {
-	$source = 'pdfmodule/evidence/_evi_cat.pdf';	
-    $destination = 'zip_fiches_techniques/_evi_cat.pdf';
+/*** Evidence Couvre Joint***/
+if($e_cj_p){
+	$source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_plein.zip';	
+    $destination = 'zip_fiches_techniques/evidence_Couvre joint_plein.zip';
+	copy($source, $destination); 
+}
+if($e_cj_v || $e_cj_va){
+	$source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_vitree.zip';	
+    $destination = 'zip_fiches_techniques/evidence_Couvre joint_vitree.zip';
+	copy($source, $destination); 
+}
+if($e_cj_melamine && $PV){
+	$source = 'ZIP/Cloison Evidence Couvre joint/PV_evidence_Couvre joint_remplissage_plein-melamine.zip';	
+    $destination = 'zip_fiches_techniques/PV_evidence_Couvre joint_remplissage_plein-melamine.zip';
+	copy($source, $destination); 
+}
+if($e_cj_tole && $PV){
+	$source = 'ZIP/Cloison Evidence Couvre joint/PV_evidence_Couvre joint_emplissage_plein-tole.zip';	
+    $destination = 'zip_fiches_techniques/PV_evidence_Couvre joint_emplissage_plein-tole.zip';
+	copy($source, $destination); 
+}
+if($e_cj_revetu && $PV){
+	$source = 'ZIP/Cloison Evidence Couvre joint/PV_evidence_Couvre joint_remplissage_plein-revetu.zip';	
+    $destination = 'zip_fiches_techniques/PV_evidence_Couvre joint_remplissage_plein-revetu.zip';
 	copy($source, $destination); 
 }
 
-if(!empty($_SESSION["evidence"])) {
-	$source = 'pdfmodule/evidence/_evi_CERFF.pdf';	
-    $destination = 'zip_fiches_techniques/_evi_CERFF.pdf';
+/*** Evidence Bord à Bord***/
+if($e_bb_p){
+	$source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_pleine.zip';	
+    $destination = 'zip_fiches_techniques/evidence_Bord à bord_pleine.zip';
+	copy($source, $destination); 
+}
+if($e_bb_v || $e_bb_va){
+	$source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_vitree.zip';	
+    $destination = 'zip_fiches_techniques/evidence_Bord à bord_vitree.zip';
+	copy($source, $destination); 
+}
+if($e_bb_melamine && $PV){
+	$source = 'ZIP/Cloison Evidence Bord à bord/PV_evidence_Bord à bord_remplissage_plein-melamine.zip';	
+    $destination = 'zip_fiches_techniques/PV_evidence_Bord à bord_remplissage_plein-melamine.zip';
+	copy($source, $destination); 
+}
+if($e_bb_tole && $PV){
+	$source = 'ZIP/Cloison Evidence Bord à bord/PV_evidence_Bord à bord_remplissage_plein-tole.zip';	
+    $destination = 'zip_fiches_techniques/PV_evidence_Bord à bord_remplissage_plein-tole.zip';
 	copy($source, $destination); 
 }
 
-if(!empty($_SESSION["evidence"])) {
-	$source = 'pdfmodule/evidence/_evi_tech_joint_M2.pdf';	
-    $destination = 'zip_fiches_techniques/_evi_tech_joint_M2.pdf';
+/*** Evidence Fournisseurs***/
+if($e_cj){
+    if($fournisseur_evidence_EGGER){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_remplissage_plein-melamine_Egger.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_remplissage_plein-melamine_Egger.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_POLYREY){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_remplissage_plein-melamine_Polyrey.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_remplissage_plein-melamine_Polyrey.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_UNILIN){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_remplissage_plein-melamine_Unilin.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_remplissage_plein-melamine_Unilin.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_toleComat){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_remplissage_plein-tole_comat.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_remplissage_plein-tole_comat.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_toleAgglo){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_remplissage_plein-tole_agglo.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_remplissage_plein-tole_agglo.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_Durafort){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_remplissage_plein-revetu_Durafort.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_remplissage_plein-revetu_Durafort.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_Muraspec){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_remplissage_plein-revetu_Muraspe_Panoline.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_remplissage_plein-revetu_Muraspe_Panoline.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_Pannex){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_remplissage_plein-revetu_Pannex.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_remplissage_plein-revetu_Pannex.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_Plastylon){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_remplissage_plein-revetu_Plastylon.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_remplissage_plein-revetu_Plastylon.zip';
+        copy($source, $destination); 
+    }
+}
+else if($e_bb){
+    if($fournisseur_evidence_EGGER){
+        $source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_remplissage_plein-melamine_Egger.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Bord à bord_remplissage_plein-melamine_Egger.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_POLYREY){
+        $source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_remplissage_plein-melamine_Polyrey.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Bord à bord_remplissage_plein-melamine_Polyrey.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_UNILIN){
+        $source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_remplissage_plein-melamine_Unilin.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Bord à bord_remplissage_plein-melamine_Unilin.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_toleComat){
+        $source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_remplissage_plein-tole_comat.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Bord à bord_remplissage_plein-tole_comat.zip';
+        copy($source, $destination); 
+    }
+    if($fournisseur_evidence_toleAgglo){
+        $source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_remplissage_plein-tole_agglo.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Bord à bord_remplissage_plein-tole_agglo.zip';
+        copy($source, $destination); 
+    }
+}
+
+/*** Boréale ***/
+if($boreale){
+	$source = 'ZIP/Boreale/Boreale_vitre.zip';	
+    $destination = 'zip_fiches_techniques/Boreale_vitre.zip';
+	copy($source, $destination); 
+}
+if($vitre_boreale_10mm){
+	$source = 'ZIP/Boreale/Boreale_Vitrage 10 mm.zip';	
+    $destination = 'zip_fiches_techniques/Boreale_Vitrage 10 mm.zip';
+	copy($source, $destination); 
+}
+if($vitre_boreale_12mm){
+	$source = 'ZIP/Boreale/Boreale_Vitrage 12 mm.zip';	
+    $destination = 'zip_fiches_techniques/Boreale_Vitrage 12 mm.zip';
+	copy($source, $destination); 
+}
+if($vitre_boreale_55_2F || $vitre_boreale_55_2SF){
+	$source = 'ZIP/Boreale/Boreale_Vitrage Feuilleté 55-2.zip';	
+    $destination = 'zip_fiches_techniques/Boreale_Vitrage Feuilleté 55-2.zip';
+	copy($source, $destination); 
+}
+if($vitre_boreale_66_2F || $vitre_boreale_66_2SF){
+	$source = 'ZIP/Boreale/Boreale_Vitrage Feuilleté 66-2.zip';	
+    $destination = 'zip_fiches_techniques/Boreale_Vitrage Feuilleté 66-2.zip';
 	copy($source, $destination); 
 }
 
-if(!empty($_SESSION["evidence"])) {
-	$source = 'pdfmodule/evidence/_evi_FDES.pdf';	
-    $destination = 'zip_fiches_techniques/_evi_FDES.pdf';
-	copy($source, $destination); 
+/*** Evidence Box ***/
+if($evidence_box){
+    $source = 'ZIP/Evidence Box/Evidence Box.zip';	
+    $destination = 'zip_fiches_techniques/Evidence Box.zip';
+	copy($source, $destination);
+}
+if($face_plein_evidence_box_EGGER){
+    $source = 'ZIP/Evidence Box/Evidence Box_melamine_Egger.zip';	
+    $destination = 'zip_fiches_techniques/Evidence Box_melamine_Egger.zip';
+	copy($source, $destination);
+}
+if($face_plein_evidence_box_Unilin){
+    $source = 'ZIP/Evidence Box/Evidence Box_melamine_Unilin.zip';	
+    $destination = 'zip_fiches_techniques/Evidence Box_melamine_Unilin.zip';
+	copy($source, $destination);
+}
+if($face_plein_evidence_box_Polyrey){
+    $source = 'ZIP/Evidence Box/Evidence Box_melamine_Polyrey.zip';	
+    $destination = 'zip_fiches_techniques/Evidence Box_melamine_Polyrey.zip';
+	copy($source, $destination);
+}
+if($face_vitre_evidence_box_6_8){
+    $source = 'ZIP/Evidence Box/Evidence Box_vitre_6+8 mm.zip';	
+    $destination = 'zip_fiches_techniques/Evidence Box_vitre_6+8 mm.zip';
+	copy($source, $destination);
+    $source = 'ZIP/Evidence Box/PV_Evidence Box_vitre_6+8 mm.zip';	
+    $destination = 'zip_fiches_techniques/PV_Evidence Box_vitre_6+8 mm.zip';
+	copy($source, $destination);
+}
+if($face_vitre_evidence_box_10_12){
+    $source = 'ZIP/Evidence Box/Evidence Box_vitre_10+12 mm.zip';	
+    $destination = 'zip_fiches_techniques/Evidence Box_vitre_10+12 mm.zip';
+	copy($source, $destination);
+    $source = 'ZIP/Evidence Box/PV_Evidence Box_vitre_10+12 mm.zip';	
+    $destination = 'zip_fiches_techniques/PV_Evidence Box_vitre_10+12 mm.zip';
+	copy($source, $destination);
 }
 
-if(!empty($_SESSION["e_cj_p"])) {
-	$source = 'pdfmodule/evidence/_evi_cj/_evi_cj_p/_evi_cj_p_rem_alu_FDES_opaque.pdf';	
-    $destination = 'zip_fiches_techniques/_evi_cj_p_rem_alu_FDES_opaque.pdf';
-	copy($source, $destination); 
+/*** Portes ***/
+if($porte_coulissante){
+    $source = 'ZIP/Portes/Porte coulissante.zip';	
+    $destination = 'zip_fiches_techniques/Porte coulissante.zip';
+	copy($source, $destination);
+}
+if($porte_pleine && $PV){
+    $source = 'ZIP/Portes/PV_Porte pleine.zip';	
+    $destination = 'zip_fiches_techniques/PV_Porte pleine.zip';
+	copy($source, $destination);
+}
+if($porte_pleine && $accessoire_bequillage){
+    $source = 'ZIP/Portes/Porte pleine_Bequillage.zip';	
+    $destination = 'zip_fiches_techniques/Porte pleine_Bequillage.zip';
+	copy($source, $destination);
+}
+if($porte_bi_bois){
+    $source = 'ZIP/Portes/Porte bi-affleurante_Bois.zip';	
+    $destination = 'zip_fiches_techniques/Porte bi-affleurante_Bois.zip';
+	copy($source, $destination);
+    if($PV){
+        $source = 'ZIP/Portes/PV_Porte bi-affleurante_Bois.zip';	
+        $destination = 'zip_fiches_techniques/PV_Porte bi-affleurante_Bois.zip';
+        copy($source, $destination);
+    }
+}
+if($porte_bi_cadreAluminium && $porte_finition_vitre_plein){
+    $source = 'ZIP/Portes/Porte bi-affleurante_Cadre alu_Peine.zip';	
+    $destination = 'zip_fiches_techniques/Porte bi-affleurante_Cadre alu_Peine.zip';
+	copy($source, $destination);
+    if($PV){
+        $source = 'ZIP/Portes/PV_Porte bi-affleurante_Cadre alu_Peine.zip';	
+        $destination = 'zip_fiches_techniques/PV_Porte bi-affleurante_Cadre alu_Peine.zip';
+        copy($source, $destination);
+    }
+}
+if($porte_bi_cadreAluminium && $porte_finition_vitre_vitre){
+    $source = 'ZIP/Portes/Porte bi-affleurante_Cadre alu_Vitree.zip';	
+    $destination = 'zip_fiches_techniques/Porte bi-affleurante_Cadre alu_Vitree.zip';
+	copy($source, $destination);
+    if($PV){
+        $source = 'ZIP/Portes/PV_Porte bi-affleurante_Cadre alu_Vitree.zip';	
+        $destination = 'zip_fiches_techniques/PV_Porte bi-affleurante_Cadre alu_Vitree.zip';
+        copy($source, $destination);
+    }
+}
+if($porte_pleine && $porte_formica){
+    $source = 'ZIP/Portes/Porte pleine_Stratifié_Formica.zip';	
+    $destination = 'zip_fiches_techniques/Porte pleine_Stratifié_Formica.zip';
+	copy($source, $destination);
+}
+if($porte_pleine && $porte_polyrey){
+    $source = 'ZIP/Portes/Porte pleine_Stratifié_Polyrey.zip';	
+    $destination = 'zip_fiches_techniques/Porte pleine_Stratifié_Polyrey.zip';
+	copy($source, $destination);
+}
+if($porte_pleine && $porte_egger){
+    $source = 'ZIP/Portes/Porte pleine_Stratifié_Egger.zip';	
+    $destination = 'zip_fiches_techniques/Porte pleine_Stratifié_Egger.zip';
+	copy($source, $destination);
 }
 
-if(!empty($_SESSION["boreale"])) {
-	$source = 'pdfmodule/boreale/_b_cat_boreale.pdf';	
-    $destination = 'zip_fiches_techniques/_b_cat_boreale.pdf';
-	copy($source, $destination); 
-}
 
-if(!empty($_SESSION["boreale"])) {
-	$source = 'pdfmodule/boreale/_b_poster.pdf';	
-    $destination = 'zip_fiches_techniques/_b_poster.pdf';
-	copy($source, $destination); 
-}
 
-if(!empty($_SESSION["evidence_box"])) {
-	$source = 'pdfmodule/box/_box_mont_porte_centree.pdf';	
-    $destination = 'zip_fiches_techniques/_box_mont_porte_centree.pdf';
-	copy($source, $destination); 
-}
-
-if(!empty($_SESSION["evidence_box"])) {
-	$source = 'pdfmodule/box/_box_mont_porte_droite.pdf';	
-    $destination = 'zip_fiches_techniques/_box_mont_porte_droite.pdf';
-	copy($source, $destination); 
-}
-
-if(!empty($_SESSION["evidence_box"])) {
-	$source = 'pdfmodule/box/_box_mont_porte_gauche.pdf';	
-    $destination = 'zip_fiches_techniques/_box_mont_porte_gauche.pdf';
-	copy($source, $destination); 
-}
-
-if(!empty($_SESSION["porte_pleine"])) {
-	$source = 'pdfmodule/portes/_por_butee.pdf';	
-    $destination = 'zip_fiches_techniques/_por_butee.pdf';
-	copy($source, $destination); 
-}
-
-if(!empty($_SESSION["porte_pleine"])) {
-	$source = 'pdfmodule/portes/_por_butee.pdf';	
-    $destination = 'zip_fiches_techniques/_por_butee.pdf';
-	copy($source, $destination); 
-}
-
-if(!empty($_SESSION["porte_pleine"])) {
-	$source = 'pdfmodule/portes/_por_joint_huisserie.pdf';	
-    $destination = 'zip_fiches_techniques/_por_joint_huisserie.pdf';
-	copy($source, $destination); 
-}
-
-if(!empty($_SESSION["porte_pleine"])) {
-	$source = 'pdfmodule/portes/_por_tech_cylindre_surete_alpha.pdf';	
-    $destination = 'zip_fiches_techniques/_por_tech_cylindre_surete_alpha.pdf';
-	copy($source, $destination); 
-}
+/***** Code pour copier le contenu d'un dossier *****/
+    /*$rootPath = realpath('pdfmodule/options_finitions/ecrimur');
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($rootPath),
+        RecursiveIteratorIterator::LEAVES_ONLY
+    );
+    foreach ($files as $name => $file)
+    {
+        if (!$file->isDir())
+        {
+            $filePath = $file->getRealPath();
+            $relativePath = substr($filePath, strlen($rootPath) + 1);
+            $destination = 'zip_fiches_techniques/'.$relativePath;
+            copy($filePath, $destination); 
+        }
+    }*/
 
 // Fin Copier coller un fichier PDF
 
@@ -212,17 +420,17 @@ if(isset($_POST['download'])){
  
   $filename = "fichespdfdoe.zip";
 
-  if (file_exists($filename)) {
-     header('Content-Type: application/zip');
-     header('Content-Disposition: attachment; filename="'.basename($filename).'"');
-     header('Content-Length: ' . filesize($filename));
+    if (file_exists($filename)) {
+        header('Content-Type: application/zip');
+        header('Content-Disposition: attachment; filename="'.basename($filename).'"');
+        header('Content-Length: ' . filesize($filename));
 
-     flush();
-     readfile($filename);
-     // delete file
-     unlink($filename);
- 
-   }
+        flush();
+        readfile($filename);
+        // delete file
+        unlink($filename);
+    }
+    
 }
 
 ?>

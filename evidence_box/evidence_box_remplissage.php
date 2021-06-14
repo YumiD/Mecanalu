@@ -36,7 +36,7 @@
 	</div>  
 
     <div id="content">
-        <h3> EVIDENCE BOX - remplissage - <?php echo $nom_produit; ?> </h3>
+        <h3> EVIDENCE BOX - remplissage </h3>
 
         <form action="../buffer/buffer_evidence_box_remplissage.php" method="post">
 

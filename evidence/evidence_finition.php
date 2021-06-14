@@ -94,12 +94,12 @@
                     <label class="label" for="ral">Ral :</label>
                     <select name="ral">
                         <option class="ral" value="null">Menu déroulant</option>
-                        <option class="ral" value="9010 Blanc">9010 Blanc </option>
-                        <option class="ral" value="9005 Noir ">9005 Noir </option>
-                        <option class="ral" value="9006 Gris">9006 Gris </option>
-                        <option class="ral" value="9007 Gris aluminium">9007 Gris aluminium </option>
-                        <option class="ral" value="7005 Gris souris ">7005 Gris souris </option>
-                        <option class="ral" value="7016 Gris anthracite">7016 Gris anthracite</option>
+                        <option class="ral" value="9010">9010 Blanc </option>
+                        <option class="ral" value="9005">9005 Noir </option>
+                        <option class="ral" value="9006">9006 Gris </option>
+                        <option class="ral" value="9007">9007 Gris aluminium </option>
+                        <option class="ral" value="7005">7005 Gris souris </option>
+                        <option class="ral" value="7016">7016 Gris anthracite</option>
                     </select>
                     <label class="label" for="ral_autre"></label>
                     <input type="text" id="ral_autre" name="ral_autre" placeholder="Autre :">
@@ -112,11 +112,11 @@
                         <label class="label" for="plein">Plein :</label>
                         <select name="plein"  id="select_plein" onchange="UpdateSelect()">
                             <option class="plein" value="null">Sélectionner</option>
-                            <option class="e_cj" id="e_cj_melamine" value="melamine">Mélaminé</option>
-                            <option class="e_cj" id="e_cj_tole" value="tole">Tôlé</option>
-                            <option class="e_cj" id="e_cj_revetu" value="revetu">Revêtu</option>
-                            <option class="e_bb" id="e_bb_melamine" value="melamine">Mélaminé</option>
-                            <option class="e_bb" id="e_bb_tole" value="tole">Tôlé</option>
+                            <option class="e_cj" id="e_cj_melamine" value="1">Mélaminé</option>
+                            <option class="e_cj" id="e_cj_tole" value="2">Tôlé</option>
+                            <option class="e_cj" id="e_cj_revetu" value="3">Revêtu</option>
+                            <option class="e_bb" id="e_bb_melamine" value="4">Mélaminé</option>
+                            <option class="e_bb" id="e_bb_tole" value="5">Tôlé</option>
                         </select>
                     </div>
                     <!-- FOURNISSEUR -->

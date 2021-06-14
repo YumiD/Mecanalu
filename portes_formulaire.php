@@ -24,6 +24,7 @@
     }
     else if($porte=="porte_bi_bois"){
         $nom_porte="Bi-affleurante bois";
+        //TODO PV Ra=32 dB / Rw=33 dB = true
     }
     $_SESSION["nom_porte"] = $nom_porte;
 
@@ -105,11 +106,11 @@
                     <div>
                         <ul style="list-style-type: none;">        
                             <li class="plein">
-                                <input class="check2" type="checkbox" id="plein" name="finition_vitre" onclick="onlyOne(this, 'check2')"  onchange="UpdateSelect()">
+                                <input class="check2" type="checkbox" id="plein" name="finition_vitre[]" value="plein" onclick="onlyOne(this, 'check2')"  onchange="UpdateSelect()">
                                 <label class="label" for="plein">Plein</label>
                             </li>
                             <li class="vitre">
-                                <input class="check2" type="checkbox" id="vitre" name="finition_vitre" onclick="onlyOne(this, 'check2')"  onchange="UpdateSelect()">
+                                <input class="check2" type="checkbox" id="vitre" name="finition_vitre[]" value="vitre" onclick="onlyOne(this, 'check2')"  onchange="UpdateSelect()">
                                 <label class="label" for="vitre">Vitré</label>
                             </li>
                         </ul>
@@ -146,10 +147,10 @@
                         <option hidden class="pv_plein" value="prema38">Prema 38 dB </option>
                         <option hidden class="pv_plein" value="prema39">Prema 39 dB </option>
                         <option hidden class="pv_plein" value="prema41">Prema 41 dB </option>
-                        <option hidden class="pv_cadreAlu_vitre" value="prema41">DV73 8+6 </option>
-                        <option hidden class="pv_cadreAlu_vitre" value="prema41">DV73 44,2+33,2</option>
-                        <option hidden class="pv_cadreAlu_plein" value="prema41">DV73 agglo 8</option>
-                        <option hidden class="pv_cadreAlu_plein" value="prema41">DV73 Agglo dB</option>
+                        <option hidden class="pv_cadreAlu_vitre" value="DV73_1">DV73 8+6 </option>
+                        <option hidden class="pv_cadreAlu_vitre" value="DV73_2">DV73 44,2+33,2</option>
+                        <option hidden class="pv_cadreAlu_plein" value="DV73_3">DV73 agglo 8</option>
+                        <option hidden class="pv_cadreAlu_plein" value="DV73_4">DV73 Agglo dB</option>
                     </select>
                 </div>
                 <!-- OPTION -->
@@ -185,7 +186,7 @@
                     </ul>
                 </div>
                 <!-- FERME PORTE -->
-                <label class="label" for="ferme_porte">Ferme Porte :</label>
+                <label id="label_ferme_porte" class="label" for="ferme_porte">Ferme Porte :</label>
                 <div id="ferme_porte">
                 </div>
                 <div>
@@ -246,6 +247,11 @@
                     }
                     
                 }
+                
+                var PV = <?php echo json_encode($PV); ?>;
+                if(!PV){
+                    SetInvisible("PV");
+                }
 
                 var porte = <?php echo json_encode($porte); ?>;
                 if(porte=="porte_pleine"){
@@ -253,20 +259,26 @@
                     document.getElementById("finition_vitre").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
                     SetVisible("pv_plein");
-                    SetVisible("accessoire_oculus"); SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
+                    SetVisible("accessoire_oculus"); SetVisible("accessoire_bequillage"); SetVisible("accessoire_serrure_magnetique");
+                    SetInvisible("ferme_porte_invisible");
                 }
                 else if(porte=="porte_vitre"){
                     document.getElementById("finition").style.display = "none";
                     document.getElementById("finition_vitre").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
-                    SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
+                    SetVisible("accessoire_bequillage");; SetVisible("accessoire_serrure_magnetique");
+                    SetInvisible("ferme_porte_invisible");
+                    SetInvisible("PV");
                 }
                 else if(porte=="porte_coulissante"){
                     document.getElementById("finition_vitre").style.display = "none";
                     document.getElementById("stratifie").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
+                    document.getElementById("label_ferme_porte").style.display = "none";
                     DeleteByClass("finition-stratifie");
                     SetVisible("accessoire_bequillage");
+                    SetInvisible("ferme_porte_visible"); SetInvisible("ferme_porte_invisible"); 
+                    SetInvisible("PV");
                 }
                 else if(porte=="porte_bi_cadreAluminium"){
                     document.getElementById("finition").style.display = "none";
@@ -282,15 +294,11 @@
                 }
                 else if(porte=="porte_bi_bois"){
                     document.getElementById("finition_vitre").style.display = "none";
-                    document.getElementById("stratifie").style.display = "none";
+                    document.getElementById("finition").style.display = "none";
                     document.getElementById("vitré").style.display = "none";
                     DeleteByClass("finition-vitre");DeleteByClass("finition-plein");
                     SetVisible("pv_bois");
                     SetVisible("accessoire_bequillage"); SetVisible("accessoire_paumelle_invisibles"); SetVisible("accessoire_serrure_magnetique");
-                }
-                
-                var PV = <?php echo json_encode($PV); ?>;
-                if(!PV){
                     SetInvisible("PV");
                 }
             </script>

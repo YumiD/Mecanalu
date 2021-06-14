@@ -32,6 +32,15 @@ $_SESSION['buffer_evidence_box_remplissage'] = array();
 $_SESSION['buffer_evidence_box_finition']=array();
 //Porte
 $_SESSION['buffer_portes'] = array();
+//Option
+$_SESSION["option"]="";
+
+//Suppression de tous les fichiers contenues dans zip_fiches_techniques/
+$files2delete = glob('zip_fiches_techniques/*'); 
+foreach($files2delete as $file2delete) {
+    if(is_file($file2delete)) 
+        unlink($file2delete); 
+}
 
 /*// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

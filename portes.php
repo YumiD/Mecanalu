@@ -19,6 +19,15 @@
     $_SESSION["ferme_porte_visible"] = false;
     $_SESSION["ferme_porte_invisible"] = false;
 
+    if($_SESSION["evidence_box"] && !$_SESSION["evidence"] && !$_SESSION["boreale"]){
+        echo "<script type='text/javascript'> document.location = 'ajout.php'; </script>";
+    }
+    $bi=true;
+    if(!$_SESSION["evidence"] && $_SESSION["boreale"]){
+        $bi=false;
+    }
+    
+
 ?>
 
 
@@ -40,7 +49,8 @@
             <h3>CHOIX PORTE</h3>
 
             <h4> Choisissez entre <h4>
-
+            
+            <div id="bitrue">
             <div id="horizontal"> 
                 <span class="legend3"> Bi-Affleurante </span>
                 <span class="legend3"> Pleine </span>
@@ -60,10 +70,47 @@
                 </div>
 
 			</div>
+            </div>
+
+            <div hidden id="bifalse">
+            <div id="horizontal"> 
+                <span class="legend3"> Pleine </span>
+                <span class="legend3"> Vitré </span>
+                <span class="legend3"> Coulissante </span>
+                
+                <form action="buffer/buffer_portes.php" method="post">
+                <div id="checkboxPortes">
+                    <input type="checkbox" id="porte_pleine" name="porte_pleine" class="porte"/>
+                    <label for="porte_pleine"><img src="ressources/porte_pleine.png" /></label>
+                    <input type="checkbox" id="porte_vitre" name="porte_vitre" class="porte"/>
+                    <label for="porte_vitre"><img src="ressources/porte_vitre.png" /></label>
+                    <input type="checkbox" id="porte_coulissante" name="porte_coulissante" class="porte"/>
+                    <label for="porte_coulissante"><img src="ressources/porte_coulissante.png" /></label>
+                </div>
+
+			</div>
+            </div>
 
             <div id="form">
             <input type="submit" value="Continuer" style="background-color: #a4bd0a;color: #ffffff;font-family: 'Montserrat';">
             </div>
+            
+            <script type="text/javascript">
+            function SetInvisible(id){
+                var element = document.getElementById(id);
+                element.hidden = true;
+            }
+            function SetVisible(id){
+                var element = document.getElementById(id);
+                element.hidden = false;
+            }
+            var bi = <?php echo json_encode($bi); ?>;
+            console.log(bi);
+            if(!bi){
+                SetInvisible("bitrue");
+                SetVisible("bifalse");
+            }
+            </script>
 
         </div>
 
