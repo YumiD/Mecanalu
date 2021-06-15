@@ -41,7 +41,7 @@
         </style>
     </head>
     
-    <body>
+    <body id="page">
         <div class="header">
             <?php include('includes/header.html'); ?>
         </div> 

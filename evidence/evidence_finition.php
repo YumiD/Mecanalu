@@ -108,7 +108,7 @@
                 <!-- DIV PLEIN -->
                 <div id="plein">
                     <!-- PLEIN -->
-                    <div>
+                    <div id="selectPlein">
                         <label class="label" for="plein">Plein :</label>
                         <select name="plein"  id="select_plein" onchange="UpdateSelect()">
                             <option class="plein" value="null">Sélectionner</option>
@@ -120,7 +120,7 @@
                         </select>
                     </div>
                     <!-- FOURNISSEUR -->
-                    <div>
+                    <div id="fournisseur">
                         <label id="label_fournisseur" class="label" for="fournisseur">Fournisseur :</label>
                         <select name="fournisseur">
                             <option class="fournisseur" value="null">Sélectionner</option>
@@ -177,10 +177,10 @@
                 <div id=vitre>
                     <div style="display: flex;flex-wrap: wrap;">
                         <!-- CONCEPT -->
-                        <label class="label" for="concept">Concept :</label>
-                        <div id="concept">
-                        </div>
+                        <label id="conceptLabel" class="label" for="concept">Concept :</label>
                         <div>
+                        </div>
+                        <div id="concept">
                             <ul style="list-style-type: none;">        
                                 <li class="e_cj">
                                     <label for="atelier">Version Atelier</label>
@@ -197,6 +197,10 @@
                                 <li class="e_bb">
                                     <label for="air">Version Air</label>
                                     <input class="check1" type="checkbox" id="air" name="concept" onclick="onlyOne(this, 'check1')">
+                                </li>
+                                <li hidden class="e_cj_va">
+                                    <label for="air">Version Atelier</label>
+                                    <input class="check1" type="checkbox" id="atelier" name="concept" onclick="onlyOne(this, 'check1')">
                                 </li>
                             </ul>
                         </div>
@@ -242,9 +246,37 @@
                                 <li class="e_bb">
                                     <label for="clair">Feuilleté</label>
                                     <input class="check2" type="checkbox" id="feuillete" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                </li>   
+                                <li hidden class="e_cj_va">
+                                    <label for="trempe">Trempé</label>
+                                    <input class="check2" type="checkbox" id="trempe" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                </li>
+                                <li hidden class="e_cj_va">
+                                    <label for="feuillete">Feuilleté</label>
+                                    <input class="check2" type="checkbox" id="feuillete" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                </li>
+                                <li hidden class="e_cj_va">
+                                    <label for="clair">Clair</label>
+                                    <input class="check2" type="checkbox" id="clair" name="finition_vitre" onclick="onlyOne(this, 'check2')">
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                    <!--Option -->
+                    <div hidden class="e_cj_va" id="option_finition">
+                    <div style="display: flex;flex-wrap: wrap;">
+                        <label class="label" for="option_finition">Option :</label>
+                        <div id="option_finition">
+                        </div>
+                        <div>
+                            <ul style="list-style-type: none;">        
+                                <li class="e_cj_va">
+                                    <label for="traverses">Traverses</label>
+                                    <input class="check3" type="checkbox" id="traverses" name="option_finition" onclick="onlyOne(this, 'check3')">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div style="margin-top:30px"></div>
@@ -315,12 +347,14 @@
 
                 var remplissage = <?php echo json_encode($remplissage); ?>;
                 var produit = <?php echo json_encode($produit); ?>;
+                var produit_final = <?php echo json_encode($produit_final); ?>;
                 if(remplissage=="e_plein"){
                     document.getElementById("vitre").style.display = "none";
                 }
-                else if(remplissage=="e_vitre" || remplissage=="e_vitre_allege"){
+                else if(remplissage=="e_vitre" ){
                     document.getElementById("plein").style.display = "none";
                 }
+                
                 if(produit=="e_cj"){
                     var elements = document.getElementsByClassName("e_bb");
                     for(var i=0; i<elements.length; i++) {
@@ -334,6 +368,29 @@
                         elements[i].style.display = "none";
                     }
                     SetVisible("vitrePV_bb");
+                }
+                
+                if(produit_final=="e_bb_va"){
+                    document.getElementById("concept").style.display = "none";
+                    document.getElementById("conceptLabel").style.display = "none";
+                    document.getElementById("fournisseur").style.display = "none";
+                    document.getElementById("selectPlein").style.display = "none";
+                }
+                if(produit_final=="e_cj_va"){
+                    document.getElementById("selectPlein").style.display = "none";
+                    document.getElementById("fournisseur").style.display = "none";
+                    var elements = document.getElementsByClassName("e_cj");
+                    for(var i=0; i<elements.length; i++) {
+                        elements[i].style.display = "none";
+                    }
+                    var elements = document.getElementsByClassName("e_bb");
+                    for(var i=0; i<elements.length; i++) {
+                        elements[i].style.display = "none";
+                    }
+                    var elements = document.getElementsByClassName("e_cj_va");
+                    for(var i=0; i<elements.length; i++) {
+                        elements[i].hidden = false;
+                    }
                 }
 
                 var PV = <?php echo json_encode($PV); ?>;

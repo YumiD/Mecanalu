@@ -63,7 +63,7 @@
             <input type="checkbox" id="boreale_bb"  name="boreale_bb" class="boreale_produit"/>
             <label for="boreale_bb"><img src="../ressources/boreale_bb.png" /></label>
             <input type="checkbox" id="boreale_verriere" name="boreale_verriere" class="boreale_produit"/>
-            <label for="boreale_verriere"><img src="../ressources/e_bb.png" /></label>
+            <label for="boreale_verriere"><img src="../ressources/boreale_verriere.png" /></label>
             </div>
         
         </div>

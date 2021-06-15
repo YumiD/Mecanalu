@@ -3,6 +3,7 @@
 
   $_SESSION["buffer_boreale_produit_size"] = 0;
   $_SESSION["buffer_boreale_produit_index"] = 0;
+  $_SESSION['buffer_boreale_produit']=array();
 
   if(isset($_POST['boreale_bb'])){
       $_SESSION["boreale_bb"] = true;
