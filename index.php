@@ -41,7 +41,11 @@ foreach($files2delete as $file2delete) {
     if(is_file($file2delete)) 
         unlink($file2delete); 
 }
-
+$files2delete = glob('zip_fiches_techniques/PV/*'); 
+foreach($files2delete as $file2delete) {
+    if(is_file($file2delete)) 
+        unlink($file2delete); 
+}
 /*// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection

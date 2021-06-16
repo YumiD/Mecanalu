@@ -272,28 +272,42 @@ if($boreale){
     $destination = 'zip_fiches_techniques/Boreale_vitre.zip';
 	copy($source, $destination); 
 }
-if($vitre_boreale_10mm){
-	$source = 'ZIP/Boreale/Boreale_Vitrage 10 mm.zip';	
-    $destination = 'zip_fiches_techniques/Boreale_Vitrage 10 mm.zip';
-	copy($source, $destination); 
-}
-if($vitre_boreale_12mm){
-	$source = 'ZIP/Boreale/Boreale_Vitrage 12 mm.zip';	
-    $destination = 'zip_fiches_techniques/Boreale_Vitrage 12 mm.zip';
-	copy($source, $destination); 
-}
-if($vitre_boreale_55_2F || $vitre_boreale_55_2SF){
-	$source = 'ZIP/Boreale/Boreale_Vitrage Feuilleté 55-2.zip';	
-    $destination = 'zip_fiches_techniques/Boreale_Vitrage Feuilleté 55-2.zip';
-	copy($source, $destination); 
-}
-if($vitre_boreale_66_2F || $vitre_boreale_66_2SF){
-	$source = 'ZIP/Boreale/Boreale_Vitrage Feuilleté 66-2.zip';	
-    $destination = 'zip_fiches_techniques/Boreale_Vitrage Feuilleté 66-2.zip';
-	copy($source, $destination); 
+
+if($PV){
+    if($vitre_boreale_10mm){
+        $source = 'pdfPV/boreale/Vitrage 10 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 10 mm Planiclear.pdf';
+        copy($source, $destination);
+    }
+    if($vitre_boreale_12mm){
+        $source = 'pdfPV/boreale/Vitrage 12 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 12 mm Planiclear.pdf';
+        copy($source, $destination);
+    }
+    if($vitre_boreale_55_2F){
+        $source = 'pdfPV/boreale/Feuilleté 55-2.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Feuilleté 55-2.pdf';
+        copy($source, $destination); 
+    }
+    if($vitre_boreale_55_2SF){
+        $source = 'pdfPV/boreale/Feuilleté 55-2 Silence.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Feuilleté 55-2 Silence.pdf';
+        copy($source, $destination); 
+    }
+    if($vitre_boreale_66_2F){
+        $source = 'pdfPV/boreale/Feuilleté 66-2.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Feuilleté 66-2.pdf';
+        copy($source, $destination); 
+    }
+    if($vitre_boreale_66_2SF){
+        $source = 'pdfPV/boreale/Feuilleté 66-2 Silence.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Feuilleté 66-2 Silence.pdf';
+        copy($source, $destination); 
+    }
 }
 
 /*** Evidence Box ***/
+//TODO PV si mélaminé, absolument envoyer les 2 pdfEPDM
 if($evidence_box){
     $source = 'ZIP/Evidence Box/Evidence Box.zip';	
     $destination = 'zip_fiches_techniques/Evidence Box.zip';
@@ -314,21 +328,58 @@ if($face_plein_evidence_box_Polyrey){
     $destination = 'zip_fiches_techniques/Evidence Box_melamine_Polyrey.zip';
 	copy($source, $destination);
 }
-if($face_vitre_evidence_box_6_8){
-    $source = 'ZIP/Evidence Box/Evidence Box_vitre_6+8 mm.zip';	
-    $destination = 'zip_fiches_techniques/Evidence Box_vitre_6+8 mm.zip';
-	copy($source, $destination);
-    $source = 'ZIP/Evidence Box/PV_Evidence Box_vitre_6+8 mm.zip';	
-    $destination = 'zip_fiches_techniques/PV_Evidence Box_vitre_6+8 mm.zip';
-	copy($source, $destination);
-}
-if($face_vitre_evidence_box_10_12){
-    $source = 'ZIP/Evidence Box/Evidence Box_vitre_10+12 mm.zip';	
-    $destination = 'zip_fiches_techniques/Evidence Box_vitre_10+12 mm.zip';
-	copy($source, $destination);
-    $source = 'ZIP/Evidence Box/PV_Evidence Box_vitre_10+12 mm.zip';	
-    $destination = 'zip_fiches_techniques/PV_Evidence Box_vitre_10+12 mm.zip';
-	copy($source, $destination);
+if($PV){
+    if($face_plein_evidence_box_EGGER || $face_plein_evidence_box_Unilin || $ace_plein_evidence_box_Polyrey ){
+        $source = 'pdfPV/evidence_box/2 faces mela+ 1 EPDM (Ra=42db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/2 faces mela+ 1 EPDM (Ra=42db).pdf';
+        copy($source, $destination); 
+        $source = 'pdfPV/evidence_box/FDES EPDM.pdf';	
+        $destination = 'zip_fiches_techniques/PV/FDES EPDM.pdf';
+        copy($source, $destination); 
+        $source = 'pdfPV/evidence_box/Fiche tech EPDM.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Fiche tech EPDM.pdf';
+        copy($source, $destination); 
+    }
+    if($box_alta){
+        $source = 'pdfPV/evidence_box/Vitrage 10 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 10 mm Planiclear.pdf';
+        copy($source, $destination); 
+        $source = 'pdfPV/evidence_box/Vitrage 12 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 12 mm Planiclear.pdf';
+        copy($source, $destination); 
+    }
+    if($box_little){
+        $source = 'pdfPV/evidence_box/Vitrage 6mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 6mm Planiclear.pdf';
+        copy($source, $destination); 
+        $source = 'pdfPV/evidence_box/Vitrage 8 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 8 mm Planiclear.pdf';
+        copy($source, $destination); 
+    }
+    if($box_duo){
+        $source = 'pdfPV/evidence_box/Vitrage 10 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 10 mm Planiclear.pdf';
+        copy($source, $destination); 
+        $source = 'pdfPV/evidence_box/Vitrage 12 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 12 mm Planiclear.pdf';
+        copy($source, $destination); 
+    }
+    if($box_media){
+        $source = 'pdfPV/evidence_box/Vitrage 10 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 10 mm Planiclear.pdf';
+        copy($source, $destination); 
+        $source = 'pdfPV/evidence_box/Vitrage 12 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 12 mm Planiclear.pdf';
+        copy($source, $destination); 
+    }
+    if($box_grande){
+        $source = 'pdfPV/evidence_box/Vitrage 10 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 10 mm Planiclear.pdf';
+        copy($source, $destination); 
+        $source = 'pdfPV/evidence_box/Vitrage 12 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 12 mm Planiclear.pdf';
+        copy($source, $destination); 
+    }
 }
 
 /*** Portes ***/

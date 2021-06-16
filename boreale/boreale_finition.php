@@ -10,6 +10,7 @@
         $nom_produit="Verriere";
     }
     $_SESSION["nom_produit"]=$nom_produit;
+    $PV = $_SESSION["PV"];
 
 ?>
 
@@ -80,7 +81,7 @@
                 </div>
                 <div style="margin-top:30px"></div>
                 <!-- VITRE -->
-                <div>
+                <div class="PV">
                     <label class="label" for="vitre">Vitré :</label>
                     <select name="vitre">
                         <option class="vitre" value="null">Sélectionner</option>
@@ -123,6 +124,12 @@
                         elements[i].hidden = false;
                     }
                 }
+                function SetInvisible(id){
+                    var elements = document.getElementsByClassName(id);
+                    for(var i=0; i<elements.length; i++) {
+                        elements[i].hidden = true;
+                    }
+                }
                 function onlyOne(checkbox, className) {
                     var checkboxes = document.getElementsByClassName(className);
                     for (i = 0; i < checkboxes.length; i++) {
@@ -134,6 +141,10 @@
                         }
                     }
                 } 
+                var PV = <?php echo json_encode($PV); ?>;
+                if(!PV){
+                    SetInvisible("PV");
+                }
             </script>
 			
 			<footer>
