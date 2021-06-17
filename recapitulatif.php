@@ -44,7 +44,44 @@ $fiche_technique = $_SESSION['fiche_technique'];*/
   $fournisseur_evidence_Muraspec = !empty($_SESSION["fournisseur_evidence_Muraspec"]) ? $_SESSION['fournisseur_evidence_Muraspec'] : false;
   $fournisseur_evidence_Pannex = !empty($_SESSION["fournisseur_evidence_Pannex"]) ? $_SESSION['fournisseur_evidence_Pannex'] : false;
   $fournisseur_evidence_Plastylon = !empty($_SESSION["fournisseur_evidence_Plastylon"]) ? $_SESSION['fournisseur_evidence_Plastylon'] : false;
-  
+  $pleinPV_cj_melamine_1 = !empty($_SESSION["pleinPV_cj_melamine_1"]) ? $_SESSION['pleinPV_cj_melamine_1'] : false;
+  $pleinPV_cj_melamine_2 = !empty($_SESSION["pleinPV_cj_melamine_2"]) ? $_SESSION['pleinPV_cj_melamine_2'] : false;
+  $pleinPV_cj_melamine_3 = !empty($_SESSION["pleinPV_cj_melamine_3"]) ? $_SESSION['pleinPV_cj_melamine_3'] : false;
+  $pleinPV_cj_melamine_4 = !empty($_SESSION["pleinPV_cj_melamine_4"]) ? $_SESSION['pleinPV_cj_melamine_4'] : false;
+  $pleinPV_cj_melamine_5 = !empty($_SESSION["pleinPV_cj_melamine_5"]) ? $_SESSION['pleinPV_cj_melamine_5'] : false;
+  $pleinPV_cj_tole_1 = !empty($_SESSION["pleinPV_cj_tole_1"]) ? $_SESSION['pleinPV_cj_tole_1'] : false;
+  $pleinPV_cj_tole_2 = !empty($_SESSION["pleinPV_cj_tole_2"]) ? $_SESSION['pleinPV_cj_tole_2'] : false;
+  $pleinPV_cj_tole_3 = !empty($_SESSION["pleinPV_cj_tole_3"]) ? $_SESSION['pleinPV_cj_tole_3'] : false;
+  $pleinPV_cj_tole_4 = !empty($_SESSION["pleinPV_cj_tole_4"]) ? $_SESSION['pleinPV_cj_tole_4'] : false;
+  $pleinPV_cj_revetu_1 = !empty($_SESSION["pleinPV_cj_revetu_1"]) ? $_SESSION['pleinPV_cj_revetu_1'] : false;
+  $pleinPV_cj_revetu_2 = !empty($_SESSION["pleinPV_cj_revetu_2"]) ? $_SESSION['pleinPV_cj_revetu_2'] : false;
+  $pleinPV_cj_revetu_3 = !empty($_SESSION["pleinPV_cj_revetu_3"]) ? $_SESSION['pleinPV_cj_revetu_3'] : false;
+  $pleinPV_cj_revetu_4 = !empty($_SESSION["pleinPV_cj_revetu_4"]) ? $_SESSION['pleinPV_cj_revetu_4'] : false;
+  $pleinPV_cj_revetu_5 = !empty($_SESSION["pleinPV_cj_revetu_5"]) ? $_SESSION['pleinPV_cj_revetu_5'] : false;
+  $pleinPV_cj_revetu_6 = !empty($_SESSION["pleinPV_cj_revetu_6"]) ? $_SESSION['pleinPV_cj_revetu_6'] : false;
+  $pleinPV_cj_revetu_7 = !empty($_SESSION["pleinPV_cj_revetu_7"]) ? $_SESSION['pleinPV_cj_revetu_7'] : false;
+  $pleinPV_cj_revetu_8 = !empty($_SESSION["pleinPV_cj_revetu_8"]) ? $_SESSION['pleinPV_cj_revetu_8'] : false;
+  $pleinPV_bb_melamine_1 = !empty($_SESSION["pleinPV_bb_melamine_1"]) ? $_SESSION['pleinPV_bb_melamine_1'] : false;
+  $pleinPV_bb_melamine_2 = !empty($_SESSION["pleinPV_bb_melamine_2"]) ? $_SESSION['pleinPV_bb_melamine_2'] : false;
+  $pleinPV_bb_melamine_3 = !empty($_SESSION["pleinPV_bb_melamine_3"]) ? $_SESSION['pleinPV_bb_melamine_3'] : false;
+  $pleinPV_bb_melamine_4 = !empty($_SESSION["pleinPV_bb_melamine_4"]) ? $_SESSION['pleinPV_bb_melamine_4'] : false;
+  $pleinPV_bb_melamine_5 = !empty($_SESSION["pleinPV_bb_melamine_5"]) ? $_SESSION['pleinPV_bb_melamine_5'] : false;
+  $pleinPV_bb_tole_1 = !empty($_SESSION["pleinPV_bb_tole_1"]) ? $_SESSION['pleinPV_bb_tole_1'] : false;
+  $pleinPV_bb_tole_2 = !empty($_SESSION["pleinPV_bb_tole_2"]) ? $_SESSION['pleinPV_bb_tole_2'] : false;
+  $pleinPV_bb_tole_3 = !empty($_SESSION["pleinPV_bb_tole_3"]) ? $_SESSION['pleinPV_bb_tole_3'] : false;
+  $pleinPV_bb_tole_4 = !empty($_SESSION["pleinPV_bb_tole_4"]) ? $_SESSION['pleinPV_bb_tole_4'] : false;
+  $pleinPV_bb_tole_5 = !empty($_SESSION["pleinPV_bb_tole_5"]) ? $_SESSION['pleinPV_bb_tole_5'] : false;
+  $pleinPV_bb_tole_6 = !empty($_SESSION["pleinPV_bb_tole_6"]) ? $_SESSION['pleinPV_bb_tole_6'] : false;
+  $pleinPV_bb_tole_7 = !empty($_SESSION["pleinPV_bb_tole_7"]) ? $_SESSION['pleinPV_bb_tole_7'] : false;
+  $pleinPV_bb_tole_8 = !empty($_SESSION["pleinPV_bb_tole_8"]) ? $_SESSION['pleinPV_bb_tole_8'] : false;
+  $vitrePV_cj_1 = !empty($_SESSION["vitrePV_cj_1"]) ? $_SESSION['vitrePV_cj_1'] : false;
+  $vitrePV_cj_2 = !empty($_SESSION["vitrePV_cj_2"]) ? $_SESSION['vitrePV_cj_2'] : false;
+  $vitrePV_cj_3 = !empty($_SESSION["vitrePV_cj_3"]) ? $_SESSION['vitrePV_cj_3'] : false;
+  $vitrePV_cj_4 = !empty($_SESSION["vitrePV_cj_4"]) ? $_SESSION['vitrePV_cj_4'] : false;
+  $vitrePV_bb_1 = !empty($_SESSION["vitrePV_bb_1"]) ? $_SESSION['vitrePV_bb_1'] : false;
+  $vitrePV_bb_2 = !empty($_SESSION["vitrePV_bb_2"]) ? $_SESSION['vitrePV_bb_2'] : false;
+  $vitrePV_bb_3 = !empty($_SESSION["vitrePV_bb_3"]) ? $_SESSION['vitrePV_bb_3'] : false;
+  $vitrePV_bb_4 = !empty($_SESSION["vitrePV_bb_4"]) ? $_SESSION['vitrePV_bb_4'] : false;
 
   //details gamme Boreale
   $boreale_bb = !empty($_SESSION["boreale_bb"]) ? $_SESSION['boreale_bb'] : false;
@@ -94,6 +131,15 @@ $fiche_technique = $_SESSION['fiche_technique'];*/
   $porte_finition_vitre_plein=!empty($_SESSION["porte_finition_vitre_plein"]) ? $_SESSION['porte_finition_vitre_plein'] : false;
   $porte_finition_vitre_vitre=!empty($_SESSION["porte_finition_vitre_vitre"]) ? $_SESSION['porte_finition_vitre_vitre'] : false;
   $porte_PV_standard=!empty($_SESSION["porte_PV_standard"]) ? $_SESSION['porte_PV_standard'] : false;
+  $porte_PV_prema30 = !empty($_SESSION["porte_PV_prema30"]) ? $_SESSION['porte_PV_prema30'] : false;
+  $porte_PV_prema35 = !empty($_SESSION["porte_PV_prema35"]) ? $_SESSION['porte_PV_prema35'] : false;
+  $porte_PV_prema38 = !empty($_SESSION["porte_PV_prema38"]) ? $_SESSION['porte_PV_prema38'] : false;
+  $porte_PV_prema39 = !empty($_SESSION["porte_PV_prema39"]) ? $_SESSION['porte_PV_prema39'] : false;
+  $porte_PV_prema41 = !empty($_SESSION["porte_PV_prema41"]) ? $_SESSION['porte_PV_prema41'] : false;
+  $porte_PV_DV73_1 = !empty($_SESSION["porte_PV_DV73_1"]) ? $_SESSION['porte_PV_DV73_1'] : false;
+  $porte_PV_DV73_2 = !empty($_SESSION["porte_PV_DV73_2"]) ? $_SESSION['porte_PV_DV73_2'] : false;
+  $porte_PV_DV73_3 = !empty($_SESSION["porte_PV_DV73_3"]) ? $_SESSION['porte_PV_DV73_3'] : false;
+  $porte_PV_DV73_4 = !empty($_SESSION["porte_PV_DV73_4"]) ? $_SESSION['porte_PV_DV73_4'] : false;
 
   //Option
   $option= !empty($_SESSION["option"]) ? $_SESSION['option'] : false;
@@ -152,20 +198,141 @@ if($e_cj_v || $e_cj_va){
     $destination = 'zip_fiches_techniques/evidence_Couvre joint_vitree.zip';
 	copy($source, $destination); 
 }
-if($e_cj_melamine && $PV){
-	$source = 'ZIP/Cloison Evidence Couvre joint/PV_evidence_Couvre joint_remplissage_plein-melamine.zip';	
-    $destination = 'zip_fiches_techniques/PV_evidence_Couvre joint_remplissage_plein-melamine.zip';
-	copy($source, $destination); 
-}
-if($e_cj_tole && $PV){
-	$source = 'ZIP/Cloison Evidence Couvre joint/PV_evidence_Couvre joint_emplissage_plein-tole.zip';	
-    $destination = 'zip_fiches_techniques/PV_evidence_Couvre joint_emplissage_plein-tole.zip';
-	copy($source, $destination); 
-}
-if($e_cj_revetu && $PV){
-	$source = 'ZIP/Cloison Evidence Couvre joint/PV_evidence_Couvre joint_remplissage_plein-revetu.zip';	
-    $destination = 'zip_fiches_techniques/PV_evidence_Couvre joint_remplissage_plein-revetu.zip';
-	copy($source, $destination); 
+if($PV){
+    if($pleinPV_cj_melamine_1 || $pleinPV_cj_melamine_2 || $pleinPV_cj_melamine_3 || $pleinPV_cj_melamine_4 || $pleinPV_cj_melamine_5 || $pleinPV_cj_tole_1 || $pleinPV_cj_tole_2 || $pleinPV_cj_tole_3 || $pleinPV_cj_tole_4){
+        $source = 'pdfPV/evidence_cj_p/FDES EPDM.pdf';	
+        $destination = 'zip_fiches_techniques/PV/FDES EPDM.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_cj_p/Fiche tech EPDM.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Fiche tech EPDM.pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_melamine_1){
+        $source = 'pdfPV/evidence_cj_p/Mela + Mela (Ra=39db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/Mela + Mela (Ra=39db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_melamine_2){
+        $source = 'pdfPV/evidence_cj_p/Mela + Mela 1 EPDM (Ra=42db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/Mela + Mela 1 EPDM (Ra=42db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_melamine_3){
+        $source = 'pdfPV/evidence_cj_p/Mela + Mela 2 EPDM (Ra=45db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/Mela + Mela 2 EPDM (Ra=45db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_melamine_4){
+        $source = 'pdfPV/evidence_cj_p/Mela + Mela 3 EPDM (Ra=47db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/Mela + Mela 3 EPDM (Ra=47db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_melamine_5){
+        $source = 'pdfPV/evidence_cj_p/Mela + Mela 4 EPDM (Ra=50db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/Mela + Mela 4 EPDM (Ra=50db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_tole_1){
+        $source = 'pdfPV/evidence_cj_p/tole + PDP tole (Ra=43db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/tole + PDP tole (Ra=43db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_tole_2){
+        $source = 'pdfPV/evidence_cj_p/Phon. tole + PDP Phon. tole + 1 EPDM (Ra=47db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/Phon. tole + PDP Phon. tole + 1 EPDM (Ra=47db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_tole_3){
+        $source = 'pdfPV/evidence_cj_p/Phon. tole + PDP Phon. tole + 2 EPDM (Ra=51db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/Phon. tole + PDP Phon. tole + 2 EPDM (Ra=51db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_tole_4){
+        $source = 'pdfPV/evidence_cj_p/Ferm. tole + Ferm. tole (Ra=47db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/Ferm. tole + Ferm. tole (Ra=47db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_revetu_1){
+        $source = 'pdfPV/evidence_cj_p/PTH PDP + PDP (Ra=40db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/PTH PDP + PDP (Ra=40db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_revetu_2){
+        $source = 'pdfPV/evidence_cj_p/PTH PDP Phon. + PDP Phon (Ra=43db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/PTH PDP Phon. + PDP Phon (Ra=43db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_revetu_3){
+        $source = 'pdfPV/evidence_cj_p/PTH PDP + PDP + 1 EPDM (Ra=43db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/PTH PDP + PDP + 1 EPDM (Ra=43db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_revetu_4){
+        $source = 'pdfPV/evidence_cj_p/PTH PDP  + PDP + 2 EPDM (Ra=46db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/PTH PDP  + PDP + 2 EPDM (Ra=46db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_revetu_5){
+        $source = 'pdfPV/evidence_cj_p/PTH PDP + PDP + 2.5 EPDM (Ra=47db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/PTH PDP + PDP + 2.5 EPDM (Ra=47db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_revetu_6){
+        $source = 'pdfPV/evidence_cj_p/PTH PDP + PDP + 3 EPDM (Ra=48db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/PTH PDP + PDP + 3 EPDM (Ra=48db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_revetu_7){
+        $source = 'pdfPV/evidence_cj_p/PTH PDP + PDP + 4 EPDM (Ra=51db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/PTH PDP + PDP + 4 EPDM (Ra=51db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_cj_revetu_8){
+        $source = 'pdfPV/evidence_cj_p/PTH Ferm. + Ferm (ra=47db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/PTH Ferm. + Ferm (ra=47db).pdf';
+        copy($source, $destination);
+    }
+    if($vitrePV_cj_1){
+        $source = 'pdfPV/evidence_cj_v/Vitrage 6mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 6mm Planiclear.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_cj_v/Vitrage 8 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 8 mm Planiclear.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_cj_v/M77 CJ VTH 6 + 8 BEB2 E 6023-1.pdf';	
+        $destination = 'zip_fiches_techniques/PV/M77 CJ VTH 6 + 8 BEB2 E 6023-1.pdf';
+        copy($source, $destination);
+    }
+    if($vitrePV_cj_2){
+        $source = 'pdfPV/evidence_cj_v/Feuilleté 44-2.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Feuilleté 44-2.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_cj_v/Vitrage 6mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 6mm Planiclear.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_cj_v/M77 CJ VTH 6 + 44.2 BEB2 E 6023-3.pdf';	
+        $destination = 'zip_fiches_techniques/PV/M77 CJ VTH 6 + 44.2 BEB2 E 6023-3.pdf';
+        copy($source, $destination);
+    }
+    if($vitrePV_cj_3){
+        $source = 'pdfPV/evidence_cj_v/Feuilleté 44-2 Silence.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Feuilleté 44-2 Silence.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_cj_v/Vitrage 6mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 6mm Planiclear.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_cj_v/M77 CJ VTH 6 + 44.2 silence BEB2 E 6023-2.pdf';	
+        $destination = 'zip_fiches_techniques/PV/M77 CJ VTH 6 + 44.2 silence BEB2 E 6023-2.pdf';
+        copy($source, $destination);
+    }
+    if($vitrePV_cj_4){
+        $source = 'pdfPV/evidence_cj_v/Feuilleté 44-2 Silence.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Feuilleté 44-2 Silence.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_cj_v/M77 CJ VTH 44.2 + 44.2 silence BEB2 E 6023-4.pdf';	
+        $destination = 'zip_fiches_techniques/PV/M77 CJ VTH 44.2 + 44.2 silence BEB2 E 6023-4.pdf';
+        copy($source, $destination);
+    }
 }
 
 /*** Evidence Bord à Bord***/
@@ -188,6 +355,122 @@ if($e_bb_tole && $PV){
 	$source = 'ZIP/Cloison Evidence Bord à bord/PV_evidence_Bord à bord_remplissage_plein-tole.zip';	
     $destination = 'zip_fiches_techniques/PV_evidence_Bord à bord_remplissage_plein-tole.zip';
 	copy($source, $destination); 
+}
+if($PV){
+    if($pleinPV_bb_melamine_1 || $pleinPV_bb_melamine_2 || $pleinPV_bb_melamine_3 || $pleinPV_bb_melamine_4 || $pleinPV_bb_melamine_5 || $pleinPV_bb_tole_1 || $pleinPV_bb_tole_2 || $pleinPV_bb_tole_3 || $pleinPV_bb_tole_4 || $pleinPV_bb_tole_5 || $pleinPV_bb_tole_6 || $pleinPV_bb_tole_7 || $pleinPV_bb_tole_8){
+        $source = 'pdfPV/evidence_bb_p/FDES EPDM.pdf';	
+        $destination = 'zip_fiches_techniques/PV/FDES EPDM.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_bb_p/Fiche tech EPDM.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Fiche tech EPDM.pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_melamine_1){
+        $source = 'pdfPV/evidence_bb_p/2 faces mela 12 mm (Ra=38db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/2 faces mela 12 mm (Ra=38db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_melamine_2){
+        $source = 'pdfPV/evidence_bb_p/2 faces mela+ 1 EPDM (Ra=42db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/2 faces mela+ 1 EPDM (Ra=42db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_melamine_3){
+        $source = 'pdfPV/evidence_bb_p/2 faces mela+ 2 EPDM (Ra=45db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/2 faces mela+ 2 EPDM (Ra=45db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_melamine_4){
+        $source = 'pdfPV/evidence_bb_p/2 faces mela+ 3 EPDM (Ra=46db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/2 faces mela+ 3 EPDM (Ra=46db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_melamine_5){
+        $source = 'pdfPV/evidence_bb_p/2 faces mela+ 4 EPDM (Ra=48db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/2 faces mela+ 4 EPDM (Ra=48db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_tole_1){
+        $source = 'pdfPV/evidence_bb_p/agglo+tole 7-10 (Ra=44db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/agglo+tole 7-10 (Ra=44db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_tole_2){
+        $source = 'pdfPV/evidence_bb_p/agglo+tole 7-10 + 1 EPDM (Ra=46db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/agglo+tole 7-10 + 1 EPDM (Ra=46db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_tole_3){
+        $source = 'pdfPV/evidence_bb_p/agglo+tole 7-10 + 2 EPDM (Ra=49db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/agglo+tole 7-10 + 2 EPDM (Ra=49db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_tole_4){
+        $source = 'pdfPV/evidence_bb_p/agglo+tole 7-10 + 3 EPDM (Ra=50db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/agglo+tole 7-10 + 3 EPDM (Ra=50db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_tole_5){
+        $source = 'pdfPV/evidence_bb_p/Ferm+tole 10-10 (Ra=52db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/Ferm+tole 10-10 (Ra=52db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_tole_6){
+        $source = 'pdfPV/evidence_bb_p/placoM0+tole 10-10 (Ra=48db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/placoM0+tole 10-10 (Ra=48db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_tole_7){
+        $source = 'pdfPV/evidence_bb_p/placoPhonique+tole 10-10 (Ra=51db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/placoPhonique+tole 10-10 (Ra=51db).pdf';
+        copy($source, $destination);
+    }
+    if($pleinPV_bb_tole_8){
+        $source = 'pdfPV/evidence_bb_p/placoStd+tole 10-10 (Ra=49db).pdf';	
+        $destination = 'zip_fiches_techniques/PV/placoStd+tole 10-10 (Ra=49db).pdf';
+        copy($source, $destination);
+    }
+    if($vitrePV_bb_1){
+        $source = 'pdfPV/evidence_bb_v/Vitrage 10 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 10 mm Planiclear.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_bb_v/Vitrage 12 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 12 mm Planiclear.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_bb_v/10+12 VHB.pdf';	
+        $destination = 'zip_fiches_techniques/PV/10+12 VHB.pdf';
+        copy($source, $destination);
+    }
+    if($vitrePV_bb_2){
+        $source = 'pdfPV/evidence_bb_v/10+66.2 silence VHB.pdf';	
+        $destination = 'zip_fiches_techniques/PV/10+66.2 silence VHB.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_bb_v/Vitrage 10 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 10 mm Planiclear.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_bb_v/10+66.2 silence VHB.pdf';	
+        $destination = 'zip_fiches_techniques/PV/10+66.2 silence VHB.pdf';
+        copy($source, $destination);
+    }
+    if($vitrePV_bb_3){
+        $source = 'pdfPV/evidence_bb_v/Feuilleté 66-2 Silence.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Feuilleté 66-2 Silence.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_bb_v/Vitrage 12 mm Planiclear.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Vitrage 12 mm Planiclear.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_bb_v/12+66.2 silence VHB.pdf';	
+        $destination = 'zip_fiches_techniques/PV/12+66.2 silence VHB.pdf';
+        copy($source, $destination);
+    }
+    if($vitrePV_bb_4){
+        $source = 'pdfPV/evidence_bb_v/Feuilleté 66-2 Silence.pdf';	
+        $destination = 'zip_fiches_techniques/PV/Feuilleté 66-2 Silence.pdf';
+        copy($source, $destination);
+        $source = 'pdfPV/evidence_bb_v/66.2 silence+66.2 silence VHB.pdf';	
+        $destination = 'zip_fiches_techniques/PV/66.2 silence+66.2 silence VHB.pdf';
+        copy($source, $destination);
+    }
 }
 
 /*** Evidence Fournisseurs***/
@@ -329,7 +612,7 @@ if($face_plein_evidence_box_Polyrey){
 	copy($source, $destination);
 }
 if($PV){
-    if($face_plein_evidence_box_EGGER || $face_plein_evidence_box_Unilin || $ace_plein_evidence_box_Polyrey ){
+    if($face_plein_evidence_box_EGGER || $face_plein_evidence_box_Unilin || $face_plein_evidence_box_Polyrey ){
         $source = 'pdfPV/evidence_box/2 faces mela+ 1 EPDM (Ra=42db).pdf';	
         $destination = 'zip_fiches_techniques/PV/2 faces mela+ 1 EPDM (Ra=42db).pdf';
         copy($source, $destination); 
@@ -403,8 +686,8 @@ if($porte_bi_bois){
     $destination = 'zip_fiches_techniques/Porte bi-affleurante_Bois.zip';
 	copy($source, $destination);
     if($PV){
-        $source = 'ZIP/Portes/PV_Porte bi-affleurante_Bois.zip';	
-        $destination = 'zip_fiches_techniques/PV_Porte bi-affleurante_Bois.zip';
+        $source = 'pdfPV/porte_bois/BlocPorte  seul Huiss C24 vantail biaff bois BEB2.G.6057-1.pdf';	
+        $destination = 'zip_fiches_techniques/PV/BlocPorte  seul Huiss C24 vantail biaff bois BEB2.G.6057-1.pdf';
         copy($source, $destination);
     }
 }
@@ -412,20 +695,34 @@ if($porte_bi_cadreAluminium && $porte_finition_vitre_plein){
     $source = 'ZIP/Portes/Porte bi-affleurante_Cadre alu_Peine.zip';	
     $destination = 'zip_fiches_techniques/Porte bi-affleurante_Cadre alu_Peine.zip';
 	copy($source, $destination);
-    if($PV){
-        $source = 'ZIP/Portes/PV_Porte bi-affleurante_Cadre alu_Peine.zip';	
-        $destination = 'zip_fiches_techniques/PV_Porte bi-affleurante_Cadre alu_Peine.zip';
-        copy($source, $destination);
-    }
 }
 if($porte_bi_cadreAluminium && $porte_finition_vitre_vitre){
     $source = 'ZIP/Portes/Porte bi-affleurante_Cadre alu_Vitree.zip';	
     $destination = 'zip_fiches_techniques/Porte bi-affleurante_Cadre alu_Vitree.zip';
 	copy($source, $destination);
+}
+if($porte_bi_cadreAluminium){
     if($PV){
-        $source = 'ZIP/Portes/PV_Porte bi-affleurante_Cadre alu_Vitree.zip';	
-        $destination = 'zip_fiches_techniques/PV_Porte bi-affleurante_Cadre alu_Vitree.zip';
-        copy($source, $destination);
+        if($porte_PV_DV73_1){
+            $source = 'pdfPV/porte_cadreAlu_vitre/BlocPorte C24 vantail DV73 8+6.pdf';	
+            $destination = 'zip_fiches_techniques/PV/BlocPorte C24 vantail DV73 8+6.pdf';
+            copy($source, $destination);
+        }
+        if($porte_PV_DV73_2){
+            $source = 'pdfPV/porte_cadreAlu_vitre/BlocPorte C24 vantail DV73 442+332.pdf';	
+            $destination = 'zip_fiches_techniques/PV/BlocPorte C24 vantail DV73 442+332.pdf';
+            copy($source, $destination);
+        }
+        if($porte_PV_DV73_3){
+            $source = 'pdfPV/porte_cadreAlu_pleine/BlocPorte C24 vantail DV73 agglo 8.pdf';	
+            $destination = 'zip_fiches_techniques/PV/BlocPorte C24 vantail DV73 agglo 8.pdf';
+            copy($source, $destination);
+        }
+        if($porte_PV_DV73_4){
+            $source = 'pdfPV/porte_cadreAlu_pleine/BlocPorte C24 vantail DV73 agglo dB.pdf';	
+            $destination = 'zip_fiches_techniques/PV/BlocPorte C24 vantail DV73 agglo dB.pdf';
+            copy($source, $destination);
+        }
     }
 }
 if($porte_pleine && $porte_formica){
@@ -443,7 +740,40 @@ if($porte_pleine && $porte_egger){
     $destination = 'zip_fiches_techniques/Porte pleine_Stratifié_Egger.zip';
 	copy($source, $destination);
 }
-
+if($porte_pleine){
+    if($PV){
+        if($porte_PV_standard){
+            $source = 'pdfPV/porte_pleine/Prema standard.pdf';	
+            $destination = 'zip_fiches_techniques/PV/Prema standard.pdf';
+            copy($source, $destination);
+        }
+        if($porte_PV_prema30){
+            $source = 'pdfPV/porte_pleine/Premafone-30dB EI30.pdf';	
+            $destination = 'zip_fiches_techniques/PV/Premafone-30dB EI30.pdf';
+            copy($source, $destination);
+        }
+        if($porte_PV_prema35){
+            $source = 'pdfPV/porte_pleine/Premafone-35dB EI30.pdf';	
+            $destination = 'zip_fiches_techniques/PV/Premafone-35dB EI30.pdf';
+            copy($source, $destination);
+        }
+        if($porte_PV_prema38){
+            $source = 'pdfPV/porte_pleine/Premafone 38dB EI30.pdf';	
+            $destination = 'zip_fiches_techniques/PV/Premafone 38dB EI30.pdf';
+            copy($source, $destination);
+        }
+        if($porte_PV_prema39){
+            $source = 'pdfPV/porte_pleine/Premafone 39dB EI30.pdf';	
+            $destination = 'zip_fiches_techniques/PV/Premafone 39dB EI30.pdf';
+            copy($source, $destination);
+        }
+        if($porte_PV_prema41){
+            $source = 'pdfPV/porte_pleine/Premafone 41dB EI30.pdf';	
+            $destination = 'zip_fiches_techniques/PV/Premafone 41dB EI30.pdf';
+            copy($source, $destination);
+        }
+    }
+}
 
 
 /***** Code pour copier le contenu d'un dossier *****/

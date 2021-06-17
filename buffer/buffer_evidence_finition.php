@@ -107,6 +107,135 @@ if(!empty($_POST['fournisseur'])) {
   }
 }
 
+if(!empty($_POST['pleinPV'])) {
+  $select = $_POST['pleinPV'];
+  switch ($select) {
+    case "1":
+    $_SESSION["pleinPV_cj_melamine_1"] = true;
+    break;
+    case "2":
+    $_SESSION["pleinPV_cj_melamine_2"] = true;
+    break;
+    case "3":
+    $_SESSION["pleinPV_cj_melamine_3"] = true;
+    break;
+    case "4":
+    $_SESSION["pleinPV_cj_melamine_4"] = true;
+    break;
+    case "5":
+    $_SESSION["pleinPV_cj_melamine_5"] = true;
+    break;
+    case "6":
+    $_SESSION["pleinPV_cj_tole_1"] = true;
+    break;
+    case "7":
+    $_SESSION["pleinPV_cj_tole_2"] = true;
+    break;
+    case "8":
+    $_SESSION["pleinPV_cj_tole_3"] = true;
+    break;
+    case "9":
+    $_SESSION["pleinPV_cj_tole_4"] = true;
+    break;
+    case "10":
+    $_SESSION["pleinPV_cj_revetu_1"] = true;
+    break;
+    case "11":
+    $_SESSION["pleinPV_cj_revetu_2"] = true;
+    break;
+    case "12":
+    $_SESSION["pleinPV_cj_revetu_3"] = true;
+    break;
+    case "13":
+    $_SESSION["pleinPV_cj_revetu_4"] = true;
+    break;
+    case "14":
+    $_SESSION["pleinPV_cj_revetu_5"] = true;
+    break;
+    case "15":
+    $_SESSION["pleinPV_cj_revetu_6"] = true;
+    break;
+    case "16":
+    $_SESSION["pleinPV_cj_revetu_7"] = true;
+    break;
+    case "17":
+    $_SESSION["pleinPV_cj_revetu_8"] = true;
+    break;
+    case "18":
+    $_SESSION["pleinPV_bb_melamine_1"] = true;
+    break;
+    case "19":
+    $_SESSION["pleinPV_bb_melamine_2"] = true;
+    break;
+    case "20":
+    $_SESSION["pleinPV_bb_melamine_3"] = true;
+    break;
+    case "21":
+    $_SESSION["pleinPV_bb_melamine_4"] = true;
+    break;
+    case "22":
+    $_SESSION["pleinPV_bb_melamine_5"] = true;
+    break;
+    case "23":
+    $_SESSION["pleinPV_bb_tole_1"] = true;
+    break;
+    case "24":
+    $_SESSION["pleinPV_bb_tole_2"] = true;
+    break;
+    case "25":
+    $_SESSION["pleinPV_bb_tole_3"] = true;
+    break;
+    case "26":
+    $_SESSION["pleinPV_bb_tole_4"] = true;
+    break;
+    case "27":
+    $_SESSION["pleinPV_bb_tole_5"] = true;
+    break;
+    case "28":
+    $_SESSION["pleinPV_bb_tole_6"] = true;
+    break;
+    case "29":
+    $_SESSION["pleinPV_bb_tole_7"] = true;
+    break;
+    case "30":
+    $_SESSION["pleinPV_bb_tole_8"] = true;
+    break;
+    default:
+        break;
+  }
+}
+
+if(!empty($_POST['vitrePV'])) {
+  $select = $_POST['vitrePV'];
+  switch ($select) {
+    case "1":
+    $_SESSION["vitrePV_cj_1"] = true;
+    break;
+    case "2":
+    $_SESSION["vitrePV_cj_2"] = true;
+    break;
+    case "3":
+    $_SESSION["vitrePV_cj_3"] = true;
+    break;
+    case "4":
+    $_SESSION["vitrePV_cj_4"] = true;
+    break;
+    case "5":
+    $_SESSION["vitrePV_bb_1"] = true;
+    break;
+    case "6":
+    $_SESSION["vitrePV_bb_2"] = true;
+    break;
+    case "7":
+    $_SESSION["vitrePV_bb_3"] = true;
+    break;
+    case "8":
+    $_SESSION["vitrePV_bb_4"] = true;
+    break;
+    default:
+        break;
+  }
+}
 
 //Plein PV  CJ
   if(!empty($_POST['pleinPV'])) {
