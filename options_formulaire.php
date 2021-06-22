@@ -101,31 +101,31 @@
                     <div>
                         <ul style="list-style-type: none;">        
                             <li class="manuel">
-                                <input class="check1" type="checkbox" id="manuel" name="finition" onclick="onlyOne(this, 'check1')">
+                                <input class="check1" type="checkbox" id="manuel" name="finition[]" value="manuel" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="manuel">Manuel</label>
                             </li>
                             <li class="electrique">
-                                <input class="check1" type="checkbox" id="electrique" name="finition" onclick="onlyOne(this, 'check1')">
+                                <input class="check1" type="checkbox" id="electrique" name="finition[]" value="electrique" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="electrique">Electrique</label>
                             </li>
                             <li class="vitre">
-                                <input class="check1" type="checkbox" id="vitre" name="finition" onclick="onlyOne(this, 'check1')">
+                                <input class="check1" type="checkbox" id="vitre" name="finition[]" value="vitre" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="vitre">Vitré</label>
                             </li>
                             <li class="stratifie">
-                                <input class="check1" type="checkbox" id="stratifie" name="finition" onclick="onlyOne(this, 'check1')">
+                                <input class="check1" type="checkbox" id="stratifie" name="finition[]" value="stratifie" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="stratifie">Stratifié</label>
                             </li>
                             <li class="vinylique">
-                                <input class="check1" type="checkbox" id="vinylique" name="finition" onclick="onlyOne(this, 'check1')">
+                                <input class="check1" type="checkbox" id="vinylique" name="finition[]" value="vinylique" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="vinylique">Vinylique</label>
                             </li>
                             <li class="dv">
-                                <input class="check1" type="checkbox" id="dv" name="finition" onclick="onlyOne(this, 'check1')">
+                                <input class="check1" type="checkbox" id="dv" name="finition[]" value="dv" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="dv">DV</label>
                             </li>
                             <li class="sv">
-                                <input class="check1" type="checkbox" id="sv" name="finition" onclick="onlyOne(this, 'check1')">
+                                <input class="check1" type="checkbox" id="sv" name="finition[]" value="sv" onclick="onlyOne(this, 'check1')">
                                 <label  class="label" for="sv">SV</label>
                             </li>
                         </ul>

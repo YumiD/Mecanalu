@@ -1,6 +1,22 @@
     
 <?php
   session_start();
+  if(!empty($_POST['finition'])) {
+    $finition = $_POST['finition'];
+    $N = count($finition);
+    for($i=0; $i < $N; $i++)
+    {
+      if($finition[$i]=="vitre"){
+        $_SESSION["option_finition_vitre"] = true;
+      }
+      else if($finition[$i]=="stratifie"){
+        $_SESSION["option_finition_stratifie"] = true;
+      }
+      else if($finition[$i]=="vinylique"){
+        $_SESSION["option_finition_vinylique"] = true;
+      }
+    }
+  }
 ?>
 <html>
     <head>

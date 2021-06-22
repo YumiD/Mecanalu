@@ -4,10 +4,33 @@
     $_SESSION["buffer_evidence_finition_indexX"]=0;
     $_SESSION["buffer_evidence_finition_indexY"]=0;
   }
+
+  $produit = $_SESSION['buffer_evidence_finition'][0];
+  $remplissage = $_SESSION['buffer_evidence_finition'][1];
+  if($produit=="e_cj"){
+    if($remplissage=="e_plein"){
+        $produit_final="e_cj_p";
+    }else if($remplissage=="e_vitre"){
+        $produit_final="e_cj_v";
+    }else if($remplissage=="e_vitre_allege" ){
+        $produit_final="e_cj_va";
+    }
+  }
+  else if($produit=="e_bb"){
+      if($remplissage=="e_plein"){
+          $produit_final="e_bb_p";
+      }else if($remplissage=="e_vitre"){
+          $produit_final="e_bb_v";
+      }else if($remplissage=="e_vitre_allege"){
+          $produit_final="e_bb_va";
+      }
+  }
   
  if(!empty($_POST['hauteur'])) {
-
-         $_SESSION["hauteur"]= $_POST['hauteur'];
+    $hauteur = $_POST['hauteur'];
+    $session_hauteur = "hauteur_".$produit_final;
+    $_SESSION[$session_hauteur] = $hauteur;
+    $_SESSION["hauteur"] = $hauteur; 
   }
   else {
 	  $_SESSION["hauteur"]= "2600";
@@ -16,24 +39,31 @@
 //RAL CJ
   if(!empty($_POST['ral'])) {
     $select = $_POST['ral'];
+    $session_ral = "ral_".$produit_final;
     switch ($select) {
     case "9010":
         $_SESSION["evidence_9010"] = true;
+        $_SESSION[$session_ral] = "9010 Blanc";
         break;
     case "9005":
         $_SESSION["evidence_9005"] = true;
+        $_SESSION[$session_ral] = "9005 Noir";
         break;
     case "9006":
         $_SESSION["evidence_9006"] = true;
+        $_SESSION[$session_ral] = "9006 Gris";
         break;
     case "9007":
         $_SESSION["evidence_9007"] = true;
+        $_SESSION[$session_ral] = "9007 Gris aluminium";
         break;
     case "7005":
         $_SESSION["evidence_7005"] = true;
+        $_SESSION[$session_ral] = "7005 Gris souris";
         break;
     case "7016":
         $_SESSION["evidence_7016"] = true;
+        $_SESSION[$session_ral] = "7016 Gris anthracite";
         break;
     default:
 	      $_SESSION["ral"]= "standard";
