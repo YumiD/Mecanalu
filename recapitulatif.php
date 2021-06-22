@@ -594,7 +594,7 @@ if($PV){
 
 /*** Evidence Box ***/
 //TODO PV si mélaminé, absolument envoyer les 2 pdfEPDM
-if($evidence_box){
+if($evidence_box && !$face_plein_evidence_box_EGGER && !$face_plein_evidence_box_Unilin && !$face_plein_evidence_box_Polyrey){
     $source = 'ZIP/Evidence Box/Evidence Box.zip';	
     $destination = 'zip_fiches_techniques/Evidence Box.zip';
 	copy($source, $destination);
