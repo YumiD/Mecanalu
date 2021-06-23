@@ -191,15 +191,20 @@ function createZip($zip,$dir){
 
 // Copier coller un fichier PDF dans le répertoire include
 /*** Evidence Couvre Joint***/
+$pas_de_fournisseur_cj = !$fournisseur_evidence_EGGER && !$fournisseur_evidence_POLYREY && !$fournisseur_evidence_UNILIN && !$fournisseur_evidence_toleComat  && !$fournisseur_evidence_toleAgglo && !$fournisseur_evidence_Durafort && !$fournisseur_evidence_Muraspec && !$fournisseur_evidence_Pannex && !$fournisseur_evidence_Plastylon;
 if($e_cj_p){
-	$source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_plein.zip';	
-    $destination = 'zip_fiches_techniques/evidence_Couvre joint_plein.zip';
-	copy($source, $destination); 
+    if($pas_de_fournisseur_cj){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_plein.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_plein.zip';
+        copy($source, $destination); 
+    }
 }
 if($e_cj_v || $e_cj_va){
-	$source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_vitree.zip';	
-    $destination = 'zip_fiches_techniques/evidence_Couvre joint_vitree.zip';
-	copy($source, $destination); 
+    if($pas_de_fournisseur_cj){
+        $source = 'ZIP/Cloison Evidence Couvre joint/evidence_Couvre joint_vitree.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Couvre joint_vitree.zip';
+        copy($source, $destination);
+    }
 }
 if($PV){
     if($pleinPV_cj_melamine_1 || $pleinPV_cj_melamine_2 || $pleinPV_cj_melamine_3 || $pleinPV_cj_melamine_4 || $pleinPV_cj_melamine_5 || $pleinPV_cj_tole_1 || $pleinPV_cj_tole_2 || $pleinPV_cj_tole_3 || $pleinPV_cj_tole_4){
@@ -339,15 +344,20 @@ if($PV){
 }
 
 /*** Evidence Bord à Bord***/
+$pas_de_fournisseur_bb = !$fournisseur_evidence_EGGER && !$fournisseur_evidence_POLYREY && !$fournisseur_evidence_UNILIN && !$fournisseur_evidence_toleComat  && !$fournisseur_evidence_toleAgglo;
 if($e_bb_p){
-	$source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_pleine.zip';	
-    $destination = 'zip_fiches_techniques/evidence_Bord à bord_pleine.zip';
-	copy($source, $destination); 
+    if($pas_de_fournisseur_bb){
+        $source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_pleine.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Bord à bord_pleine.zip';
+        copy($source, $destination); 
+    }
 }
 if($e_bb_v || $e_bb_va){
-	$source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_vitree.zip';	
-    $destination = 'zip_fiches_techniques/evidence_Bord à bord_vitree.zip';
-	copy($source, $destination); 
+    if($pas_de_fournisseur_bb){
+        $source = 'ZIP/Cloison Evidence Bord à bord/evidence_Bord à bord_vitree.zip';	
+        $destination = 'zip_fiches_techniques/evidence_Bord à bord_vitree.zip';
+        copy($source, $destination); 
+    }
 }
 if($e_bb_melamine && $PV){
 	$source = 'ZIP/Cloison Evidence Bord à bord/PV_evidence_Bord à bord_remplissage_plein-melamine.zip';	
@@ -1028,7 +1038,6 @@ if(isset($_POST['download'])){
 
 
 <script type="text/javascript">
-
     var powerpoint = document.getElementById("powerpoint");
     powerpoint.onclick = downloadPPT;
 
@@ -1038,6 +1047,7 @@ if(isset($_POST['download'])){
         var nom_projet = <?php echo json_encode($nom_projet); ?>;
         var presentation = <?php echo json_encode($presentation); ?>;
         var fiche_technique = <?php echo json_encode($fiche_technique); ?>;
+        var PV = <?php echo json_encode($PV); ?>;
 
         //Gamme
         var evidence = <?php echo json_encode($evidence); ?>;
@@ -1085,6 +1095,14 @@ if(isset($_POST['download'])){
         var option_finition_stratifie = <?php echo json_encode($option_finition_stratifie); ?>;
         var option_finition_vinylique = <?php echo json_encode($option_finition_vinylique); ?>;
 
+        var e_cj_melamine = <?php echo json_encode($e_cj_melamine); ?>;
+        var e_cj_tole = <?php echo json_encode($e_cj_tole); ?>;
+        var e_cj_revetu = <?php echo json_encode($e_cj_revetu); ?>;
+        var e_bb_melamine = <?php echo json_encode($e_bb_melamine); ?>;
+        var e_bb_tole = <?php echo json_encode($e_bb_tole); ?>;
+
+        var start_parement=true; // TODO S'occuper des virgules
+
         var pptx = new PptxGenJS();
 
         /*------PREMIERE PAGE-------*/
@@ -1097,42 +1115,66 @@ if(isset($_POST['download'])){
         if(evidence){
         if(e_cj){
             if(e_cj_p){//Cloison Pleine Couvre joint
+            var parement_e_cj_p=" ";
+            if(e_cj_melamine){
+                //parement_e_cj_p = parement_e_cj_p + "Melaminé";
+                parement_e_cj_p = "Melaminé";
+            }
+            if(e_cj_revetu){
+                //parement_e_cj_p = parement_e_cj_p + "Melaminé";
+                parement_e_cj_p = "Plâtre revêtu (13 mm)";
+            }
             var slide = pptx.addSlide();
              slide.background = { path: "./ressources/pptx_placeholder/e_cj_p.png" };
-			 slide.addText("<?php echo $_SESSION["hauteur_e_cj_p"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'}).addText("<?php echo $_SESSION["ral_e_cj_p"]; ?>", {  x: 5.6, y: 1.97, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill:
-			 'ffffff'}).addText("<?php echo $_SESSION["pleinPV"]; ?>", {x: 5.5, y: 3.0, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});
+			 slide.addText("<?php echo $_SESSION["hauteur_e_cj_p"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
+             .addText("<?php echo $_SESSION["ral_e_cj_p"]; ?>", {  x: 5.6, y: 1.97, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill:'ffffff'})
+             .addText("<?php echo $_SESSION["pleinPV_e_cj_p"]; ?>", {x: 5.5, y: 3.0, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'})
+             .addText(parement_e_cj_p, {x: 5.2, y: 2.4, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});
             }			
             			
 			if(e_cj_v){//Cloison Vitrée Couvre joint
             var slide = pptx.addSlide();
             slide.background = { path: "./ressources/pptx_placeholder/e_cj_v.png" };
-			 slide.addText("<?php echo $_SESSION["hauteur_e_cj_v"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'}).addText("<?php echo $_SESSION["ral_e_cj_v"]; ?>", {  x: 5.6, y: 1.97, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'}).addText("<?php echo$_SESSION["vitrePV"]; ?>", {x: 5.5, y: 3.0, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});	
+			 slide.addText("<?php echo $_SESSION["hauteur_e_cj_v"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
+             .addText("<?php echo $_SESSION["ral_e_cj_v"]; ?>", {  x: 5.6, y: 1.97, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'})
+             .addText("<?php echo$_SESSION["vitrePV_e_cj_v"]; ?>", {x: 5.5, y: 3.0, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});	
             }
 			
 			if(e_cj_va){//Cloison Vitrée sur Allège
             var slide = pptx.addSlide();
             slide.background = { path: "./ressources/pptx_placeholder/e_cloison_vitreAllege.png" };
-			slide.addText("<?php echo $_SESSION["hauteur_e_cj_va"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'}).addText("<?php echo $_SESSION["ral_e_cj_va"]; ?>", {  x: 5.6, y: 2.12, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'});	
+			slide.addText("<?php echo $_SESSION["hauteur_e_cj_va"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
+            .addText("<?php echo $_SESSION["ral_e_cj_va"]; ?>", {  x: 5.6, y: 2.12, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'});	
             }
 						
         }if(e_bb){//Bord à Bord - descriptif
             var slide = pptx.addSlide();
             slide.addImage({ path: "./ressources/pptx_placeholder/e_bb.png", x:0, y:0, w:'90%', h:'90%' });
 			
-            if(e_bb_p){//Cloison Pleine Bord à Bord
+            if(e_bb_p){//Cloison Pleine Bord à Bord  //TODO RAL mal cadré
+            var parement_e_bb_p=" ";
+            if(e_bb_melamine){
+                //parement_e_bb_p = parement_e_bb_p + "Melaminé";
+                parement_e_bb_p = "Melaminé";
+                }
             var slide = pptx.addSlide();
 			 slide.background = { path: "./ressources/pptx_placeholder/e_bb_p.png" };
-			 slide.addText("<?php echo $_SESSION["hauteur_e_bb_p"]; ?>", {x: 6.5, y: 1.57, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'}).addText("<?php echo $_SESSION["ral_e_bb_p"]; ?>", {  x: 5.6, y: 2.01, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'}).addText("<?php echo $_SESSION["pleinPV"];  ?>", {x: 5.55, y: 3.07, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});		
+			 slide.addText("<?php echo $_SESSION["hauteur_e_bb_p"]; ?>", {x: 6.5, y: 1.57, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
+             .addText("<?php echo $_SESSION["ral_e_bb_p"]; ?>", {  x: 5.6, y: 2.01, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'})
+             .addText("<?php echo $_SESSION["pleinPV_e_bb_p"];  ?>", {x: 5.55, y: 3.07, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'})
+             .addText(parement_e_bb_p, {x: 5.2, y: 2.4, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});		
             }
 			
             }if(e_bb_v){//Cloison Vitrée Bord à Bord
             var slide = pptx.addSlide();
             slide.background = { path: "./ressources/pptx_placeholder/e_bb_v.png" };
-			slide.addText("<?php echo $_SESSION["hauteur_e_bb_v"]; ?>", {x: 6.5, y: 1.3, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'}).addText("<?php echo $_SESSION["ral_e_bb_v"]; ?>", {  x: 5.6, y: 1.72, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'}).addText("<?php echo $_SESSION["vitrePV"]; ?>", {x: 5.5, y: 3.05, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});		
+			slide.addText("<?php echo $_SESSION["hauteur_e_bb_v"]; ?>", {x: 6.5, y: 1.3, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
+            .addText("<?php echo $_SESSION["ral_e_bb_v"]; ?>", {  x: 5.6, y: 1.72, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'}).addText("<?php echo $_SESSION["vitrePV_e_bb_v"]; ?>", {x: 5.5, y: 3.05, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});		
             }if(e_bb_va){//Cloison Vitrée sur Allège
             var slide = pptx.addSlide();
             slide.background = { path: "./ressources/pptx_placeholder/e_cloison_vitreAllege.png" };
-			slide.addText("<?php echo $_SESSION["hauteur_e_bb_va"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'}).addText("<?php echo $_SESSION["ral_e_bb_va"]; ?>", {  x: 5.6, y: 2.12, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'});	
+			slide.addText("<?php echo $_SESSION["hauteur_e_bb_va"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
+            .addText("<?php echo $_SESSION["ral_e_bb_va"]; ?>", {  x: 5.6, y: 2.12, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'});	
             }
             
         }
@@ -1141,13 +1183,15 @@ if(isset($_POST['download'])){
             if(boreale_bb){ //Descriptif Boreale
                 var slide = pptx.addSlide();
                 slide.background = { path: "./ressources/pptx_placeholder/boreale.png" };
-                    slide.addText("<?php echo $_SESSION["hauteur"]; ?>", {x: 5.15, y: 2.45, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'}).addText("<?php echo $_SESSION["ral"]; ?>", {  x: 4.97, y: 2.60, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'});
+                    slide.addText("<?php echo $_SESSION["hauteur_boreale_bb"]; ?>", {x: 5.15, y: 2.45, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
+                    .addText("<?php echo $_SESSION["ral_boreale_bb"]; ?>", {  x: 4.97, y: 2.60, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'});
                 
             }
             if(boreale_verriere){//Descriptif Verrière
                 var slide = pptx.addSlide();
                 slide.background = { path: "./ressources/pptx_placeholder/boreale_verriere.png" };
-                    slide.addText("<?php echo $_SESSION["hauteur"]; ?>", {x: 5.15, y: 2.45, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'}).addText("<?php echo $_SESSION["ral"]; ?>", {  x: 4.97, y: 2.60, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'});
+                    slide.addText("<?php echo $_SESSION["hauteur_boreale_verriere"]; ?>", {x: 5.15, y: 2.45, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
+                    .addText("<?php echo $_SESSION["ral_boreale_verriere"]; ?>", {  x: 4.97, y: 2.60, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'});
             }
         }
 
@@ -1155,27 +1199,27 @@ if(isset($_POST['download'])){
         if(box_little){
             var slide = pptx.addSlide();
 			slide.background = { path: "./ressources/pptx_placeholder/e_box_little.png" };
-				slide.addText("<?php echo $_SESSION["hauteur"]; ?>", {x: 4.8, y: 1.8, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
+				slide.addText("<?php echo $_SESSION["ral_box_little"]; ?>", {x: 4.8, y: 1.8, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
         }
 		if(box_duo){// Box Duo
             var slide = pptx.addSlide();
 			slide.background = { path: "./ressources/pptx_placeholder/e_box_duo.png" };
-				slide.addText("<?php echo $_SESSION["hauteur"]; ?>", {x: 4.8, y: 2.12, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
+				slide.addText("<?php echo $_SESSION["ral_box_duo"]; ?>", {x: 4.8, y: 2.12, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
         }
 		if(box_media){// Box Media
             var slide = pptx.addSlide();
 			slide.background = { path: "./ressources/pptx_placeholder/e_box_media.png" };
-			slide.addText("<?php echo $_SESSION["hauteur"]; ?>", {x: 4.8, y: 2.12, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
+			slide.addText("<?php echo $_SESSION["ral_box_media"]; ?>", {x: 4.8, y: 2.12, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
         }
 		if(box_alta){// Box Alta
             var slide = pptx.addSlide();
 			slide.background = { path: "./ressources/pptx_placeholder/e_box_alta.png" };
-			slide.addText("<?php echo $_SESSION["hauteur"];?>", {x: 4.8, y: 2.12, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
+			slide.addText("<?php echo $_SESSION["ral_box_alta"];?>", {x: 4.8, y: 2.12, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
         }
 		if(box_grande){// Box Grande
             var slide = pptx.addSlide();
 			slide.background = { path: "./ressources/pptx_placeholder/e_box_grande.png" };
-			slide.addText("<?php echo $_SESSION["hauteur"]; ?>", {x: 4.8, y: 2.12, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
+			slide.addText("<?php echo $_SESSION["ral_box_grande"]; ?>", {x: 4.8, y: 2.12, w: 1.3, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'});
         }
         }
 

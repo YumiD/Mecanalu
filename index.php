@@ -3,8 +3,20 @@
 <?php //php -S localhost:8000 ?>
 <?php
 
-//session_start();
-session_reset();
+// resets the session data for the rest of the runtime 
+/*session_reset();
+$_SESSION = array();
+// sends as Set-Cookie to invalidate the session cookie 
+if (isset($_COOKIE[session_name()])) { 
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', 1, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));
+}
+session_destroy();*/
+
+session_start();
+session_unset(); //deprecated
+session_destroy();
+
 $_SESSION["nom_entreprise"]="";
 $_SESSION["nom_projet"]="";
 $_SESSION["presentation"]="";
