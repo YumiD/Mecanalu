@@ -315,6 +315,16 @@ if(!empty($_POST['vitrePV'])) {
   }
 }
 
+if(isset($_POST['simple_vitrage'])){
+  $session_vitrage = "vitrage_".$produit_final;
+  $_SESSION[$session_vitrage] = "simple_vitrage";
+}
+
+if(isset($_POST['double_vitrage'])){
+  $session_vitrage = "vitrage_".$produit_final;
+  $_SESSION[$session_vitrage] = "double_vitrage";
+}
+
 //Plein PV  CJ
   if(!empty($_POST['pleinPV'])) {
 

@@ -176,10 +176,22 @@
                 <!-- DIV VITRE -->
                 <div id=vitre>
                     <div style="display: flex;flex-wrap: wrap;">
+                        <!-- VITRAGE -->
+                        <label id="vitrageLabel" class="label" for="vitrage">Vitrage :</label>
+                        <div id="vitrage">
+                            <ul style="list-style-type: none;">        
+                                <li>
+                                    <label for="atelier">Simple Vitrage</label>
+                                    <input class="check0" type="checkbox" id="simple_vitrage" name="simple_vitrage"  onclick="onlyOne(this, 'check0')">
+                                </li>
+                                <li>
+                                    <label for="air">Double Vitrage</label>
+                                    <input class="check0" type="checkbox" id="double_vitrage" name="double_vitrage" onclick="onlyOne(this, 'check0')">
+                                </li>
+                            </ul>
+                        </div>
                         <!-- CONCEPT -->
                         <label id="conceptLabel" class="label" for="concept">Concept :</label>
-                        <div>
-                        </div>
                         <div id="concept">
                             <ul style="list-style-type: none;">        
                                 <li class="e_cj">
@@ -305,6 +317,18 @@
                         }
                         else if(checkboxes[i] == checkbox && checkboxes[i].checked==false){
                             checkboxes[i].checked = true;
+                        }
+                    }
+                    if(className == "check0"){
+                        var simple = document.getElementById("simple_vitrage");
+                        var double = document.getElementById("double_vitrage");
+                        var PV = <?php echo json_encode($PV); ?>;
+                        if(simple.checked)
+                            SetInvisible("PV");
+                        if(double.checked){
+                            if(PV){
+                                SetVisible("PV");
+                            }
                         }
                     }
                 } 

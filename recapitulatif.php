@@ -35,6 +35,8 @@ $fiche_technique = $_SESSION['fiche_technique'];*/
   $e_cj_revetu = !empty($_SESSION["e_cj_revetu"]) ? $_SESSION['e_cj_revetu'] : false;
   $e_bb_melamine = !empty($_SESSION["e_bb_melamine"]) ? $_SESSION['e_bb_melamine'] : false;
   $e_bb_tole = !empty($_SESSION["e_bb_tole"]) ? $_SESSION['e_bb_tole'] : false;
+  $vitrage_e_cj_v = !empty($_SESSION["vitrage_e_cj_v"]) ? $_SESSION['vitrage_e_cj_v'] : "vitrage"; 
+  $vitrage_e_bb_v = !empty($_SESSION["vitrage_e_bb_v"]) ? $_SESSION['vitrage_e_bb_v'] : "vitrage"; 
   $fournisseur_evidence_EGGER = !empty($_SESSION["fournisseur_evidence_EGGER"]) ? $_SESSION['fournisseur_evidence_EGGER'] : false;
   $fournisseur_evidence_POLYREY = !empty($_SESSION["fournisseur_evidence_POLYREY"]) ? $_SESSION['fournisseur_evidence_POLYREY'] : false;
   $fournisseur_evidence_UNILIN = !empty($_SESSION["fournisseur_evidence_UNILIN"]) ? $_SESSION['fournisseur_evidence_UNILIN'] : false;
@@ -1115,15 +1117,13 @@ if(isset($_POST['download'])){
         if(evidence){
         if(e_cj){
             if(e_cj_p){//Cloison Pleine Couvre joint
-            var parement_e_cj_p=" ";
+            var parement_e_cj_p="Aucun";
             if(e_cj_melamine){
                 //parement_e_cj_p = parement_e_cj_p + "Melaminé";
                 parement_e_cj_p = "Melaminé";
             }
-            if(e_cj_revetu){
-                //parement_e_cj_p = parement_e_cj_p + "Melaminé";
+            if(e_cj_revetu)
                 parement_e_cj_p = "Plâtre revêtu (13 mm)";
-            }
             var slide = pptx.addSlide();
              slide.background = { path: "./ressources/pptx_placeholder/e_cj_p.png" };
 			 slide.addText("<?php echo $_SESSION["hauteur_e_cj_p"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
@@ -1133,11 +1133,18 @@ if(isset($_POST['download'])){
             }			
             			
 			if(e_cj_v){//Cloison Vitrée Couvre joint
+            var parement_e_cj_v="Aucun";
+            var vitrage_e_cj_v = <?php echo json_encode($vitrage_e_cj_v); ?>;
+            if(vitrage_e_cj_v=="simple_vitrage")
+                parement_e_cj_v = "Simple Vitrage";
+            if(vitrage_e_cj_v=="double_vitrage")
+                parement_e_cj_v = "Double Vitrage";
             var slide = pptx.addSlide();
             slide.background = { path: "./ressources/pptx_placeholder/e_cj_v.png" };
 			 slide.addText("<?php echo $_SESSION["hauteur_e_cj_v"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
              .addText("<?php echo $_SESSION["ral_e_cj_v"]; ?>", {  x: 5.6, y: 1.97, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'})
-             .addText("<?php echo$_SESSION["vitrePV_e_cj_v"]; ?>", {x: 5.5, y: 3.0, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});	
+             .addText("<?php echo$_SESSION["vitrePV_e_cj_v"]; ?>", {x: 5.5, y: 3.0, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'})
+             .addText(parement_e_cj_v, {x: 5.2, y: 2.4, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});	
             }
 			
 			if(e_cj_va){//Cloison Vitrée sur Allège
@@ -1152,11 +1159,11 @@ if(isset($_POST['download'])){
             slide.addImage({ path: "./ressources/pptx_placeholder/e_bb.png", x:0, y:0, w:'90%', h:'90%' });
 			
             if(e_bb_p){//Cloison Pleine Bord à Bord  //TODO RAL mal cadré
-            var parement_e_bb_p=" ";
-            if(e_bb_melamine){
-                //parement_e_bb_p = parement_e_bb_p + "Melaminé";
+            var parement_e_bb_p="Aucun";
+            if(e_bb_melamine)
                 parement_e_bb_p = "Melaminé";
-                }
+            if(e_bb_tole)
+                parement_e_bb_p = "Tôlé";
             var slide = pptx.addSlide();
 			 slide.background = { path: "./ressources/pptx_placeholder/e_bb_p.png" };
 			 slide.addText("<?php echo $_SESSION["hauteur_e_bb_p"]; ?>", {x: 6.5, y: 1.57, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
@@ -1164,13 +1171,21 @@ if(isset($_POST['download'])){
              .addText("<?php echo $_SESSION["pleinPV_e_bb_p"];  ?>", {x: 5.55, y: 3.07, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'})
              .addText(parement_e_bb_p, {x: 5.2, y: 2.4, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});		
             }
-			
             }if(e_bb_v){//Cloison Vitrée Bord à Bord
+            var parement_e_bb_v="Aucun";
+            var vitrage_e_bb_v = <?php echo json_encode($vitrage_e_bb_v); ?>;
+            if(vitrage_e_bb_v=="simple_vitrage")
+                parement_e_bb_v = "Simple Vitrage";
+            if(vitrage_e_bb_v=="double_vitrage")
+                parement_e_bb_v = "Double Vitrage";
             var slide = pptx.addSlide();
             slide.background = { path: "./ressources/pptx_placeholder/e_bb_v.png" };
 			slide.addText("<?php echo $_SESSION["hauteur_e_bb_v"]; ?>", {x: 6.5, y: 1.3, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
-            .addText("<?php echo $_SESSION["ral_e_bb_v"]; ?>", {  x: 5.6, y: 1.72, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'}).addText("<?php echo $_SESSION["vitrePV_e_bb_v"]; ?>", {x: 5.5, y: 3.05, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});		
-            }if(e_bb_va){//Cloison Vitrée sur Allège
+            .addText("<?php echo $_SESSION["ral_e_bb_v"]; ?>", {  x: 5.6, y: 1.72, w: 2.0, h: 0.15, align: 'left', fontSize: 9, color: '555555',fill: 'ffffff'})
+            .addText("<?php echo $_SESSION["vitrePV_e_bb_v"]; ?>", {x: 5.5, y: 3.05, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'})
+            .addText(parement_e_bb_v, {x: 5.2, y: 2.15, w: 4.0, h: 0.15, align: 'left', fontSize: 9, color: '555555', fill: 'ffffff'});		
+            }
+            if(e_bb_va){//Cloison Vitrée sur Allège
             var slide = pptx.addSlide();
             slide.background = { path: "./ressources/pptx_placeholder/e_cloison_vitreAllege.png" };
 			slide.addText("<?php echo $_SESSION["hauteur_e_bb_va"]; ?>", {x: 6.5, y: 1.67, w: 1.0, h: 0.15, align: 'left',fontSize: 9, color: '555555', fill: 'ffffff'})
