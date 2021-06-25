@@ -8,6 +8,8 @@ $fiche_technique = $_SESSION['fiche_technique'];*/
 
   $nom_entreprise = !empty($_SESSION['nom_entreprise']) ? $_SESSION['nom_entreprise'] : "Entreprise";
   $nom_projet = !empty($_SESSION['nom_projet']) ? $_SESSION['nom_projet'] : "Projet";
+  $nom_entreprise_image = !empty($_SESSION["nom_entreprise_image"]) ? $_SESSION['nom_entreprise_image'] : false;
+  $nom_projet_image = !empty($_SESSION["nom_projet_image"]) ? $_SESSION['nom_projet_image'] : false;
   // presentation = presentation du projet de la page d'entreprise
   $presentation = !empty($_SESSION['presentation']) ? $_SESSION['presentation'] : "Presentation";
   // marqueur qui montre que l'on souhaite avoir les fiches techniques de chaque gamme selectionnée
@@ -1047,6 +1049,8 @@ if(isset($_POST['download'])){
     {
         var nom_entreprise = <?php echo json_encode($nom_entreprise); ?>;
         var nom_projet = <?php echo json_encode($nom_projet); ?>;
+        var nom_entreprise_image = <?php echo json_encode($nom_entreprise_image); ?>;
+        var nom_projet_image = <?php echo json_encode($nom_projet_image); ?>;
         var presentation = <?php echo json_encode($presentation); ?>;
         var fiche_technique = <?php echo json_encode($fiche_technique); ?>;
         var PV = <?php echo json_encode($PV); ?>;
@@ -1110,8 +1114,15 @@ if(isset($_POST['download'])){
         /*------PREMIERE PAGE-------*/
 		slide = pptx.addSlide();
 		slide.background = { path: "./ressources/pptx_placeholder/projet.png" };
-		slide.addText("<?php echo $_SESSION["nom_projet"]; ?>", {x: 3.8, y: 2.3,  w:'55%', h:'15%', align: 'left', fontSize: 30, fontWeight: 700, color: '555555', fill: 'ffffff'}).addText("<?php echo $_SESSION["presentation"]; ?>", {x: 0.5, y: 3.5,  w:'90%', h:'22%', align: 'center', fontSize: 12, fontWeight: 700, color: '555555'}).addText("<?php echo $_SESSION["nom_entreprise"]; ?>", {x: 0.4, y: 0.4,  w:'20.5%', h:'10%', align: 'left', fontSize:14, fontWeight: 700, color: '555555', fill: 'ffffff'});
-		// slide.addImage({ path: "./ressources/icon/icon_photo.png", x: 0.4, y: 0.9, w:'20%', h:'20%' });
+        if(!nom_entreprise_image)
+            slide.addText("<?php echo $_SESSION["nom_entreprise"]; ?>", {x: 0.4, y: 0.4,  w:'20.5%', h:'10%', align: 'left', fontSize:14, fontWeight: 700, color: '555555', fill: 'ffffff'});
+		else
+            slide.addImage({ path: "./uploads/nom_entreprise_image.png", x: 0.2, y: 0.35, w:'20%', h:'20%' });
+        
+        if(nom_projet_image)
+            slide.addImage({ path: "./uploads/nom_projet_image.png", x: '40%', y: '20%', w:'20%', h:'20%' });
+        slide.addText("<?php echo $_SESSION["nom_projet"]; ?>", {x: 3.8, y: 2.3,  w:'55%', h:'15%', align: 'left', fontSize: 30, fontWeight: 700, color: '555555', fill: 'ffffff'});
+        slide.addText("<?php echo $_SESSION["presentation"]; ?>", {x: 0.5, y: 3.5,  w:'90%', h:'22%', align: 'center', fontSize: 12, fontWeight: 700, color: '555555'});
 
         /*------PLACEHOLDERS-------*/
         if(evidence){
