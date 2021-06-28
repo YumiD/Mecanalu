@@ -103,11 +103,11 @@
                         <ul style="list-style-type: none;">
                             <li class="trempe">
                                 <label for="trempe">Trempé</label>
-                                <input class="check" type="checkbox" id="trempe" name="finition_vitre" onclick="onlyOne(this, 'check')">
+                                <input class="check" type="checkbox" id="trempe" name="trempe" onclick="onlyOne(this, 'check')">
                             </li>
                             <li class="feuillete">
                                 <label for="clair">Feuilleté</label>
-                                <input class="check" type="checkbox" id="feuillete" name="finition_vitre" onclick="onlyOne(this, 'check')">
+                                <input class="check" type="checkbox" id="feuillete" name="feuillete" onclick="onlyOne(this, 'check')">
                             </li>
                         </ul>
                     </div>

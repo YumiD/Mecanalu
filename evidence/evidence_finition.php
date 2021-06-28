@@ -241,35 +241,35 @@
                             <ul style="list-style-type: none;">        
                                 <li class="e_cj">
                                     <label for="trempe">Trempé</label>
-                                    <input class="check2" type="checkbox" id="trempe" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                    <input class="check2" type="checkbox" id="trempe" name="trempe" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li class="e_cj">
                                     <label for="feuillete">Feuilleté</label>
-                                    <input class="check2" type="checkbox" id="feuillete" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                    <input class="check2" type="checkbox" id="feuillete" name="feuillete" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li class="e_cj">
                                     <label for="clair">Clair</label>
-                                    <input class="check2" type="checkbox" id="clair" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                    <input class="check2" type="checkbox" id="clair" name="clair" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li class="e_bb">
                                     <label for="trempe">Trempé</label>
-                                    <input class="check2" type="checkbox" id="trempe" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                    <input class="check2" type="checkbox" id="trempe" name="trempe" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li class="e_bb">
                                     <label for="clair">Feuilleté</label>
-                                    <input class="check2" type="checkbox" id="feuillete" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                    <input class="check2" type="checkbox" id="feuillete" name="feuillete" onclick="onlyOne(this, 'check2')">
                                 </li>   
                                 <li hidden class="e_cj_va">
                                     <label for="trempe">Trempé</label>
-                                    <input class="check2" type="checkbox" id="trempe" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                    <input class="check2" type="checkbox" id="trempe" name="trempe" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li hidden class="e_cj_va">
                                     <label for="feuillete">Feuilleté</label>
-                                    <input class="check2" type="checkbox" id="feuillete" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                    <input class="check2" type="checkbox" id="feuillete" name="feuillete" onclick="onlyOne(this, 'check2')">
                                 </li>
                                 <li hidden class="e_cj_va">
                                     <label for="clair">Clair</label>
-                                    <input class="check2" type="checkbox" id="clair" name="finition_vitre" onclick="onlyOne(this, 'check2')">
+                                    <input class="check2" type="checkbox" id="clair" name="clair" onclick="onlyOne(this, 'check2')">
                                 </li>
                             </ul>
                         </div>

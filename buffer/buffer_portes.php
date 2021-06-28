@@ -11,6 +11,14 @@
     }
   }
   else{
+    $porte = $_SESSION['buffer_portes'][$_SESSION["buffer_portes_index"]-1];
+
+    //Hauteur
+    if(!empty($_POST['hauteur'])) {
+      $hauteur = $_POST['hauteur'];
+      $session_hauteur_porte = "hauteur_".$porte;
+      $_SESSION[$session_hauteur_porte] = $hauteur;
+    }
 
     if(isset($_POST['porte_pleine'])){
       $_SESSION["porte_pleine"] = true;

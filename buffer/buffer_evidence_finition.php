@@ -315,6 +315,7 @@ if(!empty($_POST['vitrePV'])) {
   }
 }
 
+//Vitrage
 if(isset($_POST['simple_vitrage'])){
   $session_vitrage = "vitrage_".$produit_final;
   $_SESSION[$session_vitrage] = "simple_vitrage";
@@ -323,6 +324,20 @@ if(isset($_POST['simple_vitrage'])){
 if(isset($_POST['double_vitrage'])){
   $session_vitrage = "vitrage_".$produit_final;
   $_SESSION[$session_vitrage] = "double_vitrage";
+}
+
+//Finition vitré
+if(isset($_POST['trempe'])){
+  $session_finition_vitre = "finition_vitre_".$produit_final;
+  $_SESSION[$session_finition_vitre] = "trempe";
+}
+if(isset($_POST['feuillete'])){
+  $session_finition_vitre = "finition_vitre_".$produit_final;
+  $_SESSION[$session_finition_vitre] = "feuillete";
+}
+if(isset($_POST['clair'])){
+  $session_finition_vitre = "finition_vitre_".$produit_final;
+  $_SESSION[$session_finition_vitre] = "clair";
 }
 
 //Plein PV  CJ

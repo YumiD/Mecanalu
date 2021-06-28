@@ -100,6 +100,17 @@
             }
         }
 
+        //Finition vitré
+        if(isset($_POST['trempe'])){
+            $session_finition_vitre = "finition_vitre_".$produit_final;
+            $_SESSION[$session_finition_vitre] = "trempe";
+        }
+
+        if(isset($_POST['feuillete'])){
+            $session_finition_vitre = "finition_vitre_".$produit_final;
+            $_SESSION[$session_finition_vitre] = "feuillete";
+        }
+
         $_SESSION["buffer_boreale_produit_index"]++;
         
         if($_SESSION["buffer_boreale_produit_index"]<count($_SESSION['buffer_boreale_produit'])){

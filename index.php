@@ -108,10 +108,10 @@ if ($conn->connect_error) {
     <form action="produit.php" method="post"  enctype="multipart/form-data">
 
     <div id="form">
-    <p> <span class="label"> Nom Entreprise : </span> <input type="text" name="nom_entreprise" style="width:20%;"/>
-    <label for="nom_entreprise_image"> <img src="ressources/icon/icon_photo.png"/>  <input type="file" name="nom_entreprise_image" id="nom_entreprise_image" accept=".jpg, .jpeg, .png"> </label> </p>
-    <p> <span class="label"> Nom Projet : </span> <input type="text" name="nom_projet" style="width:20%;"/> 
-    <label for="nom_projet_image"> <img src="ressources/icon/icon_photo.png"/> <input type="file"  name="nom_projet_image" id="nom_projet_image" accept=".jpg, .jpeg, .png"> </label> </p>
+    <p class="tooltip"> <span class="label"> Nom Entreprise : </span> <input type="text" name="nom_entreprise" style="width:20%;"/>
+    <label for="nom_entreprise_image"> <img src="ressources/icon/icon_photo.png"/> <span class="tooltiptext">Format de l'image recommandée : 200x120px</span>  <input type="file" name="nom_entreprise_image" id="nom_entreprise_image" accept=".jpg, .jpeg, .png"> </label> </p>
+    <p class="tooltip"> <span class="label"> Nom Projet : </span> <input type="text" name="nom_projet" style="width:20%;"/> 
+    <label for="nom_projet_image"> <img src="ressources/icon/icon_photo.png"/> <span class="tooltiptext">Format de l'image recommandée : 200x120px</span> <input type="file"  name="nom_projet_image" id="nom_projet_image" accept=".jpg, .jpeg, .png"> </label> </p>
 
     <p> <span class="label">Présentation du projet:</span> <textarea  rows = "5" cols = "60" name = "presentation"></textarea></p>
     <p><label class="label" for="scales">Fiches Techniques : </label>
